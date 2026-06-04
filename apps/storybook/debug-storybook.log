@@ -1,0 +1,47 @@
+[17:54:53.128] [INFO] storybook v10.4.0
+[17:54:53.413] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.
+[17:54:54.383] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.
+[17:54:54.830] [DEBUG] Getting package.json info for C:/Users/Lumina/projects/design-system/apps/storybook/package.json...
+[17:54:54.852] [ERROR] [38;2;241;97;97mSB_CORE-SERVER_0002 (CriticalPresetLoadError): Storybook failed to load the following preset: C:/Users/Lumina/projects/design-system/apps/storybook/.storybook/main.cts.
+
+Please check whether your setup is correct, the Storybook dependencies (and their peer dependencies) are installed correctly and there are no package version clashes.
+
+If you believe this is a bug, please open an issue on Github.
+
+ReferenceError: require is not defined in ES module scope, you can use import instead
+    at file:///C:/Users/Lumina/projects/design-system/apps/storybook/.storybook/main.cts:1:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:437:25)
+    at async node:internal/modules/esm/loader:639:26
+    at async importModule (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-EGC27Z5J.js:737:11)
+    at async loadMainConfig (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-WKCYHYMS.js:10126:12)
+    at async resolveTelemetryState (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-OQIYQ5CW.js:632:18)
+    at async withTelemetry (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-OQIYQ5CW.js:646:33)
+    at async dev (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/bin/core.js:2736:3)
+    at async _Command.<anonymous> (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/bin/core.js:2806:92)
+
+More info: 
+[39m
+    at loadPreset (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-WKCYHYMS.js:9157:13)
+    at async Promise.all (index 1)
+    at async loadPresets (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-WKCYHYMS.js:9166:73)
+    at async getPresets (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-WKCYHYMS.js:9197:23)
+    at async buildDevStandalone (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/core-server/index.js:19412:52)
+    at async withTelemetry (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-OQIYQ5CW.js:655:12)
+    at async dev (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/bin/core.js:2736:3)
+    at async _Command.<anonymous> (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/bin/core.js:2806:92)
+[17:54:54.856] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
+[17:54:54.860] [WARN]   Failed to load preset: "C:/Users/Lumina/projects/design-system/apps/storybook/.storybook/main.cts"
+[17:54:54.861] [ERROR] [38;2;241;97;97mReferenceError: require is not defined in ES module scope, you can use import instead[39m
+    at file:///C:/Users/Lumina/projects/design-system/apps/storybook/.storybook/main.cts:1:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:437:25)
+    at async node:internal/modules/esm/loader:639:26
+    at async importModule (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-EGC27Z5J.js:737:11)
+    at async loadMainConfig (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-WKCYHYMS.js:10126:12)
+    at async resolveTelemetryState (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-OQIYQ5CW.js:632:18)
+    at async withTelemetry (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/_node-chunks/chunk-OQIYQ5CW.js:646:33)
+    at async dev (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/bin/core.js:2736:3)
+    at async _Command.<anonymous> (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.0_@testing-l_211aef723ab5dc0eb09bbc5f79fa1c3d/node_modules/storybook/dist/bin/core.js:2806:92)
+[17:54:54.872] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.
+[17:54:55.336] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.
+[17:54:55.376] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.

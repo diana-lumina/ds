@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "@workspace/ui": {
+      "signature": "7daf59a5137c627be245eac8964e2e22",
+      "file": true,
+      "replaced": "workspace:*"
+    }
+  }
+}

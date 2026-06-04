@@ -1,0 +1,1 @@
+export { ModalActionable } from "./modal-actionable"

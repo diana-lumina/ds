@@ -1,0 +1,14 @@
+import { {{pascalCase name}} } from '@workspace/ui/components/{{name}}/{{name}}'
+
+export default function {{pascalCase name}}Page() {
+  return (
+    <div className="flex flex-col gap-8">
+      <h1 className="font-medium text-lg">{{title}}</h1>
+
+      <section className="flex flex-col gap-2">
+        <h2 className="text-sm text-muted-foreground">Default</h2>
+        <{{pascalCase name}} />
+      </section>
+    </div>
+  )
+}
