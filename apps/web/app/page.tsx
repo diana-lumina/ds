@@ -28,7 +28,7 @@ export default function Page() {
           href="/playground/button"
           className="text-sm font-medium underline underline-offset-4"
         >
-          Ver componentes →
+          Ver componentes
         </Link>
       </div>
     </main>
