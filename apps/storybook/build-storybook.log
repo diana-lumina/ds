@@ -1,0 +1,144 @@
+
+> @workspace/storybook@0.0.0 build-storybook C:\Users\Lumina\projects\design-system\apps\storybook
+> storybook build "--output-dir=C:\\Users\\Lumina\\AppData\\Local\\Temp\\chromatic--25040-4Vq1YbYct4lr"
+
+
+[90m┌[39m  Building storybook v10.4.0
+[90m│[39m
+[32m◇[39m  Cleaning outputDir:
+[90m│[39m  [36m../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr[39m
+[90m│[39m
+[32m◇[39m  Loading presets
+[90m│[39m
+[32m◇[39m  Building manager..
+[90m│[39m
+[34m●[39m  Building preview..
+[90m│[39m  [43mVite[49m [36mvite v8.0.14 [32mbuilding client environment for production...[36m[39m
+[2Ktransforming...✓ 2022 modules transformed.
+rendering chunks...
+computing gzip size...
+[90m│[39m  [43mVite[49m
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/iframe.html
+[90m│[39m  18.86 kB │ gzip:   5.28 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/iframe-D6ChFf15.css
+[90m│[39m  54.46 kB │ gzip:   9.48 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/react-CuxFt1Af.js
+[90m│[39m  0.08 kB │ gzip:   0.10 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/chunk-242VQQM5-D_TF1fLq.js
+[90m│[39m  0.22 kB │ gzip:   0.19 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/chunk-S2IHWCOG-tZqbQ3Kv.js
+[90m│[39m  0.24 kB │ gzip:   0.17 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/formatter-EIJCOSYU-Drg5rzE_.js
+[90m│[39m  0.27 kB │ gzip:   0.22 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/jsx-runtime-CaZkqeYb.js
+[90m│[39m  0.43 kB │ gzip:   0.30 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/label-BBBgDRj5.js
+[90m│[39m  0.65 kB │ gzip:   0.41 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/dist-B_odi494.js
+[90m│[39m  0.72 kB │ gzip:   0.44 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/brand-button-CBAqiRgd.js
+[90m│[39m  0.76 kB │ gzip:   0.47 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/rating-badge-7FXtVD97.js
+[90m│[39m  0.93 kB │ gzip:   0.61 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/badge-CFONotqt.js
+[90m│[39m  1.29 kB │ gzip:   0.66 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/favorite-button-BWShLIjR.js
+[90m│[39m  1.37 kB │ gzip:   0.62 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/brand-button.stories-CMAwG2qC.js
+[90m│[39m  2.20 kB │ gzip:   0.85 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/accordion-DQvGEZ0T.js
+[90m│[39m  2.26 kB │ gzip:   0.89 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/preload-helper-xPQekRTU.js
+[90m│[39m  2.34 kB │ gzip:   1.24 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/card-Cs34y977.js
+[90m│[39m  2.61 kB │ gzip:   0.88 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/raing-badge.stories-4IJf5uGQ.js
+[90m│[39m  3.07 kB │ gzip:   1.07 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/favorite-button.stories-CFLzZnk8.js
+[90m│[39m  3.18 kB │ gzip:   0.90 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/button-C-Gwa4SR.js
+[90m│[39m  3.27 kB │ gzip:   1.19 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/button-D_REiUW1.js
+[90m│[39m  3.27 kB │ gzip:   1.19 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/react-dom-CU0sHLHP.js
+[90m│[39m  3.58 kB │ gzip:   1.36 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/chunk-3LY4VQVK-DdSnAOw8.js
+[90m│[39m  4.03 kB │ gzip:   1.70 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/chat-button.stories-DTRSfnsD.js
+[90m│[39m  4.24 kB │ gzip:   1.56 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/category-card.stories-lGgyLpWE.js
+[90m│[39m  4.33 kB │ gzip:   1.62 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/badge.stories-CJAL_V2S.js
+[90m│[39m  5.14 kB │ gzip:   1.55 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/text-area.stories-owUYGTvI.js
+[90m│[39m  5.25 kB │ gzip:   1.48 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/text-input-Bgrds06h.js
+[90m│[39m  5.33 kB │ gzip:   1.54 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/text-area-CVuzubiu.js
+[90m│[39m  5.37 kB │ gzip:   1.58 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/text-input.stories-hTsTQIb8.js
+[90m│[39m  5.37 kB │ gzip:   1.52 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/modal-base-PPuHupN9.js
+[90m│[39m  5.76 kB │ gzip:   1.70 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/lucide-react-DHdCCHI-.js
+[90m│[39m  6.37 kB │ gzip:   2.90 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/button.stories-CgsVHKYq.js
+[90m│[39m  6.66 kB │ gzip:   1.82 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/acordion-module.stories-Cmayuuhm.js
+[90m│[39m  7.04 kB │ gzip:   2.10 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/accordion-filter.stories-UMB6IqFB.js
+[90m│[39m  7.48 kB │ gzip:   2.58 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/modal-info.stories-qMjFDzC2.js
+[90m│[39m  8.86 kB │ gzip:   2.25 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/link.stories-BKrCQeYB.js
+[90m│[39m  9.39 kB │ gzip:   2.39 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/media-card.stories-BqTldYrW.js
+[90m│[39m  9.92 kB │ gzip:   2.62 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/card-course.stories-DPs7HpLo.js
+[90m│[39m  9.93 kB │ gzip:   2.66 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/modal-actionable.stories-DHiJodBX.js
+[90m│[39m  11.21 kB │ gzip:   2.86 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/chunk-LITCR56V-w7ZANmtO.js
+[90m│[39m  22.01 kB │ gzip:   7.32 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/utils-D8qMR3V9.js
+[90m│[39m  27.59 kB │ gzip:   8.92 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/vite-inject-mocker-entry.js
+[90m│[39m  27.81 kB │ gzip:   9.63 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/matchers-5TDFFDYO-DZaugxP0.js
+[90m│[39m  28.76 kB │ gzip:   9.66 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/Color-23OOGO2C-DocTf6Ez.js
+[90m│[39m  30.94 kB │ gzip:  11.63 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/WithTooltip-65CFNBJE-CTuJb2Lk.js
+[90m│[39m  33.24 kB │ gzip:  11.67 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/dist-C5VUOEmn.js
+[90m│[39m  45.42 kB │ gzip:  15.69 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/theming-B2Rv66me.js
+[90m│[39m  55.32 kB │ gzip:  21.38 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/syntaxhighlighter-W7WJGI2T-aM2q-Aa8.js
+[90m│[39m  76.53 kB │ gzip:  27.54 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/react-18-cwEoZTf8.js
+[90m│[39m  179.12 kB │ gzip:  56.70 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/DocsRenderer-LL677BLK-DIrwKVER.js
+[90m│[39m  184.71 kB │ gzip:  58.73 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/components-BxRvx1jE.js
+[90m│[39m  549.53 kB │ gzip: 174.76 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/axe-8XbconSs.js
+[90m│[39m  571.05 kB │ gzip: 155.78 kB
+[90m│[39m  ../../../../AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr/assets/iframe-Dda2gdHe.js
+[90m│[39m  1,091.08 kB │ gzip: 308.37 kB
+
+[90m│[39m  [43mVite[49m [32m✓ built in 2.29s[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33m[plugin builtin:vite-reporter]
+[90m│[39m  (!) Some chunks are larger than 500 kB after minification. Consider:
+[90m│[39m  - Using dynamic import() to code-split the application
+[90m│[39m  - Use build.rolldownOptions.output.codeSplitting to improve chunking:
+[90m│[39m  ]8;;https://rolldown.rs/reference/OutputOptions.codeSplittinghttps://rolldown.rs/reference/OutputOptions.codeSplitting]8;;
+[90m│[39m  - Adjust chunk size limit for this warning via
+[90m│[39m  build.chunkSizeWarningLimit.[39m
+[90m│[39m
+[32m◇[39m  Output directory:
+[90m│[39m  C:/Users/Lumina/AppData/Local/Temp/chromatic--25040-4Vq1YbYct4lr
+[90m│[39m
+[90m└[39m  Storybook build completed successfully
+

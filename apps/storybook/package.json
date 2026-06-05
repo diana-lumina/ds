@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build",
-    "chromatic": "npx chromatic --project-token=TU_TOKEN_AQUI"
+    "chromatic": "npx chromatic --project-token=chpt_30873e6ac9405fe --auto-accept-changes",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@workspace/ui": "workspace:*",

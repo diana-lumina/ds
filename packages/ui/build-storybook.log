@@ -1,0 +1,33 @@
+
+> @workspace/ui@0.0.0 build-storybook C:\Users\Lumina\projects\design-system\packages\ui
+> storybook build "--output-dir=C:\\Users\\Lumina\\AppData\\Local\\Temp\\chromatic--37684-s254FgCPI9cT"
+
+
+[90m┌[39m  Building storybook v10.4.1
+[90m│[39m
+[32m◇[39m  Cleaning outputDir:
+[90m│[39m  [36m../../../../AppData/Local/Temp/chromatic--37684-s254FgCPI9cT[39m
+[90m│[39m
+[31m■[39m  [38;2;241;97;97mSB_CORE-SERVER_0006 (MainFileMissingError): No configuration files[39m
+[90m│[39m  [33mhave been found in your configDir:[39m
+[90m│[39m  [33m[33mC:/Users/Lumina/projects/design-system/packages/ui/.storybook[39m.
+[90m│[39m  Storybook needs a "main.js|ts" file, please add it.
+
+[90m│[39m  You can pass a --config-dir flag to tell Storybook, where your
+[90m│[39m  main.js|ts file is located at.
+
+[90m│[39m  More info: ]8;;https://storybook.js.org/docs/configure?ref=errorhttps://storybook.js.org/docs/configure?ref=error]8;;
+[90m│[39m  [39m
+[90m│[39m  at validateConfigurationFiles
+[90m│[39m  (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.1_@testing-l_7df05da0fade5eded8322a8baad1c140/node_modules/storybook/dist/_node-chunks/chunk-PNYLLFX3.js:9047:11)
+[90m│[39m  at async loadMainConfig
+[90m│[39m  (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.1_@testing-l_7df05da0fade5eded8322a8baad1c140/node_modules/storybook/dist/_node-chunks/chunk-PNYLLFX3.js:10123:3)
+[90m│[39m  at async buildStaticStandalone
+[90m│[39m  (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.1_@testing-l_7df05da0fade5eded8322a8baad1c140/node_modules/storybook/dist/core-server/index.js:16989:16)
+[90m│[39m  at async withTelemetry
+[90m│[39m  (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.1_@testing-l_7df05da0fade5eded8322a8baad1c140/node_modules/storybook/dist/_node-chunks/chunk-CUZMMOHY.js:655:12)
+[90m│[39m  at async build
+[90m│[39m  (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.1_@testing-l_7df05da0fade5eded8322a8baad1c140/node_modules/storybook/dist/bin/core.js:2679:3)
+[90m│[39m  at async _Command.<anonymous>
+[90m│[39m  (file:///C:/Users/Lumina/projects/design-system/node_modules/.pnpm/storybook@10.4.1_@testing-l_7df05da0fade5eded8322a8baad1c140/node_modules/storybook/dist/bin/core.js:2824:7)
+ ELIFECYCLE  Command failed with exit code 1.
