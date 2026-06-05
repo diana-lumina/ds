@@ -11,6 +11,7 @@
     "gen": "turbo gen"
   },
   "devDependencies": {
+    "@workspace/ui": "workspace:*",
     "@turbo/gen": "^2.9.15",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
