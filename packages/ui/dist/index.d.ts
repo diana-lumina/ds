@@ -147,33 +147,55 @@ declare function AccordionModule({ items, type, }: AccordionModuleProps): react_
 
 type TextInputProps = {
     id?: string;
+    name?: string;
+    type?: React.HTMLInputTypeAttribute;
     placeholder?: string;
     value?: string;
+    defaultValue?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+    onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
     icon?: React.ReactNode;
+    iconPosition?: 'left' | 'right';
     disabled?: boolean;
+    readOnly?: boolean;
     error?: boolean;
     errorMessage?: string;
-    label?: string;
-    required?: boolean;
-};
-declare function TextInput({ id, placeholder, value, onChange, icon, disabled, error, errorMessage, label, required, }: TextInputProps): react_jsx_runtime.JSX.Element;
-
-type TextAreaProps = {
-    id?: string;
-    placeholder?: string;
-    value?: string;
-    onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-    disabled?: boolean;
-    error?: boolean;
-    errorMessage?: string;
+    hint?: string;
     label?: string;
     required?: boolean;
     maxLength?: number;
-    rows?: number;
+    autoComplete?: string;
     autoFocus?: boolean;
+    className?: string;
 };
-declare function TextArea({ id, placeholder, value, onChange, disabled, error, errorMessage, label, required, maxLength, rows, autoFocus, }: TextAreaProps): react_jsx_runtime.JSX.Element;
+declare function TextInput({ id, name, type, placeholder, value, defaultValue, onChange, onBlur, onFocus, icon, iconPosition, disabled, readOnly, error, errorMessage, hint, label, required, maxLength, autoComplete, autoFocus, className, }: TextInputProps): react_jsx_runtime.JSX.Element;
+
+type TextAreaProps = {
+    id?: string;
+    name?: string;
+    placeholder?: string;
+    value?: string;
+    defaultValue?: string;
+    onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    onBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
+    onFocus?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
+    disabled?: boolean;
+    readOnly?: boolean;
+    error?: boolean;
+    errorMessage?: string;
+    hint?: string;
+    label?: string;
+    required?: boolean;
+    maxLength?: number;
+    showCount?: boolean;
+    rows?: number;
+    resize?: 'none' | 'vertical' | 'horizontal' | 'both';
+    autoFocus?: boolean;
+    autoComplete?: string;
+    className?: string;
+};
+declare function TextArea({ id, name, placeholder, value, defaultValue, onChange, onBlur, onFocus, disabled, readOnly, error, errorMessage, hint, label, required, maxLength, showCount, rows, resize, autoFocus, autoComplete, className, }: TextAreaProps): react_jsx_runtime.JSX.Element;
 
 declare function Checkbox({ className, ...props }: React.ComponentProps<typeof Checkbox$1.Root>): react_jsx_runtime.JSX.Element;
 
@@ -214,18 +236,20 @@ type CategoryCardProps = {
 };
 declare function CategoryCard({ title, description, src, poster, ctaLabel, onCtaClick, className, }: CategoryCardProps): react_jsx_runtime.JSX.Element;
 
-type LinkProps = {
-    variant?: 'text' | 'button';
+declare const linkVariants: (props?: ({
+    variant?: "button" | "text" | null | undefined;
+    disabled?: boolean | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+type LinkProps = VariantProps<typeof linkVariants> & {
     href?: string;
     children: React.ReactNode;
-    disabled?: boolean;
     external?: boolean;
     icon?: React.ReactNode;
     iconPosition?: 'left' | 'right';
     onClick?: () => void;
     className?: string;
 };
-declare function Link({ variant, href, children, disabled, external, icon, iconPosition, onClick, className, }: LinkProps): react_jsx_runtime.JSX.Element | undefined;
+declare function Link({ variant, href, children, disabled, external, icon, iconPosition, onClick, className, }: LinkProps): react_jsx_runtime.JSX.Element;
 
 type ChatButtonProps = {
     label?: string;
@@ -292,10 +316,15 @@ type TopbarProps = {
 };
 declare function Topbar({ variant, logo, appName, appImage, navItems, nav, actions, onLogin, onRegister, loginLabel, registerLabel, user, onUserMenuClick, showCartButton, onCartClick, cartCount, showNotificationsButton, onNotificationsClick, notificationsCount, searchPlaceholder, onSearch, onSearchClose, announcement, allowSidebarForMobile, onMobileMenuClick, lang, className, }: TopbarProps): react_jsx_runtime.JSX.Element;
 
-type UserImageProps = {
+declare const userImageVariants: (props?: ({
+    size?: "sm" | "lg" | "md" | "xl" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+type UserImageProps = VariantProps<typeof userImageVariants> & {
     image?: string;
     fallback?: string;
+    alt?: string;
+    className?: string;
 };
-declare function UserImage({ image, fallback }: UserImageProps): react_jsx_runtime.JSX.Element;
+declare function UserImage({ image, fallback, alt, size, className, }: UserImageProps): react_jsx_runtime.JSX.Element;
 
 export { AccordionFilter, AccordionModule, Button, CardCourse, CategoryCard, ChatButton, Checkbox, IconButton, Link, type LinkProps, MediaCard, ModalActionable, ModalBase, ModalInfo, Progress, RadioGroup, RadioGroupItem, Switch, TextArea, TextInput, Topbar, UserImage, buttonVariants };

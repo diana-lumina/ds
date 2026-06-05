@@ -1,14 +1,10 @@
+import { cn } from './chunk-DN2AEEA2.js';
 import { cva } from 'class-variance-authority';
 import { Slot, Checkbox as Checkbox$1, RadioGroup as RadioGroup$1, Switch as Switch$1, Progress as Progress$1, Dialog as Dialog$1, Separator as Separator$1, Label as Label$1, Accordion as Accordion$1, Avatar as Avatar$1 } from 'radix-ui';
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
-import { AlertCircleIcon, CheckIcon, MessageSquareIcon, PlayIcon, Search, Bell, ShoppingCart, Menu, HeartIcon, XIcon, Plus, Minus, ChevronDown, X } from 'lucide-react';
-import * as React2 from 'react';
+import { AlertCircle, AlertCircleIcon, CheckIcon, MessageSquareIcon, PlayIcon, Search, Bell, ShoppingCart, Menu, HeartIcon, XIcon, Plus, Minus, ChevronDown, X } from 'lucide-react';
+import * as React4 from 'react';
 
-function cn(...inputs) {
-  return twMerge(clsx(inputs));
-}
 var buttonVariants = cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
@@ -579,39 +575,69 @@ function Input({ className, type, ...props }) {
 }
 function TextInput({
   id,
+  name,
+  type = "text",
   placeholder,
   value,
+  defaultValue,
   onChange,
+  onBlur,
+  onFocus,
   icon,
+  iconPosition = "left",
   disabled = false,
+  readOnly = false,
   error = false,
   errorMessage,
+  hint,
   label,
-  required = false
+  required = false,
+  maxLength,
+  autoComplete,
+  autoFocus,
+  className
 }) {
-  return /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-1.5", children: [
-    label && /* @__PURE__ */ jsxs("label", { htmlFor: id, className: "text-sm font-medium", children: [
+  const innerId = React4.useId();
+  const inputId = id ?? innerId;
+  return /* @__PURE__ */ jsxs("div", { className: cn("flex flex-col gap-1.5", className), children: [
+    label && /* @__PURE__ */ jsxs("label", { htmlFor: inputId, className: "text-sm font-medium", children: [
       label,
-      required && /* @__PURE__ */ jsx("span", { className: "text-destructive ml-0.5", children: "*" })
+      required && /* @__PURE__ */ jsx("span", { className: "text-destructive ml-0.5", "aria-hidden": "true", children: "*" })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "relative flex items-center", children: [
-      icon && /* @__PURE__ */ jsx("span", { className: "absolute left-3 text-muted-foreground shrink-0", children: icon }),
+      icon && iconPosition === "left" && /* @__PURE__ */ jsx("span", { className: "absolute left-3 text-muted-foreground shrink-0 pointer-events-none", children: icon }),
       /* @__PURE__ */ jsx(
         Input,
         {
-          id,
+          id: inputId,
+          name,
+          type,
           placeholder,
           value,
+          defaultValue,
           onChange,
+          onBlur,
+          onFocus,
           disabled,
+          readOnly,
+          maxLength,
+          autoComplete,
+          autoFocus,
+          required,
+          "aria-required": required,
+          "aria-invalid": error,
+          "aria-describedby": error && errorMessage ? `${inputId}-error` : hint ? `${inputId}-hint` : void 0,
           className: cn(
-            icon && "pl-9",
-            error && "border-destructive focus-visible:ring-destructive/20 pr-8"
+            icon && iconPosition === "left" && "pl-9",
+            icon && iconPosition === "right" && "pr-9",
+            error && "border-destructive focus-visible:ring-destructive/20",
+            readOnly && "bg-muted cursor-default"
           )
         }
-      )
+      ),
+      error ? /* @__PURE__ */ jsx("span", { className: "absolute right-3 text-destructive shrink-0 pointer-events-none", children: /* @__PURE__ */ jsx(AlertCircle, { size: 16 }) }) : icon && iconPosition === "right" ? /* @__PURE__ */ jsx("span", { className: "absolute right-3 text-muted-foreground shrink-0 pointer-events-none", children: icon }) : null
     ] }),
-    error && errorMessage && /* @__PURE__ */ jsx("span", { className: "text-xs text-destructive", children: errorMessage })
+    error && errorMessage ? /* @__PURE__ */ jsx("span", { id: `${inputId}-error`, className: "text-xs text-destructive", role: "alert", children: errorMessage }) : hint ? /* @__PURE__ */ jsx("span", { id: `${inputId}-hint`, className: "text-xs text-muted-foreground", children: hint }) : null
   ] });
 }
 function Textarea({ className, ...props }) {
@@ -629,43 +655,84 @@ function Textarea({ className, ...props }) {
 }
 function TextArea({
   id,
+  name,
   placeholder,
   value,
+  defaultValue,
   onChange,
+  onBlur,
+  onFocus,
   disabled = false,
+  readOnly = false,
   error = false,
   errorMessage,
+  hint,
   label,
   required = false,
   maxLength,
+  showCount = false,
   rows = 4,
-  autoFocus = false
+  resize = "vertical",
+  autoFocus = false,
+  autoComplete,
+  className
 }) {
-  return /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-1.5", children: [
-    label && /* @__PURE__ */ jsxs("label", { htmlFor: id, className: "text-sm font-medium", children: [
+  const innerId = React4.useId();
+  const inputId = id ?? innerId;
+  const currentLength = value?.length ?? 0;
+  const resizeClass = {
+    none: "resize-none",
+    vertical: "resize-y",
+    horizontal: "resize-x",
+    both: "resize"
+  }[resize];
+  return /* @__PURE__ */ jsxs("div", { className: cn("flex flex-col gap-1.5", className), children: [
+    label && /* @__PURE__ */ jsxs("label", { htmlFor: inputId, className: "text-sm font-medium", children: [
       label,
-      required && /* @__PURE__ */ jsx("span", { className: "text-destructive ml-0.5", children: "*" })
+      required && /* @__PURE__ */ jsx("span", { className: "text-destructive ml-0.5", "aria-hidden": "true", children: "*" })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "relative", children: [
       /* @__PURE__ */ jsx(
         Textarea,
         {
-          id,
+          id: inputId,
+          name,
           placeholder,
           value,
+          defaultValue,
           onChange,
+          onBlur,
+          onFocus,
           disabled,
+          readOnly,
           maxLength,
           rows,
           autoFocus,
+          autoComplete,
+          required,
+          "aria-required": required,
+          "aria-invalid": error,
+          "aria-describedby": error && errorMessage ? `${inputId}-error` : hint ? `${inputId}-hint` : void 0,
           className: cn(
-            error && "border-destructive focus-visible:ring-destructive/20 pr-8"
+            resizeClass,
+            error && "border-destructive focus-visible:ring-destructive/20 pr-8",
+            readOnly && "bg-muted cursor-default"
           )
         }
       ),
-      error && /* @__PURE__ */ jsx("span", { className: "absolute top-2 right-2 text-destructive", children: /* @__PURE__ */ jsx(AlertCircleIcon, { size: 16 }) })
+      error && /* @__PURE__ */ jsx("span", { className: "absolute top-2.5 right-2.5 text-destructive pointer-events-none", children: /* @__PURE__ */ jsx(AlertCircleIcon, { size: 16 }) })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "flex items-center justify-between", children: error && errorMessage ? /* @__PURE__ */ jsx("span", { className: "text-xs text-destructive", children: errorMessage }) : /* @__PURE__ */ jsx("span", {}) })
+    /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between gap-2", children: [
+      /* @__PURE__ */ jsx("div", { children: error && errorMessage ? /* @__PURE__ */ jsx("span", { id: `${inputId}-error`, className: "text-xs text-destructive", role: "alert", children: errorMessage }) : hint ? /* @__PURE__ */ jsx("span", { id: `${inputId}-hint`, className: "text-xs text-muted-foreground", children: hint }) : null }),
+      showCount && maxLength && /* @__PURE__ */ jsxs("span", { className: cn(
+        "text-xs text-muted-foreground shrink-0 ml-auto",
+        currentLength >= maxLength && "text-destructive"
+      ), children: [
+        currentLength,
+        "/",
+        maxLength
+      ] })
+    ] })
   ] });
 }
 function Label({
@@ -714,7 +781,7 @@ function ModalActionable({
   onCancel,
   onSubmit
 }) {
-  const [values, setValues] = React2.useState(
+  const [values, setValues] = React4.useState(
     () => Object.fromEntries(fields.map((f) => [f.id, f.type === "rating" ? 0 : ""]))
   );
   const handleChange = (id, value) => {
@@ -1202,6 +1269,25 @@ function CategoryCard({
     ] })
   ] });
 }
+var linkVariants = cva(
+  "inline-flex items-center gap-1 text-sm transition-colors",
+  {
+    variants: {
+      variant: {
+        text: "text-primary underline-offset-4 hover:underline",
+        button: "font-medium text-foreground hover:underline"
+      },
+      disabled: {
+        true: "opacity-50 pointer-events-none",
+        false: ""
+      }
+    },
+    defaultVariants: {
+      variant: "text",
+      disabled: false
+    }
+  }
+);
 function Link({
   variant = "text",
   href,
@@ -1213,46 +1299,22 @@ function Link({
   onClick,
   className
 }) {
-  const externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
-  const content = /* @__PURE__ */ jsxs(Fragment, { children: [
-    icon && iconPosition === "left" && /* @__PURE__ */ jsx("span", { className: "shrink-0", children: icon }),
-    children,
-    icon && iconPosition === "right" && /* @__PURE__ */ jsx("span", { className: "shrink-0", children: icon })
-  ] });
-  if (variant === "text") {
-    return /* @__PURE__ */ jsx(
-      "a",
-      {
-        href: disabled ? void 0 : href,
-        onClick: disabled ? void 0 : onClick,
-        "aria-disabled": disabled,
-        className: cn(
-          "inline-flex items-center gap-1 text-sm text-primary underline-offset-4 hover:underline transition-colors",
-          disabled && "opacity-50 pointer-events-none",
-          className
-        ),
-        ...externalProps,
-        children: content
-      }
-    );
-  }
-  if (variant === "button") {
-    return /* @__PURE__ */ jsx(
-      "a",
-      {
-        href: disabled ? void 0 : href,
-        onClick: disabled ? void 0 : onClick,
-        "aria-disabled": disabled,
-        className: cn(
-          "inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:underline",
-          disabled && "opacity-50 pointer-events-none",
-          className
-        ),
-        ...externalProps,
-        children: content
-      }
-    );
-  }
+  return /* @__PURE__ */ jsxs(
+    "a",
+    {
+      href: disabled ? void 0 : href,
+      onClick: disabled ? void 0 : onClick,
+      "aria-disabled": disabled ?? void 0,
+      target: external ? "_blank" : void 0,
+      rel: external ? "noopener noreferrer" : void 0,
+      className: cn(linkVariants({ variant, disabled }), className),
+      children: [
+        icon && iconPosition === "left" && /* @__PURE__ */ jsx("span", { className: "shrink-0", children: icon }),
+        children,
+        icon && iconPosition === "right" && /* @__PURE__ */ jsx("span", { className: "shrink-0", children: icon })
+      ]
+    }
+  );
 }
 function ChatButton({
   label,
@@ -1363,17 +1425,46 @@ function AvatarFallback({
     }
   );
 }
+var userImageVariants = cva("", {
+  variants: {
+    size: {
+      sm: "[&>img]:h-8 [&>img]:w-8 h-8 w-8",
+      md: "[&>img]:h-10 [&>img]:w-10 h-10 w-10",
+      lg: "[&>img]:h-14 [&>img]:w-14 h-14 w-14",
+      xl: "[&>img]:h-20 [&>img]:w-20 h-20 w-20"
+    }
+  },
+  defaultVariants: {
+    size: "md"
+  }
+});
 function UserImage({
   image,
-  fallback
+  fallback,
+  alt = "Avatar de usuario",
+  size,
+  className
 }) {
-  return /* @__PURE__ */ jsxs(Avatar, { children: [
-    /* @__PURE__ */ jsx(AvatarImage, { src: image, alt: "@shadcn" }),
-    /* @__PURE__ */ jsx(AvatarFallback, { children: fallback })
+  return /* @__PURE__ */ jsxs(Avatar, { className: cn(userImageVariants({ size }), className), children: [
+    /* @__PURE__ */ jsx(AvatarImage, { src: image, alt }),
+    /* @__PURE__ */ jsx(AvatarFallback, { children: fallback ?? /* @__PURE__ */ jsx(DefaultFallback, {}) })
   ] });
 }
+function DefaultFallback() {
+  return /* @__PURE__ */ jsx(
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      fill: "currentColor",
+      className: "h-[60%] w-[60%] text-muted-foreground",
+      "aria-hidden": "true",
+      children: /* @__PURE__ */ jsx("path", { d: "M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" })
+    }
+  );
+}
 function AnnouncementBanner({ message, onClose }) {
-  const [visible, setVisible] = React2.useState(true);
+  const [visible, setVisible] = React4.useState(true);
   if (!visible) return null;
   return /* @__PURE__ */ jsxs(
     "div",
@@ -1457,7 +1548,7 @@ function Topbar({
   lang = "es",
   className
 }) {
-  const [searchValue, setSearchValue] = React2.useState("");
+  const [searchValue, setSearchValue] = React4.useState("");
   const logoNode = logo ?? (appImage ? /* @__PURE__ */ jsx("img", { src: appImage, alt: appName ?? "Logo", className: "h-7 w-auto" }) : appName ? /* @__PURE__ */ jsx("span", { className: "font-semibold text-base tracking-tight", children: appName }) : null);
   const iconBtn = cn(
     "relative flex items-center justify-center rounded-md p-2",

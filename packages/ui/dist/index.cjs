@@ -1,12 +1,11 @@
 'use strict';
 
+var chunkRXYRFJ65_cjs = require('./chunk-RXYRFJ65.cjs');
 var classVarianceAuthority = require('class-variance-authority');
 var radixUi = require('radix-ui');
-var clsx = require('clsx');
-var tailwindMerge = require('tailwind-merge');
 var jsxRuntime = require('react/jsx-runtime');
 var lucideReact = require('lucide-react');
-var React2 = require('react');
+var React4 = require('react');
 
 function _interopNamespace(e) {
   if (e && e.__esModule) return e;
@@ -26,11 +25,8 @@ function _interopNamespace(e) {
   return Object.freeze(n);
 }
 
-var React2__namespace = /*#__PURE__*/_interopNamespace(React2);
+var React4__namespace = /*#__PURE__*/_interopNamespace(React4);
 
-function cn(...inputs) {
-  return tailwindMerge.twMerge(clsx.clsx(inputs));
-}
 var buttonVariants = classVarianceAuthority.cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
@@ -74,7 +70,7 @@ function Button({
       "data-slot": "button",
       "data-variant": variant,
       "data-size": size,
-      className: cn(buttonVariants({ variant, size, className })),
+      className: chunkRXYRFJ65_cjs.cn(buttonVariants({ variant, size, className })),
       ...props
     }
   );
@@ -89,7 +85,7 @@ function Card({
     {
       "data-slot": "card",
       "data-size": size,
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "group/card flex flex-col gap-4 overflow-hidden rounded-2xl bg-card py-4 text-sm text-card-foreground ring-1 ring-foreground/10 has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
         className
       ),
@@ -102,7 +98,7 @@ function CardContent({ className, ...props }) {
     "div",
     {
       "data-slot": "card-content",
-      className: cn("px-4 group-data-[size=sm]/card:px-3", className),
+      className: chunkRXYRFJ65_cjs.cn("px-4 group-data-[size=sm]/card:px-3", className),
       ...props
     }
   );
@@ -112,7 +108,7 @@ function BrandButton({ src, alt, className, ...props }) {
     "div",
     {
       "data-slot": "brand-button",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "absolute bottom-2 right-4 flex h-12 w-12 items-center justify-center",
         "rounded-xl border border-[var(--ds-color-neutral-600)] bg-white p-2",
         className
@@ -149,7 +145,7 @@ function FavoriteButton({
       onClick: handleClick,
       disabled,
       "aria-label": isFavorite ? "Quitar de favoritos" : "Agregar a favoritos",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "flex items-center justify-center transition-colors",
         disabled && "opacity-40 cursor-not-allowed"
       ),
@@ -168,7 +164,7 @@ function RatingBadge({ rating, className, ...props }) {
     "div",
     {
       "data-slot": "rating-badge",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "absolute top-0 right-0 inline-flex items-center gap-2 px-4 py-2",
         "rounded-tr-2xl rounded-bl-2xl bg-blue-800 text-white",
         "font-poppins text-sm font-bold leading-snug",
@@ -203,7 +199,7 @@ function Badge({ label, variant = "amber", icon = null }) {
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "span",
     {
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "inline-flex items-center gap-1 text-xs font-medium",
         variantStyles[variant]
       ),
@@ -261,7 +257,7 @@ function Button2({
       "data-slot": "button",
       "data-variant": variant,
       "data-size": size,
-      className: cn(buttonVariants2({ variant, size, className })),
+      className: chunkRXYRFJ65_cjs.cn(buttonVariants2({ variant, size, className })),
       ...props
     }
   );
@@ -356,7 +352,7 @@ function DialogOverlay({
     radixUi.Dialog.Overlay,
     {
       "data-slot": "dialog-overlay",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "fixed inset-0 isolate z-50 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
         className
       ),
@@ -376,7 +372,7 @@ function DialogContent({
       radixUi.Dialog.Content,
       {
         "data-slot": "dialog-content",
-        className: cn(
+        className: chunkRXYRFJ65_cjs.cn(
           "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
           className
         ),
@@ -408,7 +404,7 @@ function DialogHeader({ className, ...props }) {
     "div",
     {
       "data-slot": "dialog-header",
-      className: cn("flex flex-col gap-2", className),
+      className: chunkRXYRFJ65_cjs.cn("flex flex-col gap-2", className),
       ...props
     }
   );
@@ -423,7 +419,7 @@ function DialogFooter({
     "div",
     {
       "data-slot": "dialog-footer",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "-mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t bg-muted/50 p-4 sm:flex-row sm:justify-end",
         className
       ),
@@ -443,7 +439,7 @@ function DialogTitle({
     radixUi.Dialog.Title,
     {
       "data-slot": "dialog-title",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "font-heading text-base leading-none font-medium",
         className
       ),
@@ -459,7 +455,7 @@ function DialogDescription({
     radixUi.Dialog.Description,
     {
       "data-slot": "dialog-description",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "text-sm text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground",
         className
       ),
@@ -519,7 +515,7 @@ function Separator({
       "data-slot": "separator",
       decorative,
       orientation,
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "shrink-0 bg-border data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch",
         className
       ),
@@ -591,7 +587,7 @@ function Input({ className, type, ...props }) {
     {
       type,
       "data-slot": "input",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
         className
       ),
@@ -601,39 +597,69 @@ function Input({ className, type, ...props }) {
 }
 function TextInput({
   id,
+  name,
+  type = "text",
   placeholder,
   value,
+  defaultValue,
   onChange,
+  onBlur,
+  onFocus,
   icon,
+  iconPosition = "left",
   disabled = false,
+  readOnly = false,
   error = false,
   errorMessage,
+  hint,
   label,
-  required = false
+  required = false,
+  maxLength,
+  autoComplete,
+  autoFocus,
+  className
 }) {
-  return /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex flex-col gap-1.5", children: [
-    label && /* @__PURE__ */ jsxRuntime.jsxs("label", { htmlFor: id, className: "text-sm font-medium", children: [
+  const innerId = React4__namespace.useId();
+  const inputId = id ?? innerId;
+  return /* @__PURE__ */ jsxRuntime.jsxs("div", { className: chunkRXYRFJ65_cjs.cn("flex flex-col gap-1.5", className), children: [
+    label && /* @__PURE__ */ jsxRuntime.jsxs("label", { htmlFor: inputId, className: "text-sm font-medium", children: [
       label,
-      required && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-destructive ml-0.5", children: "*" })
+      required && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-destructive ml-0.5", "aria-hidden": "true", children: "*" })
     ] }),
     /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "relative flex items-center", children: [
-      icon && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "absolute left-3 text-muted-foreground shrink-0", children: icon }),
+      icon && iconPosition === "left" && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "absolute left-3 text-muted-foreground shrink-0 pointer-events-none", children: icon }),
       /* @__PURE__ */ jsxRuntime.jsx(
         Input,
         {
-          id,
+          id: inputId,
+          name,
+          type,
           placeholder,
           value,
+          defaultValue,
           onChange,
+          onBlur,
+          onFocus,
           disabled,
-          className: cn(
-            icon && "pl-9",
-            error && "border-destructive focus-visible:ring-destructive/20 pr-8"
+          readOnly,
+          maxLength,
+          autoComplete,
+          autoFocus,
+          required,
+          "aria-required": required,
+          "aria-invalid": error,
+          "aria-describedby": error && errorMessage ? `${inputId}-error` : hint ? `${inputId}-hint` : void 0,
+          className: chunkRXYRFJ65_cjs.cn(
+            icon && iconPosition === "left" && "pl-9",
+            icon && iconPosition === "right" && "pr-9",
+            error && "border-destructive focus-visible:ring-destructive/20",
+            readOnly && "bg-muted cursor-default"
           )
         }
-      )
+      ),
+      error ? /* @__PURE__ */ jsxRuntime.jsx("span", { className: "absolute right-3 text-destructive shrink-0 pointer-events-none", children: /* @__PURE__ */ jsxRuntime.jsx(lucideReact.AlertCircle, { size: 16 }) }) : icon && iconPosition === "right" ? /* @__PURE__ */ jsxRuntime.jsx("span", { className: "absolute right-3 text-muted-foreground shrink-0 pointer-events-none", children: icon }) : null
     ] }),
-    error && errorMessage && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-xs text-destructive", children: errorMessage })
+    error && errorMessage ? /* @__PURE__ */ jsxRuntime.jsx("span", { id: `${inputId}-error`, className: "text-xs text-destructive", role: "alert", children: errorMessage }) : hint ? /* @__PURE__ */ jsxRuntime.jsx("span", { id: `${inputId}-hint`, className: "text-xs text-muted-foreground", children: hint }) : null
   ] });
 }
 function Textarea({ className, ...props }) {
@@ -641,7 +667,7 @@ function Textarea({ className, ...props }) {
     "textarea",
     {
       "data-slot": "textarea",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "flex field-sizing-content min-h-16 w-full rounded-lg border border-input bg-transparent px-2.5 py-2 text-base transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
         className
       ),
@@ -651,43 +677,84 @@ function Textarea({ className, ...props }) {
 }
 function TextArea({
   id,
+  name,
   placeholder,
   value,
+  defaultValue,
   onChange,
+  onBlur,
+  onFocus,
   disabled = false,
+  readOnly = false,
   error = false,
   errorMessage,
+  hint,
   label,
   required = false,
   maxLength,
+  showCount = false,
   rows = 4,
-  autoFocus = false
+  resize = "vertical",
+  autoFocus = false,
+  autoComplete,
+  className
 }) {
-  return /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex flex-col gap-1.5", children: [
-    label && /* @__PURE__ */ jsxRuntime.jsxs("label", { htmlFor: id, className: "text-sm font-medium", children: [
+  const innerId = React4__namespace.useId();
+  const inputId = id ?? innerId;
+  const currentLength = value?.length ?? 0;
+  const resizeClass = {
+    none: "resize-none",
+    vertical: "resize-y",
+    horizontal: "resize-x",
+    both: "resize"
+  }[resize];
+  return /* @__PURE__ */ jsxRuntime.jsxs("div", { className: chunkRXYRFJ65_cjs.cn("flex flex-col gap-1.5", className), children: [
+    label && /* @__PURE__ */ jsxRuntime.jsxs("label", { htmlFor: inputId, className: "text-sm font-medium", children: [
       label,
-      required && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-destructive ml-0.5", children: "*" })
+      required && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-destructive ml-0.5", "aria-hidden": "true", children: "*" })
     ] }),
     /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "relative", children: [
       /* @__PURE__ */ jsxRuntime.jsx(
         Textarea,
         {
-          id,
+          id: inputId,
+          name,
           placeholder,
           value,
+          defaultValue,
           onChange,
+          onBlur,
+          onFocus,
           disabled,
+          readOnly,
           maxLength,
           rows,
           autoFocus,
-          className: cn(
-            error && "border-destructive focus-visible:ring-destructive/20 pr-8"
+          autoComplete,
+          required,
+          "aria-required": required,
+          "aria-invalid": error,
+          "aria-describedby": error && errorMessage ? `${inputId}-error` : hint ? `${inputId}-hint` : void 0,
+          className: chunkRXYRFJ65_cjs.cn(
+            resizeClass,
+            error && "border-destructive focus-visible:ring-destructive/20 pr-8",
+            readOnly && "bg-muted cursor-default"
           )
         }
       ),
-      error && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "absolute top-2 right-2 text-destructive", children: /* @__PURE__ */ jsxRuntime.jsx(lucideReact.AlertCircleIcon, { size: 16 }) })
+      error && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "absolute top-2.5 right-2.5 text-destructive pointer-events-none", children: /* @__PURE__ */ jsxRuntime.jsx(lucideReact.AlertCircleIcon, { size: 16 }) })
     ] }),
-    /* @__PURE__ */ jsxRuntime.jsx("div", { className: "flex items-center justify-between", children: error && errorMessage ? /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-xs text-destructive", children: errorMessage }) : /* @__PURE__ */ jsxRuntime.jsx("span", {}) })
+    /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-start justify-between gap-2", children: [
+      /* @__PURE__ */ jsxRuntime.jsx("div", { children: error && errorMessage ? /* @__PURE__ */ jsxRuntime.jsx("span", { id: `${inputId}-error`, className: "text-xs text-destructive", role: "alert", children: errorMessage }) : hint ? /* @__PURE__ */ jsxRuntime.jsx("span", { id: `${inputId}-hint`, className: "text-xs text-muted-foreground", children: hint }) : null }),
+      showCount && maxLength && /* @__PURE__ */ jsxRuntime.jsxs("span", { className: chunkRXYRFJ65_cjs.cn(
+        "text-xs text-muted-foreground shrink-0 ml-auto",
+        currentLength >= maxLength && "text-destructive"
+      ), children: [
+        currentLength,
+        "/",
+        maxLength
+      ] })
+    ] })
   ] });
 }
 function Label({
@@ -698,7 +765,7 @@ function Label({
     radixUi.Label.Root,
     {
       "data-slot": "label",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
         className
       ),
@@ -736,7 +803,7 @@ function ModalActionable({
   onCancel,
   onSubmit
 }) {
-  const [values, setValues] = React2__namespace.useState(
+  const [values, setValues] = React4__namespace.useState(
     () => Object.fromEntries(fields.map((f) => [f.id, f.type === "rating" ? 0 : ""]))
   );
   const handleChange = (id, value) => {
@@ -828,7 +895,7 @@ function Accordion({
     radixUi.Accordion.Root,
     {
       "data-slot": "accordion",
-      className: cn("flex w-full flex-col", className),
+      className: chunkRXYRFJ65_cjs.cn("flex w-full flex-col", className),
       ...props
     }
   );
@@ -841,7 +908,7 @@ function AccordionItem({
     radixUi.Accordion.Item,
     {
       "data-slot": "accordion-item",
-      className: cn("not-last:border-b", className),
+      className: chunkRXYRFJ65_cjs.cn("not-last:border-b", className),
       ...props
     }
   );
@@ -855,7 +922,7 @@ function AccordionTrigger({
     radixUi.Accordion.Trigger,
     {
       "data-slot": "accordion-trigger",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-lg border border-transparent py-2.5 text-left text-sm font-medium transition-all outline-none  focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:after:border-ring disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
         className
       ),
@@ -882,7 +949,7 @@ function AccordionContent({
       children: /* @__PURE__ */ jsxRuntime.jsx(
         "div",
         {
-          className: cn(
+          className: chunkRXYRFJ65_cjs.cn(
             "h-(--radix-accordion-content-height) pt-0 pb-2.5 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
             className
           ),
@@ -900,7 +967,7 @@ function Checkbox({
     radixUi.Checkbox.Root,
     {
       "data-slot": "checkbox",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "peer relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input transition-colors outline-none group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
         className
       ),
@@ -983,7 +1050,7 @@ function RadioGroup({
     radixUi.RadioGroup.Root,
     {
       "data-slot": "radio-group",
-      className: cn("grid w-full gap-2", className),
+      className: chunkRXYRFJ65_cjs.cn("grid w-full gap-2", className),
       ...props
     }
   );
@@ -996,7 +1063,7 @@ function RadioGroupItem({
     radixUi.RadioGroup.Item,
     {
       "data-slot": "radio-group-item",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "group/radio-group-item peer relative flex aspect-square size-4 shrink-0 rounded-full border border-input outline-none after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
         className
       ),
@@ -1022,7 +1089,7 @@ function Switch({
     {
       "data-slot": "switch",
       "data-size": size,
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "peer group/switch relative inline-flex shrink-0 items-center rounded-full border border-transparent transition-all outline-none after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-[size=default]:h-[18.4px] data-[size=default]:w-[32px] data-[size=sm]:h-[14px] data-[size=sm]:w-[24px] dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:bg-primary data-unchecked:bg-input dark:data-unchecked:bg-input/80 data-disabled:cursor-not-allowed data-disabled:opacity-50",
         className
       ),
@@ -1046,7 +1113,7 @@ function Progress({
     radixUi.Progress.Root,
     {
       "data-slot": "progress",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "relative flex h-1 w-full items-center overflow-x-hidden rounded-full bg-muted",
         className
       ),
@@ -1078,7 +1145,7 @@ function MediaCard({
     return /* @__PURE__ */ jsxRuntime.jsx(
       Card,
       {
-        className: cn(
+        className: chunkRXYRFJ65_cjs.cn(
           "relative overflow-hidden cursor-pointer",
           type === "testimonial-s" && "w-[331px] h-[303px]"
         ),
@@ -1224,6 +1291,25 @@ function CategoryCard({
     ] })
   ] });
 }
+var linkVariants = classVarianceAuthority.cva(
+  "inline-flex items-center gap-1 text-sm transition-colors",
+  {
+    variants: {
+      variant: {
+        text: "text-primary underline-offset-4 hover:underline",
+        button: "font-medium text-foreground hover:underline"
+      },
+      disabled: {
+        true: "opacity-50 pointer-events-none",
+        false: ""
+      }
+    },
+    defaultVariants: {
+      variant: "text",
+      disabled: false
+    }
+  }
+);
 function Link({
   variant = "text",
   href,
@@ -1235,46 +1321,22 @@ function Link({
   onClick,
   className
 }) {
-  const externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
-  const content = /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
-    icon && iconPosition === "left" && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "shrink-0", children: icon }),
-    children,
-    icon && iconPosition === "right" && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "shrink-0", children: icon })
-  ] });
-  if (variant === "text") {
-    return /* @__PURE__ */ jsxRuntime.jsx(
-      "a",
-      {
-        href: disabled ? void 0 : href,
-        onClick: disabled ? void 0 : onClick,
-        "aria-disabled": disabled,
-        className: cn(
-          "inline-flex items-center gap-1 text-sm text-primary underline-offset-4 hover:underline transition-colors",
-          disabled && "opacity-50 pointer-events-none",
-          className
-        ),
-        ...externalProps,
-        children: content
-      }
-    );
-  }
-  if (variant === "button") {
-    return /* @__PURE__ */ jsxRuntime.jsx(
-      "a",
-      {
-        href: disabled ? void 0 : href,
-        onClick: disabled ? void 0 : onClick,
-        "aria-disabled": disabled,
-        className: cn(
-          "inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:underline",
-          disabled && "opacity-50 pointer-events-none",
-          className
-        ),
-        ...externalProps,
-        children: content
-      }
-    );
-  }
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    "a",
+    {
+      href: disabled ? void 0 : href,
+      onClick: disabled ? void 0 : onClick,
+      "aria-disabled": disabled ?? void 0,
+      target: external ? "_blank" : void 0,
+      rel: external ? "noopener noreferrer" : void 0,
+      className: chunkRXYRFJ65_cjs.cn(linkVariants({ variant, disabled }), className),
+      children: [
+        icon && iconPosition === "left" && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "shrink-0", children: icon }),
+        children,
+        icon && iconPosition === "right" && /* @__PURE__ */ jsxRuntime.jsx("span", { className: "shrink-0", children: icon })
+      ]
+    }
+  );
 }
 function ChatButton({
   label,
@@ -1295,7 +1357,7 @@ function ChatButton({
         background: "#F4F4F5",
         boxShadow: "0 4px 10.7px 0 rgba(0, 0, 0, 0.15)"
       },
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "relative flex flex-col items-center justify-center gap-2",
         "hover:brightness-95 transition-all",
         className
@@ -1323,7 +1385,7 @@ function IconButton({
       onClick: disabled ? void 0 : onClick,
       disabled,
       "aria-label": ariaLabel,
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "inline-flex items-center justify-center rounded-full border border-border bg-background transition-colors",
         "hover:bg-muted",
         "disabled:opacity-50 disabled:pointer-events-none",
@@ -1345,7 +1407,7 @@ function Avatar({
     {
       "data-slot": "avatar",
       "data-size": size,
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "group/avatar relative flex size-8 shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten",
         className
       ),
@@ -1361,7 +1423,7 @@ function AvatarImage({
     radixUi.Avatar.Image,
     {
       "data-slot": "avatar-image",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "aspect-square size-full rounded-full object-cover",
         className
       ),
@@ -1377,7 +1439,7 @@ function AvatarFallback({
     radixUi.Avatar.Fallback,
     {
       "data-slot": "avatar-fallback",
-      className: cn(
+      className: chunkRXYRFJ65_cjs.cn(
         "flex size-full items-center justify-center rounded-full bg-muted text-sm text-muted-foreground group-data-[size=sm]/avatar:text-xs",
         className
       ),
@@ -1385,17 +1447,46 @@ function AvatarFallback({
     }
   );
 }
+var userImageVariants = classVarianceAuthority.cva("", {
+  variants: {
+    size: {
+      sm: "[&>img]:h-8 [&>img]:w-8 h-8 w-8",
+      md: "[&>img]:h-10 [&>img]:w-10 h-10 w-10",
+      lg: "[&>img]:h-14 [&>img]:w-14 h-14 w-14",
+      xl: "[&>img]:h-20 [&>img]:w-20 h-20 w-20"
+    }
+  },
+  defaultVariants: {
+    size: "md"
+  }
+});
 function UserImage({
   image,
-  fallback
+  fallback,
+  alt = "Avatar de usuario",
+  size,
+  className
 }) {
-  return /* @__PURE__ */ jsxRuntime.jsxs(Avatar, { children: [
-    /* @__PURE__ */ jsxRuntime.jsx(AvatarImage, { src: image, alt: "@shadcn" }),
-    /* @__PURE__ */ jsxRuntime.jsx(AvatarFallback, { children: fallback })
+  return /* @__PURE__ */ jsxRuntime.jsxs(Avatar, { className: chunkRXYRFJ65_cjs.cn(userImageVariants({ size }), className), children: [
+    /* @__PURE__ */ jsxRuntime.jsx(AvatarImage, { src: image, alt }),
+    /* @__PURE__ */ jsxRuntime.jsx(AvatarFallback, { children: fallback ?? /* @__PURE__ */ jsxRuntime.jsx(DefaultFallback, {}) })
   ] });
 }
+function DefaultFallback() {
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      fill: "currentColor",
+      className: "h-[60%] w-[60%] text-muted-foreground",
+      "aria-hidden": "true",
+      children: /* @__PURE__ */ jsxRuntime.jsx("path", { d: "M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" })
+    }
+  );
+}
 function AnnouncementBanner({ message, onClose }) {
-  const [visible, setVisible] = React2__namespace.useState(true);
+  const [visible, setVisible] = React4__namespace.useState(true);
   if (!visible) return null;
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "div",
@@ -1479,9 +1570,9 @@ function Topbar({
   lang = "es",
   className
 }) {
-  const [searchValue, setSearchValue] = React2__namespace.useState("");
+  const [searchValue, setSearchValue] = React4__namespace.useState("");
   const logoNode = logo ?? (appImage ? /* @__PURE__ */ jsxRuntime.jsx("img", { src: appImage, alt: appName ?? "Logo", className: "h-7 w-auto" }) : appName ? /* @__PURE__ */ jsxRuntime.jsx("span", { className: "font-semibold text-base tracking-tight", children: appName }) : null);
-  const iconBtn = cn(
+  const iconBtn = chunkRXYRFJ65_cjs.cn(
     "relative flex items-center justify-center rounded-md p-2",
     "text-foreground/70 hover:text-foreground hover:bg-accent transition-colors"
   );
@@ -1490,7 +1581,7 @@ function Topbar({
     /* @__PURE__ */ jsxRuntime.jsxs(
       "header",
       {
-        className: cn(
+        className: chunkRXYRFJ65_cjs.cn(
           "w-full flex items-center px-4 h-14 border-b bg-background",
           variant === "search" ? "justify-center" : "justify-between",
           className
@@ -1514,7 +1605,7 @@ function Topbar({
             /* @__PURE__ */ jsxRuntime.jsx("div", { className: "flex-1 md:hidden" }),
             /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center gap-1", children: [
               actions,
-              showNotificationsButton && /* @__PURE__ */ jsxRuntime.jsxs("button", { type: "button", onClick: onNotificationsClick, className: cn(iconBtn, "hidden md:flex"), "aria-label": "Notificaciones", children: [
+              showNotificationsButton && /* @__PURE__ */ jsxRuntime.jsxs("button", { type: "button", onClick: onNotificationsClick, className: chunkRXYRFJ65_cjs.cn(iconBtn, "hidden md:flex"), "aria-label": "Notificaciones", children: [
                 /* @__PURE__ */ jsxRuntime.jsx(lucideReact.Bell, { size: 18 }),
                 /* @__PURE__ */ jsxRuntime.jsx(Badge2, { count: notificationsCount })
               ] }),
@@ -1565,7 +1656,7 @@ function Topbar({
                 {
                   type: "button",
                   onClick: onMobileMenuClick,
-                  className: cn(iconBtn, "md:hidden"),
+                  className: chunkRXYRFJ65_cjs.cn(iconBtn, "md:hidden"),
                   "aria-label": "Abrir men\xFA",
                   children: /* @__PURE__ */ jsxRuntime.jsx(lucideReact.Menu, { size: 20 })
                 }
