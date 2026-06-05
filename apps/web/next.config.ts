@@ -3,10 +3,12 @@ import path from "path"
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@workspace/ui"],
-  turbopack: {
-    resolveAlias: {
-      "@workspace/ui": path.resolve(__dirname, "../../packages/ui/dist/index.mjs"),
-    },
+  webpack: (config) => {
+    config.resolve.alias["@workspace/ui"] = path.resolve(
+      __dirname,
+      "../../packages/ui/dist/index.mjs"
+    )
+    return config
   },
 }
 
