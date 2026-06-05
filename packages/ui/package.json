@@ -12,6 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "prepare": "tsup",
     "build": "tsup",
     "dev": "tsup --watch",
     "build-storybook": "storybook build"
