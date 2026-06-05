@@ -19,7 +19,8 @@ out/
 
 # production
 build
-dist
+apps/**/dist
+apps/**/.next
 
 # turbo
 .turbo

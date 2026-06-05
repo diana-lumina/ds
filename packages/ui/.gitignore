@@ -1,0 +1,3 @@
+# Ignorar todo excepto dist
+node_modules
+*.tsbuildinfo
