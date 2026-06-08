@@ -1,4 +1,5 @@
 import type { NextConfig } from "next"
+import path from "path"
 
 const isProd = process.env.NODE_ENV === "production"
 
@@ -12,6 +13,10 @@ const nextConfig: NextConfig = {
       config.resolve.alias = {
         ...config.resolve.alias,
         "@workspace/ui": require.resolve("@workspace/ui"),
+        "@workspace/ui/globals.css": path.resolve(
+          __dirname,
+          "../../packages/ui/src/styles/globals.css"
+        ),
       }
     }
     return config
