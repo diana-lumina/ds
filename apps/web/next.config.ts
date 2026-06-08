@@ -10,14 +10,11 @@ const nextConfig: NextConfig = {
   },
   webpack: (config) => {
     if (isProd) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        "@workspace/ui": require.resolve("@workspace/ui"),
-        "@workspace/ui/globals.css": path.resolve(
-          __dirname,
-          "../../packages/ui/src/styles/globals.css"
-        ),
-      }
+      config.resolve.alias["@workspace/ui"] = require.resolve("@workspace/ui")
+      config.resolve.alias["@workspace/ui/globals.css"] = path.resolve(
+        __dirname,
+        "../../packages/ui/src/styles/globals.css"
+      )
     }
     return config
   },
