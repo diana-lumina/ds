@@ -1,7 +1,7 @@
 import type { NextConfig } from "next"
-import path from "path"
 
 const isProd = process.env.NODE_ENV === "production"
+const isVercel = !!process.env.VERCEL
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@workspace/ui"],
@@ -11,10 +11,10 @@ const nextConfig: NextConfig = {
   webpack: (config) => {
     if (isProd) {
       config.resolve.alias["@workspace/ui"] = require.resolve("@workspace/ui")
-      config.resolve.alias["@workspace/ui/globals.css"] = path.resolve(
-        __dirname,
-        "../../packages/ui/src/styles/globals.css"
-      )
+    }
+    if (isVercel) {
+      config.resolve.alias["@workspace/ui/globals.css"] =
+        "/vercel/path0/packages/ui/src/styles/globals.css"
     }
     return config
   },
