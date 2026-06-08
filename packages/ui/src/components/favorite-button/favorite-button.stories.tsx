@@ -11,7 +11,7 @@ const meta: Meta<typeof FavoriteButton> = {
         component: 'Botón de favorito con lógica de autenticación. Si el usuario no está autenticado, llama a onAuthRequired en lugar de onFavoriteToggle.',
       },
     },
-    layout: 'padded',
+    layout: 'centered',
     backgrounds: {
       default: 'dark',
       values: [{ name: 'dark', value: '#1a1a1a' }],
@@ -47,8 +47,24 @@ const meta: Meta<typeof FavoriteButton> = {
 export default meta
 type Story = StoryObj<typeof FavoriteButton>
 
+// Simula el contexto real: esquina de una card con imagen de fondo
+const OnCard = (args: React.ComponentProps<typeof FavoriteButton>) => (
+  <div className="relative w-48 h-32 rounded-lg overflow-hidden">
+    <img
+      src="https://picsum.photos/seed/fav/192/128"
+      alt=""
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-black/30" />
+    <div className="absolute top-2 right-2">
+      <FavoriteButton {...args} />
+    </div>
+  </div>
+)
+
 export const Inactivo: Story = {
   name: 'FavoriteButton — Inactivo',
+  render: (args) => <OnCard {...args} />,
   args: {
     isAuthenticated: true,
     isFavorite: false,
@@ -57,6 +73,7 @@ export const Inactivo: Story = {
 
 export const Activo: Story = {
   name: 'FavoriteButton — Activo',
+  render: (args) => <OnCard {...args} />,
   args: {
     isAuthenticated: true,
     isFavorite: true,
@@ -65,6 +82,7 @@ export const Activo: Story = {
 
 export const Disabled: Story = {
   name: 'FavoriteButton — Disabled',
+  render: (args) => <OnCard {...args} />,
   args: {
     isAuthenticated: true,
     isFavorite: false,
@@ -81,6 +99,7 @@ export const NoAutenticado: Story = {
       },
     },
   },
+  render: (args) => <OnCard {...args} />,
   args: {
     isAuthenticated: false,
     isFavorite: false,
@@ -89,6 +108,7 @@ export const NoAutenticado: Story = {
 
 export const Playground: Story = {
   name: 'FavoriteButton — Playground',
+  render: (args) => <OnCard {...args} />,
   args: {
     isAuthenticated: true,
     isFavorite: false,

@@ -11,7 +11,7 @@ export default function ChatButtonPage() {
     <div className="p-6 flex flex-col gap-8">
       <PlaygroundHeader
         title="Chat button"
-        storybookPath="chat-button"
+        storybookPath="chatbutton--docs"
       />
       <section className="flex flex-col gap-2">
         <h2 className="text-sm text-muted-foreground">

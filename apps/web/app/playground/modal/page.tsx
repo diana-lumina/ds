@@ -17,7 +17,7 @@ export default function ModalPage() {
     <div className="p-6 flex flex-col gap-8">
       <PlaygroundHeader
         title="Modal"
-        storybookPath="modal"
+        storybookPath="mediacard--docs"
       />
 
       {/* ── Modal Base ── */}

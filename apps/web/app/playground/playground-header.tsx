@@ -22,7 +22,7 @@ export function PlaygroundHeader({
         </span>
       </div>
       <a
-        href={`https://tu-storybook.chromatic.com/?path=/story/components-${storybookPath}`}
+        href={`https://6a220ebba6dfcae102b4cb59-dovnudtdzu.chromatic.com/?path=/docs/components-${storybookPath}`}
         target="_blank"
         rel="noopener noreferrer"
         className="text-xs text-primary underline"

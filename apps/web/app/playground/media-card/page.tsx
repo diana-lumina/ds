@@ -6,7 +6,7 @@ export default function MediaCardPage() {
     <div className="p-6 flex flex-col gap-8">
       <PlaygroundHeader
         title="Media card"
-        storybookPath="media-card"
+        storybookPath="mediacard--docs"
       />
       {/* ── Testimonial ── */}
       <section className="flex flex-col gap-2">

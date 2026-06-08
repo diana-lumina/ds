@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 import { ModalActionable, ModalActionableProps } from './modal-actionable'
+import { Button } from '../button'
 import { StarIcon } from 'lucide-react'
 
 const meta: Meta<typeof ModalActionable> = {
@@ -9,7 +11,8 @@ const meta: Meta<typeof ModalActionable> = {
   parameters: {
     docs: {
       description: {
-        component: 'Modal con formulario dinámico. Soporta campos de tipo input, rating con estrellas y textarea. Construido sobre ModalBase.',
+        component:
+          'Modal con formulario dinámico. Soporta campos de tipo input, rating con estrellas y textarea. Construido sobre ModalBase.',
       },
     },
     layout: 'centered',
@@ -76,10 +79,30 @@ const defaultFields: ModalActionableProps['fields'] = [
   },
 ]
 
+const WithTrigger = (args: ModalActionableProps & { triggerLabel?: string }) => {
+  const [open, setOpen] = useState(false)
+  const { triggerLabel, ...modalProps } = args
+
+  return (
+    <>
+      <Button
+        onClick={() => setOpen(true)}
+      >
+        {triggerLabel ?? 'Abrir modal'}
+      </Button>
+      <ModalActionable
+        {...modalProps}
+        open={open}
+        onOpenChange={setOpen}
+      />
+    </>
+  )
+}
+
 export const Default: Story = {
   name: 'ModalActionable — Default',
+  render: (args) => <WithTrigger {...args} triggerLabel="Añadir mi opinión" />,
   args: {
-    open: true,
     icon: <StarIcon size={24} />,
     title: 'Añadir mi opinión',
     subheader: 'Deja tu reseña sobre este programa para ayudar a otros a tomar una decisión',
@@ -92,8 +115,8 @@ export const Default: Story = {
 
 export const SoloInput: Story = {
   name: 'ModalActionable — Solo input',
+  render: (args) => <WithTrigger {...args} />,
   args: {
-    open: true,
     title: 'Título',
     subheader: 'Subheader',
     fields: [
@@ -111,8 +134,8 @@ export const SoloInput: Story = {
 
 export const SoloRating: Story = {
   name: 'ModalActionable — Solo rating',
+  render: (args) => <WithTrigger {...args} triggerLabel="Calificar programa" />,
   args: {
-    open: true,
     title: 'Califica este programa',
     fields: [
       {
@@ -129,8 +152,8 @@ export const SoloRating: Story = {
 
 export const SoloTextarea: Story = {
   name: 'ModalActionable — Solo textarea',
+  render: (args) => <WithTrigger {...args} triggerLabel="Dejar un comentario" />,
   args: {
-    open: true,
     title: 'Deja un comentario',
     fields: [
       {
@@ -148,8 +171,8 @@ export const SoloTextarea: Story = {
 
 export const Playground: Story = {
   name: 'ModalActionable — Playground',
+  render: (args) => <WithTrigger {...args} />,
   args: {
-    open: true,
     icon: <StarIcon size={24} />,
     title: 'Título',
     subheader: 'Subheader',

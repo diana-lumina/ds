@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ModalInfo } from './modal-info'
+import { useState } from 'react'
+import { ModalInfo, ModalInfoProps } from './modal-info'
 import { InfoIcon, HomeIcon } from 'lucide-react'
+import { Button } from '../button'
 
 const meta: Meta<typeof ModalInfo> = {
   title: 'Components/ModalInfo',
@@ -56,10 +58,30 @@ const meta: Meta<typeof ModalInfo> = {
 export default meta
 type Story = StoryObj<typeof ModalInfo>
 
+const WithTrigger = (args: ModalInfoProps & { triggerLabel?: string }) => {
+  const [open, setOpen] = useState(false)
+  const { triggerLabel, ...modalProps } = args
+
+  return (
+    <>
+      <Button
+        onClick={() => setOpen(true)} 
+      >
+        {triggerLabel ?? 'Abrir modal'}
+      </Button>
+      <ModalInfo
+        {...modalProps}
+        open={open}
+        onOpenChange={setOpen}
+      />
+    </>
+  )
+}
+
 export const Default: Story = {
   name: 'ModalInfo — Default',
+  render: (args) => <WithTrigger {...args} triggerLabel="Ver información" />,
   args: {
-    open: true,
     icon: <InfoIcon size={24} />,
     title: 'Título',
     subheader: 'Subheader (opcional)',
@@ -75,8 +97,8 @@ export const Default: Story = {
 
 export const ConFooter: Story = {
   name: 'ModalInfo — Con footer',
+  render: (args) => <WithTrigger {...args} triggerLabel="Ver con footer" />,
   args: {
-    open: true,
     icon: <InfoIcon size={24} />,
     title: 'Título',
     subheader: 'Subheader (opcional)',
@@ -94,8 +116,8 @@ export const ConFooter: Story = {
 
 export const SinImagen: Story = {
   name: 'ModalInfo — Sin imagen',
+  render: (args) => <WithTrigger {...args} />,
   args: {
-    open: true,
     title: 'Título',
     body: 'Lorem ipsum dolor sit amet consectetur. Nisl nibh phasellus condimentum mi faucibus.',
   },
@@ -103,8 +125,8 @@ export const SinImagen: Story = {
 
 export const BodySimple: Story = {
   name: 'ModalInfo — Body como string',
+  render: (args) => <WithTrigger {...args} />,
   args: {
-    open: true,
     title: 'Título',
     body: 'Lorem ipsum dolor sit amet consectetur.',
   },
@@ -112,8 +134,8 @@ export const BodySimple: Story = {
 
 export const Playground: Story = {
   name: 'ModalInfo — Playground',
+  render: (args) => <WithTrigger {...args} />,
   args: {
-    open: true,
     icon: <InfoIcon size={24} />,
     title: 'Título',
     subheader: 'Subheader',

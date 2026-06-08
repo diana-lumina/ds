@@ -13,7 +13,7 @@ export default function InputPage() {
      <div className="p-6 flex flex-col gap-8">
         <PlaygroundHeader
           title="Text input"
-          storybookPath="text-input"
+          storybookPath="textinput--docs"
         />
 
       <section className="flex flex-col gap-6 max-w-xs">

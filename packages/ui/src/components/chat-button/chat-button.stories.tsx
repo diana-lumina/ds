@@ -39,8 +39,19 @@ const meta: Meta<typeof ChatButton> = {
 export default meta
 type Story = StoryObj<typeof ChatButton>
 
+// Simula una pantalla donde el botón fixed tiene contexto visual
+const WithViewport = (args: React.ComponentProps<typeof ChatButton>) => (
+  <div className="relative w-screen h-screen bg-muted/30 overflow-hidden">
+    <div className="p-8 text-sm text-muted-foreground">
+      Contenido de la página
+    </div>
+    <ChatButton {...args} />
+  </div>
+)
+
 export const Default: Story = {
   name: 'ChatButton — Default',
+  render: (args) => <WithViewport {...args} />,
   args: {
     label: 'Asistente Tec360',
     icon: <MessageCircleIcon size={24} />,
@@ -49,6 +60,7 @@ export const Default: Story = {
 
 export const ConBadge: Story = {
   name: 'ChatButton — Con notificación',
+  render: (args) => <WithViewport {...args} />,
   args: {
     label: 'Asistente Tec360',
     icon: <MessageCircleIcon size={24} />,
@@ -58,6 +70,7 @@ export const ConBadge: Story = {
 
 export const BadgeAlto: Story = {
   name: 'ChatButton — Badge mayor a 99',
+  render: (args) => <WithViewport {...args} />,
   args: {
     label: 'Asistente Tec360',
     icon: <MessageCircleIcon size={24} />,
@@ -67,6 +80,7 @@ export const BadgeAlto: Story = {
 
 export const SinLabel: Story = {
   name: 'ChatButton — Sin label',
+  render: (args) => <WithViewport {...args} />,
   args: {
     icon: <MessageCircleIcon size={24} />,
   },
@@ -74,6 +88,7 @@ export const SinLabel: Story = {
 
 export const Playground: Story = {
   name: 'ChatButton — Playground',
+  render: (args) => <WithViewport {...args} />,
   args: {
     label: 'Asistente Tec360',
     icon: <MessageCircleIcon size={24} />,

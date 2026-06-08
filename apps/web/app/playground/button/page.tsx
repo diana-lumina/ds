@@ -6,7 +6,7 @@ export default function ButtonPlayground() {
     <div className="p-6 flex flex-col gap-8">
        <PlaygroundHeader
         title="Button"
-        storybookPath="button"
+        storybookPath="button--docs"
       />
       <section className="flex flex-col gap-2">
         <h2 className="text-sm text-muted-foreground">Variantes</h2>

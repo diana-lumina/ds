@@ -5,6 +5,7 @@ export default defineConfig({
     'src/index.ts',
     'src/lib/*.ts',
     'src/hooks/*.ts',
+    'src/globals.css'
   ],
   format: ['esm', 'cjs'],
   dts: true,
@@ -13,4 +14,5 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   external: ['react', 'react-dom'],
+  injectStyle: true,
 })

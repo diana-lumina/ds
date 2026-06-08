@@ -7,7 +7,7 @@ export default function CategoryCardPage() {
     <div className="p-6 flex flex-col gap-8">
       <PlaygroundHeader
         title="Category card"
-        storybookPath="category-card"
+        storybookPath="categorycard--docs"
       />
 
       <section className="flex flex-col gap-2">

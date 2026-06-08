@@ -10,7 +10,7 @@ export default function CardPage() {
     <div className="p-6 flex flex-col gap-8">
       <PlaygroundHeader
         title="Card course"
-        storybookPath="card-course"
+        storybookPath="cardcourse--docs"
       />
 
       <section className="flex flex-col gap-2">

@@ -21,7 +21,7 @@ export default function AccordionPlayground() {
     <div className="p-6 flex flex-col gap-8">
       <PlaygroundHeader
         title="Accordion"
-        storybookPath="accordion"
+        storybookPath="accordionfilter--docs"
       />
 
       <section className="flex flex-col gap-2">

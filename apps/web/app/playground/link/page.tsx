@@ -7,7 +7,7 @@ export default function LinkPage() {
     <div className="p-6 flex flex-col gap-8">
       <PlaygroundHeader
         title="Link"
-        storybookPath="link"
+        storybookPath="link--docs"
       />
 
       {/* ── Text Link ── */}
