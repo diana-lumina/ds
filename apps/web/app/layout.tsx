@@ -1,5 +1,5 @@
 import { Poppins } from "next/font/google"
-import "@workspace/ui/globals.css"
+import "../../../packages/ui/src/styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils";
 

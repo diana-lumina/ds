@@ -1,12 +1,16 @@
 import type { NextConfig } from "next"
 
+const isProd = process.env.NODE_ENV === "production"
+
 const nextConfig: NextConfig = {
   transpilePackages: ["@workspace/ui"],
   experimental: {
     externalDir: true,
   },
   webpack: (config) => {
-    config.resolve.conditionNames = ["require", "import", "default"]
+    if (isProd) {
+      config.resolve.alias["@workspace/ui"] = require.resolve("@workspace/ui")
+    }
     return config
   },
 }
