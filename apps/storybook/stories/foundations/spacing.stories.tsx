@@ -15,8 +15,6 @@ export const AllSpacing: Story = {
   render: () => {
     const tokens = getDesignTokens('spacing')
 
-    // Orden numérico, no alfabético — "spacing-12" no debe aparecer antes
-    // que "spacing-2" solo porque "1" viene antes que "2" como texto.
     const entries = Object.entries(tokens).sort(([, a], [, b]) => parseFloat(a) - parseFloat(b))
 
     return (

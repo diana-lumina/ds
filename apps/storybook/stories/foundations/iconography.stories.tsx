@@ -15,9 +15,6 @@ function sortByPxValue(entries: [string, string][]) {
   return [...entries].sort(([, a], [, b]) => parseFloat(a) - parseFloat(b))
 }
 
-// Ícono real de bolsa — es de RELLENO (fill), no de trazo, así que sirve
-// para "Size" (escala perfecto con width/height) pero no para "Stroke"
-// (no tiene ningún trazo que engrosar/adelgazar, no mostraría cambio).
 function BagIcon({ size }: { size: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 16 16" fill="none">
@@ -36,8 +33,7 @@ function BagIcon({ size }: { size: string }) {
   )
 }
 
-// Ícono de trazo — necesario específicamente para "Stroke", ya que el
-// de bolsa no tiene stroke-width que mostrar (es de relleno).
+
 function StrokeDemoIcon({ stroke }: { stroke: string }) {
   return (
     <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
@@ -77,10 +73,7 @@ function StrokeSection() {
   return (
     <section>
       <h2 style={{ fontFamily: 'sans-serif', marginBottom: 16 }}>Stroke</h2>
-      <p style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#999', marginBottom: 16 }}>
-        Usa un ícono de trazo distinto al de "Size" — el ícono de bolsa es
-        de relleno, no tiene stroke-width que mostrar acá.
-      </p>
+    
       <div style={{ display: 'flex', gap: 32, alignItems: 'flex-end', flexWrap: 'wrap' }}>
         {entries.map(([varName, value]) => (
           <div key={varName} style={{ textAlign: 'center' }}>

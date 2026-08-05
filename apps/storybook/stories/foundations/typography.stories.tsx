@@ -11,16 +11,10 @@ const meta: Meta = {
 export default meta
 type Story = StoryObj
 
-// Ordena por el VALOR real (ej. "16px" -> 16), no por el nombre del
-// token — tokens como "typography-font-size-action-lg" no terminan en
-// un número, así que extraer el número del nombre falla para esos casos.
 function sortByPxValue(entries: [string, string][]) {
   return [...entries].sort(([, a], [, b]) => parseFloat(a) - parseFloat(b))
 }
 
-// Font Size — cada token va a la propiedad "fontSize", no al shorthand
-// "font" (que requiere family + size juntos; un valor suelto ahí es
-// inválido y el navegador descarta la declaración completa en silencio).
 function FontSizeSection() {
   const entries = sortByPxValue(Object.entries(getDesignTokens('typography-font-size')))
   return (
@@ -110,11 +104,7 @@ export const AllTypography: Story = {
   render: () => (
     <div style={{ padding: 32 }}>
       <h1 style={{ fontFamily: 'sans-serif' }}>Typography</h1>
-      <p style={{ fontFamily: 'sans-serif', color: '#666', marginBottom: 32 }}>
-        Cada categoría se aplica a su propiedad CSS real (font-size,
-        line-height, font-weight, letter-spacing) — los tokens son
-        valores individuales, no un shorthand "font" completo.
-      </p>
+     
       <FontSizeSection />
       <LineHeightSection />
       <FontWeightSection />

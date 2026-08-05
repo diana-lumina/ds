@@ -28,9 +28,7 @@ function DurationSection() {
   return (
     <section style={{ marginBottom: 40 }}>
       <h2 style={{ fontFamily: 'sans-serif', marginBottom: 16 }}>Duration</h2>
-      <p style={{ color: '#666', fontSize: 13, marginBottom: 16 }}>
-        Misma curva (standard) en todas las filas — solo cambia la duración.
-      </p>
+     
       <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
         {entries.map(([varName, value]) => (
           <div key={varName} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -65,9 +63,7 @@ function EasingSection() {
   return (
     <section>
       <h2 style={{ fontFamily: 'sans-serif', marginBottom: 16 }}>Easing</h2>
-      <p style={{ color: '#666', fontSize: 13, marginBottom: 16 }}>
-        Misma duración (moderate) en todas las filas — solo cambia la curva.
-      </p>
+     
       <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
         {entries.map(([varName, value]) => (
           <div key={varName} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
