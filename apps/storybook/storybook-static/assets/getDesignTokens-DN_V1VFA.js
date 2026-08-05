@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";function t(e){let t=getComputedStyle(document.documentElement),n={};for(let r=0;r<t.length;r++){let i=t[r];i.startsWith(`--${e}`)&&(n[i]=t.getPropertyValue(i).trim())}return n}function n(e){return e.replace(/^--/,``)}var r=e((()=>{}));export{r as n,n as r,t};

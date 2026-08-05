@@ -10,5 +10,5 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "include": [".storybook", "src"]
+  "include": [".storybook", "src", "stories/foundations/colors.stories.tsx", "stories/foundations/radius.stories.tsx", "stories/foundations/shadows.stories.tsx", "stories/foundations/spacing.stories.tsx"]
 }

@@ -1,0 +1,22 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{n as t,r as n,t as r}from"./getDesignTokens-DN_V1VFA.js";import{t as i}from"./jsx-runtime-CaZkqeYb.js";function a(e){return[...e].sort(([,e],[,t])=>parseFloat(e)-parseFloat(t))}function o(){let e=a(Object.entries(r(`typography-font-size`)));return(0,u.jsxs)(`section`,{style:{marginBottom:40},children:[(0,u.jsx)(`h2`,{style:{fontFamily:`sans-serif`,marginBottom:16},children:`Font Size`}),e.map(([e,t])=>(0,u.jsxs)(`div`,{style:{borderBottom:`1px solid #eee`,paddingBottom:12,marginBottom:12},children:[(0,u.jsxs)(`div`,{style:{fontFamily:`monospace`,fontSize:12,color:`#666`,marginBottom:6},children:[n(e),` — `,t]}),(0,u.jsx)(`div`,{style:{fontSize:`var(${e})`,fontFamily:`sans-serif`},children:`Aa Bb Cc — The quick brown fox`})]},e))]})}function s(){let e=a(Object.entries(r(`typography-line-height`)));return(0,u.jsxs)(`section`,{style:{marginBottom:40},children:[(0,u.jsx)(`h2`,{style:{fontFamily:`sans-serif`,marginBottom:16},children:`Line Height`}),(0,u.jsx)(`div`,{style:{display:`grid`,gridTemplateColumns:`repeat(auto-fill, minmax(280px, 1fr))`,gap:24},children:e.map(([e,t])=>(0,u.jsxs)(`div`,{children:[(0,u.jsxs)(`div`,{style:{fontFamily:`monospace`,fontSize:12,color:`#666`,marginBottom:6},children:[n(e),` — `,t]}),(0,u.jsx)(`p`,{style:{lineHeight:`var(${e})`,fontFamily:`sans-serif`,fontSize:16,maxWidth:260},children:`The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.`})]},e))})]})}function c(){let e=Object.entries(r(`typography-font-weight`));return(0,u.jsxs)(`section`,{style:{marginBottom:40},children:[(0,u.jsx)(`h2`,{style:{fontFamily:`sans-serif`,marginBottom:16},children:`Font Weight`}),e.map(([e,t])=>(0,u.jsxs)(`div`,{style:{borderBottom:`1px solid #eee`,paddingBottom:12,marginBottom:12},children:[(0,u.jsxs)(`div`,{style:{fontFamily:`monospace`,fontSize:12,color:`#666`,marginBottom:6},children:[n(e),` — `,t]}),(0,u.jsx)(`div`,{style:{fontWeight:`var(${e})`,fontFamily:`sans-serif`,fontSize:18},children:`Aa Bb Cc — The quick brown fox`})]},e))]})}function l(){let e=Object.entries(r(`typography-letter-spacing`));return e.length===0?null:(0,u.jsxs)(`section`,{style:{marginBottom:40},children:[(0,u.jsx)(`h2`,{style:{fontFamily:`sans-serif`,marginBottom:16},children:`Letter Spacing`}),e.map(([e,t])=>(0,u.jsxs)(`div`,{style:{borderBottom:`1px solid #eee`,paddingBottom:12,marginBottom:12},children:[(0,u.jsxs)(`div`,{style:{fontFamily:`monospace`,fontSize:12,color:`#666`,marginBottom:6},children:[n(e),` — `,t]}),(0,u.jsx)(`div`,{style:{letterSpacing:`var(${e})`,fontFamily:`sans-serif`,fontSize:18},children:`Aa Bb Cc — The quick brown fox`})]},e))]})}var u,d,f,p;e((()=>{t(),u=i(),d={title:`Foundations/Typography`,parameters:{layout:`fullscreen`}},f={render:()=>(0,u.jsxs)(`div`,{style:{padding:32},children:[(0,u.jsx)(`h1`,{style:{fontFamily:`sans-serif`},children:`Typography`}),(0,u.jsx)(`p`,{style:{fontFamily:`sans-serif`,color:`#666`,marginBottom:32},children:`Cada categoría se aplica a su propiedad CSS real (font-size, line-height, font-weight, letter-spacing) — los tokens son valores individuales, no un shorthand "font" completo.`}),(0,u.jsx)(o,{}),(0,u.jsx)(s,{}),(0,u.jsx)(c,{}),(0,u.jsx)(l,{})]})},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+  render: () => <div style={{
+    padding: 32
+  }}>\r
+      <h1 style={{
+      fontFamily: 'sans-serif'
+    }}>Typography</h1>\r
+      <p style={{
+      fontFamily: 'sans-serif',
+      color: '#666',
+      marginBottom: 32
+    }}>\r
+        Cada categoría se aplica a su propiedad CSS real (font-size,\r
+        line-height, font-weight, letter-spacing) — los tokens son\r
+        valores individuales, no un shorthand "font" completo.\r
+      </p>\r
+      <FontSizeSection />\r
+      <LineHeightSection />\r
+      <FontWeightSection />\r
+      <LetterSpacingSection />\r
+    </div>
+}`,...f.parameters?.docs?.source}}},p=[`AllTypography`]}))();export{f as AllTypography,p as __namedExportsOrder,d as default};
