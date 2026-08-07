@@ -1,0 +1,68 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{k as t}from"./iframe-DutUqOlQ.js";import{t as n}from"./jsx-runtime-CaZkqeYb.js";import{n as r,t as i}from"./utils-D8qMR3V9.js";var a,o,s=e((()=>{a=`_root_1qvp8_1`,o={root:a}}));function c({orientation:e=`horizontal`,thickness:t=1,className:n,...r}){return(0,l.jsx)(`div`,{"data-slot":`divider`,"data-orientation":e,"data-thickness":t,role:`separator`,"aria-orientation":e,className:i(o.root,n),...r})}var l,u=e((()=>{t(),r(),s(),l=n(),c.__docgenInfo={description:``,methods:[],displayName:`Divider`,props:{orientation:{required:!1,tsType:{name:`union`,raw:`'horizontal' | 'vertical'`,elements:[{name:`literal`,value:`'horizontal'`},{name:`literal`,value:`'vertical'`}]},description:``,defaultValue:{value:`'horizontal'`,computed:!1}},thickness:{required:!1,tsType:{name:`union`,raw:`1 | 2`,elements:[{name:`literal`,value:`1`},{name:`literal`,value:`2`}]},description:``,defaultValue:{value:`1`,computed:!1}}}}}));function d(){return{fontFamily:`monospace`,fontSize:11,color:`#888`,marginBottom:8}}var f,p,m,h,g,_,v;e((()=>{u(),f=n(),p={title:`Components/Divider`,component:c,tags:[`autodocs`],parameters:{layout:`padded`,docs:{description:{component:`
+
+        `}}},argTypes:{orientation:{control:`select`,options:[`horizontal`,`vertical`]},thickness:{control:`select`,options:[1,2]}}},m={args:{orientation:`horizontal`,thickness:1},render:e=>(0,f.jsx)(`div`,{style:{width:300},children:(0,f.jsx)(c,{...e})})},h={render:()=>(0,f.jsxs)(`div`,{style:{display:`flex`,flexDirection:`column`,gap:24,width:300},children:[(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`div`,{style:d(),children:`Thickness 1`}),(0,f.jsx)(c,{orientation:`horizontal`,thickness:1})]}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`div`,{style:d(),children:`Thickness 2`}),(0,f.jsx)(c,{orientation:`horizontal`,thickness:2})]})]})},g={render:()=>(0,f.jsxs)(`div`,{style:{display:`flex`,gap:24,height:80,alignItems:`stretch`},children:[(0,f.jsxs)(`div`,{style:{display:`flex`,flexDirection:`column`,alignItems:`center`},children:[(0,f.jsx)(`div`,{style:d(),children:`Thickness 1`}),(0,f.jsx)(c,{orientation:`vertical`,thickness:1})]}),(0,f.jsxs)(`div`,{style:{display:`flex`,flexDirection:`column`,alignItems:`center`},children:[(0,f.jsx)(`div`,{style:d(),children:`Thickness 2`}),(0,f.jsx)(c,{orientation:`vertical`,thickness:2})]})]})},_={name:`En contexto (ejemplo real)`,render:()=>(0,f.jsxs)(`div`,{style:{display:`flex`,alignItems:`center`,gap:16,fontFamily:`sans-serif`,fontSize:14},children:[(0,f.jsx)(`span`,{children:`Perfil`}),(0,f.jsx)(c,{orientation:`vertical`,thickness:1}),(0,f.jsx)(`span`,{children:`Configuración`}),(0,f.jsx)(c,{orientation:`vertical`,thickness:1}),(0,f.jsx)(`span`,{children:`Cerrar sesión`})]})},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+  args: {
+    orientation: 'horizontal',
+    thickness: 1
+  },
+  render: args => <div style={{
+    width: 300
+  }}>\r
+      <Divider {...args} />\r
+    </div>
+}`,...m.parameters?.docs?.source}}},h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+  render: () => <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 24,
+    width: 300
+  }}>\r
+      <div>\r
+        <div style={captionStyle()}>Thickness 1</div>\r
+        <Divider orientation="horizontal" thickness={1} />\r
+      </div>\r
+      <div>\r
+        <div style={captionStyle()}>Thickness 2</div>\r
+        <Divider orientation="horizontal" thickness={2} />\r
+      </div>\r
+    </div>
+}`,...h.parameters?.docs?.source}}},g.parameters={...g.parameters,docs:{...g.parameters?.docs,source:{originalSource:`{
+  render: () => <div style={{
+    display: 'flex',
+    gap: 24,
+    height: 80,
+    alignItems: 'stretch'
+  }}>\r
+      <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }}>\r
+        <div style={captionStyle()}>Thickness 1</div>\r
+        <Divider orientation="vertical" thickness={1} />\r
+      </div>\r
+      <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }}>\r
+        <div style={captionStyle()}>Thickness 2</div>\r
+        <Divider orientation="vertical" thickness={2} />\r
+      </div>\r
+    </div>
+}`,...g.parameters?.docs?.source}}},_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  name: 'En contexto (ejemplo real)',
+  render: () => <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: 16,
+    fontFamily: 'sans-serif',
+    fontSize: 14
+  }}>\r
+      <span>Perfil</span>\r
+      <Divider orientation="vertical" thickness={1} />\r
+      <span>Configuración</span>\r
+      <Divider orientation="vertical" thickness={1} />\r
+      <span>Cerrar sesión</span>\r
+    </div>
+}`,..._.parameters?.docs?.source}}},v=[`Playground`,`Horizontal`,`Vertical`,`InContext`]}))();export{h as Horizontal,_ as InContext,m as Playground,g as Vertical,v as __namedExportsOrder,p as default};
