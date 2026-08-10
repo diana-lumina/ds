@@ -56,27 +56,28 @@
     ".": {
       "types": "./dist/index.d.ts",
       "development": "./src/index.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./globals.css": "./src/styles/globals.css",
+    "./styles.css": "./dist/index.css",
     "./icons": "./src/icons/index.tsx",
     "./postcss.config": "./postcss.config.mjs",
     "./lib/*": {
+      "types": "./dist/lib/*.d.ts",
       "development": "./src/lib/*.ts",
-      "import": "./dist/lib/*.mjs",
-      "require": "./dist/lib/*.js",
-      "types": "./dist/lib/*.d.ts"
+      "import": "./dist/lib/*.js",
+      "require": "./dist/lib/*.cjs"
     },
     "./hooks/*": {
+      "types": "./dist/hooks/*.d.ts",
       "development": "./src/hooks/*.ts",
-      "import": "./dist/hooks/*.mjs",
-      "require": "./dist/hooks/*.js",
-      "types": "./dist/hooks/*.d.ts"
+      "import": "./dist/hooks/*.js",
+      "require": "./dist/hooks/*.cjs"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",

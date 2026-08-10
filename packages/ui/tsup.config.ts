@@ -1,12 +1,7 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  entry: [
-    'src/index.ts',
-    'src/lib/*.ts',
-    'src/hooks/*.ts',
-    'src/globals.css'
-  ],
+  entry: ['src/index.ts', 'src/lib/*.ts'],
   format: ['esm', 'cjs'],
   dts: true,
   splitting: true,
@@ -14,5 +9,11 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   external: ['react', 'react-dom'],
-  injectStyle: true,
+  // Top-level loader is required: tsup's postcss plugin only reads this
+  // option (not esbuildOptions). Without local-css, .module.css imports
+  // lose their class-name default export.
+  loader: {
+    '.css': 'local-css',
+  },
+  injectStyle: false,
 })

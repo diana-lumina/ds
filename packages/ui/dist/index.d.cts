@@ -53,6 +53,14 @@ interface InputChipProps {
 }
 declare function InputChip({ size, icon, children, onClose, closeDisabled, closeLabel, className, }: InputChipProps): react_jsx_runtime.JSX.Element;
 
+type StatusIntent = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
+interface StatusProps extends React.ComponentProps<"span"> {
+    size?: 'sm' | 'md';
+    intent?: StatusIntent;
+    icon?: React.ReactNode;
+}
+declare function Status({ size, intent, icon, children, className, ...props }: StatusProps): react_jsx_runtime.JSX.Element;
+
 interface TagProps extends React.ComponentProps<"span"> {
     size?: 'sm' | 'md';
     tone?: 'neutral' | 'brand';
@@ -129,4 +137,4 @@ interface CheckboxProps extends React.ComponentProps<typeof Checkbox$1.Root> {
 }
 declare function Checkbox({ className, ...props }: CheckboxProps): react_jsx_runtime.JSX.Element;
 
-export { Avatar, type AvatarContent, type AvatarProps, type AvatarSize, Badge, type BadgeProps, Button, Checkbox, type CheckboxProps, CounterBadge, type CounterBadgeProps, Divider, type DividerProps, FilterChip, type FilterChipProps, FloatingActionButton, type FloatingActionButtonExtendedProps, type FloatingActionButtonProps, type FloatingActionButtonStandardProps, IconButton, InputChip, type InputChipProps, Link, type LinkProps, Radio, RadioGroup, type RadioGroupProps, type RadioProps, Segment, type SegmentProps, Tag, type TagProps };
+export { Avatar, type AvatarContent, type AvatarProps, type AvatarSize, Badge, type BadgeProps, Button, Checkbox, type CheckboxProps, CounterBadge, type CounterBadgeProps, Divider, type DividerProps, FilterChip, type FilterChipProps, FloatingActionButton, type FloatingActionButtonExtendedProps, type FloatingActionButtonProps, type FloatingActionButtonStandardProps, IconButton, InputChip, type InputChipProps, Link, type LinkProps, Radio, RadioGroup, type RadioGroupProps, type RadioProps, Segment, type SegmentProps, Status, type StatusIntent, type StatusProps, Tag, type TagProps };
