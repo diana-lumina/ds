@@ -1,13 +1,7 @@
-import { Poppins } from "next/font/google"
 import "../../../packages/ui/src/styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@workspace/ui/lib/utils";
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-sans',
-})
+import { BrandProvider } from "@/components/brand-provider"
+import { cn } from "@workspace/ui/lib/utils"
 
 export default function RootLayout({
   children,
@@ -17,11 +11,14 @@ export default function RootLayout({
   return (
     <html
       lang="es"
+      data-brand="tec-360"
       suppressHydrationWarning
-      className={cn("antialiased", poppins.variable, "font-sans")}
+      className={cn("antialiased", "font-sans")}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <BrandProvider>{children}</BrandProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

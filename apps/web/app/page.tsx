@@ -20,16 +20,24 @@ export default function Page() {
         <hr />
 
         <p className="text-sm text-muted-foreground">
-          Los componentes mostrados aquí son un work in progress — 
+          Los componentes mostrados aquí son un work in progress —
           estilos, tokens y marca se definirán en etapas posteriores.
         </p>
 
-        <Link
-          href="/playground/button"
-          className="text-sm font-medium underline underline-offset-4"
-        >
-          Ver componentes
-        </Link>
+        <div className="flex flex-col gap-3">
+          <Link
+            href="/showcase"
+            className="text-sm font-medium underline underline-offset-4"
+          >
+            Ver composición (showcase)
+          </Link>
+          <Link
+            href="/playground/button"
+            className="text-sm font-medium underline underline-offset-4"
+          >
+            Ver variantes por componente
+          </Link>
+        </div>
       </div>
     </main>
   )

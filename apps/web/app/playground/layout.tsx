@@ -5,20 +5,22 @@ import { useTheme } from 'next-themes'
 import { SunIcon, MoonIcon } from 'lucide-react'
 
 const components = [
+  { name: 'Showcase', href: '/showcase' },
+  { name: 'Avatar', href: '/playground/avatar' },
+  { name: 'Badge', href: '/playground/badge' },
   { name: 'Button', href: '/playground/button' },
-  { name: 'Card', href: '/playground/card-course' },
-  { name: 'Modal', href: '/playground/modal' },
-  { name: 'Accordion', href: '/playground/accordion' },
-  { name: 'Input', href: '/playground/input' },
   { name: 'Checkbox', href: '/playground/checkbox' },
-  { name: 'Switch', href: '/playground/switch' },
-  { name: 'ProgressBar', href: '/playground/progress-bar' },
-  { name: 'MediaCard', href: '/playground/media-card' },
-  { name: 'CategoryCard', href: '/playground/category-card' },
-  { name: 'Link', href: '/playground/link' },
-  { name: 'ChatButton', href: '/playground/chat-button' },
+  { name: 'CounterBadge', href: '/playground/counter-badge' },
+  { name: 'Divider', href: '/playground/divider' },
+  { name: 'FilterChip', href: '/playground/filter-chip' },
+  { name: 'FAB', href: '/playground/floating-action-button' },
   { name: 'IconButton', href: '/playground/icon-button' },
-  { name: 'Topbar', href: '/playground/topbar' },
+  { name: 'InputChip', href: '/playground/input-chip' },
+  { name: 'Link', href: '/playground/link' },
+  { name: 'Radio', href: '/playground/radio' },
+  { name: 'Segment', href: '/playground/segment' },
+  { name: 'Status', href: '/playground/status' },
+  { name: 'Tag', href: '/playground/tag' },
 ]
 
 export default function PlaygroundLayout({
@@ -26,38 +28,29 @@ export default function PlaygroundLayout({
 }: {
   children: React.ReactNode
 }) {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   return (
     <div className="flex min-h-screen">
-      <aside className="w-48 shrink-0 border-r p-4 flex flex-col gap-1">
-
-        {/* Header del sidebar */}
+      <aside className="w-52 shrink-0 border-r p-4 flex flex-col gap-1">
         <div className="flex items-center justify-between mb-2">
           <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
             Componentes
           </p>
           <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
             aria-label="Cambiar tema"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            {theme === 'dark'
-              ? <SunIcon size={14} />
-              : <MoonIcon size={14} />
-            }
+            {resolvedTheme === 'dark' ? <SunIcon size={14} /> : <MoonIcon size={14} />}
           </button>
         </div>
 
-        {/* Links */}
         {components.map((c) => (
           <NavLink key={c.href} href={c.href} name={c.name} />
         ))}
-
       </aside>
-      <main className="flex-1 p-6 overflow-auto">
-        {children}
-      </main>
+      <main className="flex-1 p-6 overflow-auto">{children}</main>
     </div>
   )
 }

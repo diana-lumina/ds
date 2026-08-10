@@ -1,90 +1,82 @@
 'use client'
 
-import * as React from 'react'
+import { useState } from 'react'
 import { Checkbox } from '@workspace/ui'
-import { RadioGroup, RadioGroupItem } from '@workspace/ui'
 import { PlaygroundHeader } from '../playground-header'
 
-export default function SelectionPage() {
-  const [checked, setChecked] = React.useState(false)
-  const [radio, setRadio] = React.useState('option-1')
+export default function CheckboxPlayground() {
+  const [a, setA] = useState(true)
+  const [b, setB] = useState(false)
+  const [mixedChildren, setMixedChildren] = useState({ one: true, two: false })
+
+  const allChecked =
+    mixedChildren.one && mixedChildren.two
+      ? true
+      : !mixedChildren.one && !mixedChildren.two
+        ? false
+        : 'indeterminate'
 
   return (
-    <div className="p-6 flex flex-col gap-8">
-      <PlaygroundHeader
-        title="Checkbox"
-        storybookPath="checkbox"
-      />
+    <div className="flex flex-col gap-8">
+      <PlaygroundHeader title="Checkbox" storybookPath="checkbox--docs" />
 
-      {/* ── Checkbox ── */}
-      <section className="flex flex-col gap-4">
-        <h2 className="text-sm text-muted-foreground">Checkbox</h2>
-        <div className="flex items-center gap-6">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-muted-foreground">Inactive</span>
-            <Checkbox />
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-muted-foreground">Selected</span>
-            <Checkbox checked />
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-muted-foreground">Disabled</span>
-            <Checkbox disabled />
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-muted-foreground">Disabled selected</span>
-            <Checkbox checked disabled />
-          </div>
-        </div>
-
-        {/* Interactivo */}
-        <div className="flex items-center gap-2">
-          <Checkbox
-            id="interactivo"
-            checked={checked}
-            onCheckedChange={(val) => setChecked(val as boolean)}
-          />
-          <label htmlFor="interactivo" className="text-sm cursor-pointer">
-            Acepto los términos y condiciones
+      <section className="flex flex-col gap-3">
+        <h2 className="text-sm text-muted-foreground">Estados</h2>
+        <div className="flex flex-col gap-3 max-w-sm">
+          <label className="flex items-center gap-2 text-sm">
+            <Checkbox
+              checked={a}
+              onCheckedChange={(value) => setA(value === true)}
+              aria-label="Checked"
+            />
+            Checked
+          </label>
+          <label className="flex items-center gap-2 text-sm">
+            <Checkbox
+              checked={b}
+              onCheckedChange={(value) => setB(value === true)}
+              aria-label="Unchecked"
+            />
+            Unchecked
+          </label>
+          <label className="flex items-center gap-2 text-sm">
+            <Checkbox
+              checked={allChecked}
+              onCheckedChange={(value) => {
+                const next = value === true
+                setMixedChildren({ one: next, two: next })
+              }}
+              aria-label="Mixed"
+            />
+            Mixed (seleccionar todo)
+          </label>
+          <label className="flex items-center gap-2 text-sm pl-6">
+            <Checkbox
+              checked={mixedChildren.one}
+              onCheckedChange={(value) =>
+                setMixedChildren((prev) => ({ ...prev, one: value === true }))
+              }
+            />
+            Opción A
+          </label>
+          <label className="flex items-center gap-2 text-sm pl-6">
+            <Checkbox
+              checked={mixedChildren.two}
+              onCheckedChange={(value) =>
+                setMixedChildren((prev) => ({ ...prev, two: value === true }))
+              }
+            />
+            Opción B
+          </label>
+          <label className="flex items-center gap-2 text-sm">
+            <Checkbox checked disabled aria-label="Disabled checked" />
+            Disabled checked
+          </label>
+          <label className="flex items-center gap-2 text-sm">
+            <Checkbox checked={false} disabled aria-label="Disabled unchecked" />
+            Disabled unchecked
           </label>
         </div>
-      </section>
-
-      {/* ── Radio ── */}
-      <section className="flex flex-col gap-4">
-        <h2 className="text-sm text-muted-foreground">Radio</h2>
-        <div className="flex items-center gap-6">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-muted-foreground">Inactive</span>
-            <RadioGroup>
-              <RadioGroupItem value="inactive" disabled />
-            </RadioGroup>
-
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-muted-foreground">Active</span>
-            <RadioGroup>
-              <RadioGroupItem value="active" checked />
-            </RadioGroup>
-          </div>
-        </div>
-
-        {/* Interactivo */}
-        <RadioGroup value={radio} onValueChange={setRadio} className="flex flex-col gap-2">
-          <div className="flex items-center gap-2">
-            <RadioGroupItem id="op1" value="option-1" />
-            <label htmlFor="op1" className="text-sm cursor-pointer">Opción 1</label>
-          </div>
-          <div className="flex items-center gap-2">
-            <RadioGroupItem id="op2" value="option-2" />
-            <label htmlFor="op2" className="text-sm cursor-pointer">Opción 2</label>
-          </div>
-          <div className="flex items-center gap-2">
-            <RadioGroupItem id="op3" value="option-3" />
-            <label htmlFor="op3" className="text-sm cursor-pointer">Opción 3</label>
-          </div>
-        </RadioGroup>
       </section>
     </div>
   )

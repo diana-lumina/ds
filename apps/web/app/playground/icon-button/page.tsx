@@ -1,54 +1,30 @@
 import { IconButton } from '@workspace/ui'
-import { ShoppingCartIcon, ArrowUp } from 'lucide-react'
+import { BagIcon } from '@workspace/ui/icons'
 import { PlaygroundHeader } from '../playground-header'
 
-export default function IconButtonPage() {
+export default function IconButtonPlayground() {
   return (
-     <div className="p-6 flex flex-col gap-8">
-        <PlaygroundHeader
-          title="Icon button"
-          storybookPath="icon-button"
-        />
+    <div className="flex flex-col gap-8">
+      <PlaygroundHeader title="IconButton" storybookPath="iconbutton--docs" />
 
-      <section className="flex flex-col gap-6">
-
-        <div className="flex flex-col gap-2">
-          <h2 className="text-sm text-muted-foreground">Enabled / S</h2>
-          <IconButton
-            size="s"
-            icon={<ShoppingCartIcon size={12} />}
-            aria-label="Favorito"
-          />
+      <section className="flex flex-col gap-3">
+        <h2 className="text-sm text-muted-foreground">Size — default</h2>
+        <div className="flex flex-wrap items-center gap-3">
+          <IconButton size="sm" variant="default" icon={<BagIcon />} aria-label="Small" />
+          <IconButton size="md" variant="default" icon={<BagIcon />} aria-label="Medium" />
+          <IconButton size="lg" variant="default" icon={<BagIcon />} aria-label="Large" />
+          <IconButton size="md" variant="default" icon={<BagIcon />} aria-label="Disabled" disabled />
         </div>
+      </section>
 
-        <div className="flex flex-col gap-2">
-          <h2 className="text-sm text-muted-foreground">Enabled / M</h2>
-          <IconButton
-            size="m"
-            icon={<ShoppingCartIcon size={16} />}
-            aria-label="Carrito"
-          />
+      <section className="flex flex-col gap-3">
+        <h2 className="text-sm text-muted-foreground">Variant — inverse</h2>
+        <div className="flex flex-wrap items-center gap-3 rounded-lg bg-[var(--color-surface-brand-strong,#231f20)] p-4">
+          <IconButton size="sm" variant="inverse" icon={<BagIcon />} aria-label="Small inverse" />
+          <IconButton size="md" variant="inverse" icon={<BagIcon />} aria-label="Medium inverse" />
+          <IconButton size="lg" variant="inverse" icon={<BagIcon />} aria-label="Large inverse" />
+          <IconButton size="md" variant="inverse" icon={<BagIcon />} aria-label="Disabled inverse" disabled />
         </div>
-
-        <div className="flex flex-col gap-2">
-          <h2 className="text-sm text-muted-foreground">Disabled / M</h2>
-          <IconButton
-            size="m"
-            icon={<ShoppingCartIcon size={16} />}
-            aria-label="Carrito"
-            disabled
-          />
-        </div>
-
-         <div className="flex flex-col gap-2">
-          <h2 className="text-sm text-muted-foreground">Outline</h2>
-          <IconButton
-            size="m"
-            icon={<ArrowUp size={16} />}
-            aria-label="Flecha"
-          />
-        </div>
-
       </section>
     </div>
   )
