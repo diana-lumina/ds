@@ -1,0 +1,125 @@
+---
+title: Contributing
+---
+
+# Contributing
+
+Guía para proponer, desarrollar y publicar cambios en el Design System.
+
+:::info
+Esta guía establece el proceso para los integrantes del equipo de desarrollo del DS.
+:::
+
+---
+
+## Tipos de contribución
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descripción</th>
+      <th>Quién puede proponer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🐛 Bug fix</td>
+      <td>Corrección de comportamiento incorrecto en un componente existente</td>
+      <td>Cualquier rol</td>
+    </tr>
+    <tr>
+      <td>✨ Nuevo componente</td>
+      <td>Propuesta de un componente que no existe en el DS</td>
+      <td>Diseño o desarrollo</td>
+    </tr>
+    <tr>
+      <td>🔧 Mejora</td>
+      <td>Nueva prop, variante o comportamiento en un componente existente</td>
+      <td>Diseño o desarrollo</td>
+    </tr>
+    <tr>
+      <td>📝 Documentación</td>
+      <td>Corrección o mejora de la documentación</td>
+      <td>Cualquier rol</td>
+    </tr>
+    <tr>
+      <td>🎨 Token</td>
+      <td>Cambio en valores de color, tipografía o espaciado</td>
+      <td>Diseño</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Ciclo de vida de un componente
+
+<table>
+  <thead>
+    <tr>
+      <th>Etapa</th>
+      <th>Descripción</th>
+      <th>Criterio de salida</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔴 Propuesta</td>
+      <td>El componente se identifica como necesidad en un proyecto</td>
+      <td>Aprobación de diseño y desarrollo</td>
+    </tr>
+    <tr>
+      <td>🟡 En desarrollo</td>
+      <td>Diseño en Figma + implementación en código</td>
+      <td>Stories en Storybook + tests</td>
+    </tr>
+    <tr>
+      <td>🟡 Beta</td>
+      <td>Disponible para uso pero la API puede cambiar</td>
+      <td>Validación en al menos un proyecto real</td>
+    </tr>
+    <tr>
+      <td>🟢 Estable</td>
+      <td>API congelada, documentación completa</td>
+      <td>Aprobación del equipo DS</td>
+    </tr>
+    <tr>
+      <td>⚫ Descontinuado</td>
+      <td>El componente será removido en la siguiente major version</td>
+      <td>Comunicación con todos los consumidores</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Proceso para proponer un nuevo componente
+
+**1. Verifica que no existe**
+
+Revisa la lista de componentes y el backlog antes de proponer uno nuevo. Puede que ya esté en desarrollo.
+
+**2. Abre un issue en GitHub**
+
+Incluye:
+- Nombre del componente
+- ¿En qué proyecto se necesita?
+- ¿Cuántas veces se reutilizaría?
+- Referencia visual (captura, link a Figma, o ejemplo de otro DS)
+
+**3. Diseño en Figma**
+
+El equipo de diseño crea el componente en Figma con todas sus variantes y estados antes de que desarrollo empiece.
+
+**4. Implementación**
+
+Desarrollo implementa el componente siguiendo los estándares del DS.
+
+**5. Review y merge**
+
+PR con checklist completo → review → merge → publicación.
+
+---
+
+## Checklist de un componente listo

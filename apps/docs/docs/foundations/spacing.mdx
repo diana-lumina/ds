@@ -1,0 +1,120 @@
+---
+title: Spacing
+---
+
+# Spacing
+
+Escala de espaciado base del Design System. Todos los valores derivan de una unidad base de `0.25rem` (4px).
+
+:::caution
+La escala de espaciado está pendiente de validación con el equipo de diseño.
+:::
+
+---
+
+## Escala base
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Valor</th>
+      <th>px</th>
+      <th>Muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--space-1</code></td>
+      <td>0.25rem</td>
+      <td>4px</td>
+      <td><div style={{width: '4px', height: '16px', backgroundColor: '#0039a6', borderRadius: '2px'}}></div></td>
+    </tr>
+    <tr>
+      <td><code>--space-2</code></td>
+      <td>0.5rem</td>
+      <td>8px</td>
+      <td><div style={{width: '8px', height: '16px', backgroundColor: '#0039a6', borderRadius: '2px'}}></div></td>
+    </tr>
+    <tr>
+      <td><code>--space-3</code></td>
+      <td>0.75rem</td>
+      <td>12px</td>
+      <td><div style={{width: '12px', height: '16px', backgroundColor: '#0039a6', borderRadius: '2px'}}></div></td>
+    </tr>
+    <tr>
+      <td><code>--space-4</code></td>
+      <td>1rem</td>
+      <td>16px</td>
+      <td><div style={{width: '16px', height: '16px', backgroundColor: '#0039a6', borderRadius: '2px'}}></div></td>
+    </tr>
+    <tr>
+      <td><code>--space-6</code></td>
+      <td>1.5rem</td>
+      <td>24px</td>
+      <td><div style={{width: '24px', height: '16px', backgroundColor: '#0039a6', borderRadius: '2px'}}></div></td>
+    </tr>
+    <tr>
+      <td><code>--space-8</code></td>
+      <td>2rem</td>
+      <td>32px</td>
+      <td><div style={{width: '32px', height: '16px', backgroundColor: '#0039a6', borderRadius: '2px'}}></div></td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Uso
+
+Los tokens de espaciado se consumen a través de las utilidades de Tailwind:
+
+```tsx
+// padding
+<div className="p-4">...</div>   // --space-4 → 1rem
+
+// margin
+<div className="mt-2">...</div>  // --space-2 → 0.5rem
+
+// gap
+<div className="flex gap-3">...</div>  // --space-3 → 0.75rem
+```
+
+---
+
+## Cuándo usar cada valor
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Uso recomendado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--space-1</code></td>
+      <td>Separación mínima entre elementos inline</td>
+    </tr>
+    <tr>
+      <td><code>--space-2</code></td>
+      <td>Padding interno de componentes pequeños</td>
+    </tr>
+    <tr>
+      <td><code>--space-3</code></td>
+      <td>Gap entre elementos de un grupo</td>
+    </tr>
+    <tr>
+      <td><code>--space-4</code></td>
+      <td>Padding estándar de componentes</td>
+    </tr>
+    <tr>
+      <td><code>--space-6</code></td>
+      <td>Separación entre secciones</td>
+    </tr>
+    <tr>
+      <td><code>--space-8</code></td>
+      <td>Padding de layouts y contenedores</td>
+    </tr>
+  </tbody>
+</table>

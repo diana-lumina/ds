@@ -1,40 +1,48 @@
-import * as React from 'react'
-import { cn } from '../../lib/utils'
+"use client"
 
-// ─── Props ───────────────────────────────────────────────
-export type IconButtonProps = {
-  icon: React.ReactNode
-  size?: 's' | 'm'
-  disabled?: boolean
-  onClick?: () => void
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cn } from '../../lib/utils'
+import styles from './icon-button.module.css'
+
+export interface IconButtonProps extends React.ComponentProps<"button"> {
+
+  icon?: React.ReactNode
+  size?: 'sm' | 'md' | 'lg'
+
+  variant?: 'default' | 'inverse'
+
+  asChild?: boolean
+
   'aria-label': string
-  className?: string
 }
 
-// ─── Componente ──────────────────────────────────────────
 export function IconButton({
   icon,
-  size = 'm',
-  disabled = false,
-  onClick,
-  'aria-label': ariaLabel,
+  size = 'md',
+  variant = 'default',
+  asChild = false,
   className,
+  children,
+  ...props
 }: IconButtonProps) {
+  const Comp = asChild ? Slot : "button"
+
   return (
-    <button
-      onClick={disabled ? undefined : onClick}
-      disabled={disabled}
-      aria-label={ariaLabel}
-      className={cn(
-        'inline-flex items-center justify-center rounded-full border border-border bg-background transition-colors',
-        'hover:bg-muted',
-        'disabled:opacity-50 disabled:pointer-events-none',
-        size === 's' && 'w-6 h-6',
-        size === 'm' && 'w-8 h-8',
-        className
-      )}
+    <Comp
+      data-slot="icon-button"
+      data-size={size}
+      data-variant={variant}
+      className={cn(styles.root, className)}
+      {...props}
     >
-      {icon}
-    </button>
+      {asChild ? (
+        children
+      ) : (
+        <span aria-hidden="true" className={styles.iconWrapper}>
+          {icon}
+        </span>
+      )}
+    </Comp>
   )
 }

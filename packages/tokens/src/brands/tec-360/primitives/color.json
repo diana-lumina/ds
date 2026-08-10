@@ -1,0 +1,905 @@
+{
+  "color": {
+    "brand": {
+      "black": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#000000"
+        },
+        "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Reference color restricted to the official TEC 360 wordmark/brand asset and its documented contrast context. This is not a semantic UI token. Do not repurpose for text, surfaces, borders, feedback or interaction states without an approved semantic mapping.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:4",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ]
+        }
+      },
+      "white": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Reference color restricted to the official TEC 360 wordmark/brand asset and its documented contrast context. This is not a semantic UI token. Do not repurpose for text, surfaces, borders, feedback or interaction states without an approved semantic mapping.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:7:5",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ]
+        }
+      },
+      "blue": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.2235294133424759,
+            0.6509804129600525
+          ],
+          "alpha": 1,
+          "hex": "#0039A6"
+        },
+        "$description": "TEC 360 solid brand blue evidenced in current brand compositions and surface examples. Added 2026-08-01.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:898:2",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ]
+        }
+      },
+      "turquoise": {
+        "on-light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.6470588445663452,
+              0.8313725590705872
+            ],
+            "alpha": 1,
+            "hex": "#00A5D4"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Reference color restricted to the official TEC 360 wordmark/brand asset and its documented contrast context. This is not a semantic UI token. Do not repurpose for text, surfaces, borders, feedback or interaction states without an approved semantic mapping.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:2",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "on-dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.01568627543747425,
+              0.7803921699523926,
+              0.9215686321258545
+            ],
+            "alpha": 1,
+            "hex": "#04C7EB"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Reference color restricted to the official TEC 360 wordmark/brand asset and its documented contrast context. This is not a semantic UI token. Do not repurpose for text, surfaces, borders, feedback or interaction states without an approved semantic mapping.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:3",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        }
+      }
+    },
+    "supporting": {
+      "aqua": {
+        "swatch-01": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.37254902720451355,
+              0.6941176652908325,
+              0.8313725590705872
+            ],
+            "alpha": 1,
+            "hex": "#5FB1D4"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:6",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-02": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.4274509847164154,
+              0.7411764860153198,
+              0.8745098114013672
+            ],
+            "alpha": 1,
+            "hex": "#6DBDDF"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:7",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-03": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.4745098054409027,
+              0.7803921699523926,
+              0.8941176533699036
+            ],
+            "alpha": 1,
+            "hex": "#79C7E4"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:8",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-04": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5098039507865906,
+              0.8117647171020508,
+              0.9137254953384399
+            ],
+            "alpha": 1,
+            "hex": "#82CFE9"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:9",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-05": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5607843399047852,
+              0.8509804010391235,
+              0.9372549057006836
+            ],
+            "alpha": 1,
+            "hex": "#8FD9EF"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:10",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-06": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6039215922355652,
+              0.8823529481887817,
+              0.95686274766922
+            ],
+            "alpha": 1,
+            "hex": "#9AE1F4"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:11",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-07": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6823529601097107,
+              0.9490196108818054,
+              0.9960784316062927
+            ],
+            "alpha": 1,
+            "hex": "#AEF2FE"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:12",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        }
+      },
+      "mauve": {
+        "swatch-01": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6784313917160034,
+              0.42352941632270813,
+              0.6078431606292725
+            ],
+            "alpha": 1,
+            "hex": "#AD6C9B"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:13",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-02": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7176470756530762,
+              0.48235294222831726,
+              0.658823549747467
+            ],
+            "alpha": 1,
+            "hex": "#B77BA8"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:14",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-03": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7568627595901489,
+              0.5372549295425415,
+              0.7098039388656616
+            ],
+            "alpha": 1,
+            "hex": "#C189B5"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:15",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-04": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7960784435272217,
+              0.5960784554481506,
+              0.7607843279838562
+            ],
+            "alpha": 1,
+            "hex": "#CB98C2"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:16",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-05": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8313725590705872,
+              0.6549019813537598,
+              0.8078431487083435
+            ],
+            "alpha": 1,
+            "hex": "#D4A7CE"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:17",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-06": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8705882430076599,
+              0.7098039388656616,
+              0.8588235378265381
+            ],
+            "alpha": 1,
+            "hex": "#DEB5DB"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:18",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-07": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9098039269447327,
+              0.7686274647712708,
+              0.9098039269447327
+            ],
+            "alpha": 1,
+            "hex": "#E8C4E8"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:19",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        }
+      },
+      "lavender": {
+        "swatch-01": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5607843399047852,
+              0.658823549747467,
+              0.9490196108818054
+            ],
+            "alpha": 1,
+            "hex": "#8FA8F2"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:20",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-02": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5882353186607361,
+              0.686274528503418,
+              0.929411768913269
+            ],
+            "alpha": 1,
+            "hex": "#96AFED"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:21",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-03": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5607843399047852,
+              0.7058823704719543,
+              0.9372549057006836
+            ],
+            "alpha": 1,
+            "hex": "#8FB4EF"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:22",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-04": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5490196347236633,
+              0.7411764860153198,
+              0.95686274766922
+            ],
+            "alpha": 1,
+            "hex": "#8CBDF4"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:23",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-05": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6392157077789307,
+              0.7960784435272217,
+              0.9372549057006836
+            ],
+            "alpha": 1,
+            "hex": "#A3CBEF"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:24",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-06": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7568627595901489,
+              0.8784313797950745,
+              0.9725490212440491
+            ],
+            "alpha": 1,
+            "hex": "#C1E0F8"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:25",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-07": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8509804010391235,
+              0.9137254953384399,
+              0.95686274766922
+            ],
+            "alpha": 1,
+            "hex": "#D9E9F4"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:26",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        }
+      },
+      "gray": {
+        "swatch-01": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6196078658103943,
+              0.6196078658103943,
+              0.6196078658103943
+            ],
+            "alpha": 1,
+            "hex": "#9E9E9E"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:27",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-02": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6705882549285889,
+              0.6705882549285889,
+              0.6705882549285889
+            ],
+            "alpha": 1,
+            "hex": "#ABABAB"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:28",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-03": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7176470756530762,
+              0.7176470756530762,
+              0.7176470756530762
+            ],
+            "alpha": 1,
+            "hex": "#B7B7B7"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:29",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-04": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7686274647712708,
+              0.7686274647712708,
+              0.7686274647712708
+            ],
+            "alpha": 1,
+            "hex": "#C4C4C4"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:30",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-05": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8196078538894653,
+              0.8196078538894653,
+              0.8196078538894653
+            ],
+            "alpha": 1,
+            "hex": "#D1D1D1"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:31",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-06": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8666666746139526,
+              0.8666666746139526,
+              0.8666666746139526
+            ],
+            "alpha": 1,
+            "hex": "#DDDDDD"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:32",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-07": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9176470637321472,
+              0.9176470637321472,
+              0.9176470637321472
+            ],
+            "alpha": 1,
+            "hex": "#EAEAEA"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:33",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        }
+      },
+      "purple": {
+        "swatch-01": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.40784314274787903,
+              0.49803921580314636,
+              0.8980392217636108
+            ],
+            "alpha": 1,
+            "hex": "#687FE5"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:34",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-02": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.47843137383461,
+              0.5529412031173706,
+              0.9137254953384399
+            ],
+            "alpha": 1,
+            "hex": "#7A8DE9"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:35",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-03": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5490196347236633,
+              0.6078431606292725,
+              0.9333333373069763
+            ],
+            "alpha": 1,
+            "hex": "#8C9BEE"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:36",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-04": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6196078658103943,
+              0.6666666865348816,
+              0.9490196108818054
+            ],
+            "alpha": 1,
+            "hex": "#9EAAF2"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:37",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-05": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6901960968971252,
+              0.7215686440467834,
+              0.9647058844566345
+            ],
+            "alpha": 1,
+            "hex": "#B0B8F6"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:38",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-06": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7607843279838562,
+              0.7764706015586853,
+              0.9843137264251709
+            ],
+            "alpha": 1,
+            "hex": "#C2C6FB"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:39",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-07": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8313725590705872,
+              0.8313725590705872,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#D4D4FF"
+          },
+          "$description": "Status: Candidate. Source: Tec360 Guidelines Comprehensive Draft (source pending confirmation). Supporting reference color with no approved semantic role. This is not a semantic UI token. Do not infer hierarchy, state, accessibility role or component usage from its swatch order.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:7:40",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        }
+      },
+      "gradient": {
+        "swatch-01": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.38823530077934265,
+              0.8117647171020508,
+              0.8549019694328308
+            ],
+            "alpha": 1,
+            "hex": "#63CFDA"
+          },
+          "$description": "TEC 360 supporting gradient color. Observed in Primary default/pressed start and Secondary default border end. Source: approved TEC 360 Button visual contract. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:820:2",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-02": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5333333611488342,
+              0.5882353186607361,
+              0.7960784435272217
+            ],
+            "alpha": 1,
+            "hex": "#8896CB"
+          },
+          "$description": "TEC 360 supporting gradient color. Observed in Primary default/pressed end and Secondary default border start. Source: approved TEC 360 Button visual contract. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:820:3",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-03": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.3921568691730499,
+              0.800000011920929,
+              0.8509804010391235
+            ],
+            "alpha": 1,
+            "hex": "#64CCD9"
+          },
+          "$description": "TEC 360 supporting gradient color. Observed in Primary and Secondary hover surface start. Source: approved TEC 360 Button visual contract. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:820:4",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-04": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5254902243614197,
+              0.6000000238418579,
+              0.800000011920929
+            ],
+            "alpha": 1,
+            "hex": "#8699CC"
+          },
+          "$description": "TEC 360 supporting gradient color. Observed in Primary and Secondary hover surface end. Source: approved TEC 360 Button visual contract. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:820:5",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Default"
+  }
+}

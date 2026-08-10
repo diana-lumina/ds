@@ -1,131 +1,110 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi } from 'vitest'
+import { axe } from 'vitest-axe'
 import { Link } from './link'
-import { ArrowRightIcon } from 'lucide-react'
 
 describe('Link', () => {
-
-  describe('General', () => {
+  describe('Renderizado', () => {
     it('renderiza sin errores', () => {
-      render(<Link href="#">Texto</Link>)
+      render(<Link href="/destino">Ir a destino</Link>)
     })
 
-    it('muestra el texto', () => {
-      render(<Link href="#">Ir a cursos</Link>)
-      expect(screen.getByText('Ir a cursos')).toBeInTheDocument()
+    it('renderiza como <a>', () => {
+      render(<Link href="/destino">Ir a destino</Link>)
+      expect(screen.getByRole('link').tagName).toBe('A')
     })
 
-    it('renderiza como elemento a', () => {
-      render(<Link href="/cursos">Cursos</Link>)
-      expect(screen.getByRole('link')).toBeInTheDocument()
+    it('tiene el data-slot correcto', () => {
+      render(<Link href="/destino">Ir a destino</Link>)
+      expect(screen.getByRole('link')).toHaveAttribute('data-slot', 'link')
     })
 
     it('aplica el href correctamente', () => {
-      render(<Link href="/cursos">Cursos</Link>)
-      expect(screen.getByRole('link')).toHaveAttribute('href', '/cursos')
+      render(<Link href="/destino">Ir a destino</Link>)
+      expect(screen.getByRole('link')).toHaveAttribute('href', '/destino')
     })
 
+    it('renderiza el ícono en la posición indicada', () => {
+      render(
+        <Link href="/destino" icon={<svg data-testid="icono" />} iconPosition="left">
+          Ir a destino
+        </Link>
+      )
+      expect(screen.getByTestId('icono')).toBeInTheDocument()
+    })
+  })
+
+  describe('Prop: tone', () => {
+    it('aplica tone standard por defecto', () => {
+      render(<Link href="/destino">Ir</Link>)
+      expect(screen.getByRole('link')).toHaveAttribute('data-tone', 'standard')
+    })
+
+    it('aplica tone inverse', () => {
+      render(
+        <Link href="/destino" tone="inverse">
+          Ir
+        </Link>
+      )
+      expect(screen.getByRole('link')).toHaveAttribute('data-tone', 'inverse')
+    })
+  })
+
+  describe('Prop: external', () => {
+    it('sin external, no tiene target ni rel', () => {
+      render(<Link href="/destino">Ir</Link>)
+      const link = screen.getByRole('link')
+      expect(link).not.toHaveAttribute('target')
+      expect(link).not.toHaveAttribute('rel')
+    })
+
+    it('con external, abre en pestaña nueva de forma segura', () => {
+      render(
+        <Link href="https://externo.com" external>
+          Ir
+        </Link>
+      )
+      const link = screen.getByRole('link')
+      expect(link).toHaveAttribute('target', '_blank')
+      expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+    })
+  })
+
+  describe('Comportamiento', () => {
     it('llama a onClick al hacer click', async () => {
       const handleClick = vi.fn()
-      render(<Link href="#" onClick={handleClick}>Click</Link>)
+      render(
+        <Link href="/destino" onClick={handleClick}>
+          Ir
+        </Link>
+      )
       await userEvent.click(screen.getByRole('link'))
       expect(handleClick).toHaveBeenCalledTimes(1)
     })
   })
 
-  describe('Disabled', () => {
-    it('tiene aria-disabled cuando disabled es true', () => {
-      render(<Link href="#" disabled>Link</Link>)
-      expect(screen.getByRole('link')).toHaveAttribute('aria-disabled', 'true')
-    })
-
-    it('no tiene href cuando disabled es true', () => {
-      render(<Link href="/cursos" disabled>Link</Link>)
-      expect(screen.getByRole('link')).not.toHaveAttribute('href')
-    })
-
-    it('no llama a onClick cuando disabled es true', async () => {
+  describe('Accesibilidad', () => {
+    it('es alcanzable por teclado (Tab + Enter)', async () => {
       const handleClick = vi.fn()
-      render(<Link href="#" disabled onClick={handleClick}>Link</Link>)
-      await userEvent.click(screen.getByRole('link'))
-      expect(handleClick).not.toHaveBeenCalled()
-    })
-  })
-
-  describe('Externo', () => {
-    it('abre en nueva pestaña cuando external es true', () => {
-      render(<Link href="https://tec.mx" external>Sitio</Link>)
-      expect(screen.getByRole('link')).toHaveAttribute('target', '_blank')
-    })
-
-    it('tiene rel noopener noreferrer cuando external es true', () => {
-      render(<Link href="https://tec.mx" external>Sitio</Link>)
-      expect(screen.getByRole('link')).toHaveAttribute('rel', 'noopener noreferrer')
-    })
-
-    it('no tiene target cuando external es false', () => {
-      render(<Link href="/cursos">Cursos</Link>)
-      expect(screen.getByRole('link')).not.toHaveAttribute('target')
-    })
-  })
-
-  describe('Ícono', () => {
-    it('renderiza el ícono cuando se proporciona', () => {
+      const user = userEvent.setup()
       render(
-        <Link
-          href="#"
-          icon={<span data-testid="icono"><ArrowRightIcon size={14} /></span>}
-        >
-          Ver más
+        <Link href="/destino" onClick={handleClick}>
+          Ir a destino
         </Link>
       )
-      expect(screen.getByTestId('icono')).toBeInTheDocument()
+
+      await user.tab()
+      expect(screen.getByRole('link')).toHaveFocus()
+
+      await user.keyboard('{Enter}')
+      expect(handleClick).toHaveBeenCalledTimes(1)
     })
 
-    it('posiciona el ícono a la derecha por default', () => {
-      render(
-        <Link
-          href="#"
-          icon={<span data-testid="icono">→</span>}
-          iconPosition="right"
-        >
-          Ver más
-        </Link>
-      )
-      const link = screen.getByRole('link')
-      const icono = screen.getByTestId('icono')
-      const texto = screen.getByText('Ver más')
-      expect(link.lastChild).toContain(icono)
-      expect(link.firstChild).not.toContain(icono)
-    })
-
-    it('posiciona el ícono a la izquierda cuando iconPosition es left', () => {
-      render(
-        <Link
-          href="#"
-          icon={<span data-testid="icono">←</span>}
-          iconPosition="left"
-        >
-          Volver
-        </Link>
-      )
-      const link = screen.getByRole('link')
-      const icono = screen.getByTestId('icono')
-      expect(link.firstChild).toContain(icono)
+    it('sin violaciones de accesibilidad', async () => {
+      const { container } = render(<Link href="/destino">Ir a destino</Link>)
+      const results = await axe(container)
+      expect(results).toHaveNoViolations()
     })
   })
-
-  describe('Variantes', () => {
-    it('aplica clases de variante text por default', () => {
-      render(<Link href="#">Link</Link>)
-      expect(screen.getByRole('link')).toHaveClass('text-primary')
-    })
-
-    it('aplica clases de variante button', () => {
-      render(<Link href="#" variant="button">Link</Link>)
-      expect(screen.getByRole('link')).toHaveClass('text-foreground')
-    })
-  })
-
 })

@@ -1,0 +1,10 @@
+.root {
+  box-shadow: var(--elevation-2, 0 4px 12px 0 rgba(0, 0, 0, 0.10));
+}
+
+.root[data-floating="true"] {
+  position: fixed;
+  inset-inline-end: var(--spacing-24, 24px);
+  inset-block-end: var(--spacing-24, 24px);
+  z-index: 50;
+}

@@ -1,0 +1,536 @@
+{
+  "display": {
+    "large": {
+      "font-size": {
+        "$type": "number",
+        "$value": 40,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:3",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:a32d1506ac5eaac53658c7b2c3607434402ed6d4/-1:-1",
+            "targetVariableName": "typography/font-size/900",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 48,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:4",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:9b763fc6e5a0264c03d2e7feb9042f93343a6351/-1:-1",
+            "targetVariableName": "typography/line-height/800",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "small": {
+      "font-size": {
+        "$type": "number",
+        "$value": 32,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:5",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:ad440d0d58eb199fdbde1a056ea790ad28d98d1f/-1:-1",
+            "targetVariableName": "typography/font-size/800",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 40,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:6",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:85be6d3c4a8368bc591715b865035cb4a3f3e3df/-1:-1",
+            "targetVariableName": "typography/line-height/700",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    }
+  },
+  "heading": {
+    "xxl": {
+      "font-size": {
+        "$type": "number",
+        "$value": 32,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:7",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:ad440d0d58eb199fdbde1a056ea790ad28d98d1f/-1:-1",
+            "targetVariableName": "typography/font-size/800",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 40,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:8",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:85be6d3c4a8368bc591715b865035cb4a3f3e3df/-1:-1",
+            "targetVariableName": "typography/line-height/700",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "xl": {
+      "font-size": {
+        "$type": "number",
+        "$value": 28,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:9",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:e0e35d056e8fe4932e5b8250b8b1bb23a86d910e/-1:-1",
+            "targetVariableName": "typography/font-size/700",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 36,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:10",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:22021578e3ded722ed862b7b85ff56bd123c0376/-1:-1",
+            "targetVariableName": "typography/line-height/600",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "large": {
+      "font-size": {
+        "$type": "number",
+        "$value": 24,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:11",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:f0e8f9d0b285243051aa04fbe37d354aff3ff647/-1:-1",
+            "targetVariableName": "typography/font-size/600",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 32,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:12",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:f4888a9b57c215831d510d812b01152ff729fc65/-1:-1",
+            "targetVariableName": "typography/line-height/500",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "medium": {
+      "font-size": {
+        "$type": "number",
+        "$value": 20,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:13",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:8ccd932ff7da69bdbaaac47a6d0da332f3acb1a8/-1:-1",
+            "targetVariableName": "typography/font-size/500",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 28,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:14",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b676f70dea552a96b9685f1bd7c8f641375b3e19/-1:-1",
+            "targetVariableName": "typography/line-height/400",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "small": {
+      "font-size": {
+        "$type": "number",
+        "$value": 18,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:15",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:4c876051dcb94541d8cd2ee69608f5453f300aa9/-1:-1",
+            "targetVariableName": "typography/font-size/400",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 24,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:16",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:3eafaabcb38326987daf570d0ded48c1ebe9e45d/-1:-1",
+            "targetVariableName": "typography/line-height/300",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "xsmall": {
+      "font-size": {
+        "$type": "number",
+        "$value": 16,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:17",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:034a51a22c7b2f9f89dea377ab101ef0c1484dda/-1:-1",
+            "targetVariableName": "typography/font-size/300",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 24,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:18",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:3eafaabcb38326987daf570d0ded48c1ebe9e45d/-1:-1",
+            "targetVariableName": "typography/line-height/300",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    }
+  },
+  "body": {
+    "large": {
+      "font-size": {
+        "$type": "number",
+        "$value": 18,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:19",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:4c876051dcb94541d8cd2ee69608f5453f300aa9/-1:-1",
+            "targetVariableName": "typography/font-size/400",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 28,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:20",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b676f70dea552a96b9685f1bd7c8f641375b3e19/-1:-1",
+            "targetVariableName": "typography/line-height/400",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "medium": {
+      "font-size": {
+        "$type": "number",
+        "$value": 16,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:21",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:034a51a22c7b2f9f89dea377ab101ef0c1484dda/-1:-1",
+            "targetVariableName": "typography/font-size/300",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 24,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:22",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:3eafaabcb38326987daf570d0ded48c1ebe9e45d/-1:-1",
+            "targetVariableName": "typography/line-height/300",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "small": {
+      "font-size": {
+        "$type": "number",
+        "$value": 14,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:23",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:25fbd6994d4767231fcb62b7f7259c8d4c4c8ca7/-1:-1",
+            "targetVariableName": "typography/font-size/200",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 20,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:24",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b887d29d6d8b4f566324cd4b329bcd2b34fb3802/-1:-1",
+            "targetVariableName": "typography/line-height/200",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    }
+  },
+  "label": {
+    "large": {
+      "font-size": {
+        "$type": "number",
+        "$value": 16,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:25",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:034a51a22c7b2f9f89dea377ab101ef0c1484dda/-1:-1",
+            "targetVariableName": "typography/font-size/300",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 24,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:26",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:3eafaabcb38326987daf570d0ded48c1ebe9e45d/-1:-1",
+            "targetVariableName": "typography/line-height/300",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "medium": {
+      "font-size": {
+        "$type": "number",
+        "$value": 14,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:27",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:25fbd6994d4767231fcb62b7f7259c8d4c4c8ca7/-1:-1",
+            "targetVariableName": "typography/font-size/200",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 20,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:28",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b887d29d6d8b4f566324cd4b329bcd2b34fb3802/-1:-1",
+            "targetVariableName": "typography/line-height/200",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "small": {
+      "font-size": {
+        "$type": "number",
+        "$value": 12,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:29",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:f4a54af69a17251b097fa4d7bcd82098c4f572a9/-1:-1",
+            "targetVariableName": "typography/font-size/100",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 16,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:151:30",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:d16c12be5e1fc218a86fde927c8b00af5c3dbae9/-1:-1",
+            "targetVariableName": "typography/line-height/100",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    }
+  },
+  "caption": {
+    "font-size": {
+      "$type": "number",
+      "$value": 12,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:151:31",
+        "com.figma.scopes": [
+          "FONT_SIZE"
+        ],
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:f4a54af69a17251b097fa4d7bcd82098c4f572a9/-1:-1",
+          "targetVariableName": "typography/font-size/100",
+          "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+          "targetVariableSetName": "TEC DS — Typography Primitives"
+        }
+      }
+    },
+    "line-height": {
+      "$type": "number",
+      "$value": 16,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:151:32",
+        "com.figma.scopes": [
+          "LINE_HEIGHT"
+        ],
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:d16c12be5e1fc218a86fde927c8b00af5c3dbae9/-1:-1",
+          "targetVariableName": "typography/line-height/100",
+          "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+          "targetVariableSetName": "TEC DS — Typography Primitives"
+        }
+      }
+    }
+  },
+  "font-family": {
+    "primary": {
+      "$type": "string",
+      "$value": "Inter",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:151:33",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ],
+        "com.figma.type": "string"
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mobile"
+  }
+}

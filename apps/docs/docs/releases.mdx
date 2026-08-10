@@ -1,0 +1,164 @@
+---
+title: Releases
+---
+
+# Releases
+
+Historial de cambios del Design System. Seguimos [Semantic Versioning](https://semver.org/lang/es/).
+
+---
+
+## Política de versionado
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Versión</th>
+      <th>Cuándo</th>
+      <th>Ejemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Major**</td>
+      <td>X.0.0</td>
+      <td>Breaking changes, algo deja de funcionar como antes</td>
+      <td>Renombrar una prop, cambiar el HTML generado, remover un componente</td>
+    </tr>
+    <tr>
+      <td>**Minor**</td>
+      <td>0.X.0</td>
+      <td>Nueva funcionalidad retrocompatible</td>
+      <td>Nuevo componente, nueva prop opcional, nueva variante</td>
+    </tr>
+    <tr>
+      <td>**Patch**</td>
+      <td>0.0.X</td>
+      <td>Bug fix o mejora sin cambios en la API</td>
+      <td>Fix visual, corrección de accesibilidad, mejora de rendimiento</td>
+    </tr>
+  </tbody>
+</table>
+
+:::tip 
+Cómo leer un breaking change
+Si al actualizar necesitas cambiar código en tu proyecto, es un **major**. Si no necesitas cambiar nada, es **minor** o **patch**.
+:::
+
+---
+
+## Qué esperar en cada release
+
+**Major (X.0.0)**
+- Guía de migración incluida
+- Período de deprecación previo cuando sea posible
+- Comunicación directa a los equipos consumidores
+
+**Minor (0.X.0)**
+- Nuevos componentes o variantes listos para usar
+- Retrocompatible, no requiere cambios en tu proyecto
+
+**Patch (0.0.X)**
+- Correcciones silenciosas
+- Seguro actualizar en cualquier momento
+
+---
+
+## Changelog
+
+### 0.0.0 — Setup inicial
+
+**Fecha:** 2026
+
+**Componentes añadidos:**
+
+<table>
+  <thead>
+    <tr>
+      <th>Componente</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Button</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>IconButton</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>TextInput</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>TextArea</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>Link</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>Topbar</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>ModalBase</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>ModalInfo</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>ModalActionable</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>AccordionFilter</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>AccordionModule</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>CardCourse</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>MediaCard</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>CategoryCard</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>Badge</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>UserImage</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>ChatButton</td>
+      <td>✨ Nuevo</td>
+    </tr>
+    <tr>
+      <td>FavoriteButton</td>
+      <td>✨ Nuevo</td>
+    </tr>
+  </tbody>
+</table>
+
+**Infraestructura:**
+- Setup inicial del monorepo con Turborepo + pnpm
+- Configuración de Storybook v10 + Chromatic
+- Arquitectura de tokens de tres capas (primitivos → semánticos → componente)
+- Pipeline de build con tsup
+- Documentación base con Docusaurus

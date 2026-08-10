@@ -1,0 +1,106 @@
+.root {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--component-filter-chip-radius, 999px);
+    cursor: pointer;
+    transition-property: background-color, border-color, color;
+    transition-duration: 150ms;
+    font-style: normal;
+    font-weight: var(--typography-font-weight-semibold, 600);
+    letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.root:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.root:focus-visible {
+    outline: var(--border-width-2, 2px) solid var(--component-filter-chip-color-focus-ring);
+    outline-offset: var(--border-width-2, 2px);
+}
+
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+
+/* ===== Tamaño: sm ===== */
+.root[data-size="sm"] {
+    height: var(--component-filter-chip-sm-height, 32px);
+    padding: 0 var(--component-filter-chip-sm-padding-inline, 12px);
+    gap: var(--component-filter-chip-sm-gap, 8px);
+    font-size: var(--component-filter-chip-sm-font-size, 12px);
+    line-height: var(--component-filter-chip-sm-line-height, 16px);
+
+}
+
+.root[data-size="sm"] svg {
+    width: var(--component-filter-chip-sm-icon-size, 16px);
+    height: var(--component-filter-chip-sm-icon-size, 16px);
+}
+
+/* ===== Tamaño: md ===== */
+.root[data-size="md"] {
+    height: var(--component-filter-chip-md-height, 40px);
+    padding: 0 var(--component-filter-chip-md-padding-inline, 16px);
+    gap: var(--component-filter-chip-md-gap, 8px);
+    font-size: var(--component-filter-chip-md-font-size, 14px);
+    line-height: var(--component-filter-chip-md-line-height, 20px);
+}
+
+.root[data-size="md"] svg {
+    width: var(--component-filter-chip-md-icon-size, 16px);
+    height: var(--component-filter-chip-md-icon-size, 16px);
+}
+
+/* ===== Selected: false (unselected) ===== */
+
+.root[data-selected="false"] {
+    border: var(--component-filter-chip-border-width-default, 1px) solid var(--component-filter-chip-color-unselected-border, #D4D4D4);
+    background: var(--component-filter-chip-color-unselected-surface-default, #FFF);
+    color: var(--component-filter-chip-color-unselected-text-default, #171717);
+}
+
+.root[data-selected="false"]:hover {
+    border: var(--component-filter-chip-border-width-default, 1px) solid var(--component-filter-chip-color-unselected-border, #D4D4D4);
+    background: var(--component-filter-chip-color-unselected-surface-hover, #F5F5F5);
+}
+
+.root[data-selected="false"]:active {
+    border: var(--component-filter-chip-border-width-default, 1px) solid var(--component-filter-chip-color-unselected-border, #D4D4D4);
+    background: var(--component-filter-chip-color-unselected-surface-pressed, #E5E5E5);
+}
+
+.root[data-selected="false"]:disabled {
+    border: var(--component-filter-chip-border-width-default, 1px) solid var(--component-filter-chip-color-disabled-border, #E5E5E5);
+    background: var(--component-filter-chip-color-disabled-surface, #F5F5F5);
+    color: var(--component-filter-chip-color-disabled-text, #A3A3A3);
+}
+
+/* ===== Selected: true ===== */
+.root[data-selected="true"] {
+    border: var(--component-filter-chip-border-width-default, 1px) solid var(--component-filter-chip-color-selected-border, #2563EB);
+    background: var(--component-filter-chip-color-selected-surface-default, #EFF6FF);
+    color: var(--component-filter-chip-color-selected-text, #1D4ED8);
+}
+
+.root[data-selected="true"]:hover {
+    border: var(--component-filter-chip-border-width-default, 1px) solid var(--component-filter-chip-color-selected-border, #2563EB);
+    background: var(--component-filter-chip-color-selected-surface-hover, #DBEAFE);
+}
+
+.root[data-selected="true"]:active {
+    border: var(--component-filter-chip-border-width-default, 1px) solid var(--component-filter-chip-color-selected-border, #2563EB);
+    background: var(--component-filter-chip-color-selected-surface-pressed, #BFDBFE);
+}
+
+.root[data-selected="true"]:disabled {
+    color: var(--component-filter-chip-color-disabled-text, #A3A3A3);
+    border: var(--component-filter-chip-border-width-default, 1px) solid var(--component-filter-chip-color-disabled-border, #E5E5E5);
+    background: var(--component-filter-chip-color-disabled-surface, #F5F5F5);
+}

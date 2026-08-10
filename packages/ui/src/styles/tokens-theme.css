@@ -1,0 +1,138 @@
+/**
+ * Mapea los tokens reales (importados desde @workspace/tokens) al
+ * namespace que Tailwind/shadcn esperan. Import "inline" a propósito:
+ * mantiene los valores como var() en vivo, necesario para que
+ * [data-brand="..."] pueda cambiar el valor resuelto en runtime sin
+ * recompilar — es lo que permite el selector de marca en Storybook.
+ */
+@theme inline {
+  /* ===== Colors ===== */
+  --color-background: var(--color-surface-canvas);
+  --color-foreground: var(--color-text-default);
+
+  /* "primary" real tiene gradiente (start/end) con un color sólido de
+     respaldo (root) para contextos sin soporte de gradiente. Se usa el
+     root acá — si se necesita el gradiente real en un componente
+     puntual, hace falta background-image con los stops directo en ese
+     componente (ver button.css), no algo que esta variable resuelva
+     sola. */
+  --color-primary: var(--color-surface-action-primary-default-root);
+  --color-primary-foreground: var(--color-text-action-primary-default);
+
+  --color-secondary: var(--color-surface-action-secondary-default);
+  --color-secondary-foreground: var(--color-text-default);
+
+  --color-muted: var(--color-surface-subtle);
+  --color-muted-foreground: var(--color-text-secondary);
+
+  --color-accent: var(--color-surface-action-tertiary-hover);
+  --color-accent-foreground: var(--color-text-default);
+
+  /* ADVERTENCIA DE DISEÑO: el "destructive" real es TRANSPARENTE por
+     defecto (solo se pone rojo en hover/pressed) — patrón outline/ghost,
+     no un botón rojo sólido como shadcn asume por convención. */
+  --color-destructive: var(--color-text-action-destructive-default);
+  --color-destructive-foreground: var(--color-text-inverse);
+
+  --color-border: var(--color-border-default);
+  --color-input: var(--color-border-default);
+  --color-ring: var(--color-focus-ring);
+
+  --color-card: var(--color-surface-default);
+  --color-card-foreground: var(--color-text-default);
+  --color-popover: var(--color-surface-raised);
+  --color-popover-foreground: var(--color-text-default);
+
+  /* ===== Radius ===== */
+  /* Reset del namespace ANTES de redefinir — sin esto, Tailwind sigue
+     exponiendo sus propios defaults para las claves que no tocamos
+     (--radius-xs, --radius-2xl, --radius-3xl, --radius-4xl), y esos
+     valores ajenos ("1rem", etc.) contaminan cualquier story que
+     escanee variables por prefijo "--radius". Confirmado en producción:
+     "radius-2xl: 1rem" apareciendo sin que lo hubiéramos definido. */
+  /* Ya NO se resetea el namespace completo (--radius-*: initial) — ese
+     reset arreglaba la story de Foundations pero rompía cualquier
+     componente real que usara rounded-2xl/rounded-3xl/rounded-4xl/
+     rounded-xs sin que los hubiéramos redefinido (confirmado: pasó con
+     un componente de prueba, MediaCard). Mismo tipo de error que ya
+     habíamos cometido con spacing: "arreglar" la story rompiendo el uso
+     genérico real. La limpieza de la story ya no depende de esto — el
+     filtro por sufijo en Radius.stories.tsx (solo números o "full")
+     excluye radius-2xl/xs/3xl/4xl solo, sin tocar nada acá. Con esto
+     fuera, esas clases vuelven a usar el default razonable de Tailwind
+     en cualquier componente que no sea parte del design system. */
+
+  /* No existe token semántico "radius por tamaño" — solo la escala
+     cruda del core y valores explícitos por componente (ej. Button usa
+     radius/full = pill). Esto es una aproximación genérica para
+     contenedores/cards; los componentes deberían usar su propio radius
+     cuando el diseño lo pida, no depender solo de este valor global. */
+  --radius: var(--radius-8);
+  --radius-sm: var(--radius-4);
+  --radius-md: var(--radius-8);
+  --radius-lg: var(--radius-16);
+  --radius-xl: var(--radius-24);
+
+  /* ===== Spacing ===== */
+  /* ELIMINADO — no "arreglado", eliminado del todo. Ningún componente
+     real lo necesita: button.css (y cualquier componente que sigamos
+     este patrón) consume las variables reales directo
+     (padding-block: var(--component-button-md-padding-block)), nunca
+     clases numeradas de Tailwind (p-4, gap-8). Este mapeo solo existía
+     por costumbre de "mapear todo el catálogo" — y era la ÚNICA
+     categoría de este archivo que usa la misma convención numérica que
+     el propio motor de espaciado de Tailwind (w-48, p-4...), así que
+     era también la única que podía chocar con el uso genérico de
+     Tailwind en el resto de la app (ej. el sidebar de apps/web,
+     escrito con Tailwind normal, esperando su comportamiento estándar).
+     Sin este bloque, w-48/p-4/etc. vuelven a significar lo que Tailwind
+     espera por defecto en cualquier código que no sea un componente del
+     design system. La story de Foundations/Spacing no se ve afectada:
+     lee directo de tokens.css (las variables reales, sin pasar por este
+     mapeo), no depende de esto. */
+
+  /* ===== Font weight ===== */
+  --font-weight-regular: var(--typography-font-weight-regular);
+  --font-weight-medium: var(--typography-font-weight-medium);
+  --font-weight-semibold: var(--typography-font-weight-semibold);
+  --font-weight-bold: var(--typography-font-weight-bold);
+  --font-weight-extrabold: var(--typography-font-weight-extrabold);
+
+  /* ===== Font family ===== */
+  /* El @import de Google Fonts (en globals.css) es lo que REALMENTE
+     descarga los archivos de Inter — esta variable solo le dice al
+     navegador qué nombre buscar, no la carga por sí sola. */
+  --font-sans: var(--typography-font-family-interface);
+  --default-font-family: var(--font-sans);
+
+  /* ===== Font size / line height ===== */
+  /* NO se mapea --text-xs/sm/base/lg/xl a propósito. La única escala
+     semántica de tipografía que existe hoy es "action" (labels de
+     botón) — la escala general (headings/body/caption) existe en Figma
+     pero sigue marcada "Experimental — Unvalidated / unapproved
+     architecture proposal". No se conecta hasta que el designer la
+     apruebe. Mientras tanto, Tailwind usa su escala de texto default. */
+
+  /* ===== Motion ===== */
+  --duration-instant: var(--motion-duration-instant);
+  --duration-fast: var(--motion-duration-fast);
+  --duration-moderate: var(--motion-duration-moderate);
+  --duration-slow: var(--motion-duration-slow);
+  --ease-linear: var(--motion-easing-linear);
+  --ease-standard: var(--motion-easing-standard);
+  --ease-enter: var(--motion-easing-enter);
+  --ease-exit: var(--motion-easing-exit);
+
+  /* ===== Breakpoints ===== */
+  /* Viven en tailwind-fixes.css, no acá — ver ese archivo para la
+     explicación completa de por qué no pueden estar en @theme inline. */
+
+  /* ===== Tracking ===== */
+  --tracking-normal: var(--typography-letter-spacing-default);
+
+  /* ===== Shadow ===== */
+  /* Sin datos reales completos todavía — src/core/elevation.json tiene
+     un primer set transcrito a mano de Dev Mode (sin export del plugin
+     completo). Falta decidir si "elevation" se mapea a --shadow-* de
+     Tailwind o se consume directo por su propio nombre. */
+}

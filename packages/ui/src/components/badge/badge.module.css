@@ -1,0 +1,32 @@
+.root {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--component-badge-radius, 999px);
+  text-align: center;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-100, 12px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-100, 16px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+/* ===== Tamaño: sm ===== */
+.root[data-size="sm"] {
+  height: var(--component-badge-sm-height, 20px);
+  padding: 0 var(--component-badge-sm-padding-inline, 8px);
+}
+
+/* ===== Tamaño: md ===== */
+
+.root[data-size="md"] {
+  height: var(--component-badge-md-height, 24px);
+  padding: 0 var(--component-badge-md-padding-inline, 8px);
+}
+
+/* ===== Tone: neutral ===== */
+.root[data-tone="neutral"] {
+  background: var(--component-badge-color-neutral-surface, #F5F5F5);
+  color: var(--component-badge-color-neutral-text, #231F20);
+}

@@ -1,0 +1,245 @@
+[data-slot="button"] {
+  font-family: var(--component-button-label-font-family, Inter);
+  font-weight: var(--component-button-label-font-weight, 500);
+  letter-spacing: var(--component-button-label-letter-spacing, 0);
+  font-style: normal;
+}
+
+[data-slot="button"]:focus-visible {
+  outline: var(--border-width-2) solid var(--component-button-color-focus-ring);
+  outline-offset: var(--border-width-2);
+}
+
+[data-slot="button"][data-size="sm"] {
+  padding-block: var(--component-button-sm-padding-block);
+  padding-inline: var(--component-button-sm-padding-inline);
+  gap: var(--component-button-sm-gap);
+  border-radius: var(--component-button-sm-radius);
+  font-size: var(--component-button-label-sm-font-size);
+  line-height: var(--component-button-label-sm-line-height);
+}
+
+[data-slot="button"][data-size="sm"] svg {
+  width: var(--component-button-sm-icon-size);
+  height: var(--component-button-sm-icon-size);
+}
+
+[data-slot="button"][data-size="default"] {
+  padding-block: var(--component-button-md-padding-block);
+  padding-inline: var(--component-button-md-padding-inline);
+  gap: var(--component-button-md-gap);
+  border-radius: var(--component-button-md-radius);
+  font-size: var(--component-button-label-md-font-size);
+  line-height: var(--component-button-label-md-line-height);
+}
+
+[data-slot="button"][data-size="default"] svg {
+  width: var(--component-button-md-icon-size);
+  height: var(--component-button-md-icon-size);
+}
+
+[data-slot="button"][data-size="lg"] {
+  padding-block: var(--component-button-lg-padding-block, 10px);
+  padding-inline: var(--component-button-lg-padding-inline, 20px);
+  gap: var(--component-button-lg-gap, 8px);
+  border-radius: var(--component-button-lg-radius, 999px);
+  font-size: var(--component-button-label-lg-font-size, 18px);
+  line-height: var(--component-button-lg-line-height, 28px);
+}
+
+[data-slot="button"][data-size="lg"] svg {
+  width: var(--component-button-lg-icon-size);
+  height: var(--component-button-lg-icon-size);
+}
+
+/* ===== PRIMARY ===== */
+
+[data-slot="button"][data-variant="default"] {
+  background: linear-gradient(90deg,
+      var(--component-button-color-primary-surface-default-start) 0%,
+      var(--component-button-color-primary-surface-default-end) 100%);
+  color: var(--component-button-color-primary-text-default);
+}
+
+[data-slot="button"][data-variant="default"] svg {
+  color: var(--component-button-color-primary-icon-default);
+}
+
+[data-slot="button"][data-variant="default"]:hover {
+  background: var(--component-button-color-primary-surface-hover-end);
+}
+
+[data-slot="button"][data-variant="default"]:active:not([aria-haspopup]) {
+  background:
+    linear-gradient(var(--component-button-color-primary-surface-pressed-overlay),
+      var(--component-button-color-primary-surface-pressed-overlay)),
+    linear-gradient(90deg,
+      var(--component-button-color-primary-surface-pressed-start) 0%,
+      var(--component-button-color-primary-surface-pressed-end) 100%);
+}
+
+[data-slot="button"][data-variant="default"]:disabled {
+  background: var(--component-button-color-primary-surface-disabled);
+  color: var(--component-button-color-primary-text-disabled);
+}
+
+[data-slot="button"][data-variant="default"]:disabled svg {
+  color: var(--component-button-color-primary-text-disabled);
+}
+
+/* PRIMARY / Tone Inverse */
+
+[data-slot="button"][data-variant="default"][data-tone="inverse"] {
+  background: var(--component-button-color-primary-inverse-surface-default);
+  color: var(--component-button-color-primary-inverse-text-default);
+}
+
+[data-slot="button"][data-variant="default"][data-tone="inverse"] svg {
+  color: var(--component-button-color-primary-inverse-icon-default);
+}
+
+[data-slot="button"][data-variant="default"][data-tone="inverse"]:hover {
+  background: var(--component-button-color-primary-inverse-surface-hover);
+}
+
+[data-slot="button"][data-variant="default"][data-tone="inverse"]:active:not([aria-haspopup]) {
+  background: var(--component-button-color-primary-inverse-surface-pressed);
+}
+
+[data-slot="button"][data-variant="default"][data-tone="inverse"]:disabled {
+  background: var(--component-button-color-primary-inverse-surface-disabled);
+  color: var(--component-button-color-primary-inverse-text-disabled);
+}
+
+[data-slot="button"][data-variant="default"][data-tone="inverse"]:disabled svg {
+  color: var(--component-button-color-primary-inverse-icon-disabled);
+}
+
+/* ===== DESTRUCTIVE ===== */
+
+[data-slot="button"][data-variant="destructive"] {
+  border-width: 0;
+  background: var(--component-button-color-destructive-surface-default);
+  color: var(--component-button-color-destructive-text-default);
+}
+
+[data-slot="button"][data-variant="destructive"] svg {
+  color: var(--component-button-color-destructive-icon-default);
+}
+
+[data-slot="button"][data-variant="destructive"]:hover {
+  background: var(--component-button-color-destructive-surface-hover);
+  color: var(--component-button-color-destructive-text-hover);
+}
+
+[data-slot="button"][data-variant="destructive"]:hover svg {
+  color: var(--component-button-color-destructive-icon-hover);
+}
+
+[data-slot="button"][data-variant="destructive"]:active:not([aria-haspopup]) {
+  background: var(--component-button-color-destructive-surface-pressed);
+  color: var(--component-button-color-destructive-text-pressed);
+}
+
+[data-slot="button"][data-variant="destructive"]:active:not([aria-haspopup]) svg {
+  color: var(--component-button-color-destructive-icon-pressed);
+}
+
+[data-slot="button"][data-variant="destructive"]:disabled {
+  background: var(--component-button-color-destructive-surface-disabled);
+  color: var(--component-button-color-destructive-text-disabled);
+}
+
+[data-slot="button"][data-variant="destructive"]:disabled svg {
+  color: var(--component-button-color-destructive-icon-disabled);
+}
+
+/* ===== TERTIARY (prop "ghost") ===== */
+
+[data-slot="button"][data-variant="ghost"] {
+  background: transparent;
+  color: var(--component-button-color-tertiary-text-default);
+}
+
+[data-slot="button"][data-variant="ghost"] svg {
+  color: var(--component-button-color-tertiary-icon-default);
+}
+
+[data-slot="button"][data-variant="ghost"]:hover {
+  background: var(--component-button-color-tertiary-surface-hover);
+}
+
+[data-slot="button"][data-variant="ghost"]:active:not([aria-haspopup]) {
+  background: var(--component-button-color-tertiary-surface-pressed);
+}
+
+[data-slot="button"][data-variant="ghost"]:disabled {
+  color: var(--component-button-color-tertiary-text-disabled);
+}
+
+[data-slot="button"][data-variant="ghost"]:disabled svg {
+  color: var(--component-button-color-tertiary-icon-disabled);
+}
+
+/* ===== SECONDARY ===== */
+
+[data-slot="button"][data-variant="secondary"] {
+  background: var(--component-button-color-secondary-surface-default);
+  border: var(--border-width-2) solid var(--component-button-color-secondary-border-default-start);
+  color: var(--component-button-color-secondary-text-default);
+}
+
+[data-slot="button"][data-variant="secondary"] svg {
+  color: var(--component-button-color-secondary-icon-default);
+}
+
+[data-slot="button"][data-variant="secondary"]:hover {
+  background: linear-gradient(90deg,
+      var(--component-button-color-secondary-surface-hover-start) 0%,
+      var(--component-button-color-secondary-surface-hover-end) 100%);
+  border-color: var(--component-button-color-secondary-border-transparent);
+  color: var(--component-button-color-secondary-text-on-filled);
+}
+
+[data-slot="button"][data-variant="secondary"]:hover svg {
+  color: var(--component-button-color-secondary-icon-on-filled);
+}
+
+[data-slot="button"][data-variant="secondary"]:active:not([aria-haspopup]) {
+  background:
+    linear-gradient(var(--component-button-color-secondary-surface-pressed-overlay),
+      var(--component-button-color-secondary-surface-pressed-overlay)),
+    linear-gradient(90deg,
+      var(--component-button-color-secondary-surface-pressed-start) 0%,
+      var(--component-button-color-secondary-surface-pressed-end) 100%);
+  border-color: var(--component-button-color-secondary-border-transparent);
+  color: var(--component-button-color-secondary-text-on-filled);
+}
+
+[data-slot="button"][data-variant="secondary"]:active:not([aria-haspopup]) svg {
+  color: var(--component-button-color-secondary-icon-on-filled);
+}
+
+[data-slot="button"][data-variant="secondary"]:disabled {
+  background: transparent;
+  border-width: var(--border-width-1, 1px);
+  border-color: var(--component-button-color-secondary-border-disabled);
+  color: var(--component-button-color-secondary-text-disabled);
+}
+
+[data-slot="button"][data-variant="secondary"]:disabled svg {
+  color: var(--component-button-color-secondary-icon-disabled);
+}
+
+/* ===== LOADING ===== */
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+[data-loading="true"] svg[data-slot="loading-icon"] {
+  animation: button-spin var(--motion-duration-continuous, 800ms) var(--motion-easing-linear, linear) infinite;
+}
+

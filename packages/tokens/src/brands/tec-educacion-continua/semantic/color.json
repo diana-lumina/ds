@@ -1,0 +1,3803 @@
+{
+  "color": {
+    "icon": {
+      "default": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.13725490868091583,
+            0.12156862765550613,
+            0.125490203499794
+          ],
+          "alpha": 1,
+          "hex": "#231F20"
+        },
+        "$description": "Default color for non-interactive icons. Product identity is resolved by semantic mode.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:160:2",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "STROKE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b059c3c94532608c1dc27b5336d87771d81564d5/-1:-1",
+            "targetVariableName": "color/brand/near-black",
+            "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+            "targetVariableSetName": "TEC Educación Continua — Reference"
+          }
+        }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Inverse icon color for icons on sufficiently dark surfaces, brand surfaces, gradients, or images. Resolves to shared color/white in both product modes. Does not include opacity or component-level contrast treatments; validate contextual legibility before use.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:301:2",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "STROKE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+            "targetVariableName": "color/white",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3450980484485626,
+            0.3450980484485626,
+            0.35686275362968445
+          ],
+          "alpha": 1,
+          "hex": "#58585B"
+        },
+        "$description": "Secondary color for non-interactive icons that accompany supporting content or metadata on light surfaces. Use when color/icon/default creates excessive prominence. Resolves through Semantic modes and does not replace inverse, brand, action, feedback, disabled, or component-specific icon tokens. DTCG: color.icon.secondary ($type: color).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:952:2",
+          "com.figma.scopes": [
+            "SHAPE_FILL",
+            "STROKE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:21064bb1adedc0425df2971ff6598fe001244146/-1:-1",
+            "targetVariableName": "color/neutral/600",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "brand": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.2235294133424759,
+              0.6509804129600525
+            ],
+            "alpha": 1,
+            "hex": "#0039A6"
+          },
+          "$description": "Default brand-colored icon for explicit product identity in non-interactive contexts. Use when product identity is intentionally part of the message; do not use for actions, links, navigation states, feedback, logos, illustrations, or component-owned icon color. TEC 360 resolves to turquoise/on-light and must not be the sole non-text cue on white until 3:1 contrast is met. DTCG: color.icon.brand.default ($type: color).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:160:3",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+              "targetVariableName": "color/brand/blue",
+              "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+              "targetVariableSetName": "TEC Educación Continua — Reference"
+            }
+          }
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.3333333432674408,
+              0.5254902243614197,
+              0.7568627595901489
+            ],
+            "alpha": 1,
+            "hex": "#5586C1"
+          },
+          "$description": "Subtle brand-colored icon for decorative, redundant, or low-emphasis product identity. Do not use as the sole carrier of meaning on light surfaces. TEC 360 current alias does not meet 3:1 on white and therefore requires accompanying text or a validated background. DTCG: color.icon.brand.subtle ($type: color).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:955:2",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:8978fcd6028d5c47df5114873b71db0aebcd40e1/-1:-1",
+              "targetVariableName": "color/supporting/blue/swatch-02",
+              "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+              "targetVariableSetName": "TEC Educación Continua — Reference"
+            }
+          }
+        },
+        "strong": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.18431372940540314,
+              0.47843137383461
+            ],
+            "alpha": 1,
+            "hex": "#002F7A"
+          },
+          "$description": "Strong brand-colored icon for explicit high-emphasis product identity in non-interactive contexts. Use sparingly and only when brand emphasis is intentional; do not replace feedback, action, inverse, or component-owned icon tokens. DTCG: color.icon.brand.strong ($type: color).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:955:3",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:ac75008f031423890a490ee605e7309d771c0568/-1:-1",
+              "targetVariableName": "color/supporting/blue/swatch-04",
+              "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+              "targetVariableSetName": "TEC Educación Continua — Reference"
+            }
+          }
+        }
+      },
+      "action": {
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.45098039507865906,
+              0.45098039507865906,
+              0.45098039507865906
+            ],
+            "alpha": 1,
+            "hex": "#737373"
+          },
+          "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/disabled/content. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/disabled/content.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:576:15",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:56bc0ba5c17385f4ee2bfc8ea4f4825efa884a53/-1:-1",
+              "targetVariableName": "color/neutral/500",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.icon.inverse}",
+            "$description": "CURRENT · Button Primary icon route. TEC 360 resolves dark icon over light gradient; TEC Educación Continua resolves inverse icon over solid brand blue. Decision: Button Primary Content Accessibility 2026-07-29.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:632:3",
+              "com.figma.scopes": [
+                "SHAPE_FILL",
+                "STROKE"
+              ]
+            }
+          },
+          "on-filled": {
+            "$type": "color",
+            "$value": "{color.icon.inverse}",
+            "$description": "CURRENT · Button Primary icon route. TEC 360 resolves dark icon over light gradient; TEC Educación Continua resolves inverse icon over solid brand blue. Decision: Button Primary Content Accessibility 2026-07-29.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:806:179",
+              "com.figma.scopes": [
+                "SHAPE_FILL",
+                "STROKE"
+              ]
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Icono de Primary Inverse en estado default. Mantiene contraste alto y coherencia con el label del control.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:776:2",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Icono de Primary Inverse en estado hover. Mantiene contraste alto y coherencia con el label del control.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:776:3",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Icono de Primary Inverse en estado pressed. Mantiene contraste alto y coherencia con el label del control.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:776:4",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{color.icon.action.disabled}",
+              "$description": "Contenido de icono para Primary Inverse disabled. Reutiliza el estado semantic disabled global para comunicar indisponibilidad; no debe conservar el contraste de un estado activo.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:776:5",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ]
+              }
+            }
+          }
+        },
+        "secondary": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0.2235294133424759,
+                0.6509804129600525
+              ],
+              "alpha": 1,
+              "hex": "#0039A6"
+            },
+            "$description": "Secondary action default icon color.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:576:6",
+              "com.figma.scopes": [
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                "targetVariableName": "color/brand/blue",
+                "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                "targetVariableSetName": "TEC Educación Continua — Reference"
+              }
+            }
+          },
+          "on-filled": {
+            "$type": "color",
+            "$value": "{color.icon.action.secondary.default}",
+            "$description": "Icon on filled Secondary treatment. White in TEC 360; brand blue fallback in TEC Educación Continua.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:790:9",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          }
+        },
+        "tertiary": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0.2235294133424759,
+                0.6509804129600525
+              ],
+              "alpha": 1,
+              "hex": "#0039A6"
+            },
+            "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/tertiary/content. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/tertiary/content.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:576:11",
+              "com.figma.scopes": [
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                "targetVariableName": "color/brand/blue",
+                "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                "targetVariableSetName": "TEC Educación Continua — Reference"
+              }
+            }
+          }
+        },
+        "destructive": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:4",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:8",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:12",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "focus-visible": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:16",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.icon.action.disabled}",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:20",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "loading": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:24",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          }
+        },
+        "link": {
+          "standard": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Semantic Link icon color. Tone=standard; State=default. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:12",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-standard-default)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.11764705926179886,
+                  0.2705882489681244,
+                  0.45490196347236633
+                ],
+                "alpha": 1,
+                "hex": "#1E4574"
+              },
+              "$description": "Semantic Link icon color. Tone=standard; State=hover. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:13",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-standard-hover)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:cf2ce9dd0a28e405c517f9300fc335e1132e0482/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-03",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.18431372940540314,
+                  0.47843137383461
+                ],
+                "alpha": 1,
+                "hex": "#002F7A"
+              },
+              "$description": "Semantic Link icon color. Tone=standard; State=pressed. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:14",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-standard-pressed)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:ac75008f031423890a490ee605e7309d771c0568/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-04",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "focus-visible": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Semantic Link icon color. Tone=standard; State=focus-visible. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:15",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-standard-focus-visible)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.11764705926179886,
+                  0.2705882489681244,
+                  0.45490196347236633
+                ],
+                "alpha": 1,
+                "hex": "#1E4574"
+              },
+              "$description": "Semantic Link icon color. Tone=standard; State=visited. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:16",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-standard-visited)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:cf2ce9dd0a28e405c517f9300fc335e1132e0482/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-03",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link icon color. Tone=inverse; State=default. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:17",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-inverse-default)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link icon color. Tone=inverse; State=hover. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:18",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-inverse-hover)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link icon color. Tone=inverse; State=pressed. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:19",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-inverse-pressed)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "focus-visible": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link icon color. Tone=inverse; State=focus-visible. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:20",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-inverse-focus-visible)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link icon color. Tone=inverse; State=visited. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:21",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-icon-action-link-inverse-visited)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            }
+          }
+        }
+      },
+      "feedback": {
+        "neutral": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.250980406999588,
+              0.250980406999588,
+              0.250980406999588
+            ],
+            "alpha": 1,
+            "hex": "#404040"
+          },
+          "$description": "Semantic feedback icon for neutral. Status: Implemented · Experimental. Source: color/neutral/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:4",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:22e560cb9b5c0e134c0d32af7eb109e829b3d780/-1:-1",
+              "targetVariableName": "color/neutral/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "info": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.11372549086809158,
+              0.30588236451148987,
+              0.8470588326454163
+            ],
+            "alpha": 1,
+            "hex": "#1D4ED8"
+          },
+          "$description": "Semantic feedback icon for info. Status: Implemented · Experimental. Source: color/blue/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:7",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:6a496491b53a5a0aeff84bdd682c2bdaf8522cb7/-1:-1",
+              "targetVariableName": "color/blue/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "success": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.08235294371843338,
+              0.501960813999176,
+              0.239215686917305
+            ],
+            "alpha": 1,
+            "hex": "#15803D"
+          },
+          "$description": "Semantic feedback icon for success. Status: Implemented · Experimental. Source: color/green/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:10",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:45042e1e77bee0e87fbaebacae266af8a2f652e8/-1:-1",
+              "targetVariableName": "color/green/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "warning": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6313725709915161,
+              0.3843137323856354,
+              0.027450980618596077
+            ],
+            "alpha": 1,
+            "hex": "#A16207"
+          },
+          "$description": "Semantic feedback icon for warning. Status: Implemented · Experimental. Source: color/yellow/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:13",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:b75566c3e7bb92e8e8c5ef2a41a6e7e6af8e352c/-1:-1",
+              "targetVariableName": "color/yellow/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "danger": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7254902124404907,
+              0.10980392247438431,
+              0.10980392247438431
+            ],
+            "alpha": 1,
+            "hex": "#B91C1C"
+          },
+          "$description": "Semantic feedback icon for danger. Status: Implemented · Experimental. Source: color/red/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:16",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:46a9442256ad0648e5dff09a835aa7a8a829dd82/-1:-1",
+              "targetVariableName": "color/red/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
+      },
+      "selection": {
+        "unselected": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.09019608050584793,
+              0.09019608050584793,
+              0.09019608050584793
+            ],
+            "alpha": 1,
+            "hex": "#171717"
+          },
+          "$description": "Semantic selection token. Source: color/neutral/900. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:15",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:e16a58dae703ebea5ab4321ec5b7e5bef3248e2c/-1:-1",
+              "targetVariableName": "color/neutral/900",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "selected": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.11372549086809158,
+              0.30588236451148987,
+              0.8470588326454163
+            ],
+            "alpha": 1,
+            "hex": "#1D4ED8"
+          },
+          "$description": "Semantic selection token. Source: color/blue/700. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:17",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:6a496491b53a5a0aeff84bdd682c2bdaf8522cb7/-1:-1",
+              "targetVariableName": "color/blue/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6392157077789307,
+              0.6392157077789307,
+              0.6392157077789307
+            ],
+            "alpha": 1,
+            "hex": "#A3A3A3"
+          },
+          "$description": "Semantic selection token. Source: color/neutral/400. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:19",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:8d49a4b3ad301946c42b0de9450bcc58f036d77d/-1:-1",
+              "targetVariableName": "color/neutral/400",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
+      }
+    },
+    "text": {
+      "default": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.13725490868091583,
+            0.12156862765550613,
+            0.125490203499794
+          ],
+          "alpha": 1,
+          "hex": "#231F20"
+        },
+        "$description": "Default text color. Resolves by product mode to the approved near-black identity value. Use for primary readable text on light surfaces.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:261:2",
+          "com.figma.scopes": [
+            "TEXT_FILL"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:b059c3c94532608c1dc27b5336d87771d81564d5/-1:-1",
+            "targetVariableName": "color/brand/near-black",
+            "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+            "targetVariableSetName": "TEC Educación Continua — Reference"
+          }
+        }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Inverse text color. Resolves to global white in both product modes. Use only on sufficiently dark surfaces with validated contrast.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:261:3",
+          "com.figma.scopes": [
+            "TEXT_FILL"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+            "targetVariableName": "color/white",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3450980484485626,
+            0.3450980484485626,
+            0.35686275362968445
+          ],
+          "alpha": 1,
+          "hex": "#58585B"
+        },
+        "$description": "Texto secundario y supporting content sobre superficies claras. Intención compartida entre TEC 360 y TEC Educación Continua. Debe consumirse mediante Semantic; no sustituye texto inverse, disabled, link, feedback ni contenido sobre imágenes o fondos de marca.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:272:2",
+          "com.figma.scopes": [
+            "TEXT_FILL"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:21064bb1adedc0425df2971ff6598fe001244146/-1:-1",
+            "targetVariableName": "color/neutral/600",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "action": {
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.45098039507865906,
+              0.45098039507865906,
+              0.45098039507865906
+            ],
+            "alpha": 1,
+            "hex": "#737373"
+          },
+          "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/disabled/content. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/disabled/content.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:576:14",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:56bc0ba5c17385f4ee2bfc8ea4f4825efa884a53/-1:-1",
+              "targetVariableName": "color/neutral/500",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.inverse}",
+            "$description": "CURRENT · Button Primary readable text route. TEC 360 resolves dark text over light gradient; TEC Educación Continua resolves inverse text over solid brand blue. Decision: Button Primary Content Accessibility 2026-07-29.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:632:2",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "on-filled": {
+            "$type": "color",
+            "$value": "{color.text.inverse}",
+            "$description": "CURRENT · Button Primary readable text route. TEC 360 resolves dark text over light gradient; TEC Educación Continua resolves inverse text over solid brand blue. Decision: Button Primary Content Accessibility 2026-07-29.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:806:183",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Texto de Primary Inverse en estado default. Mantiene contraste alto sobre la superficie clara del control.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:775:6",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Texto de Primary Inverse en estado hover. Mantiene contraste alto sobre la superficie clara del control.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:775:7",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Texto de Primary Inverse en estado pressed. Mantiene contraste alto sobre la superficie clara del control.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:775:8",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{color.text.action.disabled}",
+              "$description": "Contenido de texto para Primary Inverse disabled. Reutiliza el estado semantic disabled global para comunicar indisponibilidad; no debe conservar el contraste de un estado activo.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:775:9",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ]
+              }
+            }
+          }
+        },
+        "secondary": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0.2235294133424759,
+                0.6509804129600525
+              ],
+              "alpha": 1,
+              "hex": "#0039A6"
+            },
+            "$description": "Secondary action default text color.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:576:5",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                "targetVariableName": "color/brand/blue",
+                "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                "targetVariableSetName": "TEC Educación Continua — Reference"
+              }
+            }
+          },
+          "on-filled": {
+            "$type": "color",
+            "$value": "{color.text.action.secondary.default}",
+            "$description": "Text on filled Secondary treatment. White in TEC 360; brand blue fallback in TEC Educación Continua.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:790:8",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          }
+        },
+        "tertiary": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0.2235294133424759,
+                0.6509804129600525
+              ],
+              "alpha": 1,
+              "hex": "#0039A6"
+            },
+            "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/tertiary/content. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/tertiary/content.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:576:10",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                "targetVariableName": "color/brand/blue",
+                "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                "targetVariableSetName": "TEC Educación Continua — Reference"
+              }
+            }
+          }
+        },
+        "destructive": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:3",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:7",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:11",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "focus-visible": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:15",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.text.action.disabled}",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:19",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "loading": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:23",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          }
+        },
+        "link": {
+          "standard": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Semantic Link text color. Tone=standard; State=default. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:2",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-standard-default)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.11764705926179886,
+                  0.2705882489681244,
+                  0.45490196347236633
+                ],
+                "alpha": 1,
+                "hex": "#1E4574"
+              },
+              "$description": "Semantic Link text color. Tone=standard; State=hover. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:3",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-standard-hover)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:cf2ce9dd0a28e405c517f9300fc335e1132e0482/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-03",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.18431372940540314,
+                  0.47843137383461
+                ],
+                "alpha": 1,
+                "hex": "#002F7A"
+              },
+              "$description": "Semantic Link text color. Tone=standard; State=pressed. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:4",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-standard-pressed)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:ac75008f031423890a490ee605e7309d771c0568/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-04",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "focus-visible": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Semantic Link text color. Tone=standard; State=focus-visible. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:5",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-standard-focus-visible)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.11764705926179886,
+                  0.2705882489681244,
+                  0.45490196347236633
+                ],
+                "alpha": 1,
+                "hex": "#1E4574"
+              },
+              "$description": "Semantic Link text color. Tone=standard; State=visited. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:6",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-standard-visited)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:cf2ce9dd0a28e405c517f9300fc335e1132e0482/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-03",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link text color. Tone=inverse; State=default. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:7",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-inverse-default)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link text color. Tone=inverse; State=hover. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:8",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-inverse-hover)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link text color. Tone=inverse; State=pressed. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:9",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-inverse-pressed)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "focus-visible": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link text color. Tone=inverse; State=focus-visible. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:10",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-inverse-focus-visible)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Semantic Link text color. Tone=inverse; State=visited. Text and icon remain chromatically aligned. No purple values.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1002:11",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--color-text-action-link-inverse-visited)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            }
+          }
+        }
+      },
+      "feedback": {
+        "neutral": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.250980406999588,
+              0.250980406999588,
+              0.250980406999588
+            ],
+            "alpha": 1,
+            "hex": "#404040"
+          },
+          "$description": "Semantic feedback text for neutral. Status: Implemented · Experimental. Source: color/neutral/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:3",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:22e560cb9b5c0e134c0d32af7eb109e829b3d780/-1:-1",
+              "targetVariableName": "color/neutral/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "info": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.11372549086809158,
+              0.30588236451148987,
+              0.8470588326454163
+            ],
+            "alpha": 1,
+            "hex": "#1D4ED8"
+          },
+          "$description": "Semantic feedback text for info. Status: Implemented · Experimental. Source: color/blue/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:6",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:6a496491b53a5a0aeff84bdd682c2bdaf8522cb7/-1:-1",
+              "targetVariableName": "color/blue/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "success": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.08235294371843338,
+              0.501960813999176,
+              0.239215686917305
+            ],
+            "alpha": 1,
+            "hex": "#15803D"
+          },
+          "$description": "Semantic feedback text for success. Status: Implemented · Experimental. Source: color/green/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:9",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:45042e1e77bee0e87fbaebacae266af8a2f652e8/-1:-1",
+              "targetVariableName": "color/green/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "warning": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6313725709915161,
+              0.3843137323856354,
+              0.027450980618596077
+            ],
+            "alpha": 1,
+            "hex": "#A16207"
+          },
+          "$description": "Semantic feedback text for warning. Status: Implemented · Experimental. Source: color/yellow/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:12",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:b75566c3e7bb92e8e8c5ef2a41a6e7e6af8e352c/-1:-1",
+              "targetVariableName": "color/yellow/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "danger": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7254902124404907,
+              0.10980392247438431,
+              0.10980392247438431
+            ],
+            "alpha": 1,
+            "hex": "#B91C1C"
+          },
+          "$description": "Semantic feedback text for danger. Status: Implemented · Experimental. Source: color/red/700. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:15",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:46a9442256ad0648e5dff09a835aa7a8a829dd82/-1:-1",
+              "targetVariableName": "color/red/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
+      },
+      "selection": {
+        "unselected": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.09019608050584793,
+              0.09019608050584793,
+              0.09019608050584793
+            ],
+            "alpha": 1,
+            "hex": "#171717"
+          },
+          "$description": "Semantic selection token. Source: color/neutral/900. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:14",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:e16a58dae703ebea5ab4321ec5b7e5bef3248e2c/-1:-1",
+              "targetVariableName": "color/neutral/900",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "selected": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.11372549086809158,
+              0.30588236451148987,
+              0.8470588326454163
+            ],
+            "alpha": 1,
+            "hex": "#1D4ED8"
+          },
+          "$description": "Semantic selection token. Source: color/blue/700. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:16",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:6a496491b53a5a0aeff84bdd682c2bdaf8522cb7/-1:-1",
+              "targetVariableName": "color/blue/700",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6392157077789307,
+              0.6392157077789307,
+              0.6392157077789307
+            ],
+            "alpha": 1,
+            "hex": "#A3A3A3"
+          },
+          "$description": "Semantic selection token. Source: color/neutral/400. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:18",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:8d49a4b3ad301946c42b0de9450bcc58f036d77d/-1:-1",
+              "targetVariableName": "color/neutral/400",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
+      }
+    },
+    "surface": {
+      "default": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Superficie base de contenido. Usar en cards, paneles, modales y contenedores sobre canvas. No representa elevación ni estado interactivo.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:307:3",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+            "targetVariableName": "color/white",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "canvas": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Fondo global de página o vista. Usar en el frame raíz. No usar en cards, módulos internos ni estados interactivos.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:307:2",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+            "targetVariableName": "color/white",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9607843160629272,
+            0.9607843160629272,
+            0.9607843160629272
+          ],
+          "alpha": 1,
+          "hex": "#F5F5F5"
+        },
+        "$description": "Superficie clara para diferenciar secciones o bandas sin elevación. Puede usarse dentro de canvas para separación ligera.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:771:2",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:ff8fa975ae7462e49c33c19b008b158506d1e74c/-1:-1",
+            "targetVariableName": "color/neutral/50",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "raised": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Superficie elevada visualmente sobre canvas o default. Usar en cards elevadas, popovers, dropdowns, modales o paneles flotantes. Debe separarse mediante shadow y/o border; el color por sí solo no representa elevation. No usar como fondo global ni como estado interactivo.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:768:178",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+            "targetVariableName": "color/white",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "sunken": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9372549057006836,
+            0.9372549057006836,
+            0.9372549057006836
+          ],
+          "alpha": 1,
+          "hex": "#EFEFEF"
+        },
+        "$description": "Superficie visualmente contenida o hundida dentro de otra surface. Usar en data wells, áreas internas, code blocks, filtros, campos agrupados o frames que contienen información. Debe percibirse más profunda que canvas/default. No usar para cards elevadas, overlays ni estados disabled.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:768:185",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:3200cf7b4373e154ac608bfee632c31c9e9c914e/-1:-1",
+            "targetVariableName": "color/neutral/100",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.03921568766236305,
+            0.03921568766236305,
+            0.03921568766236305
+          ],
+          "alpha": 1,
+          "hex": "#0A0A0A"
+        },
+        "$description": "Superficie oscura funcional que requiere contenido inverse. No usar como overlay ni como sustituto de imágenes o gradientes.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:309:2",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:06b81b982dd16a7791b28cea2fed537e1f98afac/-1:-1",
+            "targetVariableName": "color/neutral/950",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "overlay": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.7200000286102295,
+          "hex": "#000000"
+        },
+        "$description": "Scrim semitransparente detrás de modal, dialog o drawer. No usar como fondo de sección.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:315:2",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:c92bc581d9a7e5cae83548557b4ac502760e5952/-1:-1",
+            "targetVariableName": "color/blackAlpha/72",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "transparent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0,
+          "hex": "#FFFFFF"
+        },
+        "$description": "Ausencia intencional de superficie visible. Usar cuando debe permanecer visible la superficie del contenedor padre.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:611:8",
+          "com.figma.scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:8b5dc88d6d91e8653d4bcad2b48cc3a37589a8ef/-1:-1",
+            "targetVariableName": "color/whiteAlpha/0",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "action": {
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8980392217636108,
+              0.8980392217636108,
+              0.8980392217636108
+            ],
+            "alpha": 1,
+            "hex": "#E5E5E5"
+          },
+          "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/disabled/surface. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/disabled/surface.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:576:16",
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:0e68d22c4ed7bf2581fe69a32eb1bc149d6c34e0/-1:-1",
+              "targetVariableName": "color/neutral/200",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "primary": {
+          "default": {
+            "start": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "R5-G. TEC 360: Default Paint Style start #63CFDA. TEC Educación Continua: alias color/brand/blue. Semantic gradient stop.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:692:9",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "end": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "R5-G. TEC 360: Default Paint Style end #8896CB. TEC Educación Continua: alias color/brand/blue. Semantic gradient stop.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:692:10",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "$root": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/primary/default. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/primary/default.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:576:2",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            }
+          },
+          "hover": {
+            "start": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.11764705926179886,
+                  0.2705882489681244,
+                  0.45490196347236633
+                ],
+                "alpha": 1,
+                "hex": "#1E4574"
+              },
+              "$description": "R5-G. TEC 360: agency-approved Hover Paint Style start #64CCD9. TEC Educación Continua: alias color/supporting/blue/swatch-03.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:692:11",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:cf2ce9dd0a28e405c517f9300fc335e1132e0482/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-03",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "end": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.11764705926179886,
+                  0.2705882489681244,
+                  0.45490196347236633
+                ],
+                "alpha": 1,
+                "hex": "#1E4574"
+              },
+              "$description": "R5-G. TEC 360: agency-approved Hover Paint Style end #8699CC. TEC Educación Continua: alias color/supporting/blue/swatch-03.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:692:12",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:cf2ce9dd0a28e405c517f9300fc335e1132e0482/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-03",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "overlay": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.11764705926179886,
+                  0.2705882489681244,
+                  0.45490196347236633
+                ],
+                "alpha": 1,
+                "hex": "#1E4574"
+              },
+              "$description": "R5-G. TEC 360: agency-approved Hover Paint Style end #8699CC. TEC Educación Continua: alias color/supporting/blue/swatch-03.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:808:10",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:cf2ce9dd0a28e405c517f9300fc335e1132e0482/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-03",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "$root": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.11764705926179886,
+                  0.2705882489681244,
+                  0.45490196347236633
+                ],
+                "alpha": 1,
+                "hex": "#1E4574"
+              },
+              "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/primary/hover. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/primary/hover.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:576:3",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:cf2ce9dd0a28e405c517f9300fc335e1132e0482/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-03",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            }
+          },
+          "pressed": {
+            "start": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.18431372940540314,
+                  0.47843137383461
+                ],
+                "alpha": 1,
+                "hex": "#002F7A"
+              },
+              "$description": "R5-G. TEC 360: Provisional Pressed Paint Style base start #63CFDA. TEC Educación Continua: alias color/supporting/blue/swatch-04.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:692:13",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:ac75008f031423890a490ee605e7309d771c0568/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-04",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "end": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.18431372940540314,
+                  0.47843137383461
+                ],
+                "alpha": 1,
+                "hex": "#002F7A"
+              },
+              "$description": "R5-G. TEC 360: Provisional Pressed Paint Style base end #8896CB. TEC Educación Continua: alias color/supporting/blue/swatch-04.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:692:14",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:ac75008f031423890a490ee605e7309d771c0568/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-04",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "overlay": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 0,
+                "hex": "#000000"
+              },
+              "$description": "Primary pressed interaction overlay. TEC 360: black 20% via color/blackAlpha/20. TEC Educación Continua: preserve product-specific mapping. Status: Implemented · Experimental.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:692:15",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:5b57c9bea3e8d11e4c45ec65a652698ac3729209/-1:-1",
+                  "targetVariableName": "color/blackAlpha/0",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "$root": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.18431372940540314,
+                  0.47843137383461
+                ],
+                "alpha": 1,
+                "hex": "#002F7A"
+              },
+              "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/primary/pressed. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/primary/pressed.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:576:4",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:ac75008f031423890a490ee605e7309d771c0568/-1:-1",
+                  "targetVariableName": "color/supporting/blue/swatch-04",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Superficie de Primary Inverse en estado default. Usar sobre contextos oscuros o visuales; no representa la surface del contenedor padre.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:775:2",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.9764705896377563,
+                  0.9764705896377563,
+                  0.9882352948188782
+                ],
+                "alpha": 1,
+                "hex": "#F9F9FC"
+              },
+              "$description": "Superficie de Primary Inverse en hover. Cambio sutil respecto a default para comunicar interacción sin perder contraste.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:775:3",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:4dce37b66a23365ab5d790dab2fffc9471292cb8/-1:-1",
+                  "targetVariableName": "color/neutral/25",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.9372549057006836,
+                  0.9372549057006836,
+                  0.9372549057006836
+                ],
+                "alpha": 1,
+                "hex": "#EFEFEF"
+              },
+              "$description": "Superficie de Primary Inverse en pressed. Debe distinguirse claramente de hover y comunicar activación temporal.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:775:4",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:3200cf7b4373e154ac608bfee632c31c9e9c914e/-1:-1",
+                  "targetVariableName": "color/neutral/100",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.8980392217636108,
+                  0.8980392217636108,
+                  0.8980392217636108
+                ],
+                "alpha": 1,
+                "hex": "#E5E5E5"
+              },
+              "$description": "Superficie de Primary Inverse disabled. Usar solo cuando la acción no está disponible; no reutilizar como layout surface.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:775:5",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:0e68d22c4ed7bf2581fe69a32eb1bc149d6c34e0/-1:-1",
+                  "targetVariableName": "color/neutral/200",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            }
+          }
+        },
+        "secondary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.surface.transparent}",
+            "$description": "Secondary action surface. TEC 360 uses neutral/100; TEC Educación Continua remains transparent.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:790:2",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "hover": {
+            "start": {
+              "$type": "color",
+              "$value": "{color.surface.transparent}",
+              "$description": "Start stop for Secondary hover surface recipe. Transparent in TEC Educación Continua.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:790:3",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ]
+              }
+            },
+            "end": {
+              "$type": "color",
+              "$value": "{color.surface.transparent}",
+              "$description": "End stop for Secondary hover surface recipe. Transparent in TEC Educación Continua.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:790:4",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ]
+              }
+            },
+            "$root": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.9372549057006836,
+                  0.9372549057006836,
+                  0.9372549057006836
+                ],
+                "alpha": 1,
+                "hex": "#EFEFEF"
+              },
+              "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/secondary/hover-surface. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/secondary/hover-surface.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:576:8",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:3200cf7b4373e154ac608bfee632c31c9e9c914e/-1:-1",
+                  "targetVariableName": "color/neutral/100",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            }
+          },
+          "pressed": {
+            "start": {
+              "$type": "color",
+              "$value": "{color.surface.transparent}",
+              "$description": "Start stop for Secondary pressed surface recipe. Aliases hover/start in TEC 360; transparent in TEC Educación Continua.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:790:5",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ]
+              }
+            },
+            "end": {
+              "$type": "color",
+              "$value": "{color.surface.transparent}",
+              "$description": "End stop for Secondary pressed surface recipe. Aliases hover/end in TEC 360; transparent in TEC Educación Continua.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:790:6",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ]
+              }
+            },
+            "overlay": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Pressed overlay. Black at 10% in TEC 360; transparent in TEC Educación Continua.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:790:7",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:8b5dc88d6d91e8653d4bcad2b48cc3a37589a8ef/-1:-1",
+                  "targetVariableName": "color/whiteAlpha/0",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "$root": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.8980392217636108,
+                  0.8980392217636108,
+                  0.8980392217636108
+                ],
+                "alpha": 1,
+                "hex": "#E5E5E5"
+              },
+              "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/secondary/pressed-surface. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/secondary/pressed-surface.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:576:9",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:0e68d22c4ed7bf2581fe69a32eb1bc149d6c34e0/-1:-1",
+                  "targetVariableName": "color/neutral/200",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            }
+          }
+        },
+        "tertiary": {
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9372549057006836,
+                0.9372549057006836,
+                0.9372549057006836
+              ],
+              "alpha": 1,
+              "hex": "#EFEFEF"
+            },
+            "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/tertiary/hover-surface. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/tertiary/hover-surface.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:576:12",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:3200cf7b4373e154ac608bfee632c31c9e9c914e/-1:-1",
+                "targetVariableName": "color/neutral/100",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.8980392217636108,
+                0.8980392217636108,
+                0.8980392217636108
+              ],
+              "alpha": 1,
+              "hex": "#E5E5E5"
+            },
+            "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/tertiary/pressed-surface. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/tertiary/pressed-surface.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:576:13",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:0e68d22c4ed7bf2581fe69a32eb1bc149d6c34e0/-1:-1",
+                "targetVariableName": "color/neutral/200",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          }
+        },
+        "destructive": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.surface.transparent}",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:2",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 0.07999999821186066,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:6",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:d10f7bbd99cad8ca3d908c7e0b8af8763b404ab2/-1:-1",
+                "targetVariableName": "color/redAlpha/08",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 0.11999999731779099,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:10",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:0a5ddc8ee1f06036e5b3ed60f725a7b5ed0f2cec/-1:-1",
+                "targetVariableName": "color/redAlpha/12",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "focus-visible": {
+            "$type": "color",
+            "$value": "{color.surface.transparent}",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:14",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.surface.transparent}",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:18",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "loading": {
+            "$type": "color",
+            "$value": "{color.surface.transparent}",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:22",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          }
+        }
+      },
+      "brand": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.2235294133424759,
+              0.6509804129600525
+            ],
+            "alpha": 1,
+            "hex": "#0039A6"
+          },
+          "$description": "Default solid brand surface. Resolves by product mode.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:827:205",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+              "targetVariableName": "color/brand/blue",
+              "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+              "targetVariableSetName": "TEC Educación Continua — Reference"
+            }
+          }
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6470588445663452,
+              0.843137264251709,
+              0.9764705896377563
+            ],
+            "alpha": 1,
+            "hex": "#A5D7F9"
+          },
+          "$description": "Low-emphasis solid brand surface for supporting editorial and content regions.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:898:3",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:ef208b18f87714c48a4aa64e7749d5507064d9f7/-1:-1",
+              "targetVariableName": "color/supporting/blue/swatch-01",
+              "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+              "targetVariableSetName": "TEC Educación Continua — Reference"
+            }
+          }
+        },
+        "strong": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.18431372940540314,
+              0.47843137383461
+            ],
+            "alpha": 1,
+            "hex": "#002F7A"
+          },
+          "$description": "High-emphasis solid brand surface for prominent cards and branded blocks.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:898:4",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:ac75008f031423890a490ee605e7309d771c0568/-1:-1",
+              "targetVariableName": "color/supporting/blue/swatch-04",
+              "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+              "targetVariableSetName": "TEC Educación Continua — Reference"
+            }
+          }
+        }
+      },
+      "feedback": {
+        "neutral": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9607843160629272,
+              0.9607843160629272,
+              0.9607843160629272
+            ],
+            "alpha": 1,
+            "hex": "#F5F5F5"
+          },
+          "$description": "Semantic feedback surface for neutral. Status: Implemented · Experimental. Source: color/neutral/50. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:2",
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:ff8fa975ae7462e49c33c19b008b158506d1e74c/-1:-1",
+              "targetVariableName": "color/neutral/50",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "info": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9372549057006836,
+              0.9647058844566345,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#EFF6FF"
+          },
+          "$description": "Semantic feedback surface for info. Status: Implemented · Experimental. Source: color/blue/50. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:5",
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:93c5c2043e7864ec712698a2a79f99a803ef8c52/-1:-1",
+              "targetVariableName": "color/blue/50",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "success": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9411764740943909,
+              0.9921568632125854,
+              0.95686274766922
+            ],
+            "alpha": 1,
+            "hex": "#F0FDF4"
+          },
+          "$description": "Semantic feedback surface for success. Status: Implemented · Experimental. Source: color/green/50. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:8",
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:295349c64811db07301c4b95c84fc8b4817b2992/-1:-1",
+              "targetVariableName": "color/green/50",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "warning": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9960784316062927,
+              0.9882352948188782,
+              0.9098039269447327
+            ],
+            "alpha": 1,
+            "hex": "#FEFCE8"
+          },
+          "$description": "Semantic feedback surface for warning. Status: Implemented · Experimental. Source: color/yellow/50. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:11",
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:ffe68fc09a0ada157b899651d9243521989e3f46/-1:-1",
+              "targetVariableName": "color/yellow/50",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "danger": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9960784316062927,
+              0.9490196108818054,
+              0.9490196108818054
+            ],
+            "alpha": 1,
+            "hex": "#FEF2F2"
+          },
+          "$description": "Semantic feedback surface for danger. Status: Implemented · Experimental. Source: color/red/50. Shared across TEC 360 and TEC Educación Continua. Use for non-interactive system feedback and status communication; do not use as brand color or action state.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:938:14",
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:5dfe40514eeef2fa1638c8429ca5d78d7b1207f5/-1:-1",
+              "targetVariableName": "color/red/50",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
+      },
+      "selection": {
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9607843160629272,
+              0.9607843160629272,
+              0.9607843160629272
+            ],
+            "alpha": 1,
+            "hex": "#F5F5F5"
+          },
+          "$description": "Semantic selection token. Source: color/neutral/50. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:10",
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:ff8fa975ae7462e49c33c19b008b158506d1e74c/-1:-1",
+              "targetVariableName": "color/neutral/50",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "unselected": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Semantic selection token. Source: color/white. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:945:2",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                "targetVariableName": "color/white",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9607843160629272,
+                0.9607843160629272,
+                0.9607843160629272
+              ],
+              "alpha": 1,
+              "hex": "#F5F5F5"
+            },
+            "$description": "Semantic selection token. Source: color/neutral/50. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:945:3",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:ff8fa975ae7462e49c33c19b008b158506d1e74c/-1:-1",
+                "targetVariableName": "color/neutral/50",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.8980392217636108,
+                0.8980392217636108,
+                0.8980392217636108
+              ],
+              "alpha": 1,
+              "hex": "#E5E5E5"
+            },
+            "$description": "Semantic selection token. Source: color/neutral/200. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:945:4",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:0e68d22c4ed7bf2581fe69a32eb1bc149d6c34e0/-1:-1",
+                "targetVariableName": "color/neutral/200",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "focus-visible": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Semantic selection token. Source: color/white. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:945:5",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                "targetVariableName": "color/white",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          }
+        },
+        "selected": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9372549057006836,
+                0.9647058844566345,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#EFF6FF"
+            },
+            "$description": "Semantic selection token. Source: color/blue/50. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:945:6",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:93c5c2043e7864ec712698a2a79f99a803ef8c52/-1:-1",
+                "targetVariableName": "color/blue/50",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.8588235378265381,
+                0.9176470637321472,
+                0.9960784316062927
+              ],
+              "alpha": 1,
+              "hex": "#DBEAFE"
+            },
+            "$description": "Semantic selection token. Source: color/blue/100. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:945:7",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:6ea8f6eea42a74d6d7304d94a95801fdced080f8/-1:-1",
+                "targetVariableName": "color/blue/100",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.7490196228027344,
+                0.8588235378265381,
+                0.9960784316062927
+              ],
+              "alpha": 1,
+              "hex": "#BFDBFE"
+            },
+            "$description": "Semantic selection token. Source: color/blue/200. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:945:8",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:af2df3376b28537224caa447cc4c165c2d6c0bf3/-1:-1",
+                "targetVariableName": "color/blue/200",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "focus-visible": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9372549057006836,
+                0.9647058844566345,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#EFF6FF"
+            },
+            "$description": "Semantic selection token. Source: color/blue/50. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:945:9",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:93c5c2043e7864ec712698a2a79f99a803ef8c52/-1:-1",
+                "targetVariableName": "color/blue/50",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          }
+        }
+      }
+    },
+    "focus": {
+      "ring": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.14509804546833038,
+            0.38823530077934265,
+            0.9215686321258545
+          ],
+          "alpha": 1,
+          "hex": "#2563EB"
+        },
+        "$description": "Experimental shared focus indicator color for keyboard focus. Resolves to color/blue/600 in TEC 360 and TEC Educación Continua. Use as an external 2 px ring with 2 px offset following radius/full via :focus-visible on color/surface/canvas and color/surface/default only. Functional accessibility color; not product brand identity. Not authorized on inverse, image, gradient or brand surfaces until a dedicated recipe is approved.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:390:2",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:bf05bbaac5f4bfbb7c1d44d1523b40a9fda48e54/-1:-1",
+            "targetVariableName": "color/blue/600",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      }
+    },
+    "border": {
+      "default": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8313725590705872,
+            0.8313725590705872,
+            0.8313725590705872
+          ],
+          "alpha": 1,
+          "hex": "#D4D4D4"
+        },
+        "$description": "Default non-interactive border for cards, containers, avatars and dividers. Status: Implemented · Experimental. DTCG 2025.10.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:959:2",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:85992d76b68145fa294fc18a8119e7946ba275ab/-1:-1",
+            "targetVariableName": "color/neutral/300",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "action": {
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8313725590705872,
+              0.8313725590705872,
+              0.8313725590705872
+            ],
+            "alpha": 1,
+            "hex": "#D4D4D4"
+          },
+          "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/disabled/border. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/disabled/border.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:576:17",
+            "com.figma.scopes": [
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:85992d76b68145fa294fc18a8119e7946ba275ab/-1:-1",
+              "targetVariableName": "color/neutral/300",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "secondary": {
+          "default": {
+            "start": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Start stop for Secondary default border. Brand blue in TEC Educación Continua.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:790:10",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "end": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "End stop for Secondary default border. Brand blue in TEC Educación Continua.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:790:11",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "transparent": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Border token used when TEC 360 filled surface removes the border; brand blue fallback in TEC Educación Continua.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:790:12",
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            },
+            "$root": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Status: Implemented · Experimental. Canonical semantic route created from color/action/secondary/border. Values remain aliased to the transitional source during migration to preserve both product modes. Property-specific route required by Semantic Token Routing Contract v1.0. Do not bind new components to color/action/secondary/border.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:576:7",
+                "com.figma.scopes": [
+                  "STROKE"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+                  "targetVariableName": "color/brand/blue",
+                  "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+                  "targetVariableSetName": "TEC Educación Continua — Reference"
+                }
+              }
+            }
+          }
+        },
+        "destructive": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:5",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:9",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:13",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "focus-visible": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:17",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.border.action.disabled}",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:21",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "loading": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9411764740943909,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "alpha": 1,
+              "hex": "#F05252"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:851:25",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7f209a919d88266471a9ef352ea57852e4a68852/-1:-1",
+                "targetVariableName": "color/red/500",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          }
+        }
+      },
+      "selection": {
+        "unselected": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8313725590705872,
+              0.8313725590705872,
+              0.8313725590705872
+            ],
+            "alpha": 1,
+            "hex": "#D4D4D4"
+          },
+          "$description": "Semantic selection token. Source: color/neutral/300. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:11",
+            "com.figma.scopes": [
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:85992d76b68145fa294fc18a8119e7946ba275ab/-1:-1",
+              "targetVariableName": "color/neutral/300",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "selected": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.14509804546833038,
+              0.38823530077934265,
+              0.9215686321258545
+            ],
+            "alpha": 1,
+            "hex": "#2563EB"
+          },
+          "$description": "Semantic selection token. Source: color/blue/600. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:12",
+            "com.figma.scopes": [
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:bf05bbaac5f4bfbb7c1d44d1523b40a9fda48e54/-1:-1",
+              "targetVariableName": "color/blue/600",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8980392217636108,
+              0.8980392217636108,
+              0.8980392217636108
+            ],
+            "alpha": 1,
+            "hex": "#E5E5E5"
+          },
+          "$description": "Semantic selection token. Source: color/neutral/200. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:945:13",
+            "com.figma.scopes": [
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:0e68d22c4ed7bf2581fe69a32eb1bc149d6c34e0/-1:-1",
+              "targetVariableName": "color/neutral/200",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "TEC Educación Continua"
+  }
+}

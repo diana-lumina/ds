@@ -1,0 +1,53 @@
+{
+  "border": {
+    "width": {
+      "0": {
+        "$type": "number",
+        "$value": 0,
+        "$description": "No visible border",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:137:3",
+          "com.figma.scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      },
+      "1": {
+        "$type": "number",
+        "$value": 1,
+        "$description": "Default controls, cards and dividers",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:137:4",
+          "com.figma.scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      },
+      "2": {
+        "$type": "number",
+        "$value": 2,
+        "$description": "Emphasis, selected and focus-adjacent boundaries",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:137:5",
+          "com.figma.scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      },
+      "4": {
+        "$type": "number",
+        "$value": 4,
+        "$description": "Strong emphasis and specialized indicators",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:137:6",
+          "com.figma.scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Default"
+  }
+}

@@ -1,0 +1,95 @@
+---
+title: Typography
+description: Escala tipográfica del Design System Tec360
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Typography
+
+La fuente base del sistema es **Inter**. Todos los proyectos consumidores deben cargarla
+antes de importar los tokens.
+
+:::info 
+Carga Inter en tu proyecto antes de usar los tokens tipográficos.
+Pesos requeridos: `400`, `500`, `700`.
+
+```html
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+```
+:::
+
+---
+
+## Escala
+
+<Tabs>
+  <TabItem value="desktop" label="Desktop" default>
+
+| Token | Tamaño | Altura de línea | Uso recomendado |
+|---|---|---|---|
+| `display` | 72px | 80px | Hero principal / Campaña |
+| `h1` | 56px | 64px | Título principal de página |
+| `h2` | 40px | 48px | Títulos de secciones principales |
+| `h3` | 32px | 40px | Bloques destacados / Subsecciones |
+| `h4` | 24px | 32px | Títulos de cards grandes / módulos |
+| `h5` | 20px | 28px | Subtítulos / encabezados menores |
+| `h6` | 16px | 24px | Títulos pequeños / labels destacados |
+| `body-large` | 18px | 28px | Texto introductorio / bajadas importantes |
+| `body-regular` | 16px | 24px | Cuerpo de texto general |
+| `body-small` | 14px | 20px | Texto secundario / descripción en cards |
+| `caption` | 12px | 16px | Ayudas, metadatos, captions |
+| `button-large` | 16px | 24px | Botones principales |
+| `button-small` | 14px | 20px | Botones secundarios / compactos |
+| `label` | 14px | 20px | Badges, chips, labels de formulario |
+| `overline` | 12px | 16px | Categoría, eyebrow, sección pequeña |
+
+  </TabItem>
+  <TabItem value="mobile" label="Mobile">
+
+| Token | Tamaño | Altura de línea | Uso recomendado |
+|---|---|---|---|
+| `display` | 44px | 52px | Hero principal / Campaña |
+| `h1` | 36px | 44px | Título principal de página |
+| `h2` | 32px | 40px | Títulos de secciones principales |
+| `h3` | 24px | 32px | Bloques destacados / Subsecciones |
+| `h4` | 20px | 28px | Títulos de cards grandes / módulos |
+| `h5` | 18px | 24px | Subtítulos / encabezados menores |
+| `h6` | 16px | 24px | Títulos pequeños / labels destacados |
+| `body-large` | 16px | 24px | Texto introductorio / bajadas importantes |
+| `body-regular` | 16px | 24px | Cuerpo de texto principal |
+| `body-small` | 16px | 24px | Texto secundario / descripción en cards |
+| `caption` | 12px | 16px | Ayudas, metadatos, captions |
+| `button-large` | 16px | 24px | Botones principales |
+| `button-small` | 14px | 20px | Botones secundarios / compactos |
+| `label` | 14px | 20px | Badges, chips, labels de formulario |
+| `overline` | 12px | 16px | Categoría, eyebrow, sección pequeña |
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Tokens CSS
+
+Los tokens viven en `packages/tokens/src/typography.css` y se ajustan
+automáticamente según el breakpoint.
+
+```css
+/* Uso en componente */
+font-size: var(--ds-font-size-body-regular);
+line-height: var(--ds-line-height-body-regular);
+font-family: var(--ds-font-family-base);
+```
+
+---
+
+## Estado
+
+:::warning 
+Esta documentación refleja la escala tipográfica actual. Los valores de
+`font-weight` y casos de uso detallados se agregarán cuando diseño entregue
+la especificación completa.
+:::

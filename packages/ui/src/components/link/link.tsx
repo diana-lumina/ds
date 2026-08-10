@@ -1,63 +1,47 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
+"use client"
+
+import * as React from "react"
 import { cn } from '../../lib/utils'
+import styles from './link.module.css'
 
-// ─── Variants ────────────────────────────────────────────
-const linkVariants = cva(
-  'inline-flex items-center gap-1 text-sm transition-colors',
-  {
-    variants: {
-      variant: {
-        text: 'text-primary underline-offset-4 hover:underline',
-        button: 'font-medium text-foreground hover:underline',
-      },
-      disabled: {
-        true: 'opacity-50 pointer-events-none',
-        false: '',
-      },
-    },
-    defaultVariants: {
-      variant: 'text',
-      disabled: false,
-    },
-  }
-)
-
-// ─── Props ───────────────────────────────────────────────
-export type LinkProps = VariantProps<typeof linkVariants> & {
-  href?: string
-  children: React.ReactNode
+export interface LinkProps extends React.ComponentProps<"a"> {
+  tone?: 'standard' | 'inverse'
   external?: boolean
   icon?: React.ReactNode
   iconPosition?: 'left' | 'right'
-  onClick?: () => void
-  className?: string
 }
 
-// ─── Componente ──────────────────────────────────────────
 export function Link({
-  variant = 'text',
+  tone = 'standard',
   href,
   children,
-  disabled = false,
   external = false,
   icon,
   iconPosition = 'right',
-  onClick,
   className,
+  ...props
 }: LinkProps) {
   return (
     <a
-      href={disabled ? undefined : href}
-      onClick={disabled ? undefined : onClick}
-      aria-disabled={disabled ?? undefined}
+      data-slot="link"
+      data-tone={tone}
+      href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
-      className={cn(linkVariants({ variant, disabled }), className)}
+      className={cn(styles.root, className)}
+      {...props}
     >
-      {icon && iconPosition === 'left' && <span className="shrink-0">{icon}</span>}
+      {icon && iconPosition === 'left' && (
+        <span className={styles.iconWrapper} aria-hidden="true">
+          {icon}
+        </span>
+      )}
       {children}
-      {icon && iconPosition === 'right' && <span className="shrink-0">{icon}</span>}
+      {icon && iconPosition === 'right' && (
+        <span className={styles.iconWrapper} aria-hidden="true">
+          {icon}
+        </span>
+      )}
     </a>
   )
 }

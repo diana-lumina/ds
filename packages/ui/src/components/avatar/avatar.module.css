@@ -1,0 +1,96 @@
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow: hidden;
+  user-select: none;
+  border-radius: var(--component-avatar-radius, 999px);
+  border: var(--component-avatar-border-width, 1px) solid
+    var(--component-avatar-color-border-default, #D4D4D4);
+}
+
+.root > span[data-slot="avatar-fallback"] {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+}
+
+/* ===== Tamaño ===== */
+.root[data-size="sm"] {
+  width: var(--component-avatar-sm-size, 32px);
+  height: var(--component-avatar-sm-size, 32px);
+}
+
+.root[data-size="md"] {
+  width: var(--component-avatar-md-size, 40px);
+  height: var(--component-avatar-md-size, 40px);
+}
+
+.root[data-size="lg"] {
+  width: var(--component-avatar-lg-size, 48px);
+  height: var(--component-avatar-lg-size, 48px);
+}
+
+/* ===== Imagen ===== */
+.image {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* ===== Fallback (ícono de usuario) ===== */
+.root[data-content="fallback"] {
+  border-color: transparent;
+  background: transparent;
+}
+
+.fallbackIcon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.fallbackCircle {
+  fill: var(--component-avatar-color-fallback-surface, #F5F5F5);
+  stroke: var(--component-avatar-color-border-default, #D4D4D4);
+  stroke-width: 1px;
+}
+
+.fallbackPerson {
+  fill: var(--component-avatar-color-fallback-icon, #231F20);
+}
+
+/* ===== Iniciales ===== */
+.root[data-content="initials"] {
+  background: var(--component-avatar-color-initials-surface, #F5F5F5);
+}
+
+.initials {
+  color: var(--component-avatar-color-initials-text, #231F20);
+  text-align: center;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: normal;
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.root[data-size="sm"] .initials {
+  font-size: var(--component-avatar-sm-font-size, 12px);
+}
+
+.root[data-size="md"] .initials {
+  font-size: var(--component-avatar-md-font-size, 14px);
+}
+
+.root[data-size="lg"] .initials {
+  font-size: var(--component-avatar-lg-font-size, 16px);
+}

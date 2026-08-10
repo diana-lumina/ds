@@ -2,13 +2,19 @@
   "name": "@workspace/tokens",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build.js"
   },
   "exports": {
-    "./css": "./src/tokens.css"
+    "./css/tec-360": "./build/css/tec-360/tokens.css",
+    "./css/tec-educacion-continua": "./build/css/tec-educacion-continua/tokens.css",
+    "./css/tec-360/grid-medium": "./build/css/tec-360/grid-medium.css",
+    "./css/tec-360/grid-wide": "./build/css/tec-360/grid-wide.css",
+    "./css/tec-360/motion-reduced": "./build/css/tec-360/motion-reduced.css",
+    "./css/tec-educacion-continua/grid-medium": "./build/css/tec-educacion-continua/grid-medium.css",
+    "./css/tec-educacion-continua/grid-wide": "./build/css/tec-educacion-continua/grid-wide.css",
+    "./css/tec-educacion-continua/motion-reduced": "./build/css/tec-educacion-continua/motion-reduced.css"
   },
   "keywords": [],
   "author": "",

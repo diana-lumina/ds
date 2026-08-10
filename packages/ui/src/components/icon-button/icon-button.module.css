@@ -1,0 +1,104 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.root:focus-visible {
+    outline: var(--border-width-2, 2px) solid var(--component-icon-button-color-focus-ring);
+    outline-offset: var(--border-width-2, 2px);
+}
+
+.root:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+
+/* ===== Tamaños ===== */
+
+.root[data-size="sm"] {
+    width: var(--component-icon-button-sm-size);
+    height: var(--component-icon-button-sm-size);
+    border-radius: var(--component-icon-button-sm-radius);
+}
+
+.root[data-size="sm"] svg {
+    width: var(--component-icon-button-sm-icon-size);
+    height: var(--component-icon-button-sm-icon-size);
+}
+
+.root[data-size="md"] {
+    width: var(--component-icon-button-md-size);
+    height: var(--component-icon-button-md-size);
+    border-radius: var(--component-icon-button-md-radius);
+}
+
+.root[data-size="md"] svg {
+    width: var(--component-icon-button-md-icon-size);
+    height: var(--component-icon-button-md-icon-size);
+}
+
+.root[data-size="lg"] {
+    width: var(--component-icon-button-lg-size);
+    height: var(--component-icon-button-lg-size);
+    border-radius: var(--component-icon-button-lg-radius);
+}
+
+.root[data-size="lg"] svg {
+    width: var(--component-icon-button-lg-icon-size);
+    height: var(--component-icon-button-lg-icon-size);
+}
+
+/* ===== Variant: default ===== */
+
+.root[data-variant="default"] {
+
+    background: linear-gradient(90deg,
+            var(--component-icon-button-color-primary-surface-default-start) 0%,
+            var(--component-icon-button-color-primary-surface-default-end) 100%);
+    color: var(--component-icon-button-color-primary-icon-on-filled);
+
+}
+
+.root[data-variant="default"]:hover {
+    background:
+        linear-gradient(var(--component-icon-button-color-primary-surface-hover-overlay),
+            var(--component-icon-button-color-primary-surface-hover-overlay)),
+        linear-gradient(90deg,
+            var(--component-icon-button-color-primary-surface-hover-start) 0%,
+            var(--component-icon-button-color-primary-surface-hover-end) 100%);
+}
+
+.root[data-variant="default"]:active:not([aria-haspopup]) {
+    background:
+        linear-gradient(var(--component-icon-button-color-primary-surface-pressed-overlay),
+            var(--component-icon-button-color-primary-surface-pressed-overlay)),
+        linear-gradient(90deg,
+            var(--component-icon-button-color-primary-surface-pressed-start) 0%,
+            var(--component-icon-button-color-primary-surface-pressed-end) 100%);
+}
+
+.root[data-variant="default"]:disabled {
+    background: var(--component-icon-button-color-primary-surface-disabled);
+    color: var(--component-button-color-primary-text-disabled);
+}
+
+/* ===== Variant: inverse ===== */
+.root[data-variant="inverse"] {
+    background: var(--component-icon-button-color-primary-inverse-surface-default);
+    color: var(--component-icon-button-color-primary-inverse-icon-default);
+}
+
+.root[data-variant="inverse"]:hover {
+    background: var(--component-icon-button-color-primary-inverse-surface-hover);
+}
+
+.root[data-variant="inverse"]:active:not([aria-haspopup]) {
+    background: var(--component-icon-button-color-primary-inverse-surface-pressed);
+}
+
+.root[data-variant="inverse"]:disabled {
+    background: var(--component-icon-button-color-primary-inverse-surface-disabled);
+    color: var(--component-icon-button-color-primary-inverse-icon-disabled);
+}

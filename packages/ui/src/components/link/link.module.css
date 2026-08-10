@@ -1,0 +1,84 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--component-link-gap, 8px);
+  cursor: pointer;
+  transition-property: color;
+  transition-duration: 150ms;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-action-md, 16px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-action, 500);
+  letter-spacing: var(--component-link-label-letter-spacing);
+  line-height: var(--typography-line-height-action-md, 24px);
+  text-decoration: none;
+}
+
+.root:hover,
+.root:active,
+.root:focus-visible,
+.root:visited {
+  text-decoration: none;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--component-link-icon-size, 20px);
+  height: var(--component-link-icon-size, 20px);
+}
+
+.iconWrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== Tone: standard ===== */
+.root[data-tone="standard"] {
+  color: var(--component-link-color-text-standard-default);
+}
+
+.root[data-tone="standard"]:hover {
+  color: var(--component-link-color-text-standard-hover);
+}
+
+.root[data-tone="standard"]:active {
+  color: var(--component-link-color-text-standard-pressed);
+}
+
+.root[data-tone="standard"]:visited {
+  color: var(--component-link-color-text-standard-visited);
+}
+
+.root[data-tone="standard"]:focus-visible {
+  color: var(--component-link-color-text-standard-focus-visible);
+  outline: var(--component-link-focus-ring-width) solid var(--component-link-focus-ring-color);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* ===== Tone: inverse ===== */
+.root[data-tone="inverse"] {
+  color: var(--component-link-color-text-inverse-default);
+}
+
+.root[data-tone="inverse"]:hover {
+  color: var(--component-link-color-text-inverse-hover);
+}
+
+.root[data-tone="inverse"]:active {
+  color: var(--component-link-color-text-inverse-pressed);
+}
+
+.root[data-tone="inverse"]:visited {
+  color: var(--component-link-color-text-inverse-visited);
+}
+
+.root[data-tone="inverse"]:focus-visible {
+  color: var(--component-link-color-text-inverse-focus-visible);
+  outline: var(--component-link-focus-ring-width) solid var(--component-link-focus-ring-color);
+  outline-offset: 4px;
+  border-radius: 6px;
+}

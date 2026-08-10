@@ -1,0 +1,334 @@
+.root {
+  font-family: var(--component-button-label-font-family, Inter);
+  font-weight: var(--component-button-label-font-weight, 500);
+  letter-spacing: var(--component-button-label-letter-spacing, 0);
+  font-style: normal;
+  border-width: 0;
+}
+
+.root:focus-visible {
+  outline: var(--border-width-2) solid var(--component-button-color-focus-ring);
+  outline-offset: var(--border-width-2);
+}
+
+.root[data-size="sm"] {
+  padding-block: var(--component-button-sm-padding-block);
+  padding-inline: var(--component-button-sm-padding-inline);
+  gap: var(--component-button-sm-gap);
+  border-radius: var(--component-button-sm-radius);
+  font-size: var(--component-button-label-sm-font-size);
+  line-height: var(--component-button-label-sm-line-height);
+}
+
+.root[data-size="sm"] svg {
+  width: var(--component-button-sm-icon-size);
+  height: var(--component-button-sm-icon-size);
+}
+
+.root[data-size="default"] {
+  padding-block: var(--component-button-md-padding-block);
+  padding-inline: var(--component-button-md-padding-inline);
+  gap: var(--component-button-md-gap);
+  border-radius: var(--component-button-md-radius);
+  font-size: var(--component-button-label-md-font-size);
+  line-height: var(--component-button-label-md-line-height);
+}
+
+.root[data-size="default"] svg {
+  width: var(--component-button-md-icon-size);
+  height: var(--component-button-md-icon-size);
+}
+
+.root[data-size="lg"] {
+  padding-block: var(--component-button-lg-padding-block, 10px);
+  padding-inline: var(--component-button-lg-padding-inline, 20px);
+  gap: var(--component-button-lg-gap, 8px);
+  border-radius: var(--component-button-lg-radius, 999px);
+  font-size: var(--component-button-label-lg-font-size, 18px);
+  line-height: var(--component-button-lg-line-height, 28px);
+}
+
+.root[data-size="lg"] svg {
+  width: var(--component-button-lg-icon-size);
+  height: var(--component-button-lg-icon-size);
+}
+
+/* ===== PRIMARY ===== */
+
+.root[data-variant="default"] {
+  background: linear-gradient(90deg,
+      var(--component-button-color-primary-surface-default-start) 0%,
+      var(--component-button-color-primary-surface-default-end) 100%);
+  color: var(--component-button-color-primary-text-default);
+}
+
+.root[data-variant="default"] svg {
+  color: var(--component-button-color-primary-icon-default);
+}
+
+.root[data-variant="default"]:hover {
+  background:
+    linear-gradient(var(--component-button-color-primary-surface-hover-overlay),
+      var(--component-button-color-primary-surface-hover-overlay)),
+    linear-gradient(90deg,
+      var(--component-button-color-primary-surface-hover-start) 0%,
+      var(--component-button-color-primary-surface-hover-end) 100%);
+}
+
+.root[data-variant="default"]:active:not([aria-haspopup]) {
+  background:
+    linear-gradient(var(--component-button-color-primary-surface-pressed-overlay),
+      var(--component-button-color-primary-surface-pressed-overlay)),
+    linear-gradient(90deg,
+      var(--component-button-color-primary-surface-pressed-start) 0%,
+      var(--component-button-color-primary-surface-pressed-end) 100%);
+}
+
+.root[data-variant="default"]:disabled {
+  background: var(--component-button-color-primary-surface-disabled);
+  color: var(--component-button-color-primary-text-disabled);
+}
+
+.root[data-variant="default"]:disabled svg {
+  color: var(--component-button-color-primary-text-disabled);
+}
+
+.root[data-variant="default"][data-tone="inverse"] {
+  background: var(--component-button-color-primary-inverse-surface-default);
+  color: var(--component-button-color-primary-inverse-text-default);
+}
+
+.root[data-variant="default"][data-tone="inverse"] svg {
+  color: var(--component-button-color-primary-inverse-icon-default);
+}
+
+.root[data-variant="default"][data-tone="inverse"]:hover {
+  background: var(--component-button-color-primary-inverse-surface-hover);
+}
+
+.root[data-variant="default"][data-tone="inverse"]:active:not([aria-haspopup]) {
+  background: var(--component-button-color-primary-inverse-surface-pressed);
+}
+
+.root[data-variant="default"][data-tone="inverse"]:disabled {
+  background: var(--component-button-color-primary-inverse-surface-disabled);
+  color: var(--component-button-color-primary-inverse-text-disabled);
+}
+
+.root[data-variant="default"][data-tone="inverse"]:disabled svg {
+  color: var(--component-button-color-primary-inverse-icon-disabled);
+}
+
+/* ===== DESTRUCTIVE ===== */
+
+.root[data-variant="destructive"] {
+  border-width: 0;
+  background: var(--component-button-color-destructive-surface-default);
+  color: var(--component-button-color-destructive-text-default);
+}
+
+.root[data-variant="destructive"] svg {
+  color: var(--component-button-color-destructive-icon-default);
+}
+
+.root[data-variant="destructive"]:hover {
+  background: var(--component-button-color-destructive-surface-hover);
+  color: var(--component-button-color-destructive-text-hover);
+}
+
+.root[data-variant="destructive"]:hover svg {
+  color: var(--component-button-color-destructive-icon-hover);
+}
+
+.root[data-variant="destructive"]:active:not([aria-haspopup]) {
+  background: var(--component-button-color-destructive-surface-pressed);
+  color: var(--component-button-color-destructive-text-pressed);
+}
+
+.root[data-variant="destructive"]:active:not([aria-haspopup]) svg {
+  color: var(--component-button-color-destructive-icon-pressed);
+}
+
+.root[data-variant="destructive"]:disabled {
+  background: var(--component-button-color-destructive-surface-disabled);
+  color: var(--component-button-color-destructive-text-disabled);
+}
+
+.root[data-variant="destructive"]:disabled svg {
+  color: var(--component-button-color-destructive-icon-disabled);
+}
+
+/* ===== TERTIARY (prop "ghost") ===== */
+
+.root[data-variant="ghost"] {
+  background: transparent;
+  color: var(--component-button-color-tertiary-text-default);
+}
+
+.root[data-variant="ghost"] svg {
+  color: var(--component-button-color-tertiary-icon-default);
+}
+
+.root[data-variant="ghost"]:hover {
+  background: var(--component-button-color-tertiary-surface-hover);
+}
+
+.root[data-variant="ghost"]:active:not([aria-haspopup]) {
+  background: var(--component-button-color-tertiary-surface-pressed);
+}
+
+.root[data-variant="ghost"]:disabled {
+  color: var(--component-button-color-tertiary-text-disabled);
+}
+
+.root[data-variant="ghost"]:disabled svg {
+  color: var(--component-button-color-tertiary-icon-disabled);
+}
+
+/* ===== SECONDARY ===== */
+
+.root[data-variant="secondary"] {
+  position: relative;
+  background: var(--component-button-color-secondary-surface-default);
+  color: var(--component-button-color-secondary-text-default);
+}
+
+.root[data-variant="secondary"]::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--border-width-2, 2px));
+  border-radius: inherit;
+  padding: var(--border-width-2, 2px);
+  background: linear-gradient(90deg,
+      var(--component-button-color-secondary-border-default-start) 0%,
+      var(--component-button-color-secondary-border-default-end) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.root[data-variant="secondary"] svg {
+  color: var(--component-button-color-secondary-icon-default);
+}
+
+.root[data-variant="secondary"]:hover {
+  background: linear-gradient(90deg,
+      var(--component-button-color-secondary-surface-hover-start) 0%,
+      var(--component-button-color-secondary-surface-hover-end) 100%);
+  color: var(--component-button-color-secondary-text-on-filled);
+}
+
+.root[data-variant="secondary"]:hover::before {
+  background: var(--component-button-color-secondary-border-transparent);
+}
+
+.root[data-variant="secondary"]:hover svg {
+  color: var(--component-button-color-secondary-icon-on-filled);
+}
+
+.root[data-variant="secondary"]:active:not([aria-haspopup]) {
+  background:
+    linear-gradient(var(--component-button-color-secondary-surface-pressed-overlay),
+      var(--component-button-color-secondary-surface-pressed-overlay)),
+    linear-gradient(90deg,
+      var(--component-button-color-secondary-surface-pressed-start) 0%,
+      var(--component-button-color-secondary-surface-pressed-end) 100%);
+  color: var(--component-button-color-secondary-text-on-filled);
+}
+
+.root[data-variant="secondary"]:active:not([aria-haspopup]) svg {
+  color: var(--component-button-color-secondary-icon-on-filled);
+}
+
+
+.root[data-variant="secondary"]:active:not([aria-haspopup]) svg {
+  color: var(--component-button-color-secondary-icon-on-filled);
+}
+
+
+
+.root[data-variant="secondary"]:disabled {
+  background: transparent;
+  border-width: var(--border-width-1, 1px);
+  border-style: solid;
+  border-color: var(--component-button-color-secondary-border-disabled);
+  color: var(--component-button-color-secondary-text-disabled);
+}
+
+.root[data-variant="secondary"]:disabled::before {
+  content: none;
+  display: none;
+}
+
+.root[data-variant="secondary"]:disabled svg {
+  color: var(--component-button-color-secondary-icon-disabled);
+}
+
+/* ===== Secondary / Tone: inverse ===== */
+
+.root[data-variant="secondary"][data-tone="inverse"]::before {
+  content: none;
+  display: none;
+}
+
+.root[data-variant="secondary"][data-tone="inverse"] {
+  background: var(--component-button-color-secondary-inverse-surface-default);
+  color: var(--component-button-color-secondary-inverse-text-default);
+  border: var(--border-width-2, 2px) solid var(--component-button-color-secondary-inverse-border-default);
+}
+
+.root[data-variant="secondary"][data-tone="inverse"] svg {
+  color: var(--component-button-color-secondary-inverse-icon-default);
+}
+
+.root[data-variant="secondary"][data-tone="inverse"]:hover {
+  background: var(--component-button-color-secondary-inverse-surface-hover);
+  color: var(--component-button-color-secondary-inverse-text-default);
+}
+
+.root[data-variant="secondary"][data-tone="inverse"]:active:not([aria-haspopup]) {
+  background: var(--component-button-color-secondary-inverse-surface-pressed);
+}
+
+.root[data-variant="secondary"][data-tone="inverse"] svg {
+  color: var(--component-button-color-secondary-inverse-icon-default);
+}
+
+.root[data-variant="secondary"][data-tone="inverse"]:disabled {
+  background: var(--component-button-color-secondary-inverse-surface-disabled);
+
+  color: var(--component-button-color-secondary-inverse-text-disabled);
+
+  border: none;
+}
+
+.root[data-variant="secondary"][data-tone="inverse"]:disabled svg {
+ color: var(--component-button-color-secondary-inverse-icon-disabled);
+}
+
+.root[data-variant="secondary"][data-tone="inverse"]:active:not([aria-haspopup]) svg {
+  color: var(--component-button-color-secondary-inverse-icon-default);
+}
+
+.root[data-variant="secondary"]:focus-visible {
+  outline-offset: calc(var(--border-width-2, 2px) + var(--border-width-2, 2px));
+}
+
+/* Inverse usa borde real (sin ::before): mismo offset que el resto de variantes */
+.root[data-variant="secondary"][data-tone="inverse"]:focus-visible {
+  outline-offset: var(--border-width-2, 2px);
+}
+
+/* ===== LOADING ===== */
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.root[data-loading="true"] svg[data-slot="loading-icon"] {
+  animation: button-spin var(--motion-duration-continuous, 800ms) var(--motion-easing-linear, linear) infinite;
+}

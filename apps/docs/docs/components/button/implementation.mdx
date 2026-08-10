@@ -1,0 +1,173 @@
+---
+title: Button — Implementación
+displayed_sidebar: tutorialSidebar
+---
+
+import ComponentNav from '@site/src/components/ComponentNav'
+
+# Button
+
+<ComponentNav
+  base="/components/button"
+  tabs={[
+    { label: 'Descripción general', path: '' },
+    { label: 'Implementación', path: '/implementation' },
+    { label: 'Accesibilidad', path: '/accessibility' },
+  ]}
+/>
+
+
+[Ver en Storybook](#) · [Ver en GitHub](#)
+
+## Instalación
+
+```bash
+pnpm add @tec-ds/ui
+```
+
+---
+
+## Uso básico
+
+```tsx
+import { Button } from "@tec-ds/ui"
+
+<Button>Guardar cambios</Button>
+```
+
+---
+
+## Variantes
+
+```tsx
+<Button variant="default">Principal</Button>
+<Button variant="outline">Secundario</Button>
+<Button variant="secondary">Terciario</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="destructive">Eliminar</Button>
+<Button variant="link">Ver más</Button>
+```
+
+---
+
+## Con íconos
+
+```tsx
+import { PlusIcon, ArrowRightIcon } from 'lucide-react'
+
+<Button>
+  <PlusIcon size={16} />
+  Agregar
+</Button>
+
+<Button>
+  Siguiente
+  <ArrowRightIcon size={16} />
+</Button>
+```
+
+---
+
+## Como link
+
+```tsx
+<Button asChild>
+  <a href="/dashboard">Ir al dashboard</a>
+</Button>
+```
+
+---
+
+## Playground interactivo
+
+<iframe
+  src="https://6a220ebba6dfcae102b4cb59-dovnudtdzu.chromatic.com/iframe.html?id=components-button--docs&viewMode=docs"
+  style={{width: '100%', height: '600px', border: 'none', borderRadius: '8px'}}
+/>
+
+
+---
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Tipo</th>
+      <th>Default</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>variant</code></td>
+      <td><code>"default" | "outline" | "secondary" | "ghost" | "destructive" | "link"</code></td>
+      <td><code>"default"</code></td>
+      <td>Estilo visual del botón</td>
+    </tr>
+    <tr>
+      <td><code>size</code></td>
+      <td><code>"default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg"</code></td>
+      <td><code>"default"</code></td>
+      <td>Tamaño del botón</td>
+    </tr>
+    <tr>
+      <td><code>disabled</code></td>
+      <td><code>boolean</code></td>
+      <td><code>false</code></td>
+      <td>Deshabilita la interacción</td>
+    </tr>
+    <tr>
+      <td><code>asChild</code></td>
+      <td><code>boolean</code></td>
+      <td><code>false</code></td>
+      <td>Renderiza el hijo en lugar de un button</td>
+    </tr>
+    <tr>
+      <td><code>onClick</code></td>
+      <td><code>() => void</code></td>
+      <td>—</td>
+      <td>Callback al hacer click</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Design tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Uso en el componente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--color-primary</code></td>
+      <td>Fondo variante default</td>
+    </tr>
+    <tr>
+      <td><code>--color-primary-foreground</code></td>
+      <td>Texto variante default</td>
+    </tr>
+    <tr>
+      <td><code>--color-destructive</code></td>
+      <td>Fondo variante destructive</td>
+    </tr>
+    <tr>
+      <td><code>--color-border</code></td>
+      <td>Borde variante outline</td>
+    </tr>
+    <tr>
+      <td><code>--color-ring</code></td>
+      <td>Focus ring</td>
+    </tr>
+    <tr>
+      <td><code>--radius</code></td>
+      <td>Border radius</td>
+    </tr>
+  </tbody>
+</table>

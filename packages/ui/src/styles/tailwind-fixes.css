@@ -1,0 +1,5 @@
+@theme {
+  --breakpoint-compact: 0px;
+  --breakpoint-medium: 768px;
+  --breakpoint-wide: 1280px;
+}

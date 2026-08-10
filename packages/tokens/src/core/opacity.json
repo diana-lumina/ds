@@ -1,0 +1,15 @@
+{
+  "opacity": {
+    "0":   { "$type": "number", "$value": 0,                     "$description": "Status: Experimental. Native Figma opacity percentage: 0%. Export to DTCG opacity by dividing by 100.",   "$extensions": { "com.figma.variableId": "VariableID:130:3",  "com.figma.scopes": ["OPACITY"] } },
+    "8":   { "$type": "number", "$value": 0.07999999821186066,   "$description": "Status: Experimental. Native Figma opacity percentage: 8%. Export to DTCG opacity by dividing by 100.",   "$extensions": { "com.figma.variableId": "VariableID:130:4",  "com.figma.scopes": ["OPACITY"] } },
+    "12":  { "$type": "number", "$value": 0.11999999731779099,   "$description": "Status: Experimental. Native Figma opacity percentage: 12%. Export to DTCG opacity by dividing by 100.",  "$extensions": { "com.figma.variableId": "VariableID:130:5",  "com.figma.scopes": ["OPACITY"] } },
+    "20":  { "$type": "number", "$value": 0.20000000298023224,   "$description": "Status: Experimental. Native Figma opacity percentage: 20%. Export to DTCG opacity by dividing by 100.",  "$extensions": { "com.figma.variableId": "VariableID:130:6",  "com.figma.scopes": ["OPACITY"] } },
+    "40":  { "$type": "number", "$value": 0.4000000059604645,    "$description": "Status: Experimental. Native Figma opacity percentage: 40%. Export to DTCG opacity by dividing by 100.",  "$extensions": { "com.figma.variableId": "VariableID:130:7",  "com.figma.scopes": ["OPACITY"] } },
+    "60":  { "$type": "number", "$value": 0.6000000238418579,    "$description": "Status: Experimental. Native Figma opacity percentage: 60%. Export to DTCG opacity by dividing by 100.",  "$extensions": { "com.figma.variableId": "VariableID:130:8",  "com.figma.scopes": ["OPACITY"] } },
+    "80":  { "$type": "number", "$value": 0.800000011920929,     "$description": "Status: Experimental. Native Figma opacity percentage: 80%. Export to DTCG opacity by dividing by 100.",  "$extensions": { "com.figma.variableId": "VariableID:130:9",  "com.figma.scopes": ["OPACITY"] } },
+    "100": { "$type": "number", "$value": 1,                     "$description": "Status: Experimental. Native Figma opacity percentage: 100%. Export to DTCG opacity by dividing by 100.", "$extensions": { "com.figma.variableId": "VariableID:130:10", "com.figma.scopes": ["OPACITY"] } }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Default"
+  }
+}

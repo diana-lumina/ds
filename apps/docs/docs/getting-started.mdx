@@ -1,0 +1,112 @@
+---
+title: Getting started
+---
+
+# Getting started
+
+Guía para integrar el Design System en un proyecto Next.js.
+
+## Requisitos
+
+<table>
+  <thead>
+    <tr>
+      <th>Dependencia</th>
+      <th>Versión mínima</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Next.js</td>
+      <td>15.x</td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>19.x</td>
+    </tr>
+    <tr>
+      <td>Tailwind CSS</td>
+      <td>4.x</td>
+    </tr>
+    <tr>
+      <td>pnpm</td>
+      <td>9.x o superior</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Instalación
+
+```bash
+pnpm add @tec-ds/ui
+```
+
+---
+
+## Configuración
+
+**1. Importa los estilos globales en tu layout raíz:**
+
+```tsx title="app/layout.tsx"
+import "@tec-ds/ui/globals.css"
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="es">
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+**2. Configura Tailwind para escanear los componentes del DS:**
+
+```ts title="tailwind.config.ts"
+export default {
+  content: [
+    './src/**/*.{ts,tsx}',
+    './node_modules/@tec-ds/ui/dist/**/*.{js,mjs}',
+  ],
+}
+```
+
+---
+
+## Primer componente
+
+```tsx
+import { Button } from "@tec-ds/ui"
+
+export default function Page() {
+  return (
+    <Button>Hola desde el Design System</Button>
+  )
+}
+```
+
+---
+
+## Changelog
+
+<table>
+  <thead>
+    <tr>
+      <th>Versión</th>
+      <th>Cambios</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.0.0</td>
+      <td>Setup inicial del monorepo y primeros componentes</td>
+      <td>Junio 2026</td>
+    </tr>
+  </tbody>
+</table>

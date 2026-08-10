@@ -1,0 +1,48 @@
+.root {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--component-counter-badge-radius, 999px);
+  text-align: center;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-style: normal;
+  font-size: var(--typography-font-size-100, 12px);
+  line-height: var(--typography-line-height-100, 16px); 
+  font-weight: var(--typography-font-weight-medium, 500);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+
+}
+
+/* ===== Tamaño: sm ===== */
+.root[data-size="sm"] {
+  min-width: var(--component-counter-badge-sm-min-width, 20px);
+  padding: 2px var(--component-counter-badge-sm-padding-inline, 4px);
+
+}
+
+/* ===== Tamaño: md ===== */
+
+.root[data-size="md"] {
+  min-width: var(--component-counter-badge-md-min-width, 24px);
+  padding: 4px var(--component-counter-badge-md-padding-inline, 4px);
+}
+
+/* ===== Emphasis: neutral ===== */
+.root[data-emphasis="neutral"] {
+  background: var(--component-counter-badge-color-neutral-surface, #F5F5F5);
+ color: var(--component-counter-badge-color-neutral-text, #231F20);
+}
+
+/* ===== Emphasis: attention ===== */
+
+.root[data-emphasis="attention"] {
+  background: var(--component-counter-badge-color-attention-surface, #0039A6);
+ color: var(--component-counter-badge-color-attention-text, #FFF);
+}
+
+/* ===== Emphasis: inverse ===== */
+
+.root[data-emphasis="inverse"] {
+  background: var(--component-counter-badge-color-inverse-surface, #FFF);
+  color: var(--component-counter-badge-color-inverse-text, #231F20);
+}

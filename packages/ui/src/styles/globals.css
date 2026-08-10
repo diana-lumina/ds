@@ -1,60 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "../../../tokens/src/tokens.css";
+
+/* Tokens reales, escopeados con [data-brand="..."] — no :root, para que
+   ambas marcas puedan convivir importadas a la vez y se elija cuál está
+   activa vía el atributo en <html>. */
+@import '@workspace/tokens/css/tec-360';
+@import '@workspace/tokens/css/tec-educacion-continua';
+
+/* Overrides responsivos y de accesibilidad — ya vienen envueltos en su
+   @media correspondiente desde build.js. Brand-agnósticos (grid/motion
+   no varían por marca), por eso se importan una sola vez. */
+@import '@workspace/tokens/css/tec-360/grid-medium';
+@import '@workspace/tokens/css/tec-360/grid-wide';
+@import '@workspace/tokens/css/tec-360/motion-reduced';
 
 @custom-variant dark (&:is(.dark *));
-@source "../../../apps/**/*.{ts,tsx}";
-@source "../../../components/**/*.{ts,tsx}";
+@source "../../../../apps/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 
-@theme inline {
-  --color-background: var(--color-background);
-  --color-foreground: var(--color-foreground);
-  --color-primary: var(--color-primary);
-  --color-primary-foreground: var(--color-primary-foreground);
-  --color-secondary: var(--color-secondary);
-  --color-secondary-foreground: var(--color-secondary-foreground);
-  --color-muted: var(--color-muted);
-  --color-muted-foreground: var(--color-muted-foreground);
-  --color-accent: var(--color-accent);
-  --color-accent-foreground: var(--color-accent-foreground);
-  --color-destructive: var(--color-destructive);
-  --color-destructive-foreground: var(--color-destructive-foreground);
-  --color-border: var(--color-border);
-  --color-input: var(--color-input);
-  --color-ring: var(--color-ring);
-  --color-card: var(--color-card);
-  --color-card-foreground: var(--color-card-foreground);
-  --color-popover: var(--color-popover);
-  --color-popover-foreground: var(--color-popover-foreground);
-  --radius: var(--radius);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  /* Mapeo de Tipografía */
-  --font-size-xs: var(--font-size-xs);
-  --font-size-sm: var(--font-size-sm);
-  --font-size-base: var(--font-size-base);
-  --font-size-lg: var(--font-size-lg);
-  --font-size-xl: var(--font-size-xl);
-
-  /* Mapeo de Espaciados (Spacing) */
-  --spacing-space-1: var(--space-1);
-  --spacing-space-2: var(--space-2);
-  --spacing-space-3: var(--space-3);
-  --spacing-space-4: var(--space-4);
-  --spacing-space-6: var(--space-6);
-  --spacing-space-8: var(--space-8);
-
-}
+@import "./tailwind-fixes.css";
+@import "./tokens-theme.css";
 
 @layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-primary-foreground);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-secondary-foreground);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-muted-foreground);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-accent-foreground);
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-destructive-foreground);
+    --border: var(--color-border);
+    --input: var(--color-input);
+    --ring: var(--color-ring);
+    --card: var(--color-card);
+    --card-foreground: var(--color-card-foreground);
+    --popover: var(--color-popover);
+    --popover-foreground: var(--color-popover-foreground);
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
 
-  body {
+  body,
+  button,
+  input,
+  select,
+  textarea,
+  .group\/button {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans), 'Inter', sans-serif;
   }
 }

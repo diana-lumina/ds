@@ -1,0 +1,140 @@
+---
+title: Button
+---
+# Button
+
+import ComponentNav from '@site/src/components/ComponentNav'
+
+<ComponentNav
+  base="/components/button"
+  tabs={[
+    { label: 'Descripción general', path: '' },
+    { label: 'Implementación', path: '/implementation' },
+    { label: 'Accesibilidad', path: '/accessibility' },
+  ]}
+/>
+
+
+
+
+Componente de acción principal. Disponible en seis variantes y ocho tamaños.
+
+**Estado:** 🟢 Estable · [Ver en Storybook](https://6a220ebba6dfcae102b4cb59-dovnudtdzu.chromatic.com/?path=/docs/components-button--docs) · [Ver en GitHub](#)
+
+
+## Descripción
+
+El Button se usa para acciones que el usuario puede ejecutar. La variante comunica la jerarquía e importancia de la acción dentro de una pantalla.
+
+---
+
+## Anatomía
+
+_Pendiente — imagen del componente con sus partes etiquetadas._
+
+---
+
+## Variantes
+
+<table>
+  <thead>
+    <tr>
+      <th>Variante</th>
+      <th>Uso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>default</code></td>
+      <td>Acción principal de la pantalla. Solo debe haber uno por vista.</td>
+    </tr>
+    <tr>
+      <td><code>outline</code></td>
+      <td>Acción secundaria o alternativa a la principal.</td>
+    </tr>
+    <tr>
+      <td><code>secondary</code></td>
+      <td>Acción de menor jerarquía, sin tanto peso visual.</td>
+    </tr>
+    <tr>
+      <td><code>ghost</code></td>
+      <td>Acción terciaria, mínimo impacto visual.</td>
+    </tr>
+    <tr>
+      <td><code>destructive</code></td>
+      <td>Acciones irreversibles: eliminar, cancelar, desactivar.</td>
+    </tr>
+    <tr>
+      <td><code>link</code></td>
+      <td>Acción que visualmente parece un enlace de texto.</td>
+    </tr>
+  </tbody>
+</table>
+
+<iframe
+  src="https://6a220ebba6dfcae102b4cb59-dovnudtdzu.chromatic.com/iframe.html?id=components-button--tamaños&viewMode=story"
+  style={{width: '100%', height: '200px', border: 'none', borderRadius: '8px'}}
+/>
+
+---
+
+## Estados
+
+<table>
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default</td>
+      <td>Estado normal en reposo</td>
+    </tr>
+    <tr>
+      <td>Hover</td>
+      <td>Cursor encima del botón</td>
+    </tr>
+    <tr>
+      <td>Focus</td>
+      <td>Navegación por teclado — muestra ring de foco</td>
+    </tr>
+    <tr>
+      <td>Active</td>
+      <td>Mientras se mantiene el click</td>
+    </tr>
+    <tr>
+      <td>Disabled</td>
+      <td>Acción no disponible — opacidad 50%, sin interacción</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Usage guidelines
+
+**✅ Úsalo cuando:**
+- El usuario necesita ejecutar una acción
+- Hay una acción principal clara en la pantalla
+- Necesitas comunicar jerarquía entre varias acciones
+
+**❌ No lo uses cuando:**
+- El destino es una URL externa o interna — usa `Link` en su lugar
+- La acción es navegación entre secciones de la app
+
+---
+
+## Comportamiento
+
+- En mobile mantiene el mismo tamaño que en desktop
+- Con texto muy largo el botón crece horizontalmente — evita textos de más de 4 palabras
+- El estado `disabled` bloquea clicks y reduce la opacidad al 50%
+- Los íconos dentro del botón heredan el color del texto automáticamente
+
+---
+
+## Componentes relacionados
+
+Usa **IconButton** cuando el botón solo contiene un ícono. Usa **Link** cuando la acción es navegación.

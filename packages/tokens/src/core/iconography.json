@@ -1,0 +1,15 @@
+{
+  "icon": {
+    "size": {
+      "16": { "$type": "number", "$value": 16, "$description": "Compact inline icon", "$extensions": { "com.figma.variableId": "VariableID:140:3", "com.figma.scopes": ["ALL_SCOPES"] } },
+      "20": { "$type": "number", "$value": 20, "$description": "Compact control icon", "$extensions": { "com.figma.variableId": "VariableID:140:4", "com.figma.scopes": ["ALL_SCOPES"] } },
+      "24": { "$type": "number", "$value": 24, "$description": "Default interface icon", "$extensions": { "com.figma.variableId": "VariableID:140:5", "com.figma.scopes": ["ALL_SCOPES"] } },
+      "32": { "$type": "number", "$value": 32, "$description": "Prominent or feature icon", "$extensions": { "com.figma.variableId": "VariableID:140:6", "com.figma.scopes": ["ALL_SCOPES"] } }
+    },
+    "stroke": {
+      "150": { "$type": "number", "$value": 1.5, "$description": "Stroke 1.5 px for 16-20 px icons", "$extensions": { "com.figma.variableId": "VariableID:140:7", "com.figma.scopes": ["ALL_SCOPES"] } },
+      "200": { "$type": "number", "$value": 2, "$description": "Stroke 2 px for 24-32 px icons", "$extensions": { "com.figma.variableId": "VariableID:140:8", "com.figma.scopes": ["ALL_SCOPES"] } }
+    }
+  },
+  "$extensions": { "com.figma.modeName": "Default" }
+}

@@ -1,0 +1,143 @@
+---
+title: Iconography
+---
+
+#  Iconography
+
+El Design System usa **Lucide React** como librería de íconos. Lucide es open source, tiene más de 1,000 íconos y está optimizado para React con soporte de TypeScript.
+
+---
+
+## Instalación
+
+Lucide React viene incluido como dependencia del DS, no necesitas instalarlo por separado.
+
+Si lo necesitas directamente en tu proyecto:
+
+```bash
+pnpm add lucide-react
+```
+
+---
+
+## Uso básico
+
+```tsx
+import { SearchIcon, BellIcon, UserIcon } from 'lucide-react'
+
+export default function Example() {
+  return (
+    <div>
+      <SearchIcon size={16} />
+      <BellIcon size={20} />
+      <UserIcon size={24} />
+    </div>
+  )
+}
+```
+
+---
+
+## Props disponibles
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Tipo</th>
+      <th>Default</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>size</code></td>
+      <td>number</td>
+      <td>24</td>
+      <td>Tamaño en px del ícono</td>
+    </tr>
+    <tr>
+      <td><code>color</code></td>
+      <td>string</td>
+      <td>currentColor</td>
+      <td>Color del ícono</td>
+    </tr>
+    <tr>
+      <td><code>strokeWidth</code></td>
+      <td>number</td>
+      <td>2</td>
+      <td>Grosor del trazo</td>
+    </tr>
+    <tr>
+      <td><code>className</code></td>
+      <td>string</td>
+      <td>—</td>
+      <td>Clases CSS adicionales</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Tamaños recomendados
+
+<table>
+  <thead>
+    <tr>
+      <th>Tamaño</th>
+      <th>px</th>
+      <th>Uso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>size={12}</code></td>
+      <td>12px</td>
+      <td>Íconos dentro de badges o etiquetas</td>
+    </tr>
+    <tr>
+      <td><code>size={16}</code></td>
+      <td>16px</td>
+      <td>Íconos inline con texto sm</td>
+    </tr>
+    <tr>
+      <td><code>size={20}</code></td>
+      <td>20px</td>
+      <td>Íconos en botones y inputs</td>
+    </tr>
+    <tr>
+      <td><code>size={24}</code></td>
+      <td>24px</td>
+      <td>Íconos standalone (default)</td>
+    </tr>
+    <tr>
+      <td><code>size={32}</code></td>
+      <td>32px</td>
+      <td>Íconos decorativos o ilustrativos</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Accesibilidad
+
+```tsx
+// ícono decorativo — oculto para screen readers
+<SearchIcon size={16} aria-hidden="true" />
+
+// ícono con significado — necesita label
+<button aria-label="Buscar">
+  <SearchIcon size={16} aria-hidden="true" />
+</button>
+```
+
+:::tip
+Siempre usa `aria-hidden="true"` en íconos decorativos y `aria-label` en el elemento padre cuando el ícono sea el único contenido del botón.
+:::
+
+---
+
+## Referencia completa
+
+Consulta el catálogo completo de íconos en [lucide.dev](https://lucide.dev).

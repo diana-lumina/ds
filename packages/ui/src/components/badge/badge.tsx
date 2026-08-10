@@ -1,33 +1,16 @@
+import * as React from "react"
 import { cn } from '../../lib/utils'
-import { ReactNode } from "react"
+import styles from './badge.module.css'
 
-interface BadgeProps {
-  label: string
-  variant?: "discount" | "amber" | "green" | "red" | "neutral"
-  icon?: ReactNode | null
+export interface BadgeProps extends React.ComponentProps<"span"> {
+  size?: 'sm' | 'md'
+  tone?: 'neutral'
 }
 
-const variantStyles = {
-  discount: "bg-[#14532D] text-white", 
-  amber:    "bg-[#FAEEDA] text-[#633806]",
-  green:    "bg-[#EAF3DE] text-[#27500A]",
-  red:      "bg-[#FCEBEB] text-[#791F1F]",
-  neutral:  "bg-muted text-muted-foreground border border-border",
-}
-
-export function Badge({ label, variant = "amber", icon = null }: BadgeProps) {
+export function Badge({ size = 'sm', tone = 'neutral', children, className, ...props }: BadgeProps) {
   return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-1 text-xs font-medium",
-        variantStyles[variant]
-      )}
-      style={{
-        borderRadius: "0 var(--spacing-4, 16px) 0 0",
-        padding: "var(--spacing-2, 8px) var(--spacing-4, 16px)",
-      }}
-    >
-      {icon}{label}
+    <span data-slot="badge" data-size={size} data-tone={tone} className={cn(styles.root, className)} {...props}>
+      {children}
     </span>
   )
 }

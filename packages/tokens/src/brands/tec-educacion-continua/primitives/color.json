@@ -1,0 +1,133 @@
+{
+  "color": {
+    "brand": {
+      "near-black": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.13725490868091583,
+            0.12156862765550613,
+            0.125490203499794
+          ],
+          "alpha": 1,
+          "hex": "#231F20"
+        },
+        "$description": "Product-specific reference color for TEC Educación Continua. Source: Look & Feel TEC V2 (pending confirmation). Approved for implementation in Figma on 2026-07-23. Direct value #231F20; no alias.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:26:2",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ]
+        }
+      },
+      "blue": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.2235294133424759,
+            0.6509804129600525
+          ],
+          "alpha": 1,
+          "hex": "#0039A6"
+        },
+        "$description": "Product-specific reference color for TEC Educación Continua. Source: Look & Feel TEC V2 (pending confirmation). Approved for implementation in Figma on 2026-07-23. Direct value #0039A6; no alias.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:26:3",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ]
+        }
+      }
+    },
+    "supporting": {
+      "blue": {
+        "swatch-01": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6470588445663452,
+              0.843137264251709,
+              0.9764705896377563
+            ],
+            "alpha": 1,
+            "hex": "#A5D7F9"
+          },
+          "$description": "Product-specific reference color for TEC Educación Continua. Source: Look & Feel TEC V2 (pending confirmation). Approved for implementation in Figma on 2026-07-23. Direct value #A5D7F9; no alias.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:26:4",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-02": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.3333333432674408,
+              0.5254902243614197,
+              0.7568627595901489
+            ],
+            "alpha": 1,
+            "hex": "#5586C1"
+          },
+          "$description": "Product-specific reference color for TEC Educación Continua. Source: Look & Feel TEC V2 (pending confirmation). Approved for implementation in Figma on 2026-07-23. Direct value #5586C1; no alias.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:26:5",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-03": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.11764705926179886,
+              0.2705882489681244,
+              0.45490196347236633
+            ],
+            "alpha": 1,
+            "hex": "#1E4574"
+          },
+          "$description": "Product-specific reference color for TEC Educación Continua. Source: Look & Feel TEC V2 (pending confirmation). Approved for implementation in Figma on 2026-07-23. Direct value #1E4574; no alias.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:26:6",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "swatch-04": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.18431372940540314,
+              0.47843137383461
+            ],
+            "alpha": 1,
+            "hex": "#002F7A"
+          },
+          "$description": "Product-specific reference color for TEC Educación Continua. Source: Look & Feel TEC V2 (pending confirmation). Approved for implementation in Figma on 2026-07-23. Direct value #002F7A; no alias.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:26:7",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Default"
+  }
+}

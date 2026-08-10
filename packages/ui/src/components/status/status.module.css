@@ -1,0 +1,78 @@
+.root {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    border-radius: var(--component-status-radius, 999px);
+    font-style: normal;
+    font-weight: var(--typography-font-weight-medium, 500);
+    line-height: var(--typography-line-height-100, 16px); 
+letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ===== Tamaño: sm ===== */
+.root[data-size="sm"] {
+    height: var(--component-status-sm-height, 32px);
+    padding: 0 var(--component-status-sm-padding-inline, 8px);
+    gap: var(--component-status-sm-gap, 4px);
+    font-size: var(--component-status-sm-font-size, 12px);
+    line-height: var(--component-status-sm-line-height, 16px);
+}
+
+.root[data-size="sm"] .iconWrapper svg {
+    width: var(--component-status-sm-icon-size, 16px);
+    height: var(--component-status-sm-icon-size, 16px);
+}
+
+/* ===== Tamaño: md ===== */
+.root[data-size="md"] {
+    height: var(--component-status-md-height, 32px);
+    padding: 0 var(--component-status-md-padding-inline, 12px);
+    gap: var(--component-status-md-gap, 8px);
+    font-size: var(--component-status-md-font-size, 14px);
+    line-height: var(--component-status-md-line-height, 20px);
+}
+
+.root[data-size="md"] .iconWrapper svg {
+    width: var(--component-status-md-icon-size, 16px);
+    height: var(--component-status-md-icon-size, 16px);
+}
+
+/* ===== Intent: neutral ===== */
+
+.root[data-intent="neutral"] {
+    background: var(--component-status-color-neutral-surface, #F5F5F5);
+    color: var(--component-status-color-neutral-text, #404040);
+}
+
+/* ===== Intent: info ===== */
+.root[data-intent="info"] {
+    background: var(--component-status-color-info-surface, #EFF6FF);
+    color: var(--component-status-color-info-text, #1D4ED8);
+}
+
+/* ===== Intent: success ===== */
+.root[data-intent="success"] {
+    background: var(--component-status-color-success-surface, #F0FDF4);
+    color: var(--component-status-color-success-text, #15803D);
+}
+
+/* ===== Intent: warning ===== */
+.root[data-intent="warning"] {
+    background: var(--component-status-color-warning-surface, #FEFCE8);
+    color: var(--component-status-color-warning-text, #A16207);
+}
+
+/* ===== Intent: danger ===== */
+.root[data-intent="danger"] {
+    background: var(--component-status-color-danger-surface, #FEF2F2);
+    color: var(--component-status-color-danger-text, #B91C1C);
+}

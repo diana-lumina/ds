@@ -1,37 +1,33 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Badge } from './badge'
-import { TagIcon, StarIcon, CheckIcon, AlertCircleIcon } from 'lucide-react'
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
   tags: ['autodocs'],
   parameters: {
+    layout: 'padded',
     docs: {
       description: {
-        component: 'Badge informativo con variantes de color semánticas. La variante discount tiene un border-radius especial (esquina superior derecha) para usarse sobre imágenes en la esquina inferior izquierda.',
+        component: `
+Etiqueta de texto corta. Solo acepta texto.
+Para contadores de notificaciones usa CounterBadge.
+        `,
       },
     },
-    layout: 'padded',
   },
   argTypes: {
-    label: {
-      description: 'Texto del badge',
-      control: 'text',
-      table: { type: { summary: 'string' } },
-    },
-    variant: {
-      description: 'Define el color y propósito del badge',
+    size: {
       control: 'select',
-      options: ['discount', 'amber', 'green', 'red', 'neutral'],
-      table: {
-        type: { summary: '"discount" | "amber" | "green" | "red" | "neutral"' },
-        defaultValue: { summary: 'amber' },
-      },
+      options: ['sm', 'md'],
     },
-    icon: {
-      description: 'Ícono opcional a la izquierda del texto',
-      table: { type: { summary: 'ReactNode' } },
+    children: {
+      control: 'text',
+      description: 'Texto visible del badge',
+    },
+    tone: {
+      control: 'select',
+      options: ['neutral'],
     },
   },
 }
@@ -39,92 +35,52 @@ const meta: Meta<typeof Badge> = {
 export default meta
 type Story = StoryObj<typeof Badge>
 
-export const Discount: Story = {
-  name: 'Badge — Discount',
-  parameters: {
-    docs: {
-      description: {
-        story: 'Variante para mostrar descuentos sobre imágenes de cards.',
-      },
-    },
-    backgrounds: { default: 'dark' },
-  },
+function captionStyle(): React.CSSProperties {
+  return { fontFamily: 'monospace', fontSize: 10, color: '#aaa', marginTop: 6 }
+}
+
+export const Playground: Story = {
   args: {
-    label: '15% OFF',
-    variant: 'discount',
+    size: 'sm',
+    tone: 'neutral',
+    children: 'Nuevo',
   },
 }
 
-export const Amber: Story = {
-  name: 'Badge — Amber',
-  args: {
-    label: 'Pendiente',
-    variant: 'amber',
-    icon: <AlertCircleIcon size={12} />,
-  },
-}
-
-export const Green: Story = {
-  name: 'Badge — Green',
-  args: {
-    label: 'Completado',
-    variant: 'green',
-    icon: <CheckIcon size={12} />,
-  },
-}
-
-export const Red: Story = {
-  name: 'Badge — Red',
-  args: {
-    label: 'Error',
-    variant: 'red',
-    icon: <AlertCircleIcon size={12} />,
-  },
-}
-
-export const Neutral: Story = {
-  name: 'Badge — Neutral',
-  args: {
-    label: 'Borrador',
-    variant: 'neutral',
-  },
-}
-
-export const ConIcono: Story = {
-  name: 'Badge — Con ícono',
-  args: {
-    label: 'Destacado',
-    variant: 'amber',
-    icon: <StarIcon size={12} />,
-  },
-}
-
-export const QAEstados: Story = {
-  name: 'Badge — QA Estados',
-  parameters: {
-    docs: {
-      description: {
-        story: 'Todas las variantes para verificación visual.',
-      },
-    },
-  },
+export const AllSizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-4">
-      <div className="flex gap-3 flex-wrap items-center">
-        <Badge label="15% OFF" variant="discount" />
-        <Badge label="Pendiente" variant="amber" icon={<TagIcon size={12} />} />
-        <Badge label="Completado" variant="green" icon={<CheckIcon size={12} />} />
-        <Badge label="Error" variant="red" icon={<AlertCircleIcon size={12} />} />
-        <Badge label="Neutral" variant="neutral" />
+    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+      <div style={{ textAlign: 'center' }}>
+        <Badge size="sm">Nuevo</Badge>
+        <div style={captionStyle()}>Small</div>
+      </div>
+      <div style={{ textAlign: 'center' }}>
+        <Badge size="md">Nuevo</Badge>
+        <div style={captionStyle()}>Medium</div>
       </div>
     </div>
   ),
 }
 
-export const Playground: Story = {
-  name: 'Badge — Playground',
-  args: {
-    label: 'Label',
-    variant: 'amber',
-  },
+export const InContext: Story = {
+  name: 'Ejemplo de uso',
+  render: () => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 8,
+        fontFamily: 'sans-serif',
+        maxWidth: 360,
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <h3 style={{ margin: 0, fontSize: 16, fontWeight: 600 }}>Curso de UX Research</h3>
+        <Badge size="sm">Nuevo</Badge>
+      </div>
+      <p style={{ margin: 0, fontSize: 13, color: '#666', lineHeight: 1.4 }}>
+        Aprende métodos de investigación para validar hipótesis de producto.
+      </p>
+    </div>
+  ),
 }

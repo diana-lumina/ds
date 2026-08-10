@@ -1,0 +1,112 @@
+---
+title: Button — Accesibilidad
+displayed_sidebar: tutorialSidebar
+---
+
+import ComponentNav from '@site/src/components/ComponentNav'
+
+# Button
+
+<ComponentNav
+  base="/components/button"
+  tabs={[
+    { label: 'Descripción general', path: '' },
+    { label: 'Implementación', path: '/implementation' },
+    { label: 'Accesibilidad', path: '/accessibility' },
+  ]}
+/>
+
+## HTML semántico
+
+Usa el elemento `<button>` nativo — no `<div>` ni `<span>`. Esto garantiza comportamiento correcto de teclado y screen readers sin configuración adicional.
+
+---
+
+## Navegación por teclado
+
+<table>
+  <thead>
+    <tr>
+      <th>Tecla</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Tab</code></td>
+      <td>Mueve el foco al siguiente elemento interactivo</td>
+    </tr>
+    <tr>
+      <td><code>Shift + Tab</code></td>
+      <td>Mueve el foco al elemento anterior</td>
+    </tr>
+    <tr>
+      <td><code>Enter</code></td>
+      <td>Activa el botón</td>
+    </tr>
+    <tr>
+      <td><code>Space</code></td>
+      <td>Activa el botón</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Screen readers
+
+El texto dentro del botón es leído automáticamente. Para botones de solo ícono, el `aria-label` es **obligatorio**:
+
+```tsx
+// ✅ correcto
+<Button size="icon" aria-label="Eliminar elemento">
+  <TrashIcon size={16} />
+</Button>
+
+// ❌ incorrecto
+<Button size="icon">
+  <TrashIcon size={16} />
+</Button>
+```
+
+---
+
+## Estado disabled
+
+```tsx
+// ✅ correcto — usa el atributo nativo
+<Button disabled>No disponible</Button>
+```
+
+El atributo `disabled` nativo excluye el botón del orden de tabulación y previene eventos de click automáticamente.
+
+---
+
+## Contraste
+
+<table>
+  <thead>
+    <tr>
+      <th>Variante</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>default</td>
+      <td>Pendiente verificación con tokens finales</td>
+    </tr>
+    <tr>
+      <td>destructive</td>
+      <td>Pendiente verificación con tokens finales</td>
+    </tr>
+    <tr>
+      <td>outline</td>
+      <td>Pendiente verificación con tokens finales</td>
+    </tr>
+  </tbody>
+</table>
+
+:::info
+Los valores de contraste se verificarán con la paleta de colores final definida por el equipo de diseño.
+:::

@@ -1,0 +1,33 @@
+{
+  "grid": {
+    "columns": {
+      "$type": "number",
+      "$value": 8,
+      "$description": "Status: Experimental. Shared grid column count by layout context. Compact, Medium and Wide are context modes; breakpoint thresholds are defined separately.",
+      "$extensions": { "com.figma.variableId": "VariableID:122:3", "com.figma.scopes": ["ALL_SCOPES"] }
+    },
+    "gutter": {
+      "$type": "number",
+      "$value": 24,
+      "$description": "Status: Experimental. DTCG type: dimension (px). Shared gutter width by layout context.",
+      "$extensions": { "com.figma.variableId": "VariableID:122:4", "com.figma.scopes": ["ALL_SCOPES"] }
+    },
+    "margin": {
+      "$type": "number",
+      "$value": 32,
+      "$description": "Status: Experimental. DTCG type: dimension (px). Minimum outer page margin by layout context.",
+      "$extensions": { "com.figma.variableId": "VariableID:122:5", "com.figma.scopes": ["ALL_SCOPES"] }
+    },
+    "container": {
+      "max-width": {
+        "$type": "number",
+        "$value": 0,
+        "$description": "Status: Experimental. DTCG type: dimension (px). A value of 0 means fluid width; Wide caps the primary content container at 1200 px.",
+        "$extensions": { "com.figma.variableId": "VariableID:122:6", "com.figma.scopes": ["ALL_SCOPES"] }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Medium"
+  }
+}

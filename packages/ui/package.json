@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "sideEffects": [
-    "*.css"
+    "*.css",
+    "**/*.css"
   ],
   "scripts": {
     "lint": "eslint",
@@ -59,6 +60,7 @@
       "require": "./dist/index.js"
     },
     "./globals.css": "./src/styles/globals.css",
+    "./icons": "./src/icons/index.tsx",
     "./postcss.config": "./postcss.config.mjs",
     "./lib/*": {
       "development": "./src/lib/*.ts",

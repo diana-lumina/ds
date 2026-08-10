@@ -1,0 +1,189 @@
+{
+  "typography": {
+    "font-family": {
+      "interface": {
+        "$type": "string",
+        "$value": "Inter",
+        "$description": "Semantic interface font family. Current approved value is Inter for both products.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:594:3",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.type": "string",
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:181c8c0d6f5ef1811160f7885aea2f3da7cb9e6e/-1:-1",
+            "targetVariableName": "font-family/primary",
+            "targetVariableSetId": "VariableCollectionId:208ecce9083112caaf135ead5d9771d11324f32c/-1:-1",
+            "targetVariableSetName": "TEC 360 — Typography"
+          }
+        }
+      }
+    },
+    "font-style": {
+      "action": {
+        "$type": "string",
+        "$value": "Medium",
+        "$description": "Semantic font style for action labels.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:594:4",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.type": "string"
+        }
+      }
+    },
+    "font-weight": {
+      "action": {
+        "$type": "number",
+        "$value": 500,
+        "$description": "Semantic numeric font weight for action labels.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:594:5",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:82c7a29a9d9f290a8c1387bf1c82a616790fefb3/-1:-1",
+            "targetVariableName": "typography/font-weight/medium",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "letter-spacing": {
+      "action": {
+        "$type": "number",
+        "$value": 0,
+        "$description": "Semantic letter spacing for action labels.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:594:6",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:56b3cc039e8d5dbdec6c0a7a88ec41bffbce10cb/-1:-1",
+            "targetVariableName": "typography/letter-spacing/default",
+            "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+            "targetVariableSetName": "TEC DS — Typography Primitives"
+          }
+        }
+      }
+    },
+    "font-size": {
+      "action": {
+        "sm": {
+          "$type": "number",
+          "$value": 14,
+          "$description": "Semantic action label font size for small controls.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:594:7",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:25fbd6994d4767231fcb62b7f7259c8d4c4c8ca7/-1:-1",
+              "targetVariableName": "typography/font-size/200",
+              "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+              "targetVariableSetName": "TEC DS — Typography Primitives"
+            }
+          }
+        },
+        "md": {
+          "$type": "number",
+          "$value": 16,
+          "$description": "Semantic action label font size for medium controls.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:594:8",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:034a51a22c7b2f9f89dea377ab101ef0c1484dda/-1:-1",
+              "targetVariableName": "typography/font-size/300",
+              "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+              "targetVariableSetName": "TEC DS — Typography Primitives"
+            }
+          }
+        },
+        "lg": {
+          "$type": "number",
+          "$value": 16,
+          "$description": "Semantic action label font size for large controls.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:594:9",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:034a51a22c7b2f9f89dea377ab101ef0c1484dda/-1:-1",
+              "targetVariableName": "typography/font-size/300",
+              "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+              "targetVariableSetName": "TEC DS — Typography Primitives"
+            }
+          }
+        }
+      }
+    },
+    "line-height": {
+      "action": {
+        "sm": {
+          "$type": "number",
+          "$value": 20,
+          "$description": "Semantic action label line height for small controls.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:594:10",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:b887d29d6d8b4f566324cd4b329bcd2b34fb3802/-1:-1",
+              "targetVariableName": "typography/line-height/200",
+              "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+              "targetVariableSetName": "TEC DS — Typography Primitives"
+            }
+          }
+        },
+        "md": {
+          "$type": "number",
+          "$value": 24,
+          "$description": "Semantic action label line height for medium controls.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:594:11",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:3eafaabcb38326987daf570d0ded48c1ebe9e45d/-1:-1",
+              "targetVariableName": "typography/line-height/300",
+              "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+              "targetVariableSetName": "TEC DS — Typography Primitives"
+            }
+          }
+        },
+        "lg": {
+          "$type": "number",
+          "$value": 24,
+          "$description": "Semantic action label line height for large controls.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:594:12",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:3eafaabcb38326987daf570d0ded48c1ebe9e45d/-1:-1",
+              "targetVariableName": "typography/line-height/300",
+              "targetVariableSetId": "VariableCollectionId:883d2b8e11e95395b7d0c939bff25e651c294142/-1:-1",
+              "targetVariableSetName": "TEC DS — Typography Primitives"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "TEC 360"
+  }
+}

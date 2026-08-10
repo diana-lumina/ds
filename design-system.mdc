@@ -1,0 +1,52 @@
+# Design System — Tec DS Monorepo
+
+## Stack
+- Turborepo + pnpm workspaces
+- TypeScript + React
+- Tailwind CSS v4 (usa directivas `@theme inline`, NUNCA agregues una capa `:root` puente — genera referencias circulares)
+- Radix UI + shadcn/ui como base de primitivos
+- Storybook para documentación visual
+- Vitest para tests
+- Docusaurus (`apps/docs`) para documentación técnica
+
+## Arquitectura de tokens (3 capas)
+1. **Primitivos**: valores crudos (color, tipografía, radius, spacing) en archivos CSS separados.
+2. **Semánticos**: mapean primitivos a intención de uso (ej. `color-interactive-default`).
+3. **Componente**: tokens específicos de cada componente que referencian la capa semántica.
+Nunca saltes capas (un componente no debe referenciar un primitivo directamente).
+
+## Patrón de carga de imágenes
+Todo componente que cargue imágenes (avatar, media card, logo, etc.) sigue este patrón:
+- `useState` para el estado de carga
+- `useRef` para la referencia al elemento
+- Dos `useEffect`: uno para iniciar la carga, otro para limpiar/reset
+- `<Skeleton />` con transición de opacidad mientras carga
+No inventes variantes de este patrón; reutilízalo tal cual está en `MediaCard` o `UserImage`.
+
+## Storybook (stories)
+- Usa Component Story Format 3 (CSF3).
+- Para estados interactivos, usa wrappers reutilizables ya existentes: `WithTrigger`, `WithViewport`, `OnCard`. NO hardcodees estado en la story directamente.
+- Cada story debe pasar el addon de accesibilidad (`@storybook/addon-a11y`) sin violaciones antes de considerarse terminada.
+
+## Tests (Vitest)
+Organiza cada archivo de test con estos `describe` groups, en este orden:
+1. `Renderizado`
+2. `Prop: [nombre de la prop]` (uno por prop relevante)
+3. `Comportamiento`
+4. `Accesibilidad`
+
+Reglas de accesibilidad no negociables:
+- Iconos decorativos: `aria-hidden="true"`
+- Toggles: `aria-pressed`
+- Botones solo-ícono: `aria-label` es OBLIGATORIO, nunca opcional
+- `aria-disabled` siempre como string `'true' | undefined`, nunca boolean
+
+## Convenciones de shadcn
+- Los selectores de estado usan sintaxis `data-[state=checked]:`, NO `data-checked:` (bug común).
+- Los componentes SVG (ej. `Logo`/`logoMap`) deben reenviar props correctamente — no envolver sin forward de props.
+
+## Al generar un componente nuevo desde una imagen de Figma
+1. Busca primero si ya existe un componente similar en `packages/ui/src/components/` y reutilízalo como base de patrón (usa @archivo para referenciarlo).
+2. Genera: componente `.tsx`, story `.stories.tsx`, test `.test.tsx` — los tres juntos, nunca solo el componente.
+3. Sigue el flujo de estimación por T-shirt size si se pregunta por tiempos: ~40% dev / 20% Storybook / 25% tests / 15% docs.
+4. Nunca marques un componente como terminado sin tests ni documentación — no se difieren para después.

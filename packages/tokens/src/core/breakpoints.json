@@ -1,0 +1,37 @@
+{
+  "breakpoint": {
+    "compact": {
+      "min-width": {
+        "$type": "number",
+        "$value": 0,
+        "$description": "Status: Experimental. DTCG type: dimension (px). Mobile-first minimum width for the Compact layout context.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:125:3"
+        }
+      }
+    },
+    "medium": {
+      "min-width": {
+        "$type": "number",
+        "$value": 768,
+        "$description": "Status: Experimental. DTCG type: dimension (px). Mobile-first minimum width for the Medium layout context.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:125:4"
+        }
+      }
+    },
+    "wide": {
+      "min-width": {
+        "$type": "number",
+        "$value": 1280,
+        "$description": "Status: Experimental. DTCG type: dimension (px). Mobile-first minimum width for the Wide layout context.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:125:5"
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Default"
+  }
+}
