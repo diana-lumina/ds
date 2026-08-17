@@ -1,5 +1,5 @@
 import { Status } from '@workspace/ui'
-import { BagIcon } from '@workspace/ui/icons'
+import { CheckCircleIcon } from '@workspace/ui/icons'
 import { PlaygroundHeader } from '../playground-header'
 
 export default function StatusPlayground() {
@@ -10,22 +10,22 @@ export default function StatusPlayground() {
       <section className="flex flex-col gap-3">
         <h2 className="text-sm text-muted-foreground">Intent — sm</h2>
         <div className="flex flex-wrap items-center gap-2">
-          <Status size="sm" intent="neutral">Neutral</Status>
-          <Status size="sm" intent="info">Info</Status>
-          <Status size="sm" intent="success">Success</Status>
-          <Status size="sm" intent="warning">Warning</Status>
-          <Status size="sm" intent="danger">Danger</Status>
+          <Status size="sm" intent="neutral" label="Pendiente" />
+          <Status size="sm" intent="info" label="En revisión" />
+          <Status size="sm" intent="success" label="Completado" />
+          <Status size="sm" intent="warning" label="Requiere atención" />
+          <Status size="sm" intent="danger" label="Error" />
         </div>
       </section>
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-sm text-muted-foreground">Intent — md + ícono</h2>
+        <h2 className="text-sm text-muted-foreground">Intent — md + icon</h2>
         <div className="flex flex-wrap items-center gap-2">
-          <Status size="md" intent="neutral" icon={<BagIcon />}>Neutral</Status>
-          <Status size="md" intent="info" icon={<BagIcon />}>Info</Status>
-          <Status size="md" intent="success" icon={<BagIcon />}>Success</Status>
-          <Status size="md" intent="warning" icon={<BagIcon />}>Warning</Status>
-          <Status size="md" intent="danger" icon={<BagIcon />}>Danger</Status>
+          <Status size="md" intent="neutral" label="Pendiente" icon={<CheckCircleIcon />} />
+          <Status size="md" intent="info" label="En revisión" icon={<CheckCircleIcon />} />
+          <Status size="md" intent="success" label="Completado" icon={<CheckCircleIcon />} />
+          <Status size="md" intent="warning" label="Requiere atención" icon={<CheckCircleIcon />} />
+          <Status size="md" intent="danger" label="Error" icon={<CheckCircleIcon />} />
         </div>
       </section>
     </div>

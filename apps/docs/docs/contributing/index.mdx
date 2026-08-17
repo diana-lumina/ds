@@ -122,4 +122,18 @@ PR con checklist completo → review → merge → publicación.
 
 ---
 
+## Añadir un ícono
+
+Los íconos no se generan con SVGR: el SVG se guarda en `packages/ui/src/icons/svg/` y se copia a un wrapper React.
+
+1. Exporta de Figma un SVG **24×24** (un `<svg>` raíz, `viewBox="0 0 24 24"`, `currentColor`, sin hex).
+2. Guárdalo como `packages/ui/src/icons/svg/nombre.svg`.
+3. Copia `packages/ui/src/icons/_template-icon.tsx` → `nombre-icon.tsx`, pega los `<path>` y cambia el `displayName`.
+4. Reexporta en `packages/ui/src/icons/index.ts`.
+5. Verifica en Storybook: **Foundations / Icons**.
+
+Detalle del contrato: `packages/ui/src/icons/svg/README.md`.
+
+---
+
 ## Checklist de un componente listo

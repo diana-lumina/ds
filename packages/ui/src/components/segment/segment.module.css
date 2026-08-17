@@ -10,8 +10,8 @@
   font-style: normal;
   font-weight: var(--typography-font-weight-action, 500);
   letter-spacing: var(--typography-letter-spacing-action, 0);
-  transition-property: background-color, border-color, color;
-  transition-duration: 150ms;
+  /*transition-property: background-color, border-color, color;
+  transition-duration: 150ms;*/
 }
 
 .root:disabled {
@@ -19,10 +19,17 @@
   cursor: not-allowed;
 }
 
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .root:focus-visible {
-  outline: var(--component-segmented-button-focus-width, 2px) solid
+  outline: var(--component-segmented-button-focus-width, var(--focus-ring-width, 2px)) solid
     var(--component-segmented-button-color-focus-ring, #2563EB);
-  outline-offset: var(--component-segmented-button-focus-offset, 4px);
+  outline-offset: var(--focus-ring-offset, 2px);
 }
 
 /* ===== Tamaño: sm ===== */
@@ -34,6 +41,12 @@
   line-height: var(--typography-line-height-action-sm, 20px);
 }
 
+.root[data-size="sm"] .iconWrapper svg {
+  /* TODO(design): no hay token component.segmented-button.sm.icon-size */
+  width: 16px;
+  height: 16px;
+}
+
 /* ===== Tamaño: md ===== */
 .root[data-size="md"] {
   padding: var(--component-segmented-button-md-padding-block, 8px)
@@ -41,6 +54,12 @@
   gap: var(--component-segmented-button-md-gap, 8px);
   font-size: var(--typography-font-size-action-md, 16px);
   line-height: var(--typography-line-height-action-md, 24px);
+}
+
+.root[data-size="md"] .iconWrapper svg {
+  /* TODO(design): no hay token component.segmented-button.md.icon-size */
+  width: 20px;
+  height: 20px;
 }
 
 /* ===== Tamaño: lg ===== */
@@ -52,11 +71,21 @@
   line-height: var(--typography-line-height-action-lg, 24px);
 }
 
+.root[data-size="lg"] .iconWrapper svg {
+  /* TODO(design): no hay token component.segmented-button.lg.icon-size */
+  width: 24px;
+  height: 24px;
+}
+
 /* ===== Selected: false (unselected) ===== */
 .root[data-selected="false"] {
   border-color: var(--component-segmented-button-color-unselected-border, #D4D4D4);
   background: var(--component-segmented-button-color-unselected-surface-default, #FFF);
   color: var(--component-segmented-button-color-unselected-text, #171717);
+}
+
+.root[data-selected="false"] .iconWrapper {
+  color: var(--component-segmented-button-color-unselected-icon, currentColor);
 }
 
 .root[data-selected="false"]:hover {
@@ -77,11 +106,19 @@
   color: var(--component-segmented-button-color-disabled-text, #A3A3A3);
 }
 
+.root[data-selected="false"]:disabled .iconWrapper {
+  color: var(--component-segmented-button-color-disabled-icon, currentColor);
+}
+
 /* ===== Selected: true ===== */
 .root[data-selected="true"] {
   border-color: var(--component-segmented-button-color-selected-border, #2563EB);
   background: var(--component-segmented-button-color-selected-surface-default, #EFF6FF);
   color: var(--component-segmented-button-color-selected-text, #1D4ED8);
+}
+
+.root[data-selected="true"] .iconWrapper {
+  color: var(--component-segmented-button-color-selected-icon, currentColor);
 }
 
 .root[data-selected="true"]:hover {
@@ -100,4 +137,8 @@
   border-color: var(--component-segmented-button-color-disabled-border, #E5E5E5);
   background: var(--component-segmented-button-color-disabled-surface, #F5F5F5);
   color: var(--component-segmented-button-color-disabled-text, #A3A3A3);
+}
+
+.root[data-selected="true"]:disabled .iconWrapper {
+  color: var(--component-segmented-button-color-disabled-icon, currentColor);
 }

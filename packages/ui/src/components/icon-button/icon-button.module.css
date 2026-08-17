@@ -5,8 +5,9 @@
 }
 
 .root:focus-visible {
-    outline: var(--border-width-2, 2px) solid var(--component-icon-button-color-focus-ring);
-    outline-offset: var(--border-width-2, 2px);
+    outline: var(--focus-ring-width, var(--border-width-2, 2px)) solid
+        var(--component-icon-button-color-focus-ring);
+    outline-offset: var(--focus-ring-offset, 2px);
 }
 
 .root:disabled {
@@ -14,6 +15,11 @@
     cursor: not-allowed;
 }
 
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* ===== Tamaños ===== */
 
@@ -50,9 +56,9 @@
     height: var(--component-icon-button-lg-icon-size);
 }
 
-/* ===== Variant: default ===== */
+/* ===== Tone: standard (Primary recipe) ===== */
 
-.root[data-variant="default"] {
+.root[data-tone="standard"] {
 
     background: linear-gradient(90deg,
             var(--component-icon-button-color-primary-surface-default-start) 0%,
@@ -61,7 +67,7 @@
 
 }
 
-.root[data-variant="default"]:hover {
+.root[data-tone="standard"]:hover {
     background:
         linear-gradient(var(--component-icon-button-color-primary-surface-hover-overlay),
             var(--component-icon-button-color-primary-surface-hover-overlay)),
@@ -70,7 +76,7 @@
             var(--component-icon-button-color-primary-surface-hover-end) 100%);
 }
 
-.root[data-variant="default"]:active:not([aria-haspopup]) {
+.root[data-tone="standard"]:active:not([aria-haspopup]) {
     background:
         linear-gradient(var(--component-icon-button-color-primary-surface-pressed-overlay),
             var(--component-icon-button-color-primary-surface-pressed-overlay)),
@@ -79,26 +85,37 @@
             var(--component-icon-button-color-primary-surface-pressed-end) 100%);
 }
 
-.root[data-variant="default"]:disabled {
+.root[data-tone="standard"]:disabled {
     background: var(--component-icon-button-color-primary-surface-disabled);
     color: var(--component-button-color-primary-text-disabled);
 }
 
-/* ===== Variant: inverse ===== */
-.root[data-variant="inverse"] {
+/* ===== Tone: inverse ===== */
+.root[data-tone="inverse"] {
     background: var(--component-icon-button-color-primary-inverse-surface-default);
     color: var(--component-icon-button-color-primary-inverse-icon-default);
 }
 
-.root[data-variant="inverse"]:hover {
+.root[data-tone="inverse"]:hover {
     background: var(--component-icon-button-color-primary-inverse-surface-hover);
 }
 
-.root[data-variant="inverse"]:active:not([aria-haspopup]) {
+.root[data-tone="inverse"]:active:not([aria-haspopup]) {
     background: var(--component-icon-button-color-primary-inverse-surface-pressed);
 }
 
-.root[data-variant="inverse"]:disabled {
+.root[data-tone="inverse"]:disabled {
     background: var(--component-icon-button-color-primary-inverse-surface-disabled);
     color: var(--component-icon-button-color-primary-inverse-icon-disabled);
+}
+
+/* ===== LOADING ===== */
+@keyframes icon-button-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.root[data-loading="true"] svg[data-slot="loading-icon"] {
+    animation: icon-button-spin var(--motion-duration-continuous, 800ms) var(--motion-easing-linear, linear) infinite;
 }

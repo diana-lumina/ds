@@ -1,280 +1,353 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './button'
-import { BagIcon, ChevronIcon } from '@workspace/ui/icons'
+import { ArrowRightIcon, ShoppingBagIcon } from '@workspace/ui/icons'
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'Components/Actions/Button',
   component: Button,
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component:
+          'Componente de acción principal. ',
+      },
+    },
   },
   argTypes: {
-    variant: {
+    hierarchy: {
       control: 'select',
-      options: ['default', 'secondary', 'ghost', 'destructive'],
+      options: ['primary', 'secondary', 'tertiary', 'destructive'],
+      description: 'Jerarquía por intención y prominencia: primary | secondary | tertiary | destructive',
+      table: { defaultValue: { summary: 'primary' } },
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size scale coordinado (altura, tipografía, padding, gap, ícono)',
+      table: { defaultValue: { summary: 'md' } },
     },
     tone: {
       control: 'select',
       options: ['standard', 'inverse'],
+      description: 'inverse solo con primary y secondary (superficies oscuras)',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'standard' },
+      },
     },
-    size: {
-      control: 'select',
-      options: ['default', 'sm', 'lg', 'icon', 'icon-xs', 'icon-sm', 'icon-lg'],
+    label: {
+      control: 'text',
+      description: 'Label del botón',
+      table: { type: { summary: 'string' } },
     },
-    disabled: { control: 'boolean' },
-    loading: { control: 'boolean' },
-    children: { control: 'text' },
+    leftIcon: {
+      control: false,
+      description: 'Ícono a la izquierda del label',
+    },
+    rightIcon: {
+      control: false,
+      description: 'Ícono a la derecha del label',
+    },
+    loading: {
+      control: 'boolean',
+      description: 'Estado de carga; conserva el layout del botón',
+      table: { defaultValue: { summary: 'false' } },
+    },
+    disabled: {
+      control: 'boolean',
+      table: { defaultValue: { summary: 'false' } },
+    },
   },
   args: {
-    variant: 'default',
+    hierarchy: 'primary',
     tone: 'standard',
-    size: 'default',
+    size: 'md',
     disabled: false,
     loading: false,
-    children: 'Button',
+    label: 'Button',
   },
 }
 
 export default meta
 type Story = StoryObj<typeof Button>
 
-export const Playground: Story = {}
-
 const SIZES = [
-  { value: 'sm', label: 'Small' },
-  { value: 'default', label: 'Medium' },
-  { value: 'lg', label: 'Large' },
+  { value: 'sm', sizeLabel: 'Small' },
+  { value: 'md', sizeLabel: 'Medium' },
+  { value: 'lg', sizeLabel: 'Large' },
 ] as const
 
-function labelStyle(): React.CSSProperties {
-  return { fontFamily: 'monospace', fontSize: 11, color: '#888', marginBottom: 6 }
+type Hierarchy = 'primary' | 'secondary' | 'tertiary' | 'destructive'
+type Size = (typeof SIZES)[number]['value']
+
+const showCode = {
+  docs: {
+    canvas: { sourceState: 'shown' as const },
+  },
 }
 
-function captionStyle(): React.CSSProperties {
-  return { fontFamily: 'monospace', fontSize: 10, color: '#aaa', marginTop: 6 }
+const hideCode = {
+  docs: {
+    canvas: { sourceState: 'none' as const },
+  },
 }
 
-function VariantSection({
-  variant,
-  title,
-}: {
-  variant: 'default' | 'secondary' | 'ghost' | 'destructive'
-  title: string
-}) {
-  return (
-    <div style={{ marginBottom: 40, paddingBottom: 28, borderBottom: '1px solid #eee' }}>
-      <h2 style={{ fontFamily: 'sans-serif', marginBottom: 4 }}>{title}</h2>
-     
-      <div style={{ display: 'flex', gap: 32, alignItems: 'flex-start', flexWrap: 'wrap' }}>
-        {SIZES.map(({ value, label }) => (
-          <div key={value}>
-            <div style={labelStyle()}>{label}</div>
-            <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-              <div style={{ textAlign: 'center' }}>
-                <Button variant={variant} size={value}>
-                  Button
-                </Button>
-                <div style={captionStyle()}>Default</div>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <Button variant={variant} size={value} disabled>
-                  Button
-                </Button>
-                <div style={captionStyle()}>Disabled</div>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <Button variant={variant} size={value} leftIcon={<BagIcon />} rightIcon={<ChevronIcon />}>
-                  Button
-                </Button>
-                <div style={captionStyle()}>Con íconos</div>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <Button
-                  variant={variant}
-                  size={value}
-                  leftIcon={<BagIcon />}
-                  rightIcon={<ChevronIcon />}
-                  disabled
-                >
-                  Button
-                </Button>
-                <div style={captionStyle()}>Íconos + disabled</div>
-              </div>
-            </div>
-          </div>
-        ))}
+const th: React.CSSProperties = {
+  fontFamily: 'monospace',
+  fontSize: 11,
+  color: '#888',
+  fontWeight: 600,
+  textAlign: 'center',
+  padding: '0 20px 12px',
+  borderBottom: '1px solid #eee',
+}
+
+const rowLabel: React.CSSProperties = {
+  fontFamily: 'monospace',
+  fontSize: 11,
+  color: '#888',
+  fontWeight: 600,
+  textAlign: 'left',
+  verticalAlign: 'middle',
+  padding: '16px 24px 16px 0',
+  borderBottom: '1px solid #f0f0f0',
+  whiteSpace: 'nowrap',
+}
+
+const td: React.CSSProperties = {
+  textAlign: 'center',
+  verticalAlign: 'middle',
+  padding: '16px 20px',
+  borderBottom: '1px solid #f0f0f0',
+}
+
+export const Playground: Story = {}
+
+export const Primary: Story = {
+  parameters: showCode,
+  args: { hierarchy: 'primary', label: 'Button' },
+}
+
+export const Secondary: Story = {
+  parameters: showCode,
+  args: { hierarchy: 'secondary', label: 'Button' },
+}
+
+export const Tertiary: Story = {
+  parameters: showCode,
+  args: { hierarchy: 'tertiary', label: 'Button' },
+}
+
+export const Destructive: Story = {
+  parameters: showCode,
+  args: { hierarchy: 'destructive', label: 'Button' },
+}
+
+export const PrimaryInverse: Story = {
+  name: 'Primary inverse',
+  parameters: showCode,
+  args: { hierarchy: 'primary', tone: 'inverse', label: 'Button' },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          background: 'var(--color-surface-brand-strong, #231f20)',
+          padding: 24,
+          borderRadius: 8,
+          display: 'inline-block',
+        }}
+      >
+        <Story />
       </div>
-    </div>
+    ),
+  ],
+}
+
+export const SecondaryInverse: Story = {
+  name: 'Secondary inverse',
+  parameters: showCode,
+  args: { hierarchy: 'secondary', tone: 'inverse', label: 'Button' },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          background: 'var(--color-surface-brand-strong, #231f20)',
+          padding: 24,
+          borderRadius: 8,
+          display: 'inline-block',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const WithLeftIcon: Story = {
+  name: 'Left icon',
+  parameters: showCode,
+  args: { label: 'Button', leftIcon: <ShoppingBagIcon /> },
+}
+
+export const WithRightIcon: Story = {
+  name: 'Right icon',
+  parameters: showCode,
+  args: { label: 'Button', rightIcon: <ArrowRightIcon /> },
+}
+
+export const WithIcons: Story = {
+  name: 'Icons both',
+  parameters: showCode,
+  args: {
+    label: 'Button',
+    leftIcon: <ShoppingBagIcon />,
+    rightIcon: <ArrowRightIcon />,
+  },
+}
+
+export const Loading: Story = {
+  parameters: showCode,
+  args: { label: 'Button', loading: true },
+}
+
+export const Disabled: Story = {
+  parameters: showCode,
+  args: { label: 'Button', disabled: true },
+}
+
+function HierarchyTable({
+  hierarchy,
+  tone = 'standard',
+  inverse = false,
+}: {
+  hierarchy: Hierarchy
+  tone?: 'standard' | 'inverse'
+  inverse?: boolean
+}) {
+  const headerStyle: React.CSSProperties = inverse
+    ? { ...th, color: 'rgba(255,255,255,0.7)', borderBottomColor: 'rgba(255,255,255,0.15)' }
+    : th
+  const labelStyle: React.CSSProperties = inverse
+    ? { ...rowLabel, color: 'rgba(255,255,255,0.7)', borderBottomColor: 'rgba(255,255,255,0.1)' }
+    : rowLabel
+  const cellStyle: React.CSSProperties = inverse
+    ? { ...td, borderBottomColor: 'rgba(255,255,255,0.1)' }
+    : td
+
+  const rows: { label: string; render: (size: Size) => React.ReactNode }[] = [
+    {
+      label: 'Default',
+      render: (size) => (
+        <Button hierarchy={hierarchy} tone={tone} size={size} label="Button" />
+      ),
+    },
+    {
+      label: 'Disabled',
+      render: (size) => (
+        <Button hierarchy={hierarchy} tone={tone} size={size} label="Button" disabled />
+      ),
+    },
+    {
+      label: 'Loading',
+      render: (size) => (
+        <Button hierarchy={hierarchy} tone={tone} size={size} label="Button" loading />
+      ),
+    },
+    {
+      label: 'Icons',
+      render: (size) => (
+        <Button
+          hierarchy={hierarchy}
+          tone={tone}
+          size={size}
+          label="Button"
+          leftIcon={<ShoppingBagIcon />}
+          rightIcon={<ArrowRightIcon />}
+        />
+      ),
+    },
+  ]
+
+  return (
+    <table style={{ borderCollapse: 'collapse', marginBottom: 8 }}>
+      <thead>
+        <tr>
+          <th style={{ ...headerStyle, textAlign: 'left', paddingLeft: 0 }} />
+          {SIZES.map(({ value, sizeLabel }) => (
+            <th key={value} style={headerStyle}>
+              {sizeLabel}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(({ label, render }) => (
+          <tr key={label}>
+            <td style={labelStyle}>{label}</td>
+            {SIZES.map(({ value }) => (
+              <td key={value} style={cellStyle}>
+                {render(value)}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   )
 }
 
+
 export const AllVariants: Story = {
+  name: 'Hierarchy & states',
+  parameters: hideCode,
   render: () => (
     <div style={{ padding: 8 }}>
-      <p style={{ fontFamily: 'sans-serif', color: '#666', marginBottom: 32 }}>
-        Usa el selector "Marca" en la toolbar para comparar TEC 360 vs. TEC
-        Educación Continua. Pasa el mouse, haz clic sostenido o usa Tab
-        sobre cualquier botón para ver hover/pressed/focus-visible.
-      </p>
-      <VariantSection variant="default" title="Primary" />
+  
+      <h2 style={{ fontFamily: 'sans-serif', marginBottom: 12 }}>Primary</h2>
+      <HierarchyTable hierarchy="primary" />
 
-      <div style={{ marginBottom: 40, paddingBottom: 28, borderBottom: '1px solid #eee' }}>
-        <h2 style={{ fontFamily: 'sans-serif', marginBottom: 4 }}>Primary — Tone Inverse</h2>
-       
-        <div
-          style={{
-            background: 'var(--color-neutral-50)',
-            padding: 24,
-            borderRadius: 8,
-            display: 'flex',
-            gap: 32,
-            alignItems: 'flex-start',
-            flexWrap: 'wrap',
-          }}
-        >
-          {SIZES.map(({ value, label }) => (
-            <div key={value}>
-              <div style={{ ...labelStyle(), color: '#666' }}>{label}</div>
-              <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <Button variant="default" tone="inverse" size={value}>
-                    Button
-                  </Button>
-                  <div style={captionStyle()}>Default</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <Button variant="default" tone="inverse" size={value} disabled>
-                    Button
-                  </Button>
-                  <div style={captionStyle()}>Disabled</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <Button
-                    variant="default"
-                    tone="inverse"
-                    size={value}
-                    leftIcon={<BagIcon />}
-                    rightIcon={<ChevronIcon />}
-                  >
-                    Button
-                  </Button>
-                  <div style={captionStyle()}>Con íconos</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <Button
-                    variant="default"
-                    tone="inverse"
-                    size={value}
-                    leftIcon={<BagIcon />}
-                    rightIcon={<ChevronIcon />}
-                    disabled
-                  >
-                    Button
-                  </Button>
-                  <div style={captionStyle()}>Íconos + disabled</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <h2 style={{ fontFamily: 'sans-serif', margin: '32px 0 12px' }}>Primary — tone inverse</h2>
+      <div
+        style={{
+          background: 'var(--color-surface-brand-strong, #231f20)',
+          padding: 24,
+          borderRadius: 8,
+          marginBottom: 8,
+        }}
+      >
+        <HierarchyTable hierarchy="primary" tone="inverse" inverse />
       </div>
 
-      <VariantSection variant="secondary" title="Secondary" />
+      <h2 style={{ fontFamily: 'sans-serif', margin: '32px 0 12px' }}>Secondary</h2>
+      <HierarchyTable hierarchy="secondary" />
 
-        <div style={{ marginBottom: 40, paddingBottom: 28, borderBottom: '1px solid #eee' }}>
-        <h2 style={{ fontFamily: 'sans-serif', marginBottom: 4 }}>Secondary — Tone Inverse</h2>
-       
-        <div
-          style={{
-            background: '#F5F5F5',
-            padding: 24,
-            borderRadius: 8,
-            display: 'flex',
-            gap: 32,
-            alignItems: 'flex-start',
-            flexWrap: 'wrap',
-          }}
-        >
-          {SIZES.map(({ value, label }) => (
-            <div key={value}>
-              <div style={{ ...labelStyle(), color: '#666' }}>{label}</div>
-              <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <Button variant="secondary" tone="inverse" size={value}>
-                    Button
-                  </Button>
-                  <div style={captionStyle()}>Default</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <Button variant="secondary" tone="inverse" size={value} disabled>
-                    Button
-                  </Button>
-                  <div style={captionStyle()}>Disabled</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <Button
-                    variant="secondary"
-                    tone="inverse"
-                    size={value}
-                    leftIcon={<BagIcon />}
-                    rightIcon={<ChevronIcon />}
-                  >
-                    Button
-                  </Button>
-                  <div style={captionStyle()}>Con íconos</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <Button
-                    variant="secondary"
-                    tone="inverse"
-                    size={value}
-                    leftIcon={<BagIcon />}
-                    rightIcon={<ChevronIcon />}
-                    disabled
-                  >
-                    Button
-                  </Button>
-                  <div style={captionStyle()}>Íconos + disabled</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <h2 style={{ fontFamily: 'sans-serif', margin: '32px 0 12px' }}>Secondary — tone inverse</h2>
+      <div
+        style={{
+          background: 'var(--color-surface-brand-strong, #231f20)',
+          padding: 24,
+          borderRadius: 8,
+          marginBottom: 8,
+        }}
+      >
+        <HierarchyTable hierarchy="secondary" tone="inverse" inverse />
       </div>
-      <VariantSection variant="ghost" title="Tertiary" />
-      <VariantSection variant="destructive" title="Destructive" />
 
-   
-      <div style={{ marginBottom: 40 }}>
-        <h2 style={{ fontFamily: 'sans-serif', marginBottom: 4 }}>Loading</h2>
-       
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
-          <Button variant="default" loading>Button</Button>
-          <Button variant="secondary" loading>Button</Button>
-          <Button variant="ghost" loading>Button</Button>
-          <Button variant="destructive" loading>Button</Button>
-        </div>
-      </div>
+      <h2 style={{ fontFamily: 'sans-serif', margin: '32px 0 12px' }}>Tertiary</h2>
+      <HierarchyTable hierarchy="tertiary" />
+
+      <h2 style={{ fontFamily: 'sans-serif', margin: '32px 0 12px' }}>Destructive</h2>
+      <HierarchyTable hierarchy="destructive" />
     </div>
   ),
 }
 
-
-export const WithIcons: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
-      <Button leftIcon={<BagIcon />}>Left icon</Button>
-      <Button rightIcon={<ChevronIcon />}>Right icon</Button>
-      <Button leftIcon={<BagIcon />} rightIcon={<ChevronIcon />}>
-        Both
-      </Button>
-    </div>
-  ),
-}
-
+/** Uso mínimo: hierarchy por intención (tertiary de apoyo + primary principal). */
 export const InContext: Story = {
   name: 'Ejemplo de uso',
+  parameters: hideCode,
   render: () => (
     <div
       style={{
@@ -295,21 +368,9 @@ export const InContext: Story = {
         </p>
       </div>
       <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
-        <Button variant="ghost">Cancelar</Button>
-        <Button variant="default">Publicar</Button>
+        <Button hierarchy="tertiary" label="Cancelar" />
+        <Button hierarchy="primary" label="Publicar" />
       </div>
     </div>
   ),
 }
-
-// export const IconSizes: Story = {
-//   render: () => (
-//     <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-//       {(['icon-xs', 'icon-sm', 'icon', 'icon-lg'] as const).map((size) => (
-//         <Button key={size} size={size} aria-label={size}>
-//           <BagIcon />
-//         </Button>
-//       ))}
-//     </div>
-//   ),
-// }

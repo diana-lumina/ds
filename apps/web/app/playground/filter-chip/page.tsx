@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { FilterChip } from '@workspace/ui'
-import { BagIcon } from '@workspace/ui/icons'
+import { FunnelSimpleIcon } from '@workspace/ui/icons'
 import { PlaygroundHeader } from '../playground-header'
 
 export default function FilterChipPlayground() {
@@ -17,36 +17,36 @@ export default function FilterChipPlayground() {
       <section className="flex flex-col gap-3">
         <h2 className="text-sm text-muted-foreground">Size sm</h2>
         <div className="flex flex-wrap items-center gap-2">
-          <FilterChip size="sm" selected={online} onSelectedChange={setOnline}>
-            Selected
-          </FilterChip>
-          <FilterChip size="sm" selected={presencial} onSelectedChange={setPresencial}>
-            Unselected
-          </FilterChip>
-          <FilterChip size="sm" selected icon={<BagIcon />}>
-            Con ícono
-          </FilterChip>
-          <FilterChip size="sm" disabled>
-            Disabled
-          </FilterChip>
-          <FilterChip size="sm" selected disabled>
-            Selected disabled
-          </FilterChip>
+          <FilterChip
+            size="sm"
+            selected={online}
+            onSelectedChange={setOnline}
+            label="Selected"
+          />
+          <FilterChip
+            size="sm"
+            selected={presencial}
+            onSelectedChange={setPresencial}
+            label="Unselected"
+          />
+          <FilterChip size="sm" selected icon={<FunnelSimpleIcon />} label="Con ícono" />
+          <FilterChip size="sm" disabled label="Disabled" />
+          <FilterChip size="sm" selected disabled label="Selected disabled" />
         </div>
       </section>
 
       <section className="flex flex-col gap-3">
         <h2 className="text-sm text-muted-foreground">Size md</h2>
         <div className="flex flex-wrap items-center gap-2">
-          <FilterChip size="md" selected={level} onSelectedChange={setLevel} icon={<BagIcon />}>
-            Intermedio
-          </FilterChip>
-          <FilterChip size="md" selected={false}>
-            Unselected
-          </FilterChip>
-          <FilterChip size="md" disabled>
-            Disabled
-          </FilterChip>
+          <FilterChip
+            size="md"
+            selected={level}
+            onSelectedChange={setLevel}
+            icon={<FunnelSimpleIcon />}
+            label="Intermedio"
+          />
+          <FilterChip size="md" selected={false} label="Unselected" />
+          <FilterChip size="md" disabled label="Disabled" />
         </div>
       </section>
     </div>

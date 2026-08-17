@@ -1,0 +1,16 @@
+/* Default, hover, pressed y focus-visible los aporta Link (standalone / standard). */
+
+.root[data-slot="breadcrumb-item"][data-current="true"],
+.root[data-slot="breadcrumb-item"][data-current="true"]:hover,
+.root[data-slot="breadcrumb-item"][data-current="true"]:active,
+.root[data-slot="breadcrumb-item"][data-current="true"]:visited,
+.root[data-slot="breadcrumb-item"][data-current="true"]:focus-visible {
+  color: var(--color-text-default, #231F20);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-action-md, 16px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-action, 500);
+  line-height: var(--typography-line-height-action-md, 24px); /* 150% */
+  letter-spacing: var(--typography-letter-spacing-action, 0);
+  cursor: default;
+}

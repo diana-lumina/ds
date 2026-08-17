@@ -61,7 +61,12 @@
     },
     "./globals.css": "./src/styles/globals.css",
     "./styles.css": "./dist/index.css",
-    "./icons": "./src/icons/index.tsx",
+    "./icons": {
+      "types": "./dist/icons/index.d.ts",
+      "development": "./src/icons/index.ts",
+      "import": "./dist/icons/index.js",
+      "require": "./dist/icons/index.cjs"
+    },
     "./postcss.config": "./postcss.config.mjs",
     "./lib/*": {
       "types": "./dist/lib/*.d.ts",

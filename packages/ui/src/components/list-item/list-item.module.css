@@ -1,0 +1,103 @@
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  /* TODO(design): Figma especifica 360px. Validar si debe ser min-width, width fijo o hug-content. */
+  min-width: 360px;
+  height: var(--component-list-item-height-one-line, 56px);
+  padding: 12px var(--component-list-item-padding-inline, 16px);
+  align-items: center;
+  gap: var(--component-list-item-content-gap, 16px);
+  margin: 0;
+  border: none;
+  text-align: start;
+  cursor: pointer;
+  background: var(--component-list-item-color-surface-default, #FFFFFF);
+  font-family: var(--typography-font-family-interface, Inter);
+}
+
+.root[data-lines="2"] {
+  height: var(--component-list-item-height-two-line, 72px);
+}
+
+.root[data-lines="3"] {
+  height: var(--component-list-item-height-three-line, 88px);
+}
+
+.root:hover:not(:disabled) {
+  background: var(--component-list-item-color-surface-hover, #F5F5F5);
+}
+
+.root:active:not(:disabled) {
+  background: var(--component-list-item-color-surface-pressed, #E5E5E5);
+}
+
+.root:focus-visible:not(:disabled) {
+  background: var(--component-list-item-color-surface-focus-visible, #FFFFFF);
+  outline: var(--component-list-item-focus-ring-width, var(--focus-ring-width, 2px)) solid
+    var(--component-list-item-color-focus-ring, #2563EB);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.root:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: var(--component-list-item-opacity-disabled, 0.4);
+  background: var(--component-list-item-color-surface-default, #FFFFFF);
+}
+
+.avatar,
+.iconWrapper {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapper {
+  color: var(--component-list-item-color-text-secondary, #58585B);
+}
+
+.iconWrapper svg {
+  width: var(--component-select-option-icon-size, 20px);
+  height: var(--component-select-option-icon-size, 20px);
+}
+
+.text {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--component-list-item-text-gap, 2px);
+}
+
+.primary,
+.secondary,
+.tertiary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.primary {
+  color: var(--component-list-item-color-text-primary, #231F20);
+  font-family: var(--component-list-item-primary-font-family, var(--typography-font-family-interface, Inter));
+  font-size: var(--component-list-item-primary-font-size, var(--typography-font-size-200, 14px));
+  font-style: normal;
+  font-weight: var(--component-list-item-primary-font-weight, var(--typography-font-weight-medium, 500));
+  line-height: var(--component-list-item-primary-line-height, var(--typography-line-height-200, 20px));
+  letter-spacing: var(--component-list-item-primary-letter-spacing, var(--typography-letter-spacing-default, 0));
+}
+
+.secondary,
+.tertiary {
+  color: var(--component-list-item-color-text-secondary, #58585B);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-100, 12px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-100, 16px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}

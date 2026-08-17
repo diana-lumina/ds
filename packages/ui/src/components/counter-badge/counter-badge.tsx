@@ -5,20 +5,17 @@ import styles from './counter-badge.module.css'
 export interface CounterBadgeProps extends Omit<React.ComponentProps<"span">, 'children'> {
   size?: 'sm' | 'md'
   emphasis?: 'neutral' | 'attention' | 'inverse'
-  count: number
-  max?: number
+  /** Texto breve ya resuelto por el consumidor: "1", "9", "24", "99+". */
+  value: string
 }
 
 export function CounterBadge({
   size = 'sm',
   emphasis = 'neutral',
-  count,
-  max,
+  value,
   className,
   ...props
 }: CounterBadgeProps) {
-  const display = max !== undefined && count > max ? `${max}+` : String(count)
-
   return (
     <span
       data-slot="counter-badge"
@@ -27,7 +24,7 @@ export function CounterBadge({
       className={cn(styles.root, className)}
       {...props}
     >
-      {display}
+      {value}
     </span>
   )
 }

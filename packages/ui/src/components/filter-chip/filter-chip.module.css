@@ -17,8 +17,9 @@
 }
 
 .root:focus-visible {
-    outline: var(--border-width-2, 2px) solid var(--component-filter-chip-color-focus-ring);
-    outline-offset: var(--border-width-2, 2px);
+    outline: var(--focus-ring-width, var(--border-width-2, 2px)) solid
+        var(--component-filter-chip-color-focus-ring);
+    outline-offset: var(--focus-ring-offset, 2px);
 }
 
 .iconWrapper {

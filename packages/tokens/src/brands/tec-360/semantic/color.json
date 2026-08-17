@@ -966,12 +966,12 @@
           "$value": {
             "colorSpace": "srgb",
             "components": [
-              0.09019608050584793,
-              0.09019608050584793,
-              0.09019608050584793
+              0.45098039507865906,
+              0.45098039507865906,
+              0.45098039507865906
             ],
             "alpha": 1,
-            "hex": "#171717"
+            "hex": "#737373"
           },
           "$description": "Semantic selection token. Source: color/neutral/900. Shared across TEC 360 and TEC Educación Continua. Status: Implemented · Experimental.",
           "$extensions": {
@@ -981,8 +981,8 @@
               "STROKE"
             ],
             "com.figma.aliasData": {
-              "targetVariableId": "VariableID:e16a58dae703ebea5ab4321ec5b7e5bef3248e2c/-1:-1",
-              "targetVariableName": "color/neutral/900",
+              "targetVariableId": "VariableID:56bc0ba5c17385f4ee2bfc8ea4f4825efa884a53/-1:-1",
+              "targetVariableName": "color/neutral/500",
               "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
               "targetVariableSetName": "TEC DS — Color Primitives"
             }
@@ -2814,6 +2814,98 @@
                 }
               }
             }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 0.10000000149011612,
+                "hex": "#000000"
+              },
+              "$description": "Superficie translúcida de Secondary Inverse en default. Usa blackAlpha/10 sobre contextos oscuros, imágenes o brand surfaces. El contraste depende del fondo y debe validarse en contexto.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1228:2",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--tec-color-surface-action-secondary-inverse-default)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:881f63ebcae7e02d3b3f2d03c51168b3f9544272/-1:-1",
+                  "targetVariableName": "color/blackAlpha/10",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 0.1599999964237213,
+                "hex": "#000000"
+              },
+              "$description": "Superficie translúcida de Secondary Inverse en hover. Usa blackAlpha/16 y debe diferenciarse de default sin sustituir focus-visible.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1228:3",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--tec-color-surface-action-secondary-inverse-hover)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:6fbadd0648ab29e19f4643fe6a288fb92c525750/-1:-1",
+                  "targetVariableName": "color/blackAlpha/16",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 0.23999999463558197,
+                "hex": "#000000"
+              },
+              "$description": "Superficie translúcida de Secondary Inverse en pressed. Usa blackAlpha/24 como estado de activación temporal dentro de la escala alpha oficial.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1228:4",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--tec-color-surface-action-secondary-inverse-pressed)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:a27de2e11c7d5c861fd92a21fef9c97ed978715f/-1:-1",
+                  "targetVariableName": "color/blackAlpha/24",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            }
           }
         },
         "tertiary": {
@@ -3445,12 +3537,15 @@
           "alpha": 1,
           "hex": "#2563EB"
         },
-        "$description": "Experimental shared focus indicator color for keyboard focus. Resolves to color/blue/600 in TEC 360 and TEC Educación Continua. Use as an external 2 px ring with 2 px offset following radius/full via :focus-visible on color/surface/canvas and color/surface/default only. Functional accessibility color; not product brand identity. Not authorized on inverse, image, gradient or brand surfaces until a dedicated recipe is approved.",
+        "$description": "Shared semantic focus indicator color for keyboard focus. Canonical Focus Ring contract: external ring, 2 px stroke, 4 px offset from the component boundary, radius follows the focused control, rendered on :focus-visible. Functional accessibility color shared across TEC 360 and TEC Educación Continua; component focus tokens should alias this semantic token. Inverse/dark contexts currently reuse this same semantic focus color until a dedicated accessibility recipe is approved.",
         "$extensions": {
           "com.figma.variableId": "VariableID:390:2",
           "com.figma.scopes": [
             "STROKE"
           ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--tec-color-focus-ring)"
+          },
           "com.figma.aliasData": {
             "targetVariableId": "VariableID:bf05bbaac5f4bfbb7c1d44d1523b40a9fda48e54/-1:-1",
             "targetVariableName": "color/blue/600",
@@ -3482,6 +3577,34 @@
           "com.figma.aliasData": {
             "targetVariableId": "VariableID:85992d76b68145fa294fc18a8119e7946ba275ab/-1:-1",
             "targetVariableName": "color/neutral/300",
+            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+            "targetVariableSetName": "TEC DS — Color Primitives"
+          }
+        }
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.45098039507865906,
+            0.45098039507865906,
+            0.45098039507865906
+          ],
+          "alpha": 1,
+          "hex": "#737373"
+        },
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1337:2",
+          "com.figma.scopes": [
+            "STROKE"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--tec-color-border-strong)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:56bc0ba5c17385f4ee2bfc8ea4f4825efa884a53/-1:-1",
+            "targetVariableName": "color/neutral/500",
             "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
             "targetVariableSetName": "TEC DS — Color Primitives"
           }
@@ -3615,6 +3738,37 @@
                 "com.figma.aliasData": {
                   "targetVariableId": "VariableID:06b81b982dd16a7791b28cea2fed537e1f98afac/-1:-1",
                   "targetVariableName": "color/neutral/950",
+                  "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                  "targetVariableSetName": "TEC DS — Color Primitives"
+                }
+              }
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Borde de Secondary Inverse en estado habilitado. Usa white sobre contextos suficientemente oscuros; validar non-text contrast en el contexto real.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1228:5",
+                "com.figma.scopes": [
+                  "STROKE"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--tec-color-border-action-secondary-inverse-default)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+                  "targetVariableName": "color/white",
                   "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
                   "targetVariableSetName": "TEC DS — Color Primitives"
                 }

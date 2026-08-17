@@ -62,7 +62,7 @@ describe('FloatingActionButton', () => {
       const button = screen.getByRole('button')
       expect(button).toHaveAttribute('data-type', 'standard')
       expect(button).toHaveAttribute('data-size', 'lg')
-      expect(button).toHaveAttribute('data-variant', 'default')
+      expect(button).toHaveAttribute('data-tone', 'standard')
     })
 
     it('usa Button primary lg en extended', () => {
@@ -71,14 +71,13 @@ describe('FloatingActionButton', () => {
           type="extended"
           floating={false}
           icon={<DummyIcon />}
-        >
-          Agregar
-        </FloatingActionButton>
+          label="Agregar"
+        />
       )
       const button = screen.getByRole('button', { name: 'Agregar' })
       expect(button).toHaveAttribute('data-type', 'extended')
       expect(button).toHaveAttribute('data-size', 'lg')
-      expect(button).toHaveAttribute('data-variant', 'default')
+      expect(button).toHaveAttribute('data-hierarchy', 'primary')
       expect(button).toHaveAttribute('data-tone', 'standard')
       expect(button).toHaveAttribute('data-icon', 'inline-start')
     })
@@ -147,15 +146,14 @@ describe('FloatingActionButton', () => {
       expect(screen.getByRole('button', { name: 'Crear' })).toBeInTheDocument()
     })
 
-    it('usa el texto visible como nombre en extended', () => {
+    it('usa el label visible como nombre en extended', () => {
       render(
         <FloatingActionButton
           type="extended"
           floating={false}
           icon={<DummyIcon />}
-        >
-          Crear
-        </FloatingActionButton>
+          label="Crear"
+        />
       )
       expect(screen.getByRole('button', { name: 'Crear' })).toBeInTheDocument()
     })
@@ -165,9 +163,12 @@ describe('FloatingActionButton', () => {
       async (type) => {
         const { container } = render(
           type === 'extended' ? (
-            <FloatingActionButton type="extended" floating={false} icon={<DummyIcon />}>
-              Agregar
-            </FloatingActionButton>
+            <FloatingActionButton
+              type="extended"
+              floating={false}
+              icon={<DummyIcon />}
+              label="Agregar"
+            />
           ) : (
             <FloatingActionButton
               type="standard"

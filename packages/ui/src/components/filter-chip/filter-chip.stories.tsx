@@ -1,32 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useEffect, useState } from 'react'
 import { FilterChip } from './filter-chip'
-import { BagIcon, ChevronIcon, CloseIcon } from '@workspace/ui/icons'
+import { FunnelSimpleIcon } from '@workspace/ui/icons'
 
-const ICONS = {
-  none: undefined,
-  bag: <BagIcon />,
-  chevron: <ChevronIcon />,
-  close: <CloseIcon />,
-} as const
-
-type IconOption = keyof typeof ICONS
-
-type FilterChipStoryArgs = Omit<React.ComponentProps<typeof FilterChip>, 'icon' | 'onSelectedChange'> & {
-  icon: IconOption
+type FilterChipStoryArgs = Omit<
+  React.ComponentProps<typeof FilterChip>,
+  'icon' | 'onSelectedChange'
+> & {
+  showLeadingIcon: boolean
 }
 
-const meta: Meta<FilterChipStoryArgs> = {
-  title: 'Components/FilterChip',
-  component: FilterChip,
+const meta = {
+  title: 'Components/Labels & Status/FilterChip',
+  component: FilterChip as unknown as React.ComponentType<FilterChipStoryArgs>,
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
     docs: {
       description: {
-        component: `
-
-        `,
+        component:
+          'Control compartido y seleccionable para aplicar o retirar filtros en TEC 360 y TEC Educación Continua. Selected expresa el valor del filtro; State expresa la interacción actual. No representa información pasiva ni valores removibles.',
       },
     },
   },
@@ -34,32 +27,54 @@ const meta: Meta<FilterChipStoryArgs> = {
     size: {
       control: 'select',
       options: ['sm', 'md'],
+      description: 'Size: sm · md',
+      table: { 
+        type: { summary: 'string' },
+        defaultValue: { summary: 'sm' } 
+      },
     },
     selected: {
       control: 'boolean',
+      description: 'true = filtro aplicado',
+      table: { defaultValue: { summary: 'false' } },
     },
     disabled: {
       control: 'boolean',
+      description: 'Disabled no recibe interacción ni puede cambiar Selected',
+      table: { defaultValue: { summary: 'false' } },
+    },
+    label: {
+      control: 'text',
+      description: 'Label (string editable)',
+    },
+    showLeadingIcon: {
+      control: 'boolean',
+      description: 'Leading icon visible (opcional; instance swap vía prop icon)',
+      table: { defaultValue: { summary: 'false' } },
     },
     icon: {
-      control: 'select',
-      options: Object.keys(ICONS),
-    },
-    children: {
-      control: 'text',
+      control: false,
+      table: { disable: true },
     },
   },
-}
+} satisfies Meta<FilterChipStoryArgs>
 
 export default meta
 type Story = StoryObj<FilterChipStoryArgs>
 
-function captionStyle(): React.CSSProperties {
-  return { fontFamily: 'monospace', fontSize: 10, color: '#aaa', marginTop: 6 }
+const SIZES = [
+  { value: 'sm', sizeLabel: 'Small' },
+  { value: 'md', sizeLabel: 'Medium' },
+] as const
+
+const hideCode = {
+  docs: {
+    canvas: { sourceState: 'none' as const },
+  },
 }
 
 function PlaygroundChip({
-  icon,
+  showLeadingIcon,
   selected: selectedArg = false,
   ...args
 }: FilterChipStoryArgs) {
@@ -72,7 +87,7 @@ function PlaygroundChip({
   return (
     <FilterChip
       {...args}
-      icon={ICONS[icon]}
+      icon={showLeadingIcon ? <FunnelSimpleIcon /> : undefined}
       selected={selected}
       onSelectedChange={setSelected}
     />
@@ -84,94 +99,169 @@ export const Playground: Story = {
     size: 'sm',
     selected: false,
     disabled: false,
-    children: 'Categoría',
-    icon: 'bag',
+    label: 'Categoría',
+    showLeadingIcon: false,
   },
   render: (args) => <PlaygroundChip {...args} />,
 }
 
-export const AllStates: Story = {
+export const Unselected: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<FilterChip size="sm" selected={false} label="Categoría" />`,
+      },
+    },
+  },
+  render: () => <FilterChip size="sm" selected={false} label="Categoría" />,
+}
+
+export const Selected: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      description: {
+        story: 'Selected=true significa que el filtro está aplicado.',
+      },
+      source: {
+        code: `<FilterChip size="sm" selected label="Categoría" />`,
+      },
+    },
+  },
+  render: () => <FilterChip size="sm" selected label="Categoría" />,
+}
+
+export const WithLeadingIcon: Story = {
+  name: 'Leading icon',
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<FilterChip
+  size="sm"
+  selected
+  label="Categoría"
+  icon={<FunnelSimpleIcon />}
+/>`,
+      },
+    },
+  },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
-      <div>
-        <h2 style={{ fontFamily: 'sans-serif', marginBottom: 4 }}>Small</h2>
-
-        <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="sm" selected={false}>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Unselected</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="sm" selected={true}>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Selected</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="sm" disabled>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Disabled (unselected)</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="sm" selected disabled>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Disabled (selected)</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="sm" selected icon={<BagIcon />}>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Con ícono</div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h2 style={{ fontFamily: 'sans-serif', marginBottom: 4 }}>Medium</h2>
-
-        <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="md" selected={false}>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Unselected</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="md" selected={true}>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Selected</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="md" disabled>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Disabled (unselected)</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="md" selected disabled>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Disabled (selected)</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FilterChip size="md" selected icon={<BagIcon />}>
-              Categoría
-            </FilterChip>
-            <div style={captionStyle()}>Con ícono</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <FilterChip size="sm" selected label="Categoría" icon={<FunnelSimpleIcon />} />
   ),
+}
+
+export const Disabled: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<FilterChip size="sm" selected disabled label="Categoría" />`,
+      },
+    },
+  },
+  render: () => <FilterChip size="sm" selected disabled label="Categoría" />,
+}
+
+export const AllStates: Story = {
+  name: 'Selected & states',
+  parameters: hideCode,
+  render: () => {
+    const th: React.CSSProperties = {
+      fontFamily: 'monospace',
+      fontSize: 11,
+      color: '#888',
+      fontWeight: 600,
+      textAlign: 'center',
+      padding: '0 16px 12px',
+      borderBottom: '1px solid #eee',
+    }
+    const rowLabel: React.CSSProperties = {
+      fontFamily: 'monospace',
+      fontSize: 11,
+      color: '#888',
+      fontWeight: 600,
+      textAlign: 'left',
+      verticalAlign: 'middle',
+      padding: '16px 24px 16px 0',
+      borderBottom: '1px solid #f0f0f0',
+      whiteSpace: 'nowrap',
+    }
+    const td: React.CSSProperties = {
+      textAlign: 'center',
+      verticalAlign: 'middle',
+      padding: '16px 16px',
+      borderBottom: '1px solid #f0f0f0',
+    }
+
+    const rows = [
+      {
+        label: 'Unselected',
+        render: (size: 'sm' | 'md') => (
+          <FilterChip size={size} selected={false} label="Categoría" />
+        ),
+      },
+      {
+        label: 'Selected',
+        render: (size: 'sm' | 'md') => (
+          <FilterChip size={size} selected label="Categoría" />
+        ),
+      },
+      {
+        label: 'Disabled',
+        render: (size: 'sm' | 'md') => (
+          <FilterChip size={size} selected={false} disabled label="Categoría" />
+        ),
+      },
+      {
+        label: 'Selected + disabled',
+        render: (size: 'sm' | 'md') => (
+          <FilterChip size={size} selected disabled label="Categoría" />
+        ),
+      },
+      {
+        label: 'Leading icon',
+        render: (size: 'sm' | 'md') => (
+          <FilterChip size={size} selected label="Categoría" icon={<FunnelSimpleIcon />} />
+        ),
+      },
+    ] as const
+
+    return (
+      <div style={{ padding: 8 }}>
+        <table style={{ borderCollapse: 'collapse' }}>
+          <thead>
+            <tr>
+              <th style={{ ...th, textAlign: 'left', paddingLeft: 0 }}>Selected / state</th>
+              {SIZES.map(({ value, sizeLabel }) => (
+                <th key={value} style={th}>
+                  {sizeLabel}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(({ label, render }) => (
+              <tr key={label}>
+                <td style={rowLabel}>{label}</td>
+                {SIZES.map(({ value }) => (
+                  <td key={value} style={td}>
+                    {render(value)}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )
+  },
 }
 
 export const InContext: Story = {
   name: 'Ejemplo de uso',
+  parameters: hideCode,
   render: () => {
     const [modality, setModality] = useState('online')
     const [level, setLevel] = useState<string | null>('intermedio')
@@ -192,26 +282,21 @@ export const InContext: Story = {
             size="sm"
             selected={modality === 'online'}
             onSelectedChange={(selected) => setModality(selected ? 'online' : '')}
-          >
-            En línea
-          </FilterChip>
+            label="En línea"
+          />
           <FilterChip
             size="sm"
             selected={modality === 'presencial'}
             onSelectedChange={(selected) => setModality(selected ? 'presencial' : '')}
-          >
-            Presencial
-          </FilterChip>
+            label="Presencial"
+          />
           <FilterChip
             size="sm"
             selected={level === 'intermedio'}
             onSelectedChange={(selected) => setLevel(selected ? 'intermedio' : null)}
-          >
-            Intermedio
-          </FilterChip>
-          <FilterChip size="sm" selected={false} disabled>
-            Certificación
-          </FilterChip>
+            label="Intermedio"
+          />
+          <FilterChip size="sm" selected={false} disabled label="Certificación" />
         </div>
       </div>
     )

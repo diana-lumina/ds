@@ -2,86 +2,167 @@
 
 import * as React from 'react'
 import {
-  Avatar,
   Badge,
   Button,
+  ButtonGroup,
   Checkbox,
+  ChipGroup,
   CounterBadge,
   Divider,
   FilterChip,
   FloatingActionButton,
+  FormField,
   IconButton,
   InputChip,
   Link,
+  ListItem,
   Radio,
   RadioGroup,
   Segment,
   Status,
+  Switch,
+  TabItem,
   Tag,
 } from '@workspace/ui'
-import { BagIcon, ChevronIcon } from '@workspace/ui/icons'
+import * as IconCatalog from '@workspace/ui/icons'
+import {
+  BellIcon,
+  BookmarkSimpleIcon,
+  BookOpenIcon,
+  CaretDownIcon,
+  CaretRightIcon,
+  ChatCircleIcon,
+  CheckCircleIcon,
+  DownloadSimpleIcon,
+  FavoriteIcon,
+  MapPinIcon,
+  MoonIcon,
+  SunIcon,
+} from '@workspace/ui/icons'
 import { useTheme } from 'next-themes'
 import { useBrand, type BrandId } from '@/components/brand-provider'
 import styles from './showcase.module.css'
 
-type ViewMode = 'lista' | 'cuadricula'
+type CatalogFilter = 'todos' | 'recomendados' | 'guardados'
+type ComponentSize = 'sm' | 'md'
 
-const COURSES = [
+type Program = {
+  id: string
+  title: string
+  faculty: string
+  campus: string
+  tags: { label: string; tone: 'brand' | 'neutral' }[]
+  status: { intent: 'success' | 'info' | 'warning' | 'danger' | 'neutral'; label: string }
+  badge: string | null
+  avatarSrc?: string
+  avatarInitials?: string
+  cta: 'inscribir' | 'lista' | 'none'
+  recommended?: boolean
+  saved?: boolean
+}
+
+const PROGRAMS: Program[] = [
   {
     id: '1',
     title: 'Diseño de interfaces',
-    description: 'Fundamentos de UI para productos digitales educativos.',
-    tags: ['En línea', '8 semanas'] as const,
-    status: { intent: 'success' as const, label: 'Disponible' },
+    faculty: 'Escuela de Arquitectura, Arte y Diseño',
+    campus: 'Campus Monterrey · 8 semanas',
+    tags: [
+      { label: 'En línea', tone: 'brand' },
+      { label: 'Intermedio', tone: 'neutral' },
+    ],
+    status: { intent: 'success', label: 'Inscripciones abiertas' },
     badge: 'Nuevo',
-    cta: 'Inscribirme' as const,
+    avatarSrc: 'https://i.pravatar.cc/96?img=5',
+    cta: 'inscribir',
+    recommended: true,
+    saved: true,
   },
   {
     id: '2',
     title: 'UX Research aplicado',
-    description: 'Métodos de investigación para validar hipótesis de producto.',
-    tags: ['Híbrido', '6 semanas'] as const,
-    status: { intent: 'info' as const, label: 'En revisión' },
+    faculty: 'Escuela de Humanidades y Educación',
+    campus: 'Campus Ciudad de México · 6 semanas',
+    tags: [
+      { label: 'Híbrido', tone: 'neutral' },
+      { label: 'Avanzado', tone: 'neutral' },
+    ],
+    status: { intent: 'info', label: 'En revisión académica' },
     badge: null,
-    cta: null,
+    avatarInitials: 'UR',
+    cta: 'none',
+    recommended: true,
   },
   {
     id: '3',
     title: 'Accesibilidad web',
-    description: 'Prácticas WCAG para interfaces inclusivas en el ecosistema Tec.',
-    tags: ['En línea', '4 semanas'] as const,
-    status: { intent: 'warning' as const, label: 'Cupo lleno' },
+    faculty: 'Escuela de Ingeniería y Ciencias',
+    campus: 'En línea · 4 semanas',
+    tags: [
+      { label: 'En línea', tone: 'brand' },
+      { label: 'Introductorio', tone: 'neutral' },
+    ],
+    status: { intent: 'warning', label: 'Cupo lleno' },
     badge: null,
-    cta: 'Unirme a lista' as const,
+    avatarSrc: 'https://i.pravatar.cc/96?img=32',
+    cta: 'lista',
+    saved: true,
   },
   {
     id: '4',
     title: 'Design tokens en práctica',
-    description: 'Cómo conectar Figma y código con tokens semánticos multi-marca.',
-    tags: ['En línea', '3 semanas'] as const,
-    status: { intent: 'danger' as const, label: 'Cancelado' },
+    faculty: 'Dirección de Experiencia Digital',
+    campus: 'Campus Guadalajara · 3 semanas',
+    tags: [{ label: 'Presencial', tone: 'neutral' }],
+    status: { intent: 'danger', label: 'Cancelado' },
     badge: null,
-    cta: null,
+    avatarInitials: 'DT',
+    cta: 'none',
+  },
+  {
+    id: '5',
+    title: 'Facilitación de talleres',
+    faculty: 'Educación Continua',
+    campus: 'Campus Monterrey · 2 semanas',
+    tags: [{ label: 'Presencial', tone: 'neutral' }],
+    status: { intent: 'neutral', label: 'Próximamente' },
+    badge: null,
+    avatarSrc: 'https://i.pravatar.cc/96?img=15',
+    cta: 'none',
+    recommended: true,
   },
 ]
 
-function BellIcon() {
+const ICON_ENTRIES = Object.entries(IconCatalog).filter(
+  (entry): entry is [string, React.ComponentType<{ size?: number | string }>] => {
+    const [name, value] = entry
+    return name.endsWith('Icon') && name !== 'LoadingIcon' && typeof value === 'function'
+  }
+)
+
+function IconsPanel({ size }: { size: ComponentSize }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden
-    >
-      <path
-        d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-5V11a7 7 0 1 0-14 0v6l-2 2v1h18v-1l-2-2Z"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <>
+      <div className={styles.hero}>
+        <span className={styles.heroEyebrow}>Referencia visual</span>
+        <div className={styles.heroTitleRow}>
+          <h1 className={styles.heroTitle}>Íconos</h1>
+          <CounterBadge size={size} emphasis="neutral" value={`${ICON_ENTRIES.length}`} />
+        </div>
+        <p className={styles.heroSubtitle}>
+          Catálogo de <code className={styles.inlineCode}>@workspace/ui/icons</code>. El color es
+          currentColor; el tamaño lo pone el componente o la prop size.
+        </p>
+      </div>
+      <section className={styles.iconGrid} aria-label="Catálogo de íconos">
+        {ICON_ENTRIES.map(([name, Icon]) => (
+          <div key={name} className={styles.iconCell}>
+            <Icon size={22} />
+            <code className={styles.iconName}>{name}</code>
+          </div>
+        ))}
+      </section>
+    </>
   )
 }
 
@@ -126,7 +207,7 @@ function BrandDropdown() {
       >
         <span className={styles.brandTriggerLabel}>{shortLabel}</span>
         <span className={styles.brandChevron} data-open={open || undefined}>
-          <ChevronIcon />
+          <CaretDownIcon size={16} />
         </span>
       </button>
       {open ? (
@@ -152,7 +233,7 @@ function BrandDropdown() {
   )
 }
 
-function ThemeToggle() {
+function ThemeToggle({ size }: { size: ComponentSize }) {
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
@@ -164,8 +245,8 @@ function ThemeToggle() {
 
   return (
     <IconButton
-      size="sm"
-      variant={isDark ? 'inverse' : 'default'}
+      size={size}
+      tone={isDark ? 'inverse' : 'standard'}
       icon={isDark ? <SunIcon /> : <MoonIcon />}
       aria-label={isDark ? 'Activar modo claro' : 'Activar modo oscuro'}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
@@ -173,41 +254,26 @@ function ThemeToggle() {
   )
 }
 
-function MoonIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M21 14.3A8.5 8.5 0 0 1 9.7 3 7 7 0 1 0 21 14.3Z"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function SunIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.75" />
-      <path
-        d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-      />
-    </svg>
-  )
+function StatusRail({ intent }: { intent: Program['status']['intent'] }) {
+  return <span className={styles.listItemRail} data-intent={intent} aria-hidden />
 }
 
 export default function ShowcasePage() {
-  const [view, setView] = React.useState<ViewMode>('lista')
-  const [modality, setModality] = React.useState<string | null>('online')
-  const [level, setLevel] = React.useState(true)
+  const [pageTab, setPageTab] = React.useState<'programas' | 'iconos'>('programas')
+  const [size, setSize] = React.useState<ComponentSize>('sm')
+  const [catalog, setCatalog] = React.useState<CatalogFilter>('todos')
+  const [modality, setModality] = React.useState<string | null>(null)
+  const [level, setLevel] = React.useState(false)
   const [tags, setTags] = React.useState(['UX Research', 'Producto'])
+  const [selectedId, setSelectedId] = React.useState('1')
   const [notifyCourse, setNotifyCourse] = React.useState(true)
   const [notifyMarketing, setNotifyMarketing] = React.useState(false)
   const [contact, setContact] = React.useState('email')
+  const [weeklyDigest, setWeeklyDigest] = React.useState(true)
+  const [fullName, setFullName] = React.useState('Ana Beltrán')
+  const [email, setEmail] = React.useState('ana.beltran')
+
+  const emailError = email.length > 0 && !email.includes('@')
 
   const allChecked =
     notifyCourse && notifyMarketing
@@ -216,272 +282,425 @@ export default function ShowcasePage() {
         ? false
         : 'indeterminate'
 
+  const visiblePrograms = PROGRAMS.filter((program) => {
+    if (catalog === 'recomendados' && !program.recommended) return false
+    if (catalog === 'guardados' && !program.saved) return false
+    if (modality === 'online' && !program.tags.some((tag) => tag.label === 'En línea')) {
+      return false
+    }
+    if (modality === 'presencial' && !program.tags.some((tag) => tag.label === 'Presencial')) {
+      return false
+    }
+    if (level && !program.tags.some((tag) => tag.label === 'Intermedio')) {
+      return false
+    }
+    return true
+  })
+
+  const selected = PROGRAMS.find((program) => program.id === selectedId) ?? PROGRAMS[0]!
+
   return (
     <div className={styles.page}>
       <header className={styles.navbar}>
-        <div className={styles.navbarBrand}>
-          <BrandDropdown />
-          <nav className={styles.navLinks} aria-label="Principal">
-            <Link href="/showcase">Catálogo</Link>
-            <Link href="/playground/button">Playground</Link>
-            <span className={styles.navDivider}>
-              <Divider orientation="vertical" thickness={1} />
-            </span>
-            <Link href="#" icon={<ChevronIcon />}>
-              Recursos
-            </Link>
-          </nav>
-        </div>
+        <div className={styles.navbarInner}>
+          <div className={styles.navbarBrand}>
+            <BrandDropdown />
+            <nav className={styles.navLinks} aria-label="Principal">
+              <Link href="/showcase" label="Catálogo" />
+              <Link href="/showcase" label="Mi aprendizaje" />
+              <Link href="/showcase" label="Sitio Tec" external />
+            </nav>
+          </div>
 
-        <div className={styles.navbarActions}>
-          <ThemeToggle />
-          <IconButton size="sm" icon={<BagIcon />} aria-label="Carrito" />
-          <span className={styles.notifyWrap}>
-            <IconButton
-              size="sm"
-              variant="inverse"
-              icon={<BellIcon />}
-              aria-label="Notificaciones, 3 sin leer"
-            />
-            <span className={styles.notifyBadge}>
-              <CounterBadge size="sm" emphasis="attention" count={3} />
+          <div className={styles.navbarActions}>
+            <ThemeToggle size={size} />
+            <IconButton size={size} icon={<BookmarkSimpleIcon />} aria-label="Programas guardados" />
+            <span className={styles.notifyWrap}>
+              <IconButton
+                size={size}
+                tone="inverse"
+                icon={<BellIcon />}
+                aria-label="Notificaciones, 3 sin leer"
+              />
+              <span className={styles.notifyBadge}>
+                <CounterBadge size={size} emphasis="attention" value="3" />
+              </span>
             </span>
-          </span>
-          <Divider orientation="vertical" thickness={1} />
-          <div className={styles.user}>
-            <Avatar
-              size="sm"
-              src="https://i.pravatar.cc/96?img=12"
-              alt="Ana Beltrán"
-            />
-            <span className={styles.userName}>Ana Beltrán</span>
+            <ButtonGroup>
+              <Button size={size} hierarchy="secondary" label="Mi cuenta" />
+              <Button size={size} hierarchy="primary" label="Inscribirme" />
+            </ButtonGroup>
           </div>
         </div>
       </header>
 
       <main className={styles.main}>
-        <div className={styles.intro}>
-          <div className={styles.introTitleRow}>
-            <h1 className={styles.title}>Catálogo de cursos</h1>
-            <Badge size="sm">Beta</Badge>
-          </div>
-          <p className={styles.subtitle}>
-            Composición de prueba con todos los componentes actuales del design system.
-          </p>
+        <div className={styles.tabs} role="tablist" aria-label="Vistas del showcase">
+          <TabItem
+            selected={pageTab === 'programas'}
+            onSelectedChange={(selected) => selected && setPageTab('programas')}
+            label="Programas"
+          />
+          <TabItem
+            selected={pageTab === 'iconos'}
+            onSelectedChange={(selected) => selected && setPageTab('iconos')}
+            label="Íconos"
+          />
         </div>
 
-        <section className={styles.toolbar} aria-label="Filtros y vista">
-          <div className={styles.filters}>
-            <FilterChip
-              size="sm"
-              selected={modality === 'online'}
-              onSelectedChange={(selected) => setModality(selected ? 'online' : null)}
-            >
-              En línea
-            </FilterChip>
-            <FilterChip
-              size="sm"
-              selected={modality === 'presencial'}
-              onSelectedChange={(selected) => setModality(selected ? 'presencial' : null)}
-            >
-              Presencial
-            </FilterChip>
-            <FilterChip
-              size="sm"
-              selected={level}
-              onSelectedChange={setLevel}
-              icon={<BagIcon />}
-            >
-              Intermedio
-            </FilterChip>
-          </div>
+        {pageTab === 'iconos' ? (
+          <IconsPanel size={size} />
+        ) : (
+          <>
+            <div className={styles.hero}>
+              <span className={styles.heroEyebrow}>Educación Continua</span>
+              <div className={styles.heroTitleRow}>
+                <h1 className={styles.heroTitle}>Programas abiertos</h1>
+                <Badge size={size} label="Periodo ago–dic" />
+              </div>
+              <p className={styles.heroSubtitle}>
+                Explora la oferta de Educación Continua, filtra por modalidad y solicita un lugar.
+                Los cupos y el estatus académico se actualizan en tiempo real.
+              </p>
+              <div className={styles.segments} role="group" aria-label="Colección del catálogo">
+                <Segment
+                  size={size}
+                  selected={catalog === 'todos'}
+                  onSelectedChange={(selected) => selected && setCatalog('todos')}
+                  label="Todos"
+                />
+                <Segment
+                  size={size}
+                  selected={catalog === 'recomendados'}
+                  onSelectedChange={(selected) => selected && setCatalog('recomendados')}
+                  icon={<FavoriteIcon />}
+                  label="Recomendados"
+                />
+                <Segment
+                  size={size}
+                  selected={catalog === 'guardados'}
+                  onSelectedChange={(selected) => selected && setCatalog('guardados')}
+                  icon={<BookmarkSimpleIcon />}
+                  aria-label="Guardados"
+                />
+              </div>
+            </div>
 
-          <div className={styles.segments}>
-            <Segment
-              size="sm"
-              selected={view === 'lista'}
-              onSelectedChange={(selected) => selected && setView('lista')}
-            >
-              Lista
-            </Segment>
-            <Segment
-              size="sm"
-              selected={view === 'cuadricula'}
-              onSelectedChange={(selected) => selected && setView('cuadricula')}
-            >
-              Cuadrícula
-            </Segment>
-          </div>
-        </section>
+            <section className={styles.toolbar} aria-label="Filtros">
+              <div className={styles.sizeSwitcher}>
+                <label htmlFor="showcase-size" className={styles.fieldLabel}>
+                  Tamaño
+                </label>
+                <select
+                  id="showcase-size"
+                  className={styles.sizeSelect}
+                  value={size}
+                  onChange={(event) => setSize(event.target.value as ComponentSize)}
+                >
+                  <option value="sm">Small</option>
+                  <option value="md">Medium</option>
+                </select>
+              </div>
 
-        <section className={styles.chipsField} aria-label="Etiquetas activas">
-          <span className={styles.fieldLabel}>Etiquetas activas</span>
-          <div className={styles.chipsRow}>
-            {tags.map((tag) => (
-              <InputChip
-                key={tag}
-                size="sm"
-                closeLabel={`Quitar ${tag}`}
-                onClose={() => setTags((prev) => prev.filter((t) => t !== tag))}
-              >
-                {tag}
-              </InputChip>
-            ))}
-            {tags.length === 0 && (
-              <span className={styles.emptyChips}>Sin etiquetas</span>
-            )}
-          </div>
-        </section>
+              <div className={styles.toolbarDivider} aria-hidden />
 
-        <Divider orientation="horizontal" thickness={1} />
+              <ChipGroup>
+                <FilterChip
+                  size={size}
+                  selected={modality === 'online'}
+                  onSelectedChange={(selected) => setModality(selected ? 'online' : null)}
+                  label="En línea"
+                />
+                <FilterChip
+                  size={size}
+                  selected={modality === 'presencial'}
+                  onSelectedChange={(selected) => setModality(selected ? 'presencial' : null)}
+                  label="Presencial"
+                />
+                <FilterChip
+                  size={size}
+                  selected={level}
+                  onSelectedChange={setLevel}
+                  icon={<BookOpenIcon />}
+                  label="Intermedio"
+                />
+              </ChipGroup>
 
-        <div className={styles.content}>
-          <section
-            className={view === 'lista' ? styles.courseList : styles.courseGrid}
-            aria-label="Cursos"
-          >
-            {COURSES.map((course) => (
-              <article key={course.id} className={styles.courseCard}>
-                <div className={styles.courseHeader}>
-                  <div className={styles.courseHeading}>
-                    <h2 className={styles.courseTitle}>{course.title}</h2>
-                    {course.badge ? <Badge size="sm">{course.badge}</Badge> : null}
-                  </div>
-                  <Status size="sm" intent={course.status.intent}>
-                    {course.status.label}
-                  </Status>
-                </div>
-                <p className={styles.courseDescription}>{course.description}</p>
-                <div className={styles.courseMeta}>
-                  {course.tags.map((tag) => (
-                    <Tag key={tag} size="sm" tone={tag === 'En línea' ? 'brand' : 'neutral'}>
-                      {tag}
-                    </Tag>
+              <div className={styles.toolbarDivider} aria-hidden />
+
+              <div className={styles.activeTags}>
+                <span className={styles.fieldLabel}>Etiquetas</span>
+                <ChipGroup>
+                  <InputChip size={size} label="Periodo vigente" onClose={() => undefined} disabled />
+                  {tags.map((tag) => (
+                    <InputChip
+                      key={tag}
+                      size={size}
+                      label={tag}
+                      onClose={() => setTags((prev) => prev.filter((item) => item !== tag))}
+                    />
                   ))}
+                </ChipGroup>
+                {tags.length === 0 ? (
+                  <span className={styles.emptyChips}>
+                    Sin etiquetas · limpia los filtros para ver más programas
+                  </span>
+                ) : null}
+              </div>
+            </section>
+
+            <div className={styles.layout}>
+              <section className={styles.listPane} aria-label="Resultados">
+                <div className={styles.listPaneHeader}>
+                  <h2 className={styles.listPaneTitle}>Resultados</h2>
+                  <Status size={size} intent="info" label={`${visiblePrograms.length} programas`} />
                 </div>
-                <Divider orientation="horizontal" thickness={1} />
+
+                <div className={styles.programList}>
+                  {visiblePrograms.map((program) => (
+                    <div key={program.id} className={styles.listItemWrap}>
+                      <StatusRail intent={program.status.intent} />
+                      <ListItem
+                        primaryText={program.title}
+                        secondaryText={program.faculty}
+                        tertiaryText={program.campus}
+                        avatarSrc={program.avatarSrc}
+                        avatarInitials={program.avatarInitials}
+                        icon={<CaretRightIcon />}
+                        disabled={program.cta === 'none' && program.status.intent === 'danger'}
+                        aria-pressed={selectedId === program.id}
+                        onClick={() => setSelectedId(program.id)}
+                      />
+                    </div>
+                  ))}
+                  {visiblePrograms.length === 0 ? (
+                    <p className={styles.emptyState}>
+                      No hay programas con estos filtros. Ajusta la modalidad o el nivel para ver
+                      más resultados.
+                    </p>
+                  ) : null}
+                </div>
+              </section>
+
+              <article className={styles.detailPane} aria-label={`Detalle de ${selected.title}`}>
+                <div className={styles.detailHeader}>
+                  <div className={styles.courseHeading}>
+                    <h3 className={styles.courseTitle}>{selected.title}</h3>
+                    {selected.badge ? <Badge size={size} label={selected.badge} /> : null}
+                  </div>
+                  <Status
+                    size={size}
+                    intent={selected.status.intent}
+                    icon={<CheckCircleIcon />}
+                    label={selected.status.label}
+                  />
+                </div>
+
+                <div className={styles.courseMetaRow}>
+                  <span className={styles.courseMetaItem}>
+                    <BookOpenIcon size={16} />
+                    {selected.faculty}
+                  </span>
+                  <span className={styles.courseMetaItem}>
+                    <MapPinIcon size={16} />
+                    {selected.campus}
+                  </span>
+                </div>
+
+                <div className={styles.courseTags}>
+                  {selected.tags.map((tag) => (
+                    <Tag
+                      key={tag.label}
+                      size={size}
+                      tone={tag.tone}
+                      icon={tag.tone === 'brand' ? <MapPinIcon /> : undefined}
+                      label={tag.label}
+                    />
+                  ))}
+                  <Tag size={size} tone="neutral" label="Tiempo estimado · 24 h de estudio" />
+                </div>
+
+                <Divider />
+
+                <p className={styles.courseDescription}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+
                 <div className={styles.courseActions}>
-                  <Link href="#">Ver detalle</Link>
-                  {course.cta ? (
-                    <Button size="sm" variant={course.status.intent === 'warning' ? 'secondary' : 'default'}>
-                      {course.cta}
-                    </Button>
-                  ) : (
-                    <Button size="sm" disabled>
-                      No disponible
-                    </Button>
-                  )}
+                  <Link href="/showcase" label="Ver temario" />
+                  <ButtonGroup>
+                    {selected.cta === 'inscribir' ? (
+                      <Button size={size} hierarchy="primary" label="Inscribirme" />
+                    ) : null}
+                    {selected.cta === 'lista' ? (
+                      <Button size={size} hierarchy="secondary" label="Unirme a lista de espera" />
+                    ) : null}
+                    {selected.cta === 'none' ? (
+                      <Button size={size} hierarchy="primary" disabled label="No disponible" />
+                    ) : null}
+                    <Button size={size} hierarchy="tertiary" label="Guardar" />
+                  </ButtonGroup>
                 </div>
               </article>
-            ))}
-          </section>
 
-          <aside className={styles.aside} aria-label="Preferencias">
-            <h2 className={styles.asideTitle}>Preferencias</h2>
-            <p className={styles.asideText}>
-              Ejemplo de formularios con Checkbox y Radio.
-            </p>
+              <aside className={styles.formPane} aria-label="Solicitar información">
+                <h2 className={styles.formPaneTitle}>Solicitar información</h2>
+                <p className={styles.formPaneText}>
+                  Deja tus datos para que coordinación te contacte sobre {selected.title}.
+                </p>
 
-            <div className={styles.asideBlock}>
-              <span className={styles.fieldLabel}>Notificaciones</span>
-              <label className={styles.field}>
-                <Checkbox
-                  id="showcase-all"
-                  checked={allChecked}
-                  onCheckedChange={(value) => {
-                    const next = value === true
-                    setNotifyCourse(next)
-                    setNotifyMarketing(next)
-                  }}
-                />
-                <span>Seleccionar todo</span>
-              </label>
-              <label className={styles.field}>
-                <Checkbox
-                  id="showcase-course"
-                  checked={notifyCourse}
-                  onCheckedChange={(value) => setNotifyCourse(value === true)}
-                />
-                <span>Avisos del curso</span>
-              </label>
-              <label className={styles.field}>
-                <Checkbox
-                  id="showcase-marketing"
-                  checked={notifyMarketing}
-                  onCheckedChange={(value) => setNotifyMarketing(value === true)}
-                />
-                <span>Novedades y marketing</span>
-              </label>
-            </div>
+                <div className={styles.formStack}>
+                  <FormField
+                    label="Nombre completo"
+                    supportingText="Como aparece en tu registro Tec"
+                    placeholder="Nombre y apellidos"
+                    value={fullName}
+                    onChange={(event) => setFullName(event.target.value)}
+                  />
+                  <FormField
+                    label="Correo"
+                    supportingText={
+                      emailError
+                        ? 'Incluye un dominio válido, por ejemplo @tec.mx'
+                        : 'Usa tu correo institucional'
+                    }
+                    placeholder="nombre@tec.mx"
+                    value={email}
+                    error={emailError}
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
+                  <FormField
+                    label="Campus asignado"
+                    supportingText="Lo define tu expediente; no se puede editar aquí"
+                    value="Campus Monterrey"
+                    disabled
+                  />
+                </div>
 
-            <Divider orientation="horizontal" thickness={1} />
+                <Divider />
 
-            <div className={styles.asideBlock}>
-              <span className={styles.fieldLabel}>Canal de contacto</span>
-              <RadioGroup
-                value={contact}
-                onValueChange={setContact}
-                aria-label="Canal de contacto"
-                className={styles.radioGroup}
-              >
-                <label className={styles.field}>
-                  <Radio value="email" id="showcase-email" />
-                  <span>Correo</span>
+                <div className={styles.formBlock}>
+                  <span className={styles.fieldLabel}>Avisos del programa</span>
+                  <label className={styles.checkField}>
+                    <Checkbox
+                      id="showcase-all"
+                      checked={allChecked}
+                      onCheckedChange={(value) => {
+                        const next = value === true
+                        setNotifyCourse(next)
+                        setNotifyMarketing(next)
+                      }}
+                    />
+                    <span>Seleccionar todo</span>
+                  </label>
+                  <label className={styles.checkField}>
+                    <Checkbox
+                      id="showcase-course"
+                      checked={notifyCourse}
+                      onCheckedChange={(value) => setNotifyCourse(value === true)}
+                    />
+                    <span>Cambios de horario y cupo</span>
+                  </label>
+                  <label className={styles.checkField}>
+                    <Checkbox
+                      id="showcase-marketing"
+                      checked={notifyMarketing}
+                      onCheckedChange={(value) => setNotifyMarketing(value === true)}
+                    />
+                    <span>Otras convocatorias</span>
+                  </label>
+                  <label className={styles.checkField}>
+                    <Checkbox id="showcase-sms" disabled checked={false} />
+                    <span>SMS (no disponible en este periodo)</span>
+                  </label>
+                </div>
+
+                <Divider />
+
+                <div className={styles.formBlock}>
+                  <span className={styles.fieldLabel}>Canal de contacto</span>
+                  <RadioGroup
+                    value={contact}
+                    onValueChange={setContact}
+                    aria-label="Canal de contacto"
+                    className={styles.radioGroup}
+                  >
+                    <label className={styles.checkField}>
+                      <Radio value="email" id="showcase-email" />
+                      <span>Correo</span>
+                    </label>
+                    <label className={styles.checkField}>
+                      <Radio value="phone" id="showcase-phone" />
+                      <span>Teléfono</span>
+                    </label>
+                    <label className={styles.checkField}>
+                      <Radio value="none" id="showcase-none" disabled />
+                      <span>No contactar</span>
+                    </label>
+                  </RadioGroup>
+                </div>
+
+                <Divider />
+
+                <label className={styles.checkField}>
+                  <Switch
+                    checked={weeklyDigest}
+                    onCheckedChange={setWeeklyDigest}
+                    aria-label="Resumen semanal"
+                  />
+                  <span>Resumen semanal de programas nuevos</span>
                 </label>
-                <label className={styles.field}>
-                  <Radio value="phone" id="showcase-phone" />
-                  <span>Teléfono</span>
-                </label>
-                <label className={styles.field}>
-                  <Radio value="none" id="showcase-none" disabled />
-                  <span>No contactar</span>
-                </label>
-              </RadioGroup>
-            </div>
 
-            <div className={styles.asideActions}>
-              <Button variant="secondary" size="sm">
-                Cancelar
-              </Button>
-              <Button size="sm">Guardar</Button>
+                <p className={styles.formPaneText}>
+                  Al enviar aceptas el{' '}
+                  <Link href="/privacidad" context="inline" label="aviso de privacidad" />.
+                </p>
+
+                <div className={styles.formActions}>
+                  <ButtonGroup>
+                    <Button hierarchy="secondary" size={size} label="Cancelar" />
+                    <Button size={size} label="Enviar solicitud" />
+                  </ButtonGroup>
+                </div>
+              </aside>
             </div>
-          </aside>
-        </div>
+          </>
+        )}
       </main>
 
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <div className={styles.footerCopy}>
             <p className={styles.footerBrand}>Tec Design System</p>
-            <p className={styles.footerText}>
-              © {new Date().getFullYear()} TecDS
-            </p>
+            <p className={styles.footerText}>Composición de catálogo </p>
           </div>
           <nav className={styles.footerNav} aria-label="Enlaces legales">
-            <Link href="#" tone="inverse">
-              Términos y condiciones
-            </Link>
-            <Link href="#" tone="inverse">
-              Aviso de privacidad
-            </Link>
-            <Link href="#" tone="inverse">
-              Cookies
-            </Link>
-            <Link href="#" tone="inverse">
-              Accesibilidad
-            </Link>
+            <Link href="/terminos" tone="inverse" label="Términos y condiciones" />
+            <Link href="/privacidad" tone="inverse" label="Aviso de privacidad" />
+            <Link href="/showcase" tone="inverse" label="tec.mx" external />
           </nav>
           <div className={styles.footerActions}>
-            <Button size="sm" variant="secondary" tone="inverse">
-              Contacto
-            </Button>
+            <IconButton
+              size={size}
+              tone="inverse"
+              icon={<DownloadSimpleIcon />}
+              aria-label="Descargar folleto"
+            />
+            <Button size={size} hierarchy="secondary" tone="inverse" label="Contacto" />
           </div>
         </div>
       </footer>
 
-      <FloatingActionButton type="extended" floating icon={<BagIcon />}>
-        Contáctanos
-      </FloatingActionButton>
+      {pageTab === 'programas' ? (
+        <FloatingActionButton
+          type="extended"
+          floating
+          icon={<ChatCircleIcon />}
+          label="Hablar con un asesor"
+        />
+      ) : null}
     </div>
   )
 }

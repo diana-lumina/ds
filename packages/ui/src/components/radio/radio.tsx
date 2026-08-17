@@ -21,6 +21,7 @@ export function RadioGroup({ className, ...props }: RadioGroupProps) {
 export interface RadioProps
   extends React.ComponentProps<typeof RadioGroupPrimitive.Item> {}
 
+/** Control de selección exclusiva (20×20). Label y grupo = patrón consumidor / RadioGroup. */
 export function Radio({ className, ...props }: RadioProps) {
   return (
     <RadioGroupPrimitive.Item

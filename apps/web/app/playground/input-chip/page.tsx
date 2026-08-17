@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { InputChip } from '@workspace/ui'
-import { BagIcon } from '@workspace/ui/icons'
+import { ShoppingBagIcon } from '@workspace/ui/icons'
 import { PlaygroundHeader } from '../playground-header'
 
 export default function InputChipPlayground() {
@@ -13,23 +13,13 @@ export default function InputChipPlayground() {
       <PlaygroundHeader title="InputChip" storybookPath="inputchip--docs" />
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-sm text-muted-foreground">Size / icon / closeDisabled</h2>
+        <h2 className="text-sm text-muted-foreground">Size / icon / disabled</h2>
         <div className="flex flex-wrap items-center gap-2">
-          <InputChip size="sm" onClose={() => {}}>
-            Small
-          </InputChip>
-          <InputChip size="md" onClose={() => {}}>
-            Medium
-          </InputChip>
-          <InputChip size="sm" icon={<BagIcon />} onClose={() => {}}>
-            Con ícono
-          </InputChip>
-          <InputChip size="md" icon={<BagIcon />} onClose={() => {}}>
-            Medium + ícono
-          </InputChip>
-          <InputChip size="sm" closeDisabled onClose={() => {}}>
-            Close disabled
-          </InputChip>
+          <InputChip size="sm" label="Small" onClose={() => {}} />
+          <InputChip size="md" label="Medium" onClose={() => {}} />
+          <InputChip size="sm" label="Con ícono" icon={<ShoppingBagIcon />} onClose={() => {}} />
+          <InputChip size="md" label="Medium + ícono" icon={<ShoppingBagIcon />} onClose={() => {}} />
+          <InputChip size="sm" label="Disabled" onClose={() => {}} disabled />
         </div>
       </section>
 
@@ -40,11 +30,9 @@ export default function InputChipPlayground() {
             <InputChip
               key={tag}
               size="sm"
-              closeLabel={`Quitar ${tag}`}
+              label={tag}
               onClose={() => setTags((prev) => prev.filter((t) => t !== tag))}
-            >
-              {tag}
-            </InputChip>
+            />
           ))}
           {tags.length === 0 && (
             <span className="text-sm text-muted-foreground">Sin etiquetas</span>

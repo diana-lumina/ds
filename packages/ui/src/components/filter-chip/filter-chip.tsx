@@ -4,11 +4,15 @@ import * as React from "react"
 import { cn } from '../../lib/utils'
 import styles from './filter-chip.module.css'
 
-export interface FilterChipProps extends Omit<React.ComponentProps<"button">, 'onClick'> {
+export interface FilterChipProps
+  extends Omit<React.ComponentProps<"button">, 'onClick' | 'children'> {
   size?: 'sm' | 'md'
   selected?: boolean
   onSelectedChange?: (selected: boolean) => void
+  /** Leading icon opcional (instance swap). */
   icon?: React.ReactNode
+  /** Label del filtro. */
+  label?: React.ReactNode
 }
 
 export function FilterChip({
@@ -16,7 +20,7 @@ export function FilterChip({
   selected = false,
   onSelectedChange,
   icon,
-  children,
+  label,
   className,
   disabled,
   ...props
@@ -38,7 +42,7 @@ export function FilterChip({
           {icon}
         </span>
       )}
-      {children}
+      {label}
     </button>
   )
 }

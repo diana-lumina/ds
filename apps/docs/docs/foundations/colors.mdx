@@ -2,93 +2,12 @@
 title: Color
 ---
 
+import ColorTokens from '@site/src/components/ColorTokens'
+
 # Color
 
-Sistema de color del Design System basado en tres capas: primitivos, semánticos y por componente.
+Sistema de color del Design System en tres capas: **primitivos**, **semánticos** y **por componente**. Los componentes consumen semánticos (`--color-surface-*`, `--color-text-*`, `--color-border-*`, `--color-icon-*`, `--color-focus-*`). Los primitivos (`--color-neutral-*`, `--color-blue-*`) son referencia; no se usan directo en UI.
 
-:::caution
-Los valores de color actuales son placeholders. La paleta final se definirá con el equipo de diseño.
-:::
+Los valores se resuelven por marca (`data-brand`). Cambia TEC 360 y TEC Educación Continua para comparar.
 
-## Arquitectura de tokens
-
-Los **primitivos** son valores raw con nombre de marca. Los **semánticos** asignan roles a esos valores. Los **componentes** consumen los semánticos.
-
----
-
-## Primitivos
-
-### Institucionales
-
-<table>
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th>Valor</th>
-      <th>Muestra</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>--ds-blue</code></td>
-      <td>#0039a6</td>
-      <td style={{backgroundColor: '#0039a6', width: '48px', height: '24px', borderRadius: '4px'}}></td>
-    </tr>
-    <tr>
-      <td><code>--ds-white</code></td>
-      <td>#ffffff</td>
-      <td style={{backgroundColor: '#ffffff', width: '48px', height: '24px', borderRadius: '4px', border: '1px solid #e5e7eb'}}></td>
-    </tr>
-  </tbody>
-</table>
-
----
-
-## Semánticos
-
-<table>
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th>Valor</th>
-      <th>Uso</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>--color-primary</code></td>
-      <td>var(--ds-blue)</td>
-      <td>Acciones principales, CTAs</td>
-    </tr>
-    <tr>
-      <td><code>--color-background</code></td>
-      <td>var(--neutral-0)</td>
-      <td>Fondo de la aplicación</td>
-    </tr>
-    <tr>
-      <td><code>--color-foreground</code></td>
-      <td>var(--neutral-900)</td>
-      <td>Texto principal</td>
-    </tr>
-    <tr>
-      <td><code>--color-muted</code></td>
-      <td>var(--neutral-100)</td>
-      <td>Fondos secundarios</td>
-    </tr>
-    <tr>
-      <td><code>--color-muted-foreground</code></td>
-      <td>var(--neutral-500)</td>
-      <td>Texto secundario</td>
-    </tr>
-    <tr>
-      <td><code>--color-border</code></td>
-      <td>var(--neutral-200)</td>
-      <td>Bordes de componentes</td>
-    </tr>
-    <tr>
-      <td><code>--color-destructive</code></td>
-      <td>var(--feedback-error)</td>
-      <td>Acciones destructivas, errores</td>
-    </tr>
-  </tbody>
-</table>
+<ColorTokens />

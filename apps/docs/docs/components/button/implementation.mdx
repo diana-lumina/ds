@@ -32,20 +32,18 @@ pnpm add @tec-ds/ui
 ```tsx
 import { Button } from "@tec-ds/ui"
 
-<Button>Guardar cambios</Button>
+<Button label="Guardar cambios" />
 ```
 
 ---
 
-## Variantes
+## Hierarchy
 
 ```tsx
-<Button variant="default">Principal</Button>
-<Button variant="outline">Secundario</Button>
-<Button variant="secondary">Terciario</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="destructive">Eliminar</Button>
-<Button variant="link">Ver más</Button>
+<Button hierarchy="primary" label="Principal" />
+<Button hierarchy="secondary" label="Secundario" />
+<Button hierarchy="tertiary" label="Terciario" />
+<Button hierarchy="destructive" label="Eliminar" />
 ```
 
 ---
@@ -53,27 +51,22 @@ import { Button } from "@tec-ds/ui"
 ## Con íconos
 
 ```tsx
-import { PlusIcon, ArrowRightIcon } from 'lucide-react'
+import { PlusIcon, ArrowRightIcon } from '@workspace/ui/icons'
 
-<Button>
-  <PlusIcon size={16} />
-  Agregar
-</Button>
+<Button leftIcon={<PlusIcon />} label="Agregar" />
 
-<Button>
-  Siguiente
-  <ArrowRightIcon size={16} />
-</Button>
+<Button rightIcon={<ArrowRightIcon />} label="Siguiente" />
 ```
 
 ---
 
-## Como link
+## Tone inverse
+
+`tone="inverse"` aplica a `primary` y `secondary` (sobre superficies oscuras).
 
 ```tsx
-<Button asChild>
-  <a href="/dashboard">Ir al dashboard</a>
-</Button>
+<Button hierarchy="primary" tone="inverse" label="Primary" />
+<Button hierarchy="secondary" tone="inverse" label="Secondary" />
 ```
 
 ---
@@ -101,28 +94,52 @@ import { PlusIcon, ArrowRightIcon } from 'lucide-react'
   </thead>
   <tbody>
     <tr>
-      <td><code>variant</code></td>
-      <td><code>"default" | "outline" | "secondary" | "ghost" | "destructive" | "link"</code></td>
-      <td><code>"default"</code></td>
-      <td>Estilo visual del botón</td>
+      <td><code>hierarchy</code></td>
+      <td><code>"primary" | "secondary" | "tertiary" | "destructive"</code></td>
+      <td><code>"primary"</code></td>
+      <td>Jerarquía por intención y prominencia</td>
     </tr>
     <tr>
       <td><code>size</code></td>
-      <td><code>"default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg"</code></td>
-      <td><code>"default"</code></td>
+      <td><code>"sm" | "md" | "lg"</code></td>
+      <td><code>"md"</code></td>
       <td>Tamaño del botón</td>
+    </tr>
+    <tr>
+      <td><code>tone</code></td>
+      <td><code>"standard" | "inverse"</code></td>
+      <td><code>"standard"</code></td>
+      <td>Inverse solo en primary y secondary</td>
+    </tr>
+    <tr>
+      <td><code>label</code></td>
+      <td><code>ReactNode</code></td>
+      <td>—</td>
+      <td>Texto / label del botón</td>
+    </tr>
+    <tr>
+      <td><code>leftIcon</code></td>
+      <td><code>ReactNode</code></td>
+      <td>—</td>
+      <td>Ícono a la izquierda del label</td>
+    </tr>
+    <tr>
+      <td><code>rightIcon</code></td>
+      <td><code>ReactNode</code></td>
+      <td>—</td>
+      <td>Ícono a la derecha del label</td>
+    </tr>
+    <tr>
+      <td><code>loading</code></td>
+      <td><code>boolean</code></td>
+      <td><code>false</code></td>
+      <td>Muestra estado de carga</td>
     </tr>
     <tr>
       <td><code>disabled</code></td>
       <td><code>boolean</code></td>
       <td><code>false</code></td>
       <td>Deshabilita la interacción</td>
-    </tr>
-    <tr>
-      <td><code>asChild</code></td>
-      <td><code>boolean</code></td>
-      <td><code>false</code></td>
-      <td>Renderiza el hijo en lugar de un button</td>
     </tr>
     <tr>
       <td><code>onClick</code></td>
@@ -147,11 +164,11 @@ import { PlusIcon, ArrowRightIcon } from 'lucide-react'
   <tbody>
     <tr>
       <td><code>--color-primary</code></td>
-      <td>Fondo variante default</td>
+      <td>Fondo variante primary</td>
     </tr>
     <tr>
       <td><code>--color-primary-foreground</code></td>
-      <td>Texto variante default</td>
+      <td>Texto variante primary</td>
     </tr>
     <tr>
       <td><code>--color-destructive</code></td>
@@ -159,7 +176,7 @@ import { PlusIcon, ArrowRightIcon } from 'lucide-react'
     </tr>
     <tr>
       <td><code>--color-border</code></td>
-      <td>Borde variante outline</td>
+      <td>Borde variante secondary</td>
     </tr>
     <tr>
       <td><code>--color-ring</code></td>

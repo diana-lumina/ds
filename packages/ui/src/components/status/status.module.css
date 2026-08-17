@@ -18,6 +18,10 @@ letter-spacing: var(--typography-letter-spacing-default, 0);
     flex-shrink: 0;
 }
 
+.label {
+    white-space: nowrap;
+}
+
 /* ===== Tamaño: sm ===== */
 .root[data-size="sm"] {
     height: var(--component-status-sm-height, 32px);

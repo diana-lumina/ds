@@ -24,6 +24,11 @@
 
 @layer base {
   :root {
+    /* Figma: overlay inset spacing/4 + stroke border/width/2.
+       outline-offset en CSS es el hueco (inset − stroke), no el inset de Figma. */
+    --focus-ring-width: var(--border-width-2, 2px);
+    --focus-ring-offset: calc(var(--spacing-4, 4px) - var(--border-width-2, 2px));
+
     --background: var(--color-background);
     --foreground: var(--color-foreground);
     --primary: var(--color-primary);

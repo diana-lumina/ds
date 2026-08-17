@@ -5,19 +5,11 @@
   cursor: pointer;
   transition-property: color;
   transition-duration: 150ms;
-  font-family: var(--typography-font-family-interface, Inter);
-  font-size: var(--typography-font-size-action-md, 16px);
-  font-style: normal;
-  font-weight: var(--typography-font-weight-action, 500);
+  font-family: var(--component-link-label-font-family, var(--typography-font-family-interface, Inter));
+  font-style: var(--component-link-label-font-style, normal);
+  font-weight: var(--component-link-label-font-weight, var(--typography-font-weight-action, 500));
   letter-spacing: var(--component-link-label-letter-spacing);
-  line-height: var(--typography-line-height-action-md, 24px);
-  text-decoration: none;
-}
-
-.root:hover,
-.root:active,
-.root:focus-visible,
-.root:visited {
+  /* TODO(design): Figma contrato pide label subrayado permanente; diseño actual no lo tiene — revisar con diseñador. */
   text-decoration: none;
 }
 
@@ -30,9 +22,21 @@
   height: var(--component-link-icon-size, 20px);
 }
 
+/* Glyph Sales vía máscara contextual: el color lo aporta currentColor / tokens de icon */
 .iconWrapper svg {
   width: 100%;
   height: 100%;
+}
+
+/* ===== Context ===== */
+.root[data-context="standalone"] {
+  font-size: var(--component-link-label-font-size, var(--typography-font-size-action-md, 16px));
+  line-height: var(--component-link-label-line-height, var(--typography-line-height-action-md, 24px));
+}
+
+.root[data-context="inline"] {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 /* ===== Tone: standard ===== */
@@ -40,23 +44,44 @@
   color: var(--component-link-color-text-standard-default);
 }
 
+.root[data-tone="standard"] .iconWrapper {
+  color: var(--component-link-color-icon-standard-default);
+}
+
 .root[data-tone="standard"]:hover {
   color: var(--component-link-color-text-standard-hover);
+}
+
+.root[data-tone="standard"]:hover .iconWrapper {
+  color: var(--component-link-color-icon-standard-hover);
 }
 
 .root[data-tone="standard"]:active {
   color: var(--component-link-color-text-standard-pressed);
 }
 
+.root[data-tone="standard"]:active .iconWrapper {
+  color: var(--component-link-color-icon-standard-pressed);
+}
+
 .root[data-tone="standard"]:visited {
   color: var(--component-link-color-text-standard-visited);
 }
 
+.root[data-tone="standard"]:visited .iconWrapper {
+  color: var(--component-link-color-icon-standard-visited);
+}
+
 .root[data-tone="standard"]:focus-visible {
   color: var(--component-link-color-text-standard-focus-visible);
-  outline: var(--component-link-focus-ring-width) solid var(--component-link-focus-ring-color);
-  outline-offset: 4px;
+  outline: var(--component-link-focus-ring-width, var(--focus-ring-width, 2px)) solid
+    var(--component-link-focus-ring-color);
+  outline-offset: var(--focus-ring-offset, 2px);
   border-radius: 6px;
+}
+
+.root[data-tone="standard"]:focus-visible .iconWrapper {
+  color: var(--component-link-color-icon-standard-focus-visible);
 }
 
 /* ===== Tone: inverse ===== */
@@ -64,21 +89,42 @@
   color: var(--component-link-color-text-inverse-default);
 }
 
+.root[data-tone="inverse"] .iconWrapper {
+  color: var(--component-link-color-icon-inverse-default);
+}
+
 .root[data-tone="inverse"]:hover {
   color: var(--component-link-color-text-inverse-hover);
+}
+
+.root[data-tone="inverse"]:hover .iconWrapper {
+  color: var(--component-link-color-icon-inverse-hover);
 }
 
 .root[data-tone="inverse"]:active {
   color: var(--component-link-color-text-inverse-pressed);
 }
 
+.root[data-tone="inverse"]:active .iconWrapper {
+  color: var(--component-link-color-icon-inverse-pressed);
+}
+
 .root[data-tone="inverse"]:visited {
   color: var(--component-link-color-text-inverse-visited);
 }
 
+.root[data-tone="inverse"]:visited .iconWrapper {
+  color: var(--component-link-color-icon-inverse-visited);
+}
+
 .root[data-tone="inverse"]:focus-visible {
   color: var(--component-link-color-text-inverse-focus-visible);
-  outline: var(--component-link-focus-ring-width) solid var(--component-link-focus-ring-color);
-  outline-offset: 4px;
+  outline: var(--component-link-focus-ring-width, var(--focus-ring-width, 2px)) solid
+    var(--component-link-focus-ring-color);
+  outline-offset: var(--focus-ring-offset, 2px);
   border-radius: 6px;
+}
+
+.root[data-tone="inverse"]:focus-visible .iconWrapper {
+  color: var(--component-link-color-icon-inverse-focus-visible);
 }

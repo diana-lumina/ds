@@ -7,7 +7,7 @@
   display: inline-flex;
   flex-shrink: 0;
   box-sizing: border-box;
-  /* TODO: Tamaño del radio debe ser configurable */
+  /* Tamaño visual único (contrato): 20 × 20 px */
   width: 20px;
   height: 20px;
   padding: 0;
@@ -25,8 +25,9 @@
 }
 
 .root:focus-visible {
-  outline: var(--border-width-2, 2px) solid var(--color-focus-ring, #2563EB);
-  outline-offset: var(--border-width-2, 2px);
+  outline: var(--focus-ring-width, var(--border-width-2, 2px)) solid
+    var(--color-focus-ring, #2563EB);
+  outline-offset: var(--focus-ring-offset, 2px);
 }
 
 /* ===== Unselected ===== */
@@ -105,7 +106,6 @@
 
 .field:has(.root:disabled) {
   cursor: not-allowed;
- 
 }
 
 .label {

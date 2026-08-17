@@ -1,3 +1,6 @@
+@import '../../../../packages/tokens/build/css/tec-360/tokens.css';
+@import '../../../../packages/tokens/build/css/tec-educacion-continua/tokens.css';
+
 :root {
   --ifm-color-primary: #1a3a6b;
   --ifm-color-primary-dark: #163260;

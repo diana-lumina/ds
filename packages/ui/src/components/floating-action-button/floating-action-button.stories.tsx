@@ -1,28 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { FloatingActionButton } from './floating-action-button'
-import { BagIcon } from '@workspace/ui/icons'
+import { ChatCircleIcon } from '@workspace/ui/icons'
 
 type FloatingActionButtonStoryArgs = {
   type: 'standard' | 'extended'
   floating: boolean
   disabled: boolean
-  /** Texto visible del botón (type=extended). En standard se usa como aria-label. */
+  loading: boolean
+  /** Extended: label visible. Standard: Accessible label (aria-label). */
   label: string
   icon: React.ReactNode
 }
 
 const meta = {
-  title: 'Components/FloatingActionButton',
-  // Cast: story args usan `label` (no `children`) para mapear standard vs extended.
+  title: 'Components/Actions/FloatingActionButton',
   component: FloatingActionButton as unknown as React.ComponentType<FloatingActionButtonStoryArgs>,
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
     docs: {
       description: {
-        component: `
-
-        `,
+        component:
+          'Acción primaria flotante y persistente de alta prominencia. Standard reutiliza Icon Button lg; Extended reutiliza Button primary lg. Speed Dial es un Pattern separado y no forma parte de la API del FAB. Contrato fijo: Size=lg · Hierarchy=primary · Tone=standard.',
       },
     },
   },
@@ -30,15 +29,26 @@ const meta = {
     type: {
       control: 'select',
       options: ['standard', 'extended'],
+      description: 'standard: icon + accessible label · extended: leading icon + label visible',
+      table: { defaultValue: { summary: 'standard' } },
     },
     floating: {
       control: 'boolean',
+      description: 'Fija el FAB a la esquina inferior derecha',
+      table: { defaultValue: { summary: 'true' } },
     },
     disabled: {
       control: 'boolean',
+      table: { defaultValue: { summary: 'false' } },
+    },
+    loading: {
+      control: 'boolean',
+      description: 'Solo extended (vía Button). Standard no expone loading en Icon Button.',
+      table: { defaultValue: { summary: 'false' } },
     },
     label: {
       control: 'text',
+      description: 'Extended: label visible. Standard: se usa como aria-label',
     },
     icon: {
       control: false,
@@ -50,8 +60,10 @@ const meta = {
 export default meta
 type Story = StoryObj<FloatingActionButtonStoryArgs>
 
-function captionStyle(): React.CSSProperties {
-  return { fontFamily: 'monospace', fontSize: 10, color: '#aaa', marginTop: 6 }
+const hideCode = {
+  docs: {
+    canvas: { sourceState: 'none' as const },
+  },
 }
 
 export const Playground: Story = {
@@ -59,20 +71,21 @@ export const Playground: Story = {
     type: 'extended',
     floating: false,
     disabled: false,
+    loading: false,
     label: 'Agregar',
-    icon: <BagIcon />,
+    icon: <ChatCircleIcon />,
   },
-  render: ({ type, floating, disabled, label, icon }) => {
+  render: ({ type, floating, disabled, loading, label, icon }) => {
     if (type === 'extended') {
       return (
         <FloatingActionButton
           type="extended"
           floating={floating}
           disabled={disabled}
+          loading={loading}
           icon={icon}
-        >
-          {label}
-        </FloatingActionButton>
+          label={label}
+        />
       )
     }
 
@@ -88,80 +101,213 @@ export const Playground: Story = {
   },
 }
 
-export const Types: Story = {
+/** Casos individuales limpios — código visible para copiar. */
+export const Standard: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      description: {
+        story:
+          'Standard: Icon Button lg anidado. Requiere Accessible label (aria-label).',
+      },
+      source: {
+        code: `<FloatingActionButton
+  type="standard"
+  floating={false}
+  icon={<ChatCircleIcon />}
+  aria-label="Agregar"
+/>`,
+      },
+    },
+  },
   render: () => (
-    <div style={{ display: 'flex', gap: 32, alignItems: 'center', flexWrap: 'wrap' }}>
-      <div style={{ textAlign: 'center' }}>
-        <FloatingActionButton
-          type="standard"
-          floating={false}
-          icon={<BagIcon />}
-          aria-label="Agregar"
-        />
-        <div style={captionStyle()}>standard</div>
-      </div>
-      <div style={{ textAlign: 'center' }}>
-        <FloatingActionButton
-          type="extended"
-          floating={false}
-          icon={<BagIcon />}
-        >
-          Agregar
-        </FloatingActionButton>
-        <div style={captionStyle()}>extended</div>
-      </div>
-      <div style={{ textAlign: 'center' }}>
-        <FloatingActionButton
-          type="standard"
-          floating={false}
-          icon={<BagIcon />}
-          aria-label="Agregar"
-          disabled
-        />
-        <div style={captionStyle()}>standard disabled</div>
-      </div>
-      <div style={{ textAlign: 'center' }}>
-        <FloatingActionButton
-          type="extended"
-          floating={false}
-          icon={<BagIcon />}
-          disabled
-        >
-          Agregar
-        </FloatingActionButton>
-        <div style={captionStyle()}>extended disabled</div>
-      </div>
-    </div>
+    <FloatingActionButton
+      type="standard"
+      floating={false}
+      icon={<ChatCircleIcon />}
+      aria-label="Agregar"
+    />
   ),
 }
 
-export const Floating: Story = {
+export const Extended: Story = {
   parameters: {
-    layout: 'fullscreen',
+    docs: {
+      canvas: { sourceState: 'shown' },
+      description: {
+        story:
+          'Extended: Button primary lg anidado. El label visible es la fuente preferida del nombre accesible.',
+      },
+      source: {
+        code: `<FloatingActionButton
+  type="extended"
+  floating={false}
+  icon={<ChatCircleIcon />}
+  label="Agregar"
+/>`,
+      },
+    },
   },
   render: () => (
-    <div style={{ position: 'relative', minHeight: 320, background: '#f5f5f5' }}>
-      <p style={{ fontFamily: 'sans-serif', padding: 24, color: '#666' }}>
-        Vista con posición flotante: standard y extended apilados en la esquina
-        inferior derecha.
-      </p>
-      <FloatingActionButton
-        type="standard"
-        floating
-        icon={<BagIcon />}
-        aria-label="Agregar"
-        style={{ bottom: 96 }}
-      />
-      <FloatingActionButton type="extended" floating icon={<BagIcon />}>
-        Agregar
-      </FloatingActionButton>
-    </div>
+    <FloatingActionButton
+      type="extended"
+      floating={false}
+      icon={<ChatCircleIcon />}
+      label="Agregar"
+    />
   ),
+}
+
+export const Disabled: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<FloatingActionButton
+  type="extended"
+  floating={false}
+  icon={<ChatCircleIcon />}
+  label="Agregar"
+  disabled
+/>`,
+      },
+    },
+  },
+  render: () => (
+    <FloatingActionButton
+      type="extended"
+      floating={false}
+      icon={<ChatCircleIcon />}
+      label="Agregar"
+      disabled
+    />
+  ),
+}
+
+export const Loading: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      description: {
+        story: 'Loading aplica al contrato extended (Button).',
+      },
+      source: {
+        code: `<FloatingActionButton
+  type="extended"
+  floating={false}
+  icon={<ChatCircleIcon />}
+  label="Agregar"
+  loading
+/>`,
+      },
+    },
+  },
+  render: () => (
+    <FloatingActionButton
+      type="extended"
+      floating={false}
+      icon={<ChatCircleIcon />}
+      label="Agregar"
+      loading
+    />
+  ),
+}
+
+
+export const AllStates: Story = {
+  name: 'Type & states',
+  parameters: hideCode,
+  render: () => {
+    const th: React.CSSProperties = {
+      fontFamily: 'monospace',
+      fontSize: 11,
+      color: '#888',
+      fontWeight: 600,
+      textAlign: 'center',
+      padding: '0 20px 12px',
+      borderBottom: '1px solid #eee',
+    }
+    const rowLabel: React.CSSProperties = {
+      fontFamily: 'monospace',
+      fontSize: 11,
+      color: '#888',
+      fontWeight: 600,
+      textAlign: 'left',
+      verticalAlign: 'middle',
+      padding: '16px 24px 16px 0',
+      borderBottom: '1px solid #f0f0f0',
+      whiteSpace: 'nowrap',
+    }
+    const td: React.CSSProperties = {
+      textAlign: 'center',
+      verticalAlign: 'middle',
+      padding: '16px 20px',
+      borderBottom: '1px solid #f0f0f0',
+    }
+
+    return (
+      <div style={{ padding: 8 }}>
+       
+        <table style={{ borderCollapse: 'collapse' }}>
+          <thead>
+            <tr>
+              <th style={{ ...th, textAlign: 'left', paddingLeft: 0 }}>Type</th>
+              <th style={th}>Default</th>
+              <th style={th}>Disabled</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={rowLabel}>Standard</td>
+              <td style={td}>
+                <FloatingActionButton
+                  type="standard"
+                  floating={false}
+                  icon={<ChatCircleIcon />}
+                  aria-label="Agregar"
+                />
+              </td>
+              <td style={td}>
+                <FloatingActionButton
+                  type="standard"
+                  floating={false}
+                  icon={<ChatCircleIcon />}
+                  aria-label="Agregar"
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <td style={rowLabel}>Extended</td>
+              <td style={td}>
+                <FloatingActionButton
+                  type="extended"
+                  floating={false}
+                  icon={<ChatCircleIcon />}
+                  label="Agregar"
+                />
+              </td>
+              <td style={td}>
+                <FloatingActionButton
+                  type="extended"
+                  floating={false}
+                  icon={<ChatCircleIcon />}
+                  label="Agregar"
+                  disabled
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    )
+  },
 }
 
 export const InContext: Story = {
   name: 'Ejemplo de uso',
   parameters: {
+    ...hideCode,
     layout: 'fullscreen',
   },
   render: () => (
@@ -189,9 +335,12 @@ export const InContext: Story = {
           </div>
         ))}
       </div>
-      <FloatingActionButton type="extended" floating icon={<BagIcon />}>
-        Nuevo borrador
-      </FloatingActionButton>
+      <FloatingActionButton
+        type="extended"
+        floating
+        icon={<ChatCircleIcon />}
+        label="Nuevo borrador"
+      />
     </div>
   ),
 }

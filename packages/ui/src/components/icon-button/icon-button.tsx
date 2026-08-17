@@ -1,48 +1,45 @@
 "use client"
 
 import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
 import { cn } from '../../lib/utils'
+import { LoadingIcon } from '@workspace/ui/icons'
 import styles from './icon-button.module.css'
 
-export interface IconButtonProps extends React.ComponentProps<"button"> {
-
+export interface IconButtonProps
+  extends Omit<React.ComponentProps<"button">, 'children'> {
   icon?: React.ReactNode
   size?: 'sm' | 'md' | 'lg'
-
-  variant?: 'default' | 'inverse'
-
-  asChild?: boolean
-
+  /** standard sobre superficies claras · inverse sobre oscuras / brand. Hierarchy = Primary (fija). */
+  tone?: 'standard' | 'inverse'
+  loading?: boolean
   'aria-label': string
 }
 
 export function IconButton({
   icon,
   size = 'md',
-  variant = 'default',
-  asChild = false,
+  tone = 'standard',
+  loading = false,
   className,
-  children,
+  disabled,
   ...props
 }: IconButtonProps) {
-  const Comp = asChild ? Slot : "button"
+  const displayIcon = loading ? <LoadingIcon /> : icon
 
   return (
-    <Comp
+    <button
       data-slot="icon-button"
       data-size={size}
-      data-variant={variant}
+      data-tone={tone}
+      data-loading={loading || undefined}
+      aria-busy={loading || undefined}
+      disabled={disabled || loading}
       className={cn(styles.root, className)}
       {...props}
     >
-      {asChild ? (
-        children
-      ) : (
-        <span aria-hidden="true" className={styles.iconWrapper}>
-          {icon}
-        </span>
-      )}
-    </Comp>
+      <span aria-hidden="true" className={styles.iconWrapper}>
+        {displayIcon}
+      </span>
+    </button>
   )
 }

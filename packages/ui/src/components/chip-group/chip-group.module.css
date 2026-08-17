@@ -1,0 +1,7 @@
+.root {
+  display: inline-flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 8px var(--spacing-8, 8px);
+  flex-wrap: wrap;
+}

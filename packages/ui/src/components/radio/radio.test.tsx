@@ -92,7 +92,7 @@ describe('Radio', () => {
   })
 
   describe('Accesibilidad', () => {
-    it('es alcanzable por teclado', async () => {
+    it('es alcanzable por teclado (Tab + Space)', async () => {
       const handleChange = vi.fn()
       const user = userEvent.setup()
       render(
@@ -107,6 +107,38 @@ describe('Radio', () => {
 
       await user.keyboard(' ')
       expect(handleChange).toHaveBeenCalledWith('a')
+    })
+
+    it('mueve focus y selección con Arrow keys', async () => {
+      const handleChange = vi.fn()
+      const user = userEvent.setup()
+      render(
+        <RadioGroup value="a" onValueChange={handleChange} aria-label="Opciones">
+          <Radio value="a" aria-label="A" />
+          <Radio value="b" aria-label="B" />
+          <Radio value="c" aria-label="C" />
+        </RadioGroup>
+      )
+
+      await user.tab()
+      expect(screen.getByRole('radio', { name: 'A' })).toHaveFocus()
+
+      await user.keyboard('{ArrowDown}')
+      expect(handleChange).toHaveBeenCalledWith('b')
+      expect(screen.getByRole('radio', { name: 'B' })).toHaveFocus()
+    })
+
+    it('Tab enfoca la opción seleccionada cuando hay una', async () => {
+      const user = userEvent.setup()
+      render(
+        <RadioGroup value="b" aria-label="Opciones">
+          <Radio value="a" aria-label="A" />
+          <Radio value="b" aria-label="B" />
+        </RadioGroup>
+      )
+
+      await user.tab()
+      expect(screen.getByRole('radio', { name: 'B' })).toHaveFocus()
     })
 
     it('sin violaciones de accesibilidad — unselected', async () => {

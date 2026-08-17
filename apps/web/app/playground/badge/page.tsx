@@ -9,10 +9,10 @@ export default function BadgePlayground() {
       <section className="flex flex-col gap-3">
         <h2 className="text-sm text-muted-foreground">Size</h2>
         <div className="flex flex-wrap items-center gap-3">
-          <Badge size="sm">Nuevo</Badge>
-          <Badge size="md">En revisión</Badge>
-          <Badge size="sm">Borrador</Badge>
-          <Badge size="md">Publicado</Badge>
+          <Badge size="sm" label="Nuevo" />
+          <Badge size="md" label="En revisión" />
+          <Badge size="sm" label="Borrador" />
+          <Badge size="md" label="Publicado" />
         </div>
       </section>
     </div>

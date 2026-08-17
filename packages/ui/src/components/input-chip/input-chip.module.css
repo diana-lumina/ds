@@ -15,20 +15,24 @@
   letter-spacing: var(--typography-letter-spacing-default, 0);
 }
 
-.root:hover {
+.root:hover:not([data-disabled="true"]) {
   background: var(--component-input-chip-color-surface-hover);
 }
 
-.root:active {
+.root:active:not([data-disabled="true"]) {
   background: var(--component-input-chip-color-surface-pressed);
 }
 
-.root:focus-within {
-  outline: var(--border-width-2, 2px) solid var(--component-filter-chip-color-focus-ring);
-  outline-offset: var(--border-width-2, 2px);
+.root:focus-within:not([data-disabled="true"]) {
+  outline: var(
+      --component-input-chip-border-width-focus-visible,
+      var(--focus-ring-width, var(--border-width-2, 2px))
+    )
+    solid var(--component-input-chip-color-focus-ring, var(--component-filter-chip-color-focus-ring));
+  outline-offset: var(--focus-ring-offset, 2px);
 }
 
-.root[data-close-disabled="true"] {
+.root[data-disabled="true"] {
   border-color: var(--component-input-chip-color-disabled-border, #E5E5E5);
   background: var(--component-input-chip-color-disabled-surface);
   color: var(--component-input-chip-color-disabled-text, #A3A3A3);

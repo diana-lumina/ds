@@ -7,8 +7,9 @@
 }
 
 .root:focus-visible {
-  outline: var(--border-width-2) solid var(--component-button-color-focus-ring);
-  outline-offset: var(--border-width-2);
+  outline: var(--focus-ring-width, var(--border-width-2, 2px)) solid
+    var(--component-button-color-focus-ring);
+  outline-offset: var(--focus-ring-offset, 2px);
 }
 
 .root[data-size="sm"] {
@@ -25,7 +26,7 @@
   height: var(--component-button-sm-icon-size);
 }
 
-.root[data-size="default"] {
+.root[data-size="md"] {
   padding-block: var(--component-button-md-padding-block);
   padding-inline: var(--component-button-md-padding-inline);
   gap: var(--component-button-md-gap);
@@ -34,7 +35,7 @@
   line-height: var(--component-button-label-md-line-height);
 }
 
-.root[data-size="default"] svg {
+.root[data-size="md"] svg {
   width: var(--component-button-md-icon-size);
   height: var(--component-button-md-icon-size);
 }
@@ -55,18 +56,18 @@
 
 /* ===== PRIMARY ===== */
 
-.root[data-variant="default"] {
+.root[data-hierarchy="primary"] {
   background: linear-gradient(90deg,
       var(--component-button-color-primary-surface-default-start) 0%,
       var(--component-button-color-primary-surface-default-end) 100%);
   color: var(--component-button-color-primary-text-default);
 }
 
-.root[data-variant="default"] svg {
+.root[data-hierarchy="primary"] svg {
   color: var(--component-button-color-primary-icon-default);
 }
 
-.root[data-variant="default"]:hover {
+.root[data-hierarchy="primary"]:hover {
   background:
     linear-gradient(var(--component-button-color-primary-surface-hover-overlay),
       var(--component-button-color-primary-surface-hover-overlay)),
@@ -75,7 +76,7 @@
       var(--component-button-color-primary-surface-hover-end) 100%);
 }
 
-.root[data-variant="default"]:active:not([aria-haspopup]) {
+.root[data-hierarchy="primary"]:active:not([aria-haspopup]) {
   background:
     linear-gradient(var(--component-button-color-primary-surface-pressed-overlay),
       var(--component-button-color-primary-surface-pressed-overlay)),
@@ -84,110 +85,110 @@
       var(--component-button-color-primary-surface-pressed-end) 100%);
 }
 
-.root[data-variant="default"]:disabled {
+.root[data-hierarchy="primary"]:disabled {
   background: var(--component-button-color-primary-surface-disabled);
   color: var(--component-button-color-primary-text-disabled);
 }
 
-.root[data-variant="default"]:disabled svg {
+.root[data-hierarchy="primary"]:disabled svg {
   color: var(--component-button-color-primary-text-disabled);
 }
 
-.root[data-variant="default"][data-tone="inverse"] {
+.root[data-hierarchy="primary"][data-tone="inverse"] {
   background: var(--component-button-color-primary-inverse-surface-default);
   color: var(--component-button-color-primary-inverse-text-default);
 }
 
-.root[data-variant="default"][data-tone="inverse"] svg {
+.root[data-hierarchy="primary"][data-tone="inverse"] svg {
   color: var(--component-button-color-primary-inverse-icon-default);
 }
 
-.root[data-variant="default"][data-tone="inverse"]:hover {
+.root[data-hierarchy="primary"][data-tone="inverse"]:hover {
   background: var(--component-button-color-primary-inverse-surface-hover);
 }
 
-.root[data-variant="default"][data-tone="inverse"]:active:not([aria-haspopup]) {
+.root[data-hierarchy="primary"][data-tone="inverse"]:active:not([aria-haspopup]) {
   background: var(--component-button-color-primary-inverse-surface-pressed);
 }
 
-.root[data-variant="default"][data-tone="inverse"]:disabled {
+.root[data-hierarchy="primary"][data-tone="inverse"]:disabled {
   background: var(--component-button-color-primary-inverse-surface-disabled);
   color: var(--component-button-color-primary-inverse-text-disabled);
 }
 
-.root[data-variant="default"][data-tone="inverse"]:disabled svg {
+.root[data-hierarchy="primary"][data-tone="inverse"]:disabled svg {
   color: var(--component-button-color-primary-inverse-icon-disabled);
 }
 
 /* ===== DESTRUCTIVE ===== */
 
-.root[data-variant="destructive"] {
+.root[data-hierarchy="destructive"] {
   border-width: 0;
   background: var(--component-button-color-destructive-surface-default);
   color: var(--component-button-color-destructive-text-default);
 }
 
-.root[data-variant="destructive"] svg {
+.root[data-hierarchy="destructive"] svg {
   color: var(--component-button-color-destructive-icon-default);
 }
 
-.root[data-variant="destructive"]:hover {
+.root[data-hierarchy="destructive"]:hover {
   background: var(--component-button-color-destructive-surface-hover);
   color: var(--component-button-color-destructive-text-hover);
 }
 
-.root[data-variant="destructive"]:hover svg {
+.root[data-hierarchy="destructive"]:hover svg {
   color: var(--component-button-color-destructive-icon-hover);
 }
 
-.root[data-variant="destructive"]:active:not([aria-haspopup]) {
+.root[data-hierarchy="destructive"]:active:not([aria-haspopup]) {
   background: var(--component-button-color-destructive-surface-pressed);
   color: var(--component-button-color-destructive-text-pressed);
 }
 
-.root[data-variant="destructive"]:active:not([aria-haspopup]) svg {
+.root[data-hierarchy="destructive"]:active:not([aria-haspopup]) svg {
   color: var(--component-button-color-destructive-icon-pressed);
 }
 
-.root[data-variant="destructive"]:disabled {
+.root[data-hierarchy="destructive"]:disabled {
   background: var(--component-button-color-destructive-surface-disabled);
   color: var(--component-button-color-destructive-text-disabled);
 }
 
-.root[data-variant="destructive"]:disabled svg {
+.root[data-hierarchy="destructive"]:disabled svg {
   color: var(--component-button-color-destructive-icon-disabled);
 }
 
-/* ===== TERTIARY (prop "ghost") ===== */
+/* ===== TERTIARY ===== */
 
-.root[data-variant="ghost"] {
+.root[data-hierarchy="tertiary"] {
   background: transparent;
   color: var(--component-button-color-tertiary-text-default);
 }
 
-.root[data-variant="ghost"] svg {
+.root[data-hierarchy="tertiary"] svg {
   color: var(--component-button-color-tertiary-icon-default);
 }
 
-.root[data-variant="ghost"]:hover {
+.root[data-hierarchy="tertiary"]:hover {
   background: var(--component-button-color-tertiary-surface-hover);
 }
 
-.root[data-variant="ghost"]:active:not([aria-haspopup]) {
+.root[data-hierarchy="tertiary"]:active:not([aria-haspopup]) {
   background: var(--component-button-color-tertiary-surface-pressed);
 }
 
-.root[data-variant="ghost"]:disabled {
+.root[data-hierarchy="tertiary"]:disabled {
   color: var(--component-button-color-tertiary-text-disabled);
 }
 
-.root[data-variant="ghost"]:disabled svg {
+.root[data-hierarchy="tertiary"]:disabled svg {
   color: var(--component-button-color-tertiary-icon-disabled);
 }
 
 /* ===== SECONDARY ===== */
 
-.root[data-variant="secondary"] {
+.root[data-hierarchy="secondary"] {
   position: relative;
   background: var(--component-button-color-secondary-surface-default);
   color: var(--component-button-color-secondary-text-default);
@@ -195,7 +196,7 @@
   border-width: 0;
 }
 
-.root[data-variant="secondary"]::before {
+.root[data-hierarchy="secondary"]::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -212,26 +213,26 @@
   pointer-events: none;
 }
 
-.root[data-variant="secondary"] svg {
+.root[data-hierarchy="secondary"] svg {
   color: var(--component-button-color-secondary-icon-default);
 }
 
-.root[data-variant="secondary"]:hover {
+.root[data-hierarchy="secondary"]:hover {
   background: linear-gradient(90deg,
       var(--component-button-color-secondary-surface-hover-start) 0%,
       var(--component-button-color-secondary-surface-hover-end) 100%);
   color: var(--component-button-color-secondary-text-on-filled);
 }
 
-.root[data-variant="secondary"]:hover::before {
+.root[data-hierarchy="secondary"]:hover::before {
   background: var(--component-button-color-secondary-border-transparent);
 }
 
-.root[data-variant="secondary"]:hover svg {
+.root[data-hierarchy="secondary"]:hover svg {
   color: var(--component-button-color-secondary-icon-on-filled);
 }
 
-.root[data-variant="secondary"]:active:not([aria-haspopup]) {
+.root[data-hierarchy="secondary"]:active:not([aria-haspopup]) {
   background:
     linear-gradient(var(--component-button-color-secondary-surface-pressed-overlay),
       var(--component-button-color-secondary-surface-pressed-overlay)),
@@ -241,11 +242,11 @@
   color: var(--component-button-color-secondary-text-on-filled);
 }
 
-.root[data-variant="secondary"]:active:not([aria-haspopup]) svg {
+.root[data-hierarchy="secondary"]:active:not([aria-haspopup]) svg {
   color: var(--component-button-color-secondary-icon-on-filled);
 }
 
-.root[data-variant="secondary"]:disabled {
+.root[data-hierarchy="secondary"]:disabled {
   background: transparent;
   border-width: 0;
   box-shadow: inset 0 0 0 var(--border-width-1, 1px)
@@ -253,23 +254,23 @@
   color: var(--component-button-color-secondary-text-disabled);
 }
 
-.root[data-variant="secondary"]:disabled::before {
+.root[data-hierarchy="secondary"]:disabled::before {
   content: none;
   display: none;
 }
 
-.root[data-variant="secondary"]:disabled svg {
+.root[data-hierarchy="secondary"]:disabled svg {
   color: var(--component-button-color-secondary-icon-disabled);
 }
 
 /* ===== Secondary / Tone: inverse ===== */
 
-.root[data-variant="secondary"][data-tone="inverse"]::before {
+.root[data-hierarchy="secondary"][data-tone="inverse"]::before {
   content: none;
   display: none;
 }
 
-.root[data-variant="secondary"][data-tone="inverse"] {
+.root[data-hierarchy="secondary"][data-tone="inverse"] {
   background: var(--component-button-color-secondary-inverse-surface-default);
   color: var(--component-button-color-secondary-inverse-text-default);
   border-width: 0;
@@ -277,30 +278,30 @@
     var(--component-button-color-secondary-inverse-border-default);
 }
 
-.root[data-variant="secondary"][data-tone="inverse"] svg {
+.root[data-hierarchy="secondary"][data-tone="inverse"] svg {
   color: var(--component-button-color-secondary-inverse-icon-default);
 }
 
-.root[data-variant="secondary"][data-tone="inverse"]:hover {
+.root[data-hierarchy="secondary"][data-tone="inverse"]:hover {
   background: var(--component-button-color-secondary-inverse-surface-hover);
   color: var(--component-button-color-secondary-inverse-text-default);
 }
 
-.root[data-variant="secondary"][data-tone="inverse"]:active:not([aria-haspopup]) {
+.root[data-hierarchy="secondary"][data-tone="inverse"]:active:not([aria-haspopup]) {
   background: var(--component-button-color-secondary-inverse-surface-pressed);
 }
 
-.root[data-variant="secondary"][data-tone="inverse"]:active:not([aria-haspopup]) svg {
+.root[data-hierarchy="secondary"][data-tone="inverse"]:active:not([aria-haspopup]) svg {
   color: var(--component-button-color-secondary-inverse-icon-default);
 }
 
-.root[data-variant="secondary"][data-tone="inverse"]:disabled {
+.root[data-hierarchy="secondary"][data-tone="inverse"]:disabled {
   background: var(--component-button-color-secondary-inverse-surface-disabled);
   color: var(--component-button-color-secondary-inverse-text-disabled);
   box-shadow: none;
 }
 
-.root[data-variant="secondary"][data-tone="inverse"]:disabled svg {
+.root[data-hierarchy="secondary"][data-tone="inverse"]:disabled svg {
   color: var(--component-button-color-secondary-inverse-icon-disabled);
 }
 

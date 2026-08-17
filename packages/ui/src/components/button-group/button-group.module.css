@@ -1,0 +1,9 @@
+.root {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--spacing-12, 12px);
+}
+
+.root[data-orientation="vertical"] {
+  flex-direction: column;
+}

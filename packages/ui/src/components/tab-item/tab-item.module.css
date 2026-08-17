@@ -1,0 +1,81 @@
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  /* TODO(design): Figma pide padding 10px 12px 8px 12px; no hay spacing/10.
+     Revisar con diseñador si deben ser tokens de componente o normalizar a la escala 8/12. */
+  padding: 10px 12px 8px 12px;
+  color: var(--component-tab-color-text-default);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: var(--typography-line-height-200, 20px);
+  /* 142.857% */
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+/* Indicador al fondo del box, a todo el ancho incluido el padding inline. */
+.root::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: var(--component-tab-indicator-size, var(--border-width-2, 2px));
+  background: transparent;
+  pointer-events: none;
+}
+
+.root:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: var(--component-tab-color-text-disabled);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.root:focus-visible {
+  border-radius: var(--radius-4, 4px);
+  outline: var(--focus-ring-width, var(--border-width-2, 2px)) solid
+    var(--component-tab-color-focus-ring);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+/* ===== Unselected ===== */
+.root[data-selected="false"]:hover {
+  background: var(--color-surface-selection-unselected-hover, #F5F5F5);
+}
+
+/* ===== Selected ===== */
+.root[data-selected="true"]:not(:disabled) {
+  color: var(--component-tab-color-text-selected);
+}
+
+.root[data-selected="true"]:not(:disabled)::after {
+  background: var(--component-tab-color-indicator-selected);
+}
+
+.root[data-selected="true"]:hover:not(:disabled) {
+  color: var(--component-tab-color-text-selected);
+  background: var(--color-surface-selection-unselected-hover, #F5F5F5);
+  /* TODO(design): Revisar con diseñador si deben ser tokens de componente o normalizar a la escala 8/12. */
+  /* TODO(design): Revisar con diseñador token que corresponde a hover selected*/
+}
+
+.root[data-selected="true"]:focus-visible:not(:disabled)::after {
+  background: var(--component-tab-color-indicator-selected);
+}
+
+/* Selected disabled = unselected disabled (sin indicador). */
+.root[data-selected="true"]:disabled::after {
+  background: transparent;
+}

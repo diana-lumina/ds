@@ -22,8 +22,9 @@
 }
 
 .root:focus-visible {
-  outline: var(--border-width-2, 2px) solid var(--color-focus-ring, #2563EB);
-  outline-offset: var(--border-width-2, 2px);
+  outline: var(--focus-ring-width, var(--border-width-2, 2px)) solid
+    var(--color-focus-ring, #2563EB);
+  outline-offset: var(--focus-ring-offset, 2px);
 }
 
 /* ===== Unchecked ===== */

@@ -2,24 +2,32 @@
 
 import { NavLink } from './nav-link'
 import { useTheme } from 'next-themes'
-import { SunIcon, MoonIcon } from 'lucide-react'
+import { MoonIcon, SunIcon } from '@workspace/ui/icons'
 
 const components = [
   { name: 'Showcase', href: '/showcase' },
   { name: 'Avatar', href: '/playground/avatar' },
   { name: 'Badge', href: '/playground/badge' },
+  { name: 'Breadcrumb', href: '/playground/breadcrumb' },
+  { name: 'BreadcrumbItem', href: '/playground/breadcrumb-item' },
   { name: 'Button', href: '/playground/button' },
+  { name: 'ButtonGroup', href: '/playground/button-group' },
   { name: 'Checkbox', href: '/playground/checkbox' },
+  { name: 'ChipGroup', href: '/playground/chip-group' },
   { name: 'CounterBadge', href: '/playground/counter-badge' },
   { name: 'Divider', href: '/playground/divider' },
   { name: 'FilterChip', href: '/playground/filter-chip' },
+  { name: 'FormField', href: '/playground/form-field' },
   { name: 'FAB', href: '/playground/floating-action-button' },
   { name: 'IconButton', href: '/playground/icon-button' },
   { name: 'InputChip', href: '/playground/input-chip' },
   { name: 'Link', href: '/playground/link' },
+  { name: 'ListItem', href: '/playground/list-item' },
   { name: 'Radio', href: '/playground/radio' },
   { name: 'Segment', href: '/playground/segment' },
   { name: 'Status', href: '/playground/status' },
+  { name: 'Switch', href: '/playground/switch' },
+  { name: 'TabItem', href: '/playground/tab-item' },
   { name: 'Tag', href: '/playground/tag' },
 ]
 

@@ -9,24 +9,24 @@ export default function CounterBadgePlayground() {
       <section className="flex flex-col gap-3">
         <h2 className="text-sm text-muted-foreground">Emphasis neutral</h2>
         <div className="flex flex-wrap items-center gap-3">
-          <CounterBadge size="sm" emphasis="neutral" count={2} />
-          <CounterBadge size="md" emphasis="neutral" count={12} />
+          <CounterBadge size="sm" emphasis="neutral" value="2" />
+          <CounterBadge size="md" emphasis="neutral" value="12" />
         </div>
       </section>
 
       <section className="flex flex-col gap-3">
         <h2 className="text-sm text-muted-foreground">Emphasis attention</h2>
         <div className="flex flex-wrap items-center gap-3">
-          <CounterBadge size="sm" emphasis="attention" count={9} />
-          <CounterBadge size="md" emphasis="attention" count={120} max={99} />
+          <CounterBadge size="sm" emphasis="attention" value="9" />
+          <CounterBadge size="md" emphasis="attention" value="99+" />
         </div>
       </section>
 
       <section className="flex flex-col gap-3">
         <h2 className="text-sm text-muted-foreground">Emphasis inverse</h2>
         <div className="flex flex-wrap items-center gap-3 rounded-lg bg-[var(--color-surface-brand-strong,#231f20)] p-4">
-          <CounterBadge size="sm" emphasis="inverse" count={4} />
-          <CounterBadge size="md" emphasis="inverse" count={24} />
+          <CounterBadge size="sm" emphasis="inverse" value="4" />
+          <CounterBadge size="md" emphasis="inverse" value="24" />
         </div>
       </section>
     </div>

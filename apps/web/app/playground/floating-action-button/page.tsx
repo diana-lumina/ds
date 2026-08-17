@@ -1,5 +1,5 @@
 import { FloatingActionButton } from '@workspace/ui'
-import { BagIcon } from '@workspace/ui/icons'
+import { ChatCircleIcon } from '@workspace/ui/icons'
 import { PlaygroundHeader } from '../playground-header'
 
 export default function FloatingActionButtonPlayground() {
@@ -16,31 +16,41 @@ export default function FloatingActionButtonPlayground() {
           <FloatingActionButton
             type="standard"
             floating={false}
-            icon={<BagIcon />}
+            icon={<ChatCircleIcon />}
             aria-label="Agregar"
           />
-          <FloatingActionButton type="extended" floating={false} icon={<BagIcon />}>
-            Agregar
-          </FloatingActionButton>
+          <FloatingActionButton
+            type="extended"
+            floating={false}
+            icon={<ChatCircleIcon />}
+            label="Agregar"
+          />
           <FloatingActionButton
             type="standard"
             floating={false}
-            icon={<BagIcon />}
+            icon={<ChatCircleIcon />}
             aria-label="Agregar disabled"
             disabled
           />
-          <FloatingActionButton type="extended" floating={false} icon={<BagIcon />} disabled>
-            Agregar disabled
-          </FloatingActionButton>
+          <FloatingActionButton
+            type="extended"
+            floating={false}
+            icon={<ChatCircleIcon />}
+            label="Agregar disabled"
+            disabled
+          />
         </div>
       </section>
 
       <section className="flex flex-col gap-3">
         <h2 className="text-sm text-muted-foreground">En contexto (no fixed)</h2>
         <div className="relative flex min-h-48 items-end justify-end rounded-lg border bg-muted/30 p-4">
-          <FloatingActionButton type="extended" floating={false} icon={<BagIcon />}>
-            Nuevo
-          </FloatingActionButton>
+          <FloatingActionButton
+            type="extended"
+            floating={false}
+            icon={<ChatCircleIcon />}
+            label="Nuevo"
+          />
         </div>
         <p className="text-xs text-muted-foreground">
           La prop <code>floating</code> fija el botón a la viewport; se ve mejor en el showcase.

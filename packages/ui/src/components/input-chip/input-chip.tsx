@@ -7,28 +7,36 @@ import { CloseIcon } from "@workspace/ui/icons"
 
 export interface InputChipProps {
   size?: 'sm' | 'md'
+  /** Label (valor aplicado). */
+  label: string
+  /** Leading icon opcional (instance swap). */
   icon?: React.ReactNode
-  children: React.ReactNode
   onClose: () => void
-  closeDisabled?: boolean
+  /** Disabled: no recibe interacción ni emite remoción. Close sigue visible. */
+  disabled?: boolean
+  /**
+   * Nombre accesible del close. Por defecto: `Eliminar {label}`.
+   */
   closeLabel?: string
   className?: string
 }
 
 export function InputChip({
   size = 'sm',
+  label,
   icon,
-  children,
   onClose,
-  closeDisabled = false,
-  closeLabel = 'Quitar',
+  disabled = false,
+  closeLabel,
   className,
 }: InputChipProps) {
+  const resolvedCloseLabel = closeLabel ?? `Eliminar ${label}`
+
   return (
     <span
       data-slot="input-chip"
       data-size={size}
-      data-close-disabled={closeDisabled}
+      data-disabled={disabled || undefined}
       className={cn(styles.root, className)}
     >
       {icon && (
@@ -36,18 +44,17 @@ export function InputChip({
           {icon}
         </span>
       )}
-      <span className={styles.label}>{children}</span>
+      <span className={styles.label}>{label}</span>
       <button
         type="button"
         data-slot="input-chip-close"
         className={styles.closeButton}
         onClick={onClose}
-        disabled={closeDisabled}
-        aria-label={closeLabel}
+        disabled={disabled}
+        aria-label={resolvedCloseLabel}
       >
         <CloseIcon />
       </button>
     </span>
   )
 }
-

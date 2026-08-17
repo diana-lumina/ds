@@ -1,0 +1,87 @@
+/* FormField: patrón compuesto (label + control + supporting).
+   TODO: el control es un <input> nativo provisional. Aún no existen
+   los componentes individuales (Text Field / input). */
+.root {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  gap: var(--component-form-field-field-gap, var(--component-text-field-field-gap, 6px));
+}
+
+.label {
+  color: var(--component-form-field-color-label-default, #231F20);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.control {
+  display: flex;
+  box-sizing: border-box;
+  min-height: var(--component-text-field-control-height, 48px);
+  width: 100%;
+  margin: 0;
+  padding: var(--component-text-field-control-padding-block, 8px)
+    var(--component-text-field-control-padding-inline-end, 8px)
+    var(--component-text-field-control-padding-block, 8px)
+    var(--component-text-field-control-padding-inline-start, 12px);
+  align-items: center;
+  gap: var(--component-text-field-control-gap, 8px);
+  align-self: stretch;
+  border-radius: var(--component-text-field-control-radius, 8px);
+  border: var(--component-text-field-control-border-width, 1px) solid
+    var(--component-text-field-color-border-default, #D4D4D4);
+  background: var(--component-text-field-color-surface-default, #FFFFFF);
+  color: var(--component-form-field-color-value-default, #231F20);
+  font-family: var(--component-form-field-value-font-family, var(--typography-font-family-interface, Inter));
+  font-size: var(--component-form-field-value-font-size, var(--typography-font-size-200, 14px));
+  font-style: normal;
+  font-weight: var(--component-form-field-value-font-weight, var(--typography-font-weight-regular, 400));
+  line-height: var(--component-form-field-value-line-height, var(--typography-line-height-200, 20px));
+  letter-spacing: var(--component-form-field-value-letter-spacing, var(--typography-letter-spacing-default, 0));
+}
+
+.control::placeholder {
+  color: var(--component-form-field-color-supporting-default, #58585B);
+}
+
+.control:focus {
+  outline: none;
+}
+
+.control:focus-visible:not(:disabled) {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-text-field-color-focus-ring, #2563EB);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.supporting {
+  color: var(--component-form-field-color-supporting-default, #58585B);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-100, 12px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-100, 16px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+/* ===== Error ===== */
+/* Error/disabled sólo cambian el supporting text. Label y control quedan en default
+   hasta que existan los componentes individuales (Text Field / input). */
+.root[data-error="true"] .supporting {
+  color: var(--component-form-field-color-supporting-error, #B91C1C);
+}
+
+/* ===== Disabled ===== */
+.root[data-disabled] .supporting {
+  color: var(--component-form-field-color-supporting-disabled, #737373);
+}
+
+.control:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}

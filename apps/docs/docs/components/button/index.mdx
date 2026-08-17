@@ -17,14 +17,14 @@ import ComponentNav from '@site/src/components/ComponentNav'
 
 
 
-Componente de acción principal. Disponible en seis variantes y ocho tamaños.
+Componente de acción principal. Disponible en cuatro hierarchies (`primary`, `secondary`, `tertiary`, `destructive`) y tres tamaños (`sm`, `md`, `lg`).
 
 **Estado:** 🟢 Estable · [Ver en Storybook](https://6a220ebba6dfcae102b4cb59-dovnudtdzu.chromatic.com/?path=/docs/components-button--docs) · [Ver en GitHub](#)
 
 
 ## Descripción
 
-El Button se usa para acciones que el usuario puede ejecutar. La variante comunica la jerarquía e importancia de la acción dentro de una pantalla.
+El Button se usa para acciones que el usuario puede ejecutar. La hierarchy comunica la intención e importancia de la acción dentro de una pantalla.
 
 ---
 
@@ -34,39 +34,31 @@ _Pendiente — imagen del componente con sus partes etiquetadas._
 
 ---
 
-## Variantes
+## Hierarchy
 
 <table>
   <thead>
     <tr>
-      <th>Variante</th>
+      <th>Hierarchy</th>
       <th>Uso</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code>default</code></td>
+      <td><code>primary</code></td>
       <td>Acción principal de la pantalla. Solo debe haber uno por vista.</td>
     </tr>
     <tr>
-      <td><code>outline</code></td>
+      <td><code>secondary</code></td>
       <td>Acción secundaria o alternativa a la principal.</td>
     </tr>
     <tr>
-      <td><code>secondary</code></td>
-      <td>Acción de menor jerarquía, sin tanto peso visual.</td>
-    </tr>
-    <tr>
-      <td><code>ghost</code></td>
-      <td>Acción terciaria, mínimo impacto visual.</td>
+      <td><code>tertiary</code></td>
+      <td>Acción de menor jerarquía, mínimo impacto visual.</td>
     </tr>
     <tr>
       <td><code>destructive</code></td>
       <td>Acciones irreversibles: eliminar, cancelar, desactivar.</td>
-    </tr>
-    <tr>
-      <td><code>link</code></td>
-      <td>Acción que visualmente parece un enlace de texto.</td>
     </tr>
   </tbody>
 </table>

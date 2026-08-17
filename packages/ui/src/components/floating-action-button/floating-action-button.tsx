@@ -17,16 +17,18 @@ type FloatingActionButtonBase = Omit<
 
 export type FloatingActionButtonStandardProps = FloatingActionButtonBase & {
   type?: 'standard'
-  /** Obligatorio en standard (solo ícono). */
+  /** Obligatorio en standard (Accessible label vía Icon Button anidado). */
   'aria-label': string
-  children?: never
+  label?: never
+  loading?: never
 }
 
 export type FloatingActionButtonExtendedProps = FloatingActionButtonBase & {
   type: 'extended'
-  /** Etiqueta visible del botón extendido. */
-  children: React.ReactNode
+  /** Label visible (Button primary lg anidado). */
+  label: string
   'aria-label'?: string
+  loading?: boolean
 }
 
 export type FloatingActionButtonProps =
@@ -46,7 +48,12 @@ export function FloatingActionButton(props: FloatingActionButtonProps) {
   const sharedClassName = cn(styles.root, className)
 
   if (type === 'extended') {
-    const { children, 'aria-label': ariaLabel, ...buttonProps } = rest as Omit<
+    const {
+      label,
+      'aria-label': ariaLabel,
+      loading,
+      ...buttonProps
+    } = rest as Omit<
       FloatingActionButtonExtendedProps,
       'type' | 'icon' | 'floating' | 'className' | 'disabled'
     >
@@ -57,17 +64,17 @@ export function FloatingActionButton(props: FloatingActionButtonProps) {
         data-type="extended"
         data-floating={floating}
         type="button"
-        variant="default"
+        hierarchy="primary"
         tone="standard"
         size="lg"
         leftIcon={icon}
+        label={label}
         disabled={disabled}
+        loading={loading}
         aria-label={ariaLabel}
         className={sharedClassName}
         {...buttonProps}
-      >
-        {children}
-      </Button>
+      />
     )
   }
 
@@ -83,7 +90,7 @@ export function FloatingActionButton(props: FloatingActionButtonProps) {
       data-floating={floating}
       type="button"
       size="lg"
-      variant="default"
+      tone="standard"
       icon={icon}
       disabled={disabled}
       aria-label={ariaLabel}

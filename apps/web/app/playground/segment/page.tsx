@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Segment } from '@workspace/ui'
+import { FavoriteIcon } from '@workspace/ui/icons'
 import { PlaygroundHeader } from '../playground-header'
 
 export default function SegmentPlayground() {
@@ -12,30 +13,43 @@ export default function SegmentPlayground() {
       <PlaygroundHeader title="Segment" storybookPath="segment--docs" />
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-sm text-muted-foreground">Size sm</h2>
-        <div className="flex flex-wrap items-center gap-2">
-          <Segment size="sm" selected={view === 'lista'} onSelectedChange={(s) => s && setView('lista')}>
-            Lista
-          </Segment>
-          <Segment size="sm" selected={view === 'grid'} onSelectedChange={(s) => s && setView('grid')}>
-            Grid
-          </Segment>
-          <Segment size="sm" disabled>
-            Disabled
-          </Segment>
+        <h2 className="text-sm text-muted-foreground">
+          Grupo (exclusividad en el consumidor — futuro Segmented Button)
+        </h2>
+        <div role="group" aria-label="Vista" className="flex flex-wrap items-center gap-1">
+          <Segment
+            size="sm"
+            selected={view === 'lista'}
+            onSelectedChange={(s) => s && setView('lista')}
+            label="Lista"
+          />
+          <Segment
+            size="sm"
+            selected={view === 'grid'}
+            onSelectedChange={(s) => s && setView('grid')}
+            label="Cuadrícula"
+          />
+          <Segment size="sm" disabled label="Disabled" />
         </div>
       </section>
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-sm text-muted-foreground">Size md / lg</h2>
+        <h2 className="text-sm text-muted-foreground">Size · Selected</h2>
         <div className="flex flex-wrap items-center gap-2">
-          <Segment size="md" selected>Medium selected</Segment>
-          <Segment size="md" selected={false}>Medium</Segment>
-          <Segment size="lg" selected>Large selected</Segment>
-          <Segment size="lg" selected={false}>Large</Segment>
-          <Segment size="md" selected disabled>
-            Selected disabled
-          </Segment>
+          <Segment size="md" selected label="Medium selected" />
+          <Segment size="md" selected={false} label="Medium" />
+          <Segment size="lg" selected label="Large selected" />
+          <Segment size="lg" selected={false} label="Large" />
+          <Segment size="md" selected disabled label="Selected disabled" />
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h2 className="text-sm text-muted-foreground">Icon · label · ambos</h2>
+        <div role="group" aria-label="Contenido" className="flex flex-wrap items-center gap-1">
+          <Segment size="sm" icon={<FavoriteIcon />} aria-label="Favorito" />
+          <Segment size="sm" label="Texto" />
+          <Segment size="sm" selected icon={<FavoriteIcon />} label="Ambos" />
         </div>
       </section>
     </div>

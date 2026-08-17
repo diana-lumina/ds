@@ -55,18 +55,14 @@ Usa el elemento `<button>` nativo — no `<div>` ni `<span>`. Esto garantiza com
 
 ## Screen readers
 
-El texto dentro del botón es leído automáticamente. Para botones de solo ícono, el `aria-label` es **obligatorio**:
+El texto dentro del botón es leído automáticamente. Para botones de solo ícono, usa el componente `IconButton` con `aria-label` obligatorio:
 
 ```tsx
 // ✅ correcto
-<Button size="icon" aria-label="Eliminar elemento">
-  <TrashIcon size={16} />
-</Button>
+<IconButton icon={<TrashIcon />} aria-label="Eliminar elemento" />
 
-// ❌ incorrecto
-<Button size="icon">
-  <TrashIcon size={16} />
-</Button>
+// ❌ incorrecto — botón sin nombre accesible
+<Button leftIcon={<TrashIcon />} />
 ```
 
 ---
@@ -75,7 +71,7 @@ El texto dentro del botón es leído automáticamente. Para botones de solo íco
 
 ```tsx
 // ✅ correcto — usa el atributo nativo
-<Button disabled>No disponible</Button>
+<Button disabled label="No disponible" />
 ```
 
 El atributo `disabled` nativo excluye el botón del orden de tabulación y previene eventos de click automáticamente.
@@ -93,15 +89,19 @@ El atributo `disabled` nativo excluye el botón del orden de tabulación y previ
   </thead>
   <tbody>
     <tr>
-      <td>default</td>
+      <td>primary</td>
+      <td>Pendiente verificación con tokens finales</td>
+    </tr>
+    <tr>
+      <td>secondary</td>
+      <td>Pendiente verificación con tokens finales</td>
+    </tr>
+    <tr>
+      <td>tertiary</td>
       <td>Pendiente verificación con tokens finales</td>
     </tr>
     <tr>
       <td>destructive</td>
-      <td>Pendiente verificación con tokens finales</td>
-    </tr>
-    <tr>
-      <td>outline</td>
       <td>Pendiente verificación con tokens finales</td>
     </tr>
   </tbody>

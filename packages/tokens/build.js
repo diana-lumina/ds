@@ -62,6 +62,21 @@ StyleDictionary.registerPreprocessor({
 });
 
 /**
+ * Figma pone `$extensions.com.figma.modeName` en la raíz de cada JSON.
+ * Style Dictionary trata esa clave como token al mergear sources y choca
+ * (Default vs Compact vs TEC 360). No es un token; se descarta al parsear.
+ */
+StyleDictionary.registerParser({
+  name: 'json-strip-file-extensions',
+  pattern: /\.json$/,
+  parser: ({ contents }) => {
+    const data = JSON.parse(contents);
+    delete data.$extensions;
+    return data;
+  },
+});
+
+/**
  * Transform: agrega "px" a valores numéricos crudos que representan dimensiones.
  * El export de Figma trae $type:"number" incluso para spacing/radius/font-size/etc,
  * sin unidad — sin esto, el CSS generado sería inválido (ej. "font-size: 16;").
@@ -178,6 +193,7 @@ const brands = ['tec-360', 'tec-educacion-continua'];
 for (const brand of brands) {
   const sd = new StyleDictionary({
     usesDtcg: true,
+    parsers: ['json-strip-file-extensions'],
     source: [
       ...CORE_SOURCE,
       `src/brands/${brand}/primitives/color.json`, // explícito: NO typography-scale

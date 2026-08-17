@@ -29,21 +29,8 @@ describe('IconButton', () => {
     })
 
     it('renderiza el ícono', () => {
-      render(<IconButton icon={<DummyIcon data-testid="icono" />} aria-label="Favorito" />)
-      // El wrapper del ícono es aria-hidden, pero el SVG debe existir en el DOM
+      render(<IconButton icon={<DummyIcon />} aria-label="Favorito" />)
       expect(document.querySelector('svg')).toBeInTheDocument()
-    })
-
-    it('renderiza como elemento hijo con asChild', () => {
-      render(
-        <IconButton asChild aria-label="Ir">
-          <a href="/destino">
-            <DummyIcon />
-          </a>
-        </IconButton>
-      )
-      const link = screen.getByRole('link', { name: 'Ir' })
-      expect(link.tagName).toBe('A')
     })
   })
 
@@ -59,15 +46,35 @@ describe('IconButton', () => {
     })
   })
 
-  describe('Prop: variant', () => {
-    it('aplica variant default por defecto', () => {
+  describe('Prop: tone', () => {
+    it('aplica tone standard por defecto', () => {
       render(<IconButton icon={<DummyIcon />} aria-label="Favorito" />)
-      expect(screen.getByRole('button')).toHaveAttribute('data-variant', 'default')
+      expect(screen.getByRole('button')).toHaveAttribute('data-tone', 'standard')
     })
 
-    it('aplica variant inverse', () => {
-      render(<IconButton icon={<DummyIcon />} aria-label="Favorito" variant="inverse" />)
-      expect(screen.getByRole('button')).toHaveAttribute('data-variant', 'inverse')
+    it('aplica tone inverse', () => {
+      render(<IconButton icon={<DummyIcon />} aria-label="Favorito" tone="inverse" />)
+      expect(screen.getByRole('button')).toHaveAttribute('data-tone', 'inverse')
+    })
+  })
+
+  describe('Prop: loading', () => {
+    it('deshabilita el botón y marca aria-busy', () => {
+      render(<IconButton icon={<DummyIcon />} aria-label="Cargando" loading />)
+      const button = screen.getByRole('button', { name: 'Cargando' })
+      expect(button).toBeDisabled()
+      expect(button).toHaveAttribute('aria-busy', 'true')
+      expect(button).toHaveAttribute('data-loading', 'true')
+      expect(document.querySelector('[data-slot="loading-icon"]')).toBeInTheDocument()
+    })
+
+    it('no llama a onClick cuando loading', async () => {
+      const handleClick = vi.fn()
+      render(
+        <IconButton icon={<DummyIcon />} aria-label="Cargando" loading onClick={handleClick} />
+      )
+      await userEvent.click(screen.getByRole('button'))
+      expect(handleClick).not.toHaveBeenCalled()
     })
   })
 
@@ -116,10 +123,12 @@ describe('IconButton', () => {
       expect(handleClick).toHaveBeenCalledTimes(1)
     })
 
-    it.each(['default', 'inverse'] as const)(
-      'sin violaciones de accesibilidad — variant %s',
-      async (variant) => {
-        const { container } = render(<IconButton icon={<DummyIcon />} aria-label="Cerrar" variant={variant} />)
+    it.each(['standard', 'inverse'] as const)(
+      'sin violaciones de accesibilidad — tone %s',
+      async (tone) => {
+        const { container } = render(
+          <IconButton icon={<DummyIcon />} aria-label="Cerrar" tone={tone} />
+        )
         const results = await axe(container)
         expect(results).toHaveNoViolations()
       }
@@ -127,6 +136,12 @@ describe('IconButton', () => {
 
     it('sin violaciones de accesibilidad — disabled', async () => {
       const { container } = render(<IconButton icon={<DummyIcon />} aria-label="Cerrar" disabled />)
+      const results = await axe(container)
+      expect(results).toHaveNoViolations()
+    })
+
+    it('sin violaciones de accesibilidad — loading', async () => {
+      const { container } = render(<IconButton icon={<DummyIcon />} aria-label="Cargando" loading />)
       const results = await axe(container)
       expect(results).toHaveNoViolations()
     })

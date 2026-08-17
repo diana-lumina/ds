@@ -1,24 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import * as React from 'react'
 import { InputChip } from './input-chip'
-import { BagIcon } from '@workspace/ui/icons'
+import { ShoppingBagIcon } from '@workspace/ui/icons'
 
 type InputChipStoryArgs = Omit<React.ComponentProps<typeof InputChip>, 'icon' | 'onClose'> & {
-  showIcon: boolean
+  /** Leading icon visible — el close es estructural y siempre está presente. */
+  showLeadingIcon: boolean
 }
 
 const meta = {
-  title: 'Components/InputChip',
-  // Cast: story args omiten `icon`/`onClose` y usan `showIcon` + render.
+  title: 'Components/Labels & Status/InputChip',
   component: InputChip as unknown as React.ComponentType<InputChipStoryArgs>,
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
     docs: {
       description: {
-        component: `
-
-        `,
+        component:
+          'Valor introducido o aplicado que puede eliminarse. Close estructural y siempre visible; Leading icon opcional. No expresa selección, clasificación ni condición del sistema.',
       },
     },
   },
@@ -26,16 +25,29 @@ const meta = {
     size: {
       control: 'select',
       options: ['sm', 'md'],
+      description: 'Size: sm · md',
+      table: { 
+        type: { summary: 'string' },
+        defaultValue: { summary: 'sm' }
+       },
     },
-    closeDisabled: {
-      control: 'boolean',
-    },
-    showIcon: {
-      control: 'boolean',
-      description: 'Muestra el ícono a la izquierda',
-    },
-    children: {
+    label: {
       control: 'text',
+      description: 'Label (string editable)',
+    },
+    showLeadingIcon: {
+      control: 'boolean',
+      description: 'Leading icon visible (opcional; instance swap vía prop icon)',
+      table: { defaultValue: { summary: 'false' } },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disabled: no interacción ni remoción; close sigue visible',
+      table: { defaultValue: { summary: 'false' } },
+    },
+    closeLabel: {
+      control: 'text',
+      description: 'aria-label del close (default: Eliminar {label})',
     },
     className: {
       control: false,
@@ -47,75 +59,181 @@ const meta = {
 export default meta
 type Story = StoryObj<InputChipStoryArgs>
 
-function captionStyle(): React.CSSProperties {
-  return { fontFamily: 'monospace', fontSize: 10, color: '#aaa', marginTop: 6 }
+const SIZES = [
+  { value: 'sm', sizeLabel: 'Small' },
+  { value: 'md', sizeLabel: 'Medium' },
+] as const
+
+const hideCode = {
+  docs: {
+    canvas: { sourceState: 'none' as const },
+  },
 }
 
 export const Playground: Story = {
   args: {
     size: 'sm',
-    children: 'Etiqueta',
-    closeLabel: 'Quitar etiqueta',
-    closeDisabled: false,
-    showIcon: false,
+    label: 'Valor aplicado',
+    disabled: false,
+    showLeadingIcon: false,
   },
-  render: ({ showIcon, ...args }) => (
+  render: ({ showLeadingIcon, ...args }) => (
     <InputChip
       {...args}
-      icon={showIcon ? <BagIcon /> : undefined}
+      icon={showLeadingIcon ? <ShoppingBagIcon /> : undefined}
       onClose={() => {}}
     />
   ),
 }
 
-export const AllStates: Story = {
+export const Default: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<InputChip label="Valor aplicado" onClose={() => {}} />`,
+      },
+    },
+  },
+  render: () => <InputChip label="Valor aplicado" onClose={() => {}} />,
+}
+
+export const WithLeadingIcon: Story = {
+  name: 'Leading icon',
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<InputChip
+  label="Valor aplicado"
+  icon={<ShoppingBagIcon />}
+  onClose={() => {}}
+/>`,
+      },
+    },
+  },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
-      <div>
-        <h2 style={{ fontFamily: 'sans-serif', marginBottom: 4 }}>Small</h2>
-
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ textAlign: 'center' }}>
-            <InputChip size="sm" onClose={() => {}} closeLabel="Quitar etiqueta">
-              Etiqueta
-            </InputChip>
-            <div style={captionStyle()}>Default</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <InputChip size="sm" icon={<BagIcon />} onClose={() => {}} closeLabel="Quitar etiqueta">
-              Etiqueta
-            </InputChip>
-            <div style={captionStyle()}>Con ícono</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <InputChip size="sm" onClose={() => {}} closeDisabled closeLabel="Quitar etiqueta">
-              Etiqueta
-            </InputChip>
-            <div style={captionStyle()}>Cerrar deshabilitado</div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h2 style={{ fontFamily: 'sans-serif', marginBottom: 4 }}>Medium</h2>
-
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-          <InputChip size="md" onClose={() => {}} closeLabel="Quitar etiqueta">
-            Etiqueta
-          </InputChip>
-          <InputChip size="md" icon={<BagIcon />} onClose={() => {}} closeLabel="Quitar etiqueta">
-            Etiqueta
-          </InputChip>
-        </div>
-      </div>
-    </div>
+    <InputChip label="Valor aplicado" icon={<ShoppingBagIcon />} onClose={() => {}} />
   ),
+}
+
+export const Disabled: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<InputChip label="Valor aplicado" onClose={() => {}} disabled />`,
+      },
+    },
+  },
+  render: () => <InputChip label="Valor aplicado" onClose={() => {}} disabled />,
+}
+
+export const AllStates: Story = {
+  name: 'Size & states',
+  parameters: hideCode,
+  render: () => {
+    const th: React.CSSProperties = {
+      fontFamily: 'monospace',
+      fontSize: 11,
+      color: '#888',
+      fontWeight: 600,
+      textAlign: 'center',
+      padding: '0 16px 12px',
+      borderBottom: '1px solid #eee',
+    }
+    const rowLabel: React.CSSProperties = {
+      fontFamily: 'monospace',
+      fontSize: 11,
+      color: '#888',
+      fontWeight: 600,
+      textAlign: 'left',
+      verticalAlign: 'middle',
+      padding: '16px 24px 16px 0',
+      borderBottom: '1px solid #f0f0f0',
+      whiteSpace: 'nowrap',
+    }
+    const td: React.CSSProperties = {
+      textAlign: 'center',
+      verticalAlign: 'middle',
+      padding: '16px 16px',
+      borderBottom: '1px solid #f0f0f0',
+    }
+
+    const rows = [
+      {
+        label: 'Default',
+        render: (size: 'sm' | 'md') => (
+          <InputChip size={size} label="Valor aplicado" onClose={() => {}} />
+        ),
+      },
+      {
+        label: 'Leading icon',
+        render: (size: 'sm' | 'md') => (
+          <InputChip
+            size={size}
+            label="Valor aplicado"
+            icon={<ShoppingBagIcon />}
+            onClose={() => {}}
+          />
+        ),
+      },
+      {
+        label: 'Disabled',
+        render: (size: 'sm' | 'md') => (
+          <InputChip size={size} label="Valor aplicado" onClose={() => {}} disabled />
+        ),
+      },
+      {
+        label: 'Icon + disabled',
+        render: (size: 'sm' | 'md') => (
+          <InputChip
+            size={size}
+            label="Valor aplicado"
+            icon={<ShoppingBagIcon />}
+            onClose={() => {}}
+            disabled
+          />
+        ),
+      },
+    ] as const
+
+    return (
+      <div style={{ padding: 8 }}>
+        <table style={{ borderCollapse: 'collapse' }}>
+          <thead>
+            <tr>
+              <th style={{ ...th, textAlign: 'left', paddingLeft: 0 }}>State</th>
+              {SIZES.map(({ value, sizeLabel }) => (
+                <th key={value} style={th}>
+                  {sizeLabel}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(({ label, render }) => (
+              <tr key={label}>
+                <td style={rowLabel}>{label}</td>
+                {SIZES.map(({ value }) => (
+                  <td key={value} style={td}>
+                    {render(value)}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )
+  },
 }
 
 export const InContext: Story = {
   name: 'Ejemplo de uso',
+  parameters: hideCode,
   render: () => {
-    const [tags, setTags] = React.useState(['UX Research', 'Producto', 'Figma'])
+    const [values, setValues] = React.useState(['UX Research', 'Producto', 'Figma'])
 
     return (
       <div
@@ -127,7 +245,7 @@ export const InContext: Story = {
           gap: 8,
         }}
       >
-        <label style={{ fontSize: 13, color: '#666' }}>Etiquetas del curso</label>
+        <label style={{ fontSize: 13, color: '#666' }}>Valores aplicados</label>
         <div
           style={{
             display: 'flex',
@@ -140,18 +258,16 @@ export const InContext: Story = {
             alignItems: 'center',
           }}
         >
-          {tags.map((tag) => (
+          {values.map((value) => (
             <InputChip
-              key={tag}
+              key={value}
               size="sm"
-              closeLabel={`Quitar ${tag}`}
-              onClose={() => setTags((prev) => prev.filter((t) => t !== tag))}
-            >
-              {tag}
-            </InputChip>
+              label={value}
+              onClose={() => setValues((prev) => prev.filter((v) => v !== value))}
+            />
           ))}
-          {tags.length === 0 && (
-            <span style={{ fontSize: 13, color: '#999' }}>Sin etiquetas</span>
+          {values.length === 0 && (
+            <span style={{ fontSize: 13, color: '#999' }}>Sin valores</span>
           )}
         </div>
       </div>
