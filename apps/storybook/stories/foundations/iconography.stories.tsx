@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { getDesignTokens, tokenLabel } from '../../src/utils/getDesignTokens'
-import { BagIcon } from '@workspace/ui/icons'
+import { ShoppingBagIcon } from '@workspace/ui/icons'
 
 const meta: Meta = {
   title: 'Foundations/Iconography',
@@ -38,7 +38,7 @@ function SizeSection() {
       <div style={{ display: 'flex', gap: 32, alignItems: 'flex-end', flexWrap: 'wrap' }}>
         {entries.map(([varName, value]) => (
           <div key={varName} style={{ textAlign: 'center', color: '#1a73e8' }}>
-            <BagIcon size={`var(${varName})`} />
+            <ShoppingBagIcon size={`var(${varName})`} />
             <div style={{ fontFamily: 'monospace', fontSize: 12, marginTop: 10, color: '#000' }}>
               {tokenLabel(varName)}
             </div>
