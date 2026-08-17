@@ -1,17 +1,16 @@
-import type { ComponentType } from 'react'
+import type { ReactNode } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import * as Icons from '@workspace/ui/icons'
+import type { IconProps } from '@workspace/ui/icons'
 
-const catalog = Object.entries(Icons).filter(
-  (entry): entry is [string, ComponentType<{ size?: number | string }>] => {
-    const [name, value] = entry
-    return (
-      name.endsWith('Icon') &&
-      name !== 'LoadingIcon' &&
-      typeof value === 'function'
-    )
+type CatalogIcon = (props: IconProps) => ReactNode
+
+const catalog: Array<[string, CatalogIcon]> = []
+for (const [name, value] of Object.entries(Icons)) {
+  if (name.endsWith('Icon') && name !== 'LoadingIcon' && typeof value === 'function') {
+    catalog.push([name, value as CatalogIcon])
   }
-)
+}
 
 const meta = {
   title: 'Foundations/Icons',

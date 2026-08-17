@@ -5,6 +5,7 @@ import * as React from 'react'
 export type BrandId = 'tec-360' | 'tec-educacion-continua'
 
 const BRAND_STORAGE_KEY = 'ds-brand'
+const BRAND_CHANGE_EVENT = 'ds-brand-change'
 
 const BRANDS: { id: BrandId; label: string }[] = [
   { id: 'tec-360', label: 'TEC 360' },
@@ -23,6 +24,24 @@ function applyBrand(brand: BrandId) {
   document.documentElement.setAttribute('data-brand', brand)
 }
 
+function isBrandId(value: string | null): value is BrandId {
+  return value === 'tec-360' || value === 'tec-educacion-continua'
+}
+
+function getBrandSnapshot(): BrandId {
+  const stored = window.localStorage.getItem(BRAND_STORAGE_KEY)
+  return isBrandId(stored) ? stored : 'tec-360'
+}
+
+function subscribeBrand(onChange: () => void) {
+  window.addEventListener('storage', onChange)
+  window.addEventListener(BRAND_CHANGE_EVENT, onChange)
+  return () => {
+    window.removeEventListener('storage', onChange)
+    window.removeEventListener(BRAND_CHANGE_EVENT, onChange)
+  }
+}
+
 export function BrandProvider({
   children,
   defaultBrand = 'tec-360',
@@ -30,22 +49,20 @@ export function BrandProvider({
   children: React.ReactNode
   defaultBrand?: BrandId
 }) {
-  const [brand, setBrandState] = React.useState<BrandId>(defaultBrand)
+  const brand = React.useSyncExternalStore(
+    subscribeBrand,
+    getBrandSnapshot,
+    () => defaultBrand,
+  )
 
-  React.useEffect(() => {
-    const stored = window.localStorage.getItem(BRAND_STORAGE_KEY)
-    if (stored === 'tec-360' || stored === 'tec-educacion-continua') {
-      setBrandState(stored)
-      applyBrand(stored)
-      return
-    }
-    applyBrand(defaultBrand)
-  }, [defaultBrand])
+  React.useLayoutEffect(() => {
+    applyBrand(brand)
+  }, [brand])
 
   const setBrand = React.useCallback((next: BrandId) => {
-    setBrandState(next)
-    applyBrand(next)
     window.localStorage.setItem(BRAND_STORAGE_KEY, next)
+    applyBrand(next)
+    window.dispatchEvent(new Event(BRAND_CHANGE_EVENT))
   }, [])
 
   const value = React.useMemo(

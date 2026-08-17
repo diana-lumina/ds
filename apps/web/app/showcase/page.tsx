@@ -26,6 +26,7 @@ import {
 } from '@workspace/ui'
 import * as IconCatalog from '@workspace/ui/icons'
 import {
+  type IconProps,
   BellIcon,
   BookmarkSimpleIcon,
   BookOpenIcon,
@@ -133,12 +134,14 @@ const PROGRAMS: Program[] = [
   },
 ]
 
-const ICON_ENTRIES = Object.entries(IconCatalog).filter(
-  (entry): entry is [string, React.ComponentType<{ size?: number | string }>] => {
-    const [name, value] = entry
-    return name.endsWith('Icon') && name !== 'LoadingIcon' && typeof value === 'function'
+type CatalogIcon = (props: IconProps) => React.ReactNode
+
+const ICON_ENTRIES: Array<[string, CatalogIcon]> = []
+for (const [name, value] of Object.entries(IconCatalog)) {
+  if (name.endsWith('Icon') && name !== 'LoadingIcon' && typeof value === 'function') {
+    ICON_ENTRIES.push([name, value as CatalogIcon])
   }
-)
+}
 
 function IconsPanel({ size }: { size: ComponentSize }) {
   return (
@@ -235,13 +238,12 @@ function BrandDropdown() {
 
 function ThemeToggle({ size }: { size: ComponentSize }) {
   const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const isDark = mounted && resolvedTheme === 'dark'
+  const isClient = React.useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  )
+  const isDark = isClient && resolvedTheme === 'dark'
 
   return (
     <IconButton
