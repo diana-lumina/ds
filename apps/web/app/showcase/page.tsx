@@ -2,13 +2,16 @@
 
 import * as React from 'react'
 import {
+  Alert,
   Badge,
+  Banner,
   Button,
   ButtonGroup,
   Checkbox,
   ChipGroup,
   CounterBadge,
   Divider,
+  EmptyState,
   FilterChip,
   FloatingActionButton,
   FormField,
@@ -16,6 +19,9 @@ import {
   InputChip,
   Link,
   ListItem,
+  ProgressBar,
+  ProgressIndicator,
+  ProgressStep,
   Radio,
   RadioGroup,
   Segment,
@@ -23,6 +29,7 @@ import {
   Switch,
   TabItem,
   Tag,
+  Toast,
 } from '@workspace/ui'
 import * as IconCatalog from '@workspace/ui/icons'
 import {
@@ -34,11 +41,16 @@ import {
   CaretRightIcon,
   ChatCircleIcon,
   CheckCircleIcon,
+  CheckIcon,
   DownloadSimpleIcon,
   FavoriteIcon,
+  FolderSimpleIcon,
+  InfoIcon,
   MapPinIcon,
   MoonIcon,
   SunIcon,
+  WarningIcon,
+  XCircleIcon,
 } from '@workspace/ui/icons'
 import { useTheme } from 'next-themes'
 import { useBrand, type BrandId } from '@/components/brand-provider'
@@ -60,6 +72,7 @@ type Program = {
   cta: 'inscribir' | 'lista' | 'none'
   recommended?: boolean
   saved?: boolean
+  occupancy: { value: number; max: number }
 }
 
 const PROGRAMS: Program[] = [
@@ -78,6 +91,7 @@ const PROGRAMS: Program[] = [
     cta: 'inscribir',
     recommended: true,
     saved: true,
+    occupancy: { value: 18, max: 30 },
   },
   {
     id: '2',
@@ -93,6 +107,7 @@ const PROGRAMS: Program[] = [
     avatarInitials: 'UR',
     cta: 'none',
     recommended: true,
+    occupancy: { value: 12, max: 25 },
   },
   {
     id: '3',
@@ -108,6 +123,7 @@ const PROGRAMS: Program[] = [
     avatarSrc: 'https://i.pravatar.cc/96?img=32',
     cta: 'lista',
     saved: true,
+    occupancy: { value: 24, max: 24 },
   },
   {
     id: '4',
@@ -119,6 +135,7 @@ const PROGRAMS: Program[] = [
     badge: null,
     avatarInitials: 'DT',
     cta: 'none',
+    occupancy: { value: 0, max: 20 },
   },
   {
     id: '5',
@@ -131,6 +148,7 @@ const PROGRAMS: Program[] = [
     avatarSrc: 'https://i.pravatar.cc/96?img=15',
     cta: 'none',
     recommended: true,
+    occupancy: { value: 4, max: 20 },
   },
 ]
 
@@ -260,6 +278,64 @@ function StatusRail({ intent }: { intent: Program['status']['intent'] }) {
   return <span className={styles.listItemRail} data-intent={intent} aria-hidden />
 }
 
+function CourseAlert({ program }: { program: Program }) {
+  if (program.status.intent === 'danger') {
+    return (
+      <Alert
+        intent="danger"
+        icon={<XCircleIcon />}
+        title="Programa cancelado"
+        message="Este grupo no se abrirá en el periodo. Puedes explorar otra fecha o un programa equivalente."
+        link={<Link href="/showcase" label="Ver alternativas" />}
+      />
+    )
+  }
+
+  if (program.status.intent === 'warning') {
+    return (
+      <Alert
+        intent="warning"
+        icon={<WarningIcon />}
+        title="Cupo lleno"
+        message="El grupo actual no tiene lugares. Únete a la lista de espera para avisos de baja."
+        link={<Link href="/showcase" label="Cómo funciona la lista" />}
+      />
+    )
+  }
+
+  if (program.status.intent === 'info') {
+    return (
+      <Alert
+        intent="info"
+        icon={<InfoIcon />}
+        title="En revisión académica"
+        message="Coordinación valida el temario. La inscripción se habilita cuando el estatus pase a abierto."
+      />
+    )
+  }
+
+  return null
+}
+
+type WizardStep = 1 | 2 | 3
+
+function wizardStepState(
+  step: WizardStep,
+  current: WizardStep,
+  submitted: boolean,
+  errorStep: WizardStep | null,
+) {
+  if (submitted) return 'completed' as const
+  if (errorStep === step) return 'error' as const
+  if (step < current) return 'completed' as const
+  if (step === current) return 'current' as const
+  return 'upcoming' as const
+}
+
+function scrollToContact() {
+  document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 export default function ShowcasePage() {
   const [pageTab, setPageTab] = React.useState<'programas' | 'iconos'>('programas')
   const [size, setSize] = React.useState<ComponentSize>('sm')
@@ -273,7 +349,15 @@ export default function ShowcasePage() {
   const [contact, setContact] = React.useState('email')
   const [weeklyDigest, setWeeklyDigest] = React.useState(true)
   const [fullName, setFullName] = React.useState('Ana Beltrán')
-  const [email, setEmail] = React.useState('ana.beltran')
+  const [email, setEmail] = React.useState('ana.beltran@tec.mx')
+  const [phone, setPhone] = React.useState('81 1234 5678')
+  const [campus, setCampus] = React.useState('mty')
+  const [comment, setComment] = React.useState('')
+  const [showBanner, setShowBanner] = React.useState(true)
+  const [toastOpen, setToastOpen] = React.useState(false)
+  const [wizardStep, setWizardStep] = React.useState<WizardStep>(1)
+  const [wizardErrorStep, setWizardErrorStep] = React.useState<WizardStep | null>(null)
+  const [wizardSubmitted, setWizardSubmitted] = React.useState(false)
 
   const emailError = email.length > 0 && !email.includes('@')
 
@@ -300,6 +384,9 @@ export default function ShowcasePage() {
   })
 
   const selected = PROGRAMS.find((program) => program.id === selectedId) ?? PROGRAMS[0]!
+  const step1State = wizardStepState(1, wizardStep, wizardSubmitted, wizardErrorStep)
+  const step2State = wizardStepState(2, wizardStep, wizardSubmitted, wizardErrorStep)
+  const step3State = wizardStepState(3, wizardStep, wizardSubmitted, wizardErrorStep)
 
   return (
     <div className={styles.page}>
@@ -354,6 +441,19 @@ export default function ShowcasePage() {
           <IconsPanel size={size} />
         ) : (
           <>
+            {showBanner ? (
+              <div className={styles.bannerSlot}>
+                <Banner
+                  intent="info"
+                  icon={<InfoIcon />}
+                  title="Periodo de inscripción abierto"
+                  message="Las solicitudes para ago–dic se reciben hasta el 30 de agosto. Los cupos se asignan por orden de registro."
+                  link={<Link href="/showcase" label="Calendario académico" />}
+                  onDismiss={() => setShowBanner(false)}
+                />
+              </div>
+            ) : null}
+
             <div className={styles.hero}>
               <span className={styles.heroEyebrow}>Educación Continua</span>
               <div className={styles.heroTitleRow}>
@@ -476,10 +576,25 @@ export default function ShowcasePage() {
                     </div>
                   ))}
                   {visiblePrograms.length === 0 ? (
-                    <p className={styles.emptyState}>
-                      No hay programas con estos filtros. Ajusta la modalidad o el nivel para ver
-                      más resultados.
-                    </p>
+                    <EmptyState
+                      className={styles.emptyState}
+                      type="empty"
+                      icon={<FolderSimpleIcon />}
+                      title="Sin programas"
+                      message="No hay resultados con estos filtros. Ajusta la modalidad o el nivel para ver más opciones."
+                      action={
+                        <Button
+                          size={size}
+                          hierarchy="secondary"
+                          label="Limpiar filtros"
+                          onClick={() => {
+                            setCatalog('todos')
+                            setModality(null)
+                            setLevel(false)
+                          }}
+                        />
+                      }
+                    />
                   ) : null}
                 </div>
               </section>
@@ -522,6 +637,17 @@ export default function ShowcasePage() {
                   <Tag size={size} tone="neutral" label="Tiempo estimado · 24 h de estudio" />
                 </div>
 
+                {selected.status.intent !== 'danger' ? (
+                  <ProgressBar
+                    label="Cupo del grupo"
+                    value={selected.occupancy.value}
+                    max={selected.occupancy.max}
+                    valueFormat="fraction"
+                  />
+                ) : null}
+
+                <CourseAlert program={selected} />
+
                 <Divider />
 
                 <p className={styles.courseDescription}>
@@ -542,132 +668,255 @@ export default function ShowcasePage() {
                     {selected.cta === 'none' ? (
                       <Button size={size} hierarchy="primary" disabled label="No disponible" />
                     ) : null}
-                    <Button size={size} hierarchy="tertiary" label="Guardar" />
+                    <Button
+                      size={size}
+                      hierarchy="tertiary"
+                      label="Solicitar información"
+                      onClick={scrollToContact}
+                    />
                   </ButtonGroup>
                 </div>
               </article>
-
-              <aside className={styles.formPane} aria-label="Solicitar información">
-                <h2 className={styles.formPaneTitle}>Solicitar información</h2>
-                <p className={styles.formPaneText}>
-                  Deja tus datos para que coordinación te contacte sobre {selected.title}.
-                </p>
-
-                <div className={styles.formStack}>
-                  <FormField
-                    label="Nombre completo"
-                    supportingText="Como aparece en tu registro Tec"
-                    placeholder="Nombre y apellidos"
-                    value={fullName}
-                    onChange={(event) => setFullName(event.target.value)}
-                  />
-                  <FormField
-                    label="Correo"
-                    supportingText={
-                      emailError
-                        ? 'Incluye un dominio válido, por ejemplo @tec.mx'
-                        : 'Usa tu correo institucional'
-                    }
-                    placeholder="nombre@tec.mx"
-                    value={email}
-                    error={emailError}
-                    onChange={(event) => setEmail(event.target.value)}
-                  />
-                  <FormField
-                    label="Campus asignado"
-                    supportingText="Lo define tu expediente; no se puede editar aquí"
-                    value="Campus Monterrey"
-                    disabled
-                  />
-                </div>
-
-                <Divider />
-
-                <div className={styles.formBlock}>
-                  <span className={styles.fieldLabel}>Avisos del programa</span>
-                  <label className={styles.checkField}>
-                    <Checkbox
-                      id="showcase-all"
-                      checked={allChecked}
-                      onCheckedChange={(value) => {
-                        const next = value === true
-                        setNotifyCourse(next)
-                        setNotifyMarketing(next)
-                      }}
-                    />
-                    <span>Seleccionar todo</span>
-                  </label>
-                  <label className={styles.checkField}>
-                    <Checkbox
-                      id="showcase-course"
-                      checked={notifyCourse}
-                      onCheckedChange={(value) => setNotifyCourse(value === true)}
-                    />
-                    <span>Cambios de horario y cupo</span>
-                  </label>
-                  <label className={styles.checkField}>
-                    <Checkbox
-                      id="showcase-marketing"
-                      checked={notifyMarketing}
-                      onCheckedChange={(value) => setNotifyMarketing(value === true)}
-                    />
-                    <span>Otras convocatorias</span>
-                  </label>
-                  <label className={styles.checkField}>
-                    <Checkbox id="showcase-sms" disabled checked={false} />
-                    <span>SMS (no disponible en este periodo)</span>
-                  </label>
-                </div>
-
-                <Divider />
-
-                <div className={styles.formBlock}>
-                  <span className={styles.fieldLabel}>Canal de contacto</span>
-                  <RadioGroup
-                    value={contact}
-                    onValueChange={setContact}
-                    aria-label="Canal de contacto"
-                    className={styles.radioGroup}
-                  >
-                    <label className={styles.checkField}>
-                      <Radio value="email" id="showcase-email" />
-                      <span>Correo</span>
-                    </label>
-                    <label className={styles.checkField}>
-                      <Radio value="phone" id="showcase-phone" />
-                      <span>Teléfono</span>
-                    </label>
-                    <label className={styles.checkField}>
-                      <Radio value="none" id="showcase-none" disabled />
-                      <span>No contactar</span>
-                    </label>
-                  </RadioGroup>
-                </div>
-
-                <Divider />
-
-                <label className={styles.checkField}>
-                  <Switch
-                    checked={weeklyDigest}
-                    onCheckedChange={setWeeklyDigest}
-                    aria-label="Resumen semanal"
-                  />
-                  <span>Resumen semanal de programas nuevos</span>
-                </label>
-
-                <p className={styles.formPaneText}>
-                  Al enviar aceptas el{' '}
-                  <Link href="/privacidad" context="inline" label="aviso de privacidad" />.
-                </p>
-
-                <div className={styles.formActions}>
-                  <ButtonGroup>
-                    <Button hierarchy="secondary" size={size} label="Cancelar" />
-                    <Button size={size} label="Enviar solicitud" />
-                  </ButtonGroup>
-                </div>
-              </aside>
             </div>
+
+            <section id="contacto" className={styles.section} aria-label="Contacto">
+              <div className={styles.contactIntro}>
+                <h2 className={styles.sectionTitle}>Contacto</h2>
+                <p className={styles.sectionLead}>
+                  Solicita información de {selected.title} en tres pasos. El indicador muestra el
+                  estado de cada etapa al avanzar.
+                </p>
+              </div>
+
+              <div className={styles.formPane}>
+                <div className={styles.progressTrack}>
+                  <ProgressIndicator aria-label="Pasos de la solicitud">
+                    <ProgressStep
+                      state={step1State}
+                      label="Datos"
+                      icon={
+                        step1State === 'completed' ? (
+                          <CheckIcon />
+                        ) : step1State === 'error' ? (
+                          <WarningIcon />
+                        ) : (
+                          1
+                        )
+                      }
+                    />
+                    <ProgressStep
+                      state={step2State}
+                      label="Preferencias"
+                      icon={step2State === 'completed' ? <CheckIcon /> : 2}
+                    />
+                    <ProgressStep
+                      state={step3State}
+                      label="Confirmación"
+                      icon={step3State === 'completed' ? <CheckIcon /> : 3}
+                    />
+                  </ProgressIndicator>
+                </div>
+
+                {wizardSubmitted ? (
+                  <div className={styles.emptyStateWrap}>
+                    <EmptyState
+                      type="success"
+                      icon={<CheckCircleIcon />}
+                      title="Solicitud enviada"
+                      message={`Coordinación te contactará sobre ${selected.title}.`}
+                      action={
+                        <Button
+                          size={size}
+                          hierarchy="secondary"
+                          label="Nueva solicitud"
+                          onClick={() => {
+                            setWizardSubmitted(false)
+                            setWizardStep(1)
+                            setWizardErrorStep(null)
+                          }}
+                        />
+                      }
+                    />
+                  </div>
+                ) : (
+                  <>
+                    {wizardStep === 1 ? (
+                      <div className={styles.formGrid}>
+                        <FormField
+                          label="Nombre completo"
+                          supportingText="Como aparece en tu registro Tec"
+                          placeholder="Nombre y apellidos"
+                          value={fullName}
+                          onChange={(event) => setFullName(event.target.value)}
+                        />
+                        <FormField
+                          label="Correo"
+                          supportingText={
+                            emailError || wizardErrorStep === 1
+                              ? 'Incluye un dominio válido, por ejemplo @tec.mx'
+                              : 'Usa tu correo institucional'
+                          }
+                          placeholder="nombre@tec.mx"
+                          value={email}
+                          error={emailError || wizardErrorStep === 1}
+                          onChange={(event) => setEmail(event.target.value)}
+                        />
+                        <div className={styles.formGridFull}>
+                          <FormField
+                            control="phone"
+                            label="Teléfono"
+                            supportingText="Incluye lada"
+                            placeholder="Número telefónico"
+                            value={phone}
+                            onChange={(event) => setPhone(event.target.value)}
+                          />
+                        </div>
+                      </div>
+                    ) : null}
+
+                    {wizardStep === 2 ? (
+                      <div className={styles.formGrid}>
+                        <FormField
+                          control="select"
+                          label="Campus de preferencia"
+                          supportingText="Se usa para asignar grupo y horarios"
+                          placeholder="Selecciona un campus"
+                          value={campus}
+                          onValueChange={setCampus}
+                          options={[
+                            { value: 'mty', label: 'Campus Monterrey' },
+                            { value: 'cdmx', label: 'Campus Ciudad de México' },
+                            { value: 'gdl', label: 'Campus Guadalajara' },
+                          ]}
+                        />
+                        <div className={styles.formBlock}>
+                          <span className={styles.fieldLabel}>Canal de contacto</span>
+                          <RadioGroup
+                            value={contact}
+                            onValueChange={setContact}
+                            aria-label="Canal de contacto"
+                            className={styles.radioGroup}
+                          >
+                            <label className={styles.checkField}>
+                              <Radio value="email" id="showcase-email" />
+                              <span>Correo</span>
+                            </label>
+                            <label className={styles.checkField}>
+                              <Radio value="phone" id="showcase-phone" />
+                              <span>Teléfono</span>
+                            </label>
+                            <label className={styles.checkField}>
+                              <Radio value="none" id="showcase-none" disabled />
+                              <span>No contactar</span>
+                            </label>
+                          </RadioGroup>
+                        </div>
+                        <div className={styles.formGridFull}>
+                          <FormField
+                            multiline
+                            rows={3}
+                            label="Comentario"
+                            supportingText="Cuéntanos qué te interesa del programa"
+                            placeholder="Horario, modalidad o dudas para coordinación"
+                            value={comment}
+                            onChange={(event) => setComment(event.target.value)}
+                          />
+                        </div>
+                      </div>
+                    ) : null}
+
+                    {wizardStep === 3 ? (
+                      <div className={styles.formBlock}>
+                        <span className={styles.fieldLabel}>Avisos del programa</span>
+                        <label className={styles.checkField}>
+                          <Checkbox
+                            id="showcase-all"
+                            checked={allChecked}
+                            onCheckedChange={(value) => {
+                              const next = value === true
+                              setNotifyCourse(next)
+                              setNotifyMarketing(next)
+                            }}
+                          />
+                          <span>Seleccionar todo</span>
+                        </label>
+                        <label className={styles.checkField}>
+                          <Checkbox
+                            id="showcase-course"
+                            checked={notifyCourse}
+                            onCheckedChange={(value) => setNotifyCourse(value === true)}
+                          />
+                          <span>Cambios de horario y cupo</span>
+                        </label>
+                        <label className={styles.checkField}>
+                          <Checkbox
+                            id="showcase-marketing"
+                            checked={notifyMarketing}
+                            onCheckedChange={(value) => setNotifyMarketing(value === true)}
+                          />
+                          <span>Otras convocatorias</span>
+                        </label>
+                        <label className={styles.checkField}>
+                          <Checkbox id="showcase-sms" disabled checked={false} />
+                          <span>SMS (no disponible en este periodo)</span>
+                        </label>
+                        <Divider />
+                        <label className={styles.checkField}>
+                          <Switch
+                            checked={weeklyDigest}
+                            onCheckedChange={setWeeklyDigest}
+                            aria-label="Resumen semanal"
+                          />
+                          <span>Resumen semanal de programas nuevos</span>
+                        </label>
+                        <p className={styles.formPaneText}>
+                          Al enviar aceptas el{' '}
+                          <Link href="/privacidad" context="inline" label="aviso de privacidad" />.
+                        </p>
+                      </div>
+                    ) : null}
+
+                    <div className={styles.formActions}>
+                      <ButtonGroup>
+                        <Button
+                          hierarchy="secondary"
+                          size={size}
+                          label="Atrás"
+                          disabled={wizardStep === 1}
+                          onClick={() => {
+                            setWizardErrorStep(null)
+                            setWizardStep((step) => (step === 1 ? 1 : ((step - 1) as WizardStep)))
+                          }}
+                        />
+                        {wizardStep < 3 ? (
+                          <Button
+                            size={size}
+                            label="Continuar"
+                            onClick={() => {
+                              if (wizardStep === 1 && (emailError || email.length === 0)) {
+                                setWizardErrorStep(1)
+                                return
+                              }
+                              setWizardErrorStep(null)
+                              setWizardStep((step) => (step === 3 ? 3 : ((step + 1) as WizardStep)))
+                            }}
+                          />
+                        ) : (
+                          <Button
+                            size={size}
+                            label="Enviar solicitud"
+                            onClick={() => {
+                              setWizardSubmitted(true)
+                              setToastOpen(true)
+                            }}
+                          />
+                        )}
+                      </ButtonGroup>
+                    </div>
+                  </>
+                )}
+              </div>
+            </section>
           </>
         )}
       </main>
@@ -690,10 +939,29 @@ export default function ShowcasePage() {
               icon={<DownloadSimpleIcon />}
               aria-label="Descargar folleto"
             />
-            <Button size={size} hierarchy="secondary" tone="inverse" label="Contacto" />
+            <Button
+              size={size}
+              hierarchy="secondary"
+              tone="inverse"
+              label="Contacto"
+              onClick={scrollToContact}
+            />
           </div>
         </div>
       </footer>
+
+      {pageTab === 'programas' && toastOpen ? (
+        <div className={styles.toastRegion}>
+          <Toast
+            intent="success"
+            icon={<CheckCircleIcon />}
+            title="Solicitud enviada"
+            message={`Coordinación te contactará sobre ${selected.title}.`}
+            link={<Link href="/showcase" label="Ver mi aprendizaje" />}
+            onDismiss={() => setToastOpen(false)}
+          />
+        </div>
+      ) : null}
 
       {pageTab === 'programas' ? (
         <FloatingActionButton

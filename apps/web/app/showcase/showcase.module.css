@@ -169,6 +169,10 @@
 
 /* ---------- Hero ---------- */
 
+.bannerSlot {
+  margin-bottom: 20px;
+}
+
 .hero {
   margin-bottom: 24px;
 }
@@ -258,11 +262,44 @@
   color: var(--text-tertiary);
 }
 
-/* ---------- Layout: list | detail | form ---------- */
+.section {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.contactIntro {
+  min-width: 0;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.sectionLead {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1100px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ---------- Layout: list | detail ---------- */
 
 .layout {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr) 340px;
+  grid-template-columns: 300px minmax(0, 1fr);
   gap: 20px;
   align-items: start;
 }
@@ -352,10 +389,14 @@
 }
 
 .emptyState {
-  padding: 24px 12px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--text-tertiary);
+  width: 100%;
+  max-width: 100%;
+  padding: 16px 4px;
+}
+
+.emptyStateWrap {
+  display: flex;
+  justify-content: center;
 }
 
 /* ---------- Detail pane ---------- */
@@ -419,6 +460,18 @@
   margin: 0;
 }
 
+.progressTrack {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  margin-inline: -4px;
+  padding-block: 4px;
+}
+
+.progressTrack > * {
+  width: fit-content;
+}
+
 .courseActions {
   display: flex;
   align-items: center;
@@ -437,14 +490,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  position: sticky;
-  top: 84px;
-}
-
-@media (max-width: 1100px) {
-  .formPane {
-    position: static;
-  }
 }
 
 .formPaneTitle {
@@ -460,10 +505,24 @@
   margin: 0;
 }
 
-.formStack {
-  display: flex;
-  flex-direction: column;
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 14px;
+}
+
+.formGridFull {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 800px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formGridFull {
+    grid-column: auto;
+  }
 }
 
 .formBlock {
@@ -487,7 +546,21 @@
 }
 
 .formActions {
+  display: flex;
+  justify-content: flex-end;
   margin-top: 4px;
+}
+
+.toastRegion {
+  position: fixed;
+  left: var(--page-gutter);
+  bottom: 24px;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.toastRegion > * {
+  pointer-events: auto;
 }
 
 /* ---------- Icons panel ---------- */

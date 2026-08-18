@@ -1,0 +1,103 @@
+/* Primitivo interno: outlined | underline × default | error | disabled. */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--component-text-field-control-height, var(--component-text-field-control-height, 48px));
+  min-height: 48px;
+  margin: 0;
+  padding: var(--component-text-field-control-padding-block, var(--component-text-field-control-padding-block, 8px))
+    var(--component-text-field-control-padding-inline-end, var(--component-text-field-control-padding-inline-end, 8px))
+    var(--component-text-field-control-padding-block, var(--component-text-field-control-padding-block, 8px))
+    var(--component-text-field-control-padding-inline-start, var(--component-text-field-control-padding-inline-start, 12px));
+  align-items: center;
+  gap: var(--tec-component-text-field-control-gap, var(--component-text-field-control-gap, 8px));
+  appearance: none;
+  color: var(--component-text-field-color-value-default, var(--component-text-field-color-value-default));
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.root:focus {
+  outline: none;
+}
+
+.root:disabled {
+  color: var(--component-text-field-color-value-disabled, #737373);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* ===== Outlined ===== */
+.root[data-appearance='outlined'] {
+  border-radius: var(--tec-component-text-field-control-radius, var(--component-text-field-control-radius, 8px));
+  border: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
+    solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
+  background: var(--tec-component-text-field-color-surface-default, var(--component-text-field-color-surface-default));
+}
+
+.root[data-appearance='outlined']:focus-visible:not(:disabled) {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-text-field-color-focus-ring, #2563EB);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.root[data-appearance='outlined'][data-error='true'] {
+  border-color: var(--component-text-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='outlined']:disabled {
+  border-color: var(--component-text-field-color-border-disabled, #D4D4D4);
+  background: var(--component-text-field-color-surface-disabled, #E5E5E5);
+}
+
+/* ===== Underline ===== */
+.root[data-appearance='underline'] {
+  border: none;
+  border-radius: var(--component-text-field-control-underline-radius, 0);
+  border-bottom: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
+    solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
+  background: var(--component-text-field-color-surface-underline, rgba(255, 255, 255, 0));
+}
+
+.root[data-appearance='underline']:focus-visible:not(:disabled) {
+  border-bottom-width: var(--component-text-field-control-underline-focus-border-width, 2px);
+  border-bottom-color: var(--component-text-field-color-border-focus-visible, var(--component-text-field-color-focus-ring, #2563EB));
+}
+
+.root[data-appearance='underline'][data-error='true'] {
+  border-bottom-color: var(--component-text-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='underline'][data-error='true']:focus-visible:not(:disabled) {
+  border-bottom-width: var(--component-text-field-control-underline-focus-border-width, 2px);
+  border-bottom-color: var(--component-text-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='underline']:disabled {
+  border-bottom-color: var(--component-text-field-color-border-disabled, #D4D4D4);
+  background: var(--component-text-field-color-surface-disabled, #E5E5E5);
+}
+
+.root[data-embedded='true'],
+.root[data-embedded='true'][data-appearance='outlined'],
+.root[data-embedded='true'][data-appearance='underline'],
+.root[data-embedded='true'][data-error='true'],
+.root[data-embedded='true']:disabled,
+.root[data-embedded='true']:focus,
+.root[data-embedded='true']:focus-visible,
+.root[data-embedded='true'][data-appearance='outlined']:focus-visible:not(:disabled),
+.root[data-embedded='true'][data-appearance='underline']:focus-visible:not(:disabled),
+.root[data-embedded='true'][data-appearance='underline'][data-error='true']:focus-visible:not(:disabled) {
+  height: 100%;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}

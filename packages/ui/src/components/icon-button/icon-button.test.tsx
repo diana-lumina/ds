@@ -34,6 +34,20 @@ describe('IconButton', () => {
     })
   })
 
+  describe('Prop: hierarchy', () => {
+    it('aplica primary por defecto', () => {
+      render(<IconButton icon={<DummyIcon />} aria-label="Favorito" />)
+      expect(screen.getByRole('button')).toHaveAttribute('data-hierarchy', 'primary')
+    })
+
+    it('aplica tertiary', () => {
+      render(
+        <IconButton icon={<DummyIcon />} aria-label="Cerrar" hierarchy="tertiary" />,
+      )
+      expect(screen.getByRole('button')).toHaveAttribute('data-hierarchy', 'tertiary')
+    })
+  })
+
   describe('Prop: size', () => {
     it('aplica el tamaño md por defecto', () => {
       render(<IconButton icon={<DummyIcon />} aria-label="Favorito" />)

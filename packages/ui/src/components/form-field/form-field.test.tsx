@@ -13,6 +13,7 @@ describe('FormField', () => {
     it('tiene el data-slot correcto', () => {
       render(<FormField label="Correo" />)
       expect(document.querySelector('[data-slot="form-field"]')).toBeInTheDocument()
+      expect(document.querySelector('[data-slot="text-input"]')).toBeInTheDocument()
     })
 
     it('asocia el label con el input', () => {
@@ -28,6 +29,35 @@ describe('FormField', () => {
     it('muestra supporting text cuando se pasa', () => {
       render(<FormField label="Correo" supportingText="Usa tu correo institucional" />)
       expect(screen.getByText('Usa tu correo institucional')).toBeInTheDocument()
+    })
+
+    it('pasa appearance underline al control', () => {
+      render(<FormField label="Correo" appearance="underline" />)
+      expect(screen.getByLabelText('Correo')).toHaveAttribute('data-appearance', 'underline')
+    })
+
+    it('renderiza TextArea cuando multiline es true', () => {
+      render(<FormField label="Comentario" multiline />)
+      expect(document.querySelector('[data-slot="text-area"]')).toBeInTheDocument()
+      expect(document.querySelector('[data-slot="text-input"]')).not.toBeInTheDocument()
+    })
+
+    it('renderiza Select cuando control es select', () => {
+      render(
+        <FormField
+          label="Campus"
+          control="select"
+          options={[{ value: 'mty', label: 'Monterrey' }]}
+        />
+      )
+      expect(document.querySelector('[data-slot="select-trigger"]')).toBeInTheDocument()
+      expect(document.querySelector('[data-slot="text-input"]')).not.toBeInTheDocument()
+    })
+
+    it('renderiza PhoneInput cuando control es phone', () => {
+      render(<FormField label="Teléfono" control="phone" />)
+      expect(document.querySelector('[data-slot="phone-input"]')).toBeInTheDocument()
+      expect(document.querySelector('[data-slot="text-input"]')).toBeInTheDocument()
     })
   })
 

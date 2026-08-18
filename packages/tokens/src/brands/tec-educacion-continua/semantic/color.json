@@ -1042,6 +1042,38 @@
             }
           }
         }
+      },
+      "navigation": {
+        "current": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.2235294133424759,
+              0.6509804129600525
+            ],
+            "alpha": 1,
+            "hex": "#0039A6"
+          },
+          "$description": "Semantic navigation current icon · Status: Implemented · Experimental · CR-NAV-002 · Product-mode backed. TEC Educación Continua → color/brand/blue (#0039A6). TEC 360 → color/neutral/950 (#0A0A0A). Persistent navigation location only; pairs with color/text/navigation/current. DTCG 2025.10 path: color.icon.navigation.current ($type: color).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1623:7",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.codeSyntax": {
+              "WEB": "--tec-color-icon-navigation-current"
+            },
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+              "targetVariableName": "color/brand/blue",
+              "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+              "targetVariableSetName": "TEC Educación Continua — Reference"
+            }
+          }
+        }
       }
     },
     "text": {
@@ -1974,6 +2006,65 @@
               "targetVariableName": "color/neutral/400",
               "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
               "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
+      },
+      "brand": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.2235294133424759,
+              0.6509804129600525
+            ],
+            "alpha": 1,
+            "hex": "#0039A6"
+          },
+          "$description": "Semantic brand-colored text for intentional product-identity emphasis on light surfaces, evidenced by Marketing email headings. Use for brand-emphasis headings or short display text only; do not replace color/text/default body copy, action/link colors, feedback semantics, inverse text, or logo artwork. Product Modes alias to each product’s approved brand blue reference. MKT-COLOR-001 · DTCG 2025.10 path: color.text.brand.default ($type: color).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1440:2",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+              "targetVariableName": "color/brand/blue",
+              "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+              "targetVariableSetName": "TEC Educación Continua — Reference"
+            }
+          }
+        }
+      },
+      "navigation": {
+        "current": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.2235294133424759,
+              0.6509804129600525
+            ],
+            "alpha": 1,
+            "hex": "#0039A6"
+          },
+          "$description": "Semantic navigation current text · Status: Implemented · Experimental · CR-NAV-002 · Product-mode backed. TEC Educación Continua → color/brand/blue (#0039A6). TEC 360 → color/neutral/950 (#0A0A0A). Persistent navigation location only; independent from hover, pressed and focus-visible. DTCG 2025.10 path: color.text.navigation.current ($type: color).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1623:6",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.codeSyntax": {
+              "WEB": "--tec-color-text-navigation-current"
+            },
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:f4b4de6e229fbd65a847ae9f972bb837fd2bff49/-1:-1",
+              "targetVariableName": "color/brand/blue",
+              "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
+              "targetVariableSetName": "TEC Educación Continua — Reference"
             }
           }
         }
@@ -3477,6 +3568,38 @@
             }
           }
         }
+      },
+      "navigation": {
+        "current": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9372549057006836,
+              0.9647058844566345,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#EFF6FF"
+          },
+          "$description": "Semantic navigation current surface · Status: Implemented · Experimental · CR-NAV-002 · Product-mode backed. TEC Educación Continua → color/blue/50 (#EFF6FF). TEC 360 → color/neutral/100 (#EFEFEF). Use only for persistent current destination surfaces in navigation contexts; do not replace hover/pressed interaction surfaces. DTCG 2025.10 path: color.surface.navigation.current ($type: color).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1623:5",
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.codeSyntax": {
+              "WEB": "--tec-color-surface-navigation-current"
+            },
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:93c5c2043e7864ec712698a2a79f99a803ef8c52/-1:-1",
+              "targetVariableName": "color/blue/50",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
       }
     },
     "focus": {
@@ -3943,6 +4066,34 @@
             "com.figma.aliasData": {
               "targetVariableId": "VariableID:0e68d22c4ed7bf2581fe69a32eb1bc149d6c34e0/-1:-1",
               "targetVariableName": "color/neutral/200",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
+      },
+      "feedback": {
+        "danger": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7254902124404907,
+              0.10980392247438431,
+              0.10980392247438431
+            ],
+            "alpha": 1,
+            "hex": "#B91C1C"
+          },
+          "$description": "Semantic feedback border for danger/error states. Shared across field-like controls and other non-action feedback boundaries. Source: color/red/700. DTCG: color.border.feedback.danger.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1437:2",
+            "com.figma.scopes": [
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:46a9442256ad0648e5dff09a835aa7a8a829dd82/-1:-1",
+              "targetVariableName": "color/red/700",
               "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
               "targetVariableSetName": "TEC DS — Color Primitives"
             }

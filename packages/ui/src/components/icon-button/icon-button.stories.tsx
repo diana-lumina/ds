@@ -11,11 +11,20 @@ const meta: Meta<typeof IconButton> = {
     docs: {
       description: {
         component:
-          'Acción únicamente icónica. Reutiliza la receta Primary de Button; la identidad se resuelve con Semantic modes. Hierarchy no es configurable. `aria-label` es obligatorio. Nota: tone=standard (gradiente + ícono claro) tiene un riesgo de contraste pendiente de revisión en TEC 360.',
+          'Acción únicamente icónica. Hierarchy primary (receta filled) o tertiary (ghost). `aria-label` es obligatorio. tone inverse solo aplica a primary.',
       },
     },
   },
   argTypes: {
+    hierarchy: {
+      control: 'select',
+      options: ['primary', 'tertiary'],
+      description: 'primary · tertiary',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'primary' },
+      },
+    },
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
@@ -76,6 +85,7 @@ const hideCode = {
 
 export const Playground: Story = {
   args: {
+    hierarchy: 'primary',
     tone: 'standard',
     icon: <ShoppingBagIcon />,
     'aria-label': 'Favorito',
@@ -138,6 +148,29 @@ export const Inverse: Story = {
   ],
 }
 
+export const Tertiary: Story = {
+  parameters: {
+    ...showCode,
+    docs: {
+      ...showCode.docs,
+      source: {
+        code: `<IconButton
+  hierarchy="tertiary"
+  size="sm"
+  icon={<ShoppingBagIcon />}
+  aria-label="Favorito"
+/>`,
+      },
+    },
+  },
+  args: {
+    hierarchy: 'tertiary',
+    size: 'sm',
+    icon: <ShoppingBagIcon />,
+    'aria-label': 'Favorito',
+  },
+}
+
 export const Disabled: Story = {
   parameters: {
     ...showCode,
@@ -180,8 +213,8 @@ export const Loading: Story = {
   },
 }
 
-export const ToneAndSize: Story = {
-  name: 'Tone & size',
+export const HierarchyAndSize: Story = {
+  name: 'Hierarchy & size',
   parameters: hideCode,
   render: () => {
     const th: React.CSSProperties = {
@@ -216,7 +249,7 @@ export const ToneAndSize: Story = {
         <table style={{ borderCollapse: 'collapse' }}>
           <thead>
             <tr>
-              <th style={{ ...th, textAlign: 'left', paddingLeft: 0 }}>Tone</th>
+              <th style={{ ...th, textAlign: 'left', paddingLeft: 0 }}>Variant</th>
               {SIZES.map(({ value, sizeLabel }) => (
                 <th key={value} style={th}>
                   {sizeLabel}
@@ -226,15 +259,23 @@ export const ToneAndSize: Story = {
           </thead>
           <tbody>
             <tr>
-              <td style={rowLabel}>Standard</td>
+              <td style={rowLabel}>Primary</td>
               {SIZES.map(({ value }) => (
                 <td key={value} style={td}>
-                  <IconButton size={value} tone="standard" icon={<ShoppingBagIcon />} aria-label="Favorito" />
+                  <IconButton size={value} hierarchy="primary" icon={<ShoppingBagIcon />} aria-label="Favorito" />
                 </td>
               ))}
             </tr>
             <tr>
-              <td style={rowLabel}>Inverse</td>
+              <td style={rowLabel}>Tertiary</td>
+              {SIZES.map(({ value }) => (
+                <td key={value} style={td}>
+                  <IconButton size={value} hierarchy="tertiary" icon={<ShoppingBagIcon />} aria-label="Favorito" />
+                </td>
+              ))}
+            </tr>
+            <tr>
+              <td style={rowLabel}>Primary inverse</td>
               {SIZES.map(({ value }) => (
                 <td
                   key={value}
@@ -243,17 +284,17 @@ export const ToneAndSize: Story = {
                     background: 'var(--color-surface-brand-strong, #231f20)',
                   }}
                 >
-                  <IconButton size={value} tone="inverse" icon={<ShoppingBagIcon />} aria-label="Favorito" />
+                  <IconButton size={value} hierarchy="primary" tone="inverse" icon={<ShoppingBagIcon />} aria-label="Favorito" />
                 </td>
               ))}
             </tr>
             <tr>
-              <td style={{ ...rowLabel, borderBottom: 'none' }}>Disabled</td>
+              <td style={{ ...rowLabel, borderBottom: 'none' }}>Tertiary disabled</td>
               {SIZES.map(({ value }) => (
                 <td key={value} style={{ ...td, borderBottom: 'none' }}>
                   <IconButton
                     size={value}
-                    tone="standard"
+                    hierarchy="tertiary"
                     icon={<ShoppingBagIcon />}
                     aria-label="Favorito"
                     disabled

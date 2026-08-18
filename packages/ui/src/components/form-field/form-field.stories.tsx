@@ -10,7 +10,7 @@ const meta: Meta<typeof FormField> = {
     docs: {
       description: {
         component:
-          'Campo de formulario: label, control y supporting text opcional. Estados default, error y disabled: error/disabled sólo cambian el color del supporting text. El control es un input nativo provisional (aún no hay Text Field / input como componente).',
+          'Campo de formulario: label, TextInput / TextArea / Select / PhoneInput y supporting text. Appearances outlined y underline; estados default, error y disabled.',
       },
     },
   },
@@ -26,9 +26,26 @@ const meta: Meta<typeof FormField> = {
     placeholder: {
       control: 'text',
     },
+    appearance: {
+      control: 'radio',
+      options: ['outlined', 'underline'],
+      description: 'Apariencia del control: outlined o underline',
+      table: { defaultValue: { summary: 'outlined' } },
+    },
+    control: {
+      control: 'radio',
+      options: ['input', 'textarea', 'select', 'phone'],
+      description: 'Control interno: input, textarea, select o phone',
+      table: { defaultValue: { summary: 'input' } },
+    },
+    multiline: {
+      control: 'boolean',
+      description: 'Usa TextArea en lugar de TextInput',
+      table: { defaultValue: { summary: 'false' } },
+    },
     error: {
       control: 'boolean',
-      description: 'Error: sólo cambia el color del supporting text',
+      description: 'Error: supporting text + control en estado error',
       table: { defaultValue: { summary: 'false' } },
     },
     disabled: {
@@ -50,11 +67,20 @@ const hideCode = {
 
 const fieldFrame: React.CSSProperties = { maxWidth: 360 }
 
+const campusOptions = [
+  { value: 'mty', label: 'Monterrey' },
+  { value: 'cdmx', label: 'Ciudad de México' },
+  { value: 'gdl', label: 'Guadalajara' },
+]
+
 export const Playground: Story = {
   args: {
     label: 'Correo',
     supportingText: 'Usa tu correo institucional',
     placeholder: 'nombre@tec.mx',
+    appearance: 'outlined',
+    control: 'input',
+    multiline: false,
     error: false,
     disabled: false,
   },
@@ -115,6 +141,32 @@ export const Error: Story = {
   ),
 }
 
+export const Underline: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<FormField
+  appearance="underline"
+  label="Correo"
+  supportingText="Usa tu correo institucional"
+  placeholder="nombre@tec.mx"
+/>`,
+      },
+    },
+  },
+  render: () => (
+    <div style={fieldFrame}>
+      <FormField
+        appearance="underline"
+        label="Correo"
+        supportingText="Usa tu correo institucional"
+        placeholder="nombre@tec.mx"
+      />
+    </div>
+  ),
+}
+
 export const Disabled: Story = {
   parameters: {
     docs: {
@@ -136,6 +188,89 @@ export const Disabled: Story = {
         disabled
         supportingText="Usa tu correo institucional"
         placeholder="nombre@tec.mx"
+      />
+    </div>
+  ),
+}
+
+export const TextArea: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<FormField
+  multiline
+  label="Comentario"
+  supportingText="Máximo 500 caracteres"
+  placeholder="Escribe tu comentario"
+/>`,
+      },
+    },
+  },
+  render: () => (
+    <div style={fieldFrame}>
+      <FormField
+        multiline
+        label="Comentario"
+        supportingText="Máximo 500 caracteres"
+        placeholder="Escribe tu comentario"
+      />
+    </div>
+  ),
+}
+
+export const Select: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<FormField
+  control="select"
+  label="Campus"
+  supportingText="Lo define tu expediente"
+  placeholder="Elige un campus"
+  options={[
+    { value: 'mty', label: 'Monterrey' },
+    { value: 'cdmx', label: 'Ciudad de México' },
+  ]}
+/>`,
+      },
+    },
+  },
+  render: () => (
+    <div style={fieldFrame}>
+      <FormField
+        control="select"
+        label="Campus"
+        supportingText="Lo define tu expediente"
+        placeholder="Elige un campus"
+        options={campusOptions}
+      />
+    </div>
+  ),
+}
+
+export const Phone: Story = {
+  parameters: {
+    docs: {
+      canvas: { sourceState: 'shown' },
+      source: {
+        code: `<FormField
+  control="phone"
+  label="Teléfono"
+  supportingText="Incluye lada"
+  placeholder="Número telefónico"
+/>`,
+      },
+    },
+  },
+  render: () => (
+    <div style={fieldFrame}>
+      <FormField
+        control="phone"
+        label="Teléfono"
+        supportingText="Incluye lada"
+        placeholder="Número telefónico"
       />
     </div>
   ),
@@ -172,6 +307,35 @@ export const AllStates: Story = {
       borderBottom: '1px solid #f0f0f0',
       minWidth: 280,
     }
+    const section: React.CSSProperties = {
+      fontFamily: 'monospace',
+      fontSize: 12,
+      color: '#111',
+      fontWeight: 700,
+      textAlign: 'left',
+      padding: '24px 0 8px',
+      borderBottom: '1px solid #ddd',
+    }
+
+    const pair = (
+      label: string,
+      outlined: React.ReactNode,
+      underline: React.ReactNode,
+    ) => (
+      <tr>
+        <td style={rowLabel}>{label}</td>
+        <td style={td}>{outlined}</td>
+        <td style={td}>{underline}</td>
+      </tr>
+    )
+
+    const heading = (title: string) => (
+      <tr>
+        <td colSpan={3} style={section}>
+          {title}
+        </td>
+      </tr>
+    )
 
     return (
       <div style={{ padding: 8 }}>
@@ -179,42 +343,226 @@ export const AllStates: Story = {
           <thead>
             <tr>
               <th style={{ ...th, paddingLeft: 0 }}>State</th>
-              <th style={th}>FormField</th>
+              <th style={th}>Outlined</th>
+              <th style={th}>Underline</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td style={rowLabel}>Default</td>
-              <td style={td}>
-                <FormField
-                  label="Correo"
-                  supportingText="Usa tu correo institucional"
-                  placeholder="nombre@tec.mx"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td style={rowLabel}>Error</td>
-              <td style={td}>
-                <FormField
-                  label="Correo"
-                  error
-                  supportingText="Formato inválido"
-                  placeholder="nombre@tec.mx"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td style={rowLabel}>Disabled</td>
-              <td style={td}>
-                <FormField
-                  label="Correo"
-                  disabled
-                  supportingText="Usa tu correo institucional"
-                  placeholder="nombre@tec.mx"
-                />
-              </td>
-            </tr>
+            {heading('Text Input')}
+            {pair(
+              'Default',
+              <FormField
+                label="Correo"
+                supportingText="Usa tu correo institucional"
+                placeholder="nombre@tec.mx"
+              />,
+              <FormField
+                appearance="underline"
+                label="Correo"
+                supportingText="Usa tu correo institucional"
+                placeholder="nombre@tec.mx"
+              />,
+            )}
+            {pair(
+              'Error',
+              <FormField
+                label="Correo"
+                error
+                supportingText="Formato inválido"
+                placeholder="nombre@tec.mx"
+              />,
+              <FormField
+                appearance="underline"
+                label="Correo"
+                error
+                supportingText="Formato inválido"
+                placeholder="nombre@tec.mx"
+              />,
+            )}
+            {pair(
+              'Disabled',
+              <FormField
+                label="Correo"
+                disabled
+                supportingText="Usa tu correo institucional"
+                placeholder="nombre@tec.mx"
+              />,
+              <FormField
+                appearance="underline"
+                label="Correo"
+                disabled
+                supportingText="Usa tu correo institucional"
+                placeholder="nombre@tec.mx"
+              />,
+            )}
+
+            {heading('Phone Input')}
+            {pair(
+              'Default',
+              <FormField
+                control="phone"
+                label="Teléfono"
+                supportingText="Incluye lada"
+                placeholder="Número telefónico"
+              />,
+              <FormField
+                control="phone"
+                appearance="underline"
+                label="Teléfono"
+                supportingText="Incluye lada"
+                placeholder="Número telefónico"
+              />,
+            )}
+            {pair(
+              'Error',
+              <FormField
+                control="phone"
+                label="Teléfono"
+                error
+                supportingText="Ingresa un número válido"
+                placeholder="Número telefónico"
+              />,
+              <FormField
+                control="phone"
+                appearance="underline"
+                label="Teléfono"
+                error
+                supportingText="Ingresa un número válido"
+                placeholder="Número telefónico"
+              />,
+            )}
+            {pair(
+              'Disabled',
+              <FormField
+                control="phone"
+                label="Teléfono"
+                disabled
+                supportingText="Incluye lada"
+                placeholder="Número telefónico"
+              />,
+              <FormField
+                control="phone"
+                appearance="underline"
+                label="Teléfono"
+                disabled
+                supportingText="Incluye lada"
+                placeholder="Número telefónico"
+              />,
+            )}
+
+            {heading('Text Area')}
+            {pair(
+              'Default',
+              <FormField
+                multiline
+                label="Comentario"
+                supportingText="Máximo 500 caracteres"
+                placeholder="Escribe tu comentario"
+              />,
+              <FormField
+                multiline
+                appearance="underline"
+                label="Comentario"
+                supportingText="Máximo 500 caracteres"
+                placeholder="Escribe tu comentario"
+              />,
+            )}
+            {pair(
+              'Error',
+              <FormField
+                multiline
+                label="Comentario"
+                error
+                supportingText="El comentario es obligatorio"
+                placeholder="Escribe tu comentario"
+              />,
+              <FormField
+                multiline
+                appearance="underline"
+                label="Comentario"
+                error
+                supportingText="El comentario es obligatorio"
+                placeholder="Escribe tu comentario"
+              />,
+            )}
+            {pair(
+              'Disabled',
+              <FormField
+                multiline
+                label="Comentario"
+                disabled
+                supportingText="Máximo 500 caracteres"
+                placeholder="Escribe tu comentario"
+              />,
+              <FormField
+                multiline
+                appearance="underline"
+                label="Comentario"
+                disabled
+                supportingText="Máximo 500 caracteres"
+                placeholder="Escribe tu comentario"
+              />,
+            )}
+
+            {heading('Select')}
+            {pair(
+              'Default',
+              <FormField
+                control="select"
+                label="Campus"
+                supportingText="Lo define tu expediente"
+                placeholder="Elige un campus"
+                options={campusOptions}
+              />,
+              <FormField
+                control="select"
+                appearance="underline"
+                label="Campus"
+                supportingText="Lo define tu expediente"
+                placeholder="Elige un campus"
+                options={campusOptions}
+              />,
+            )}
+            {pair(
+              'Error',
+              <FormField
+                control="select"
+                label="Campus"
+                error
+                supportingText="Selecciona un campus"
+                placeholder="Elige un campus"
+                options={campusOptions}
+              />,
+              <FormField
+                control="select"
+                appearance="underline"
+                label="Campus"
+                error
+                supportingText="Selecciona un campus"
+                placeholder="Elige un campus"
+                options={campusOptions}
+              />,
+            )}
+            {pair(
+              'Disabled',
+              <FormField
+                control="select"
+                label="Campus"
+                disabled
+                supportingText="Lo define tu expediente"
+                placeholder="Elige un campus"
+                options={campusOptions}
+              />,
+              <FormField
+                control="select"
+                appearance="underline"
+                label="Campus"
+                disabled
+                supportingText="Lo define tu expediente"
+                placeholder="Elige un campus"
+                options={campusOptions}
+              />,
+            )}
           </tbody>
         </table>
       </div>

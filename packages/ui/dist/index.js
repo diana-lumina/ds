@@ -1,9 +1,9 @@
 import { cn } from './chunk-DN2AEEA2.js';
-import { SalesIcon, CloseIcon, LoadingIcon } from './chunk-WCXWNPRN.js';
+import { SalesIcon, CaretDownIcon, CheckIcon, CaretUpIcon, CloseIcon, LoadingIcon } from './chunk-WCXWNPRN.js';
 import { cva } from 'class-variance-authority';
 import { jsxs, jsx } from 'react/jsx-runtime';
-import * as React from 'react';
-import { Avatar as Avatar$1, RadioGroup as RadioGroup$1, Checkbox as Checkbox$1, Switch as Switch$1 } from 'radix-ui';
+import * as React3 from 'react';
+import { Avatar as Avatar$1, Select as Select$1, RadioGroup as RadioGroup$1, Checkbox as Checkbox$1, Switch as Switch$1, Progress } from 'radix-ui';
 
 // src/components/button/button.module.css
 var button_default = {
@@ -95,6 +95,7 @@ var icon_button_default = {
 function IconButton({
   icon,
   size = "md",
+  hierarchy = "primary",
   tone = "standard",
   loading = false,
   className,
@@ -102,12 +103,14 @@ function IconButton({
   ...props
 }) {
   const displayIcon = loading ? /* @__PURE__ */ jsx(LoadingIcon, {}) : icon;
+  const effectiveTone = hierarchy === "primary" ? tone : "standard";
   return /* @__PURE__ */ jsx(
     "button",
     {
       "data-slot": "icon-button",
       "data-size": size,
-      "data-tone": tone,
+      "data-hierarchy": hierarchy,
+      "data-tone": effectiveTone,
       "data-loading": loading || void 0,
       "aria-busy": loading || void 0,
       disabled: disabled || loading,
@@ -211,8 +214,8 @@ function Avatar({
   ...props
 }) {
   const resolvedInitials = initials ? resolveInitials(initials) : void 0;
-  const [imageStatus, setImageStatus] = React.useState(src ? "loading" : "idle");
-  React.useEffect(() => {
+  const [imageStatus, setImageStatus] = React3.useState(src ? "loading" : "idle");
+  React3.useEffect(() => {
     setImageStatus(src ? "loading" : "idle");
   }, [src]);
   const content = resolveContent(src, imageStatus, Boolean(resolvedInitials));
@@ -328,7 +331,7 @@ function Breadcrumb({
   "aria-label": ariaLabel = "Breadcrumb",
   ...props
 }) {
-  const items = React.Children.toArray(children).filter(Boolean);
+  const items = React3.Children.toArray(children).filter(Boolean);
   return /* @__PURE__ */ jsx(
     "nav",
     {
@@ -402,25 +405,368 @@ function FilterChip({
   );
 }
 
+// src/components/select/select.module.css
+var select_default = {
+  trigger: "select_trigger",
+  value: "select_value",
+  icon: "select_icon",
+  content: "select_content",
+  viewport: "select_viewport",
+  item: "select_item",
+  itemSuffix: "select_itemSuffix",
+  itemIndicator: "select_itemIndicator",
+  scrollButton: "select_scrollButton",
+  label: "select_label",
+  separator: "select_separator"
+};
+function Select({ ...props }) {
+  return /* @__PURE__ */ jsx(Select$1.Root, { "data-slot": "select", ...props });
+}
+function SelectGroup({ ...props }) {
+  return /* @__PURE__ */ jsx(Select$1.Group, { "data-slot": "select-group", ...props });
+}
+function SelectValue({ className, ...props }) {
+  return /* @__PURE__ */ jsx(
+    Select$1.Value,
+    {
+      "data-slot": "select-value",
+      className: cn(select_default.value, className),
+      ...props
+    }
+  );
+}
+function SelectTrigger({
+  appearance = "outlined",
+  error = false,
+  className,
+  children,
+  disabled,
+  embedded = false,
+  ...props
+}) {
+  const showError = error && !disabled;
+  return /* @__PURE__ */ jsxs(
+    Select$1.Trigger,
+    {
+      "data-slot": "select-trigger",
+      "data-appearance": appearance,
+      "data-error": showError ? "true" : void 0,
+      "data-embedded": embedded ? "true" : void 0,
+      className: cn(select_default.trigger, className),
+      disabled,
+      "aria-invalid": showError ? true : void 0,
+      ...props,
+      children: [
+        children,
+        /* @__PURE__ */ jsx(Select$1.Icon, { asChild: true, children: /* @__PURE__ */ jsx(CaretDownIcon, { className: select_default.icon }) })
+      ]
+    }
+  );
+}
+function SelectContent({
+  className,
+  children,
+  position = "popper",
+  align = "start",
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(Select$1.Portal, { children: /* @__PURE__ */ jsxs(
+    Select$1.Content,
+    {
+      "data-slot": "select-content",
+      className: cn(select_default.content, className),
+      position,
+      align,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx(SelectScrollUpButton, {}),
+        /* @__PURE__ */ jsx(Select$1.Viewport, { className: select_default.viewport, children }),
+        /* @__PURE__ */ jsx(SelectScrollDownButton, {})
+      ]
+    }
+  ) });
+}
+function SelectLabel({ className, ...props }) {
+  return /* @__PURE__ */ jsx(
+    Select$1.Label,
+    {
+      "data-slot": "select-label",
+      className: cn(select_default.label, className),
+      ...props
+    }
+  );
+}
+function SelectItem({ className, children, suffix, ...props }) {
+  return /* @__PURE__ */ jsxs(
+    Select$1.Item,
+    {
+      "data-slot": "select-item",
+      className: cn(select_default.item, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx(Select$1.ItemText, { "data-slot": "select-item-text", children }),
+        suffix ? /* @__PURE__ */ jsx("span", { className: select_default.itemSuffix, children: suffix }) : null,
+        /* @__PURE__ */ jsx(Select$1.ItemIndicator, { className: select_default.itemIndicator, children: /* @__PURE__ */ jsx(CheckIcon, {}) })
+      ]
+    }
+  );
+}
+function SelectSeparator({ className, ...props }) {
+  return /* @__PURE__ */ jsx(
+    Select$1.Separator,
+    {
+      "data-slot": "select-separator",
+      className: cn(select_default.separator, className),
+      ...props
+    }
+  );
+}
+function SelectScrollUpButton({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(
+    Select$1.ScrollUpButton,
+    {
+      className: cn(select_default.scrollButton, className),
+      ...props,
+      children: /* @__PURE__ */ jsx(CaretUpIcon, {})
+    }
+  );
+}
+function SelectScrollDownButton({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(
+    Select$1.ScrollDownButton,
+    {
+      className: cn(select_default.scrollButton, className),
+      ...props,
+      children: /* @__PURE__ */ jsx(CaretDownIcon, {})
+    }
+  );
+}
+
+// src/components/text-input/text-input.module.css
+var text_input_default = {
+  root: "text_input_root"
+};
+function TextInput({
+  appearance = "outlined",
+  error = false,
+  disabled,
+  embedded = false,
+  className,
+  type = "text",
+  ...props
+}) {
+  const showError = error && !disabled;
+  return /* @__PURE__ */ jsx(
+    "input",
+    {
+      type,
+      "data-slot": "text-input",
+      "data-appearance": appearance,
+      "data-error": showError ? "true" : void 0,
+      "data-embedded": embedded ? "true" : void 0,
+      className: cn(text_input_default.root, className),
+      disabled,
+      "aria-invalid": showError ? true : void 0,
+      ...props
+    }
+  );
+}
+
+// src/components/phone-input/phone-input.module.css
+var phone_input_default = {
+  root: "phone_input_root",
+  country: "phone_input_country",
+  countryTrigger: "phone_input_countryTrigger",
+  number: "phone_input_number",
+  menu: "phone_input_menu"
+};
+var DEFAULT_PHONE_COUNTRIES = [
+  { value: "mx", dialCode: "+52", label: "M\xE9xico" },
+  { value: "us", dialCode: "+1", label: "Estados Unidos" },
+  { value: "ca", dialCode: "+1", label: "Canad\xE1" },
+  { value: "co", dialCode: "+57", label: "Colombia" },
+  { value: "ar", dialCode: "+54", label: "Argentina" },
+  { value: "cl", dialCode: "+56", label: "Chile" },
+  { value: "pe", dialCode: "+51", label: "Per\xFA" },
+  { value: "es", dialCode: "+34", label: "Espa\xF1a" }
+];
+function PhoneInput({
+  appearance = "outlined",
+  error = false,
+  disabled,
+  className,
+  countries = DEFAULT_PHONE_COUNTRIES,
+  country,
+  defaultCountry = "mx",
+  onCountryChange,
+  countryLabel = "C\xF3digo de pa\xEDs",
+  id,
+  placeholder = "N\xFAmero telef\xF3nico",
+  ...props
+}) {
+  const generatedId = React3.useId();
+  const numberId = id ?? generatedId;
+  const rootRef = React3.useRef(null);
+  const [menuWidth, setMenuWidth] = React3.useState();
+  React3.useLayoutEffect(() => {
+    const node = rootRef.current;
+    if (!node) return;
+    const syncWidth = () => {
+      setMenuWidth(node.getBoundingClientRect().width);
+    };
+    syncWidth();
+    const observer = new ResizeObserver(syncWidth);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+  const showError = error && !disabled;
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      ref: rootRef,
+      "data-slot": "phone-input",
+      "data-appearance": appearance,
+      "data-error": showError ? "true" : void 0,
+      "data-disabled": disabled || void 0,
+      className: cn(phone_input_default.root, className),
+      children: [
+        /* @__PURE__ */ jsx("div", { className: phone_input_default.country, children: /* @__PURE__ */ jsxs(
+          Select,
+          {
+            value: country,
+            defaultValue: country ? void 0 : defaultCountry,
+            onValueChange: onCountryChange,
+            disabled,
+            children: [
+              /* @__PURE__ */ jsx(
+                SelectTrigger,
+                {
+                  embedded: true,
+                  appearance,
+                  error,
+                  disabled,
+                  "aria-label": countryLabel,
+                  className: phone_input_default.countryTrigger,
+                  children: /* @__PURE__ */ jsx(SelectValue, {})
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                SelectContent,
+                {
+                  className: phone_input_default.menu,
+                  style: menuWidth ? {
+                    "--phone-input-menu-width": `${menuWidth}px`,
+                    width: menuWidth,
+                    minWidth: menuWidth
+                  } : void 0,
+                  children: countries.map((item) => /* @__PURE__ */ jsx(
+                    SelectItem,
+                    {
+                      value: item.value,
+                      suffix: item.label,
+                      textValue: `${item.dialCode} ${item.label}`,
+                      children: item.dialCode
+                    },
+                    item.value
+                  ))
+                }
+              )
+            ]
+          }
+        ) }),
+        /* @__PURE__ */ jsx(
+          TextInput,
+          {
+            id: numberId,
+            type: "tel",
+            inputMode: "tel",
+            autoComplete: "tel-national",
+            embedded: true,
+            appearance,
+            error,
+            disabled,
+            placeholder,
+            className: phone_input_default.number,
+            ...props
+          }
+        )
+      ]
+    }
+  );
+}
+
+// src/components/text-area/text-area.module.css
+var text_area_default = {
+  root: "text_area_root"
+};
+function TextArea({
+  appearance = "outlined",
+  error = false,
+  disabled,
+  className,
+  ...props
+}) {
+  const showError = error && !disabled;
+  return /* @__PURE__ */ jsx(
+    "textarea",
+    {
+      "data-slot": "text-area",
+      "data-appearance": appearance,
+      "data-error": showError ? "true" : void 0,
+      className: cn(text_area_default.root, className),
+      disabled,
+      "aria-invalid": showError ? true : void 0,
+      ...props
+    }
+  );
+}
+
 // src/components/form-field/form-field.module.css
 var form_field_default = {
   root: "form_field_root",
   label: "form_field_label",
-  control: "form_field_control",
   supporting: "form_field_supporting"
 };
 function FormField({
   label,
   supportingText,
+  appearance = "outlined",
+  control,
+  multiline = false,
+  rows,
+  options,
+  value,
+  defaultValue,
+  onValueChange,
+  country,
+  defaultCountry,
+  onCountryChange,
+  countries,
   error = false,
   id,
   className,
   disabled,
+  type,
+  placeholder,
   ...props
 }) {
-  const generatedId = React.useId();
+  const generatedId = React3.useId();
   const inputId = id ?? generatedId;
   const supportingId = supportingText ? `${inputId}-supporting` : void 0;
+  const resolvedControl = control ?? (multiline ? "textarea" : "input");
+  const controlProps = {
+    id: inputId,
+    appearance,
+    error,
+    disabled,
+    "aria-describedby": supportingId
+  };
   return /* @__PURE__ */ jsxs(
     "div",
     {
@@ -430,15 +776,57 @@ function FormField({
       className: cn(form_field_default.root, className),
       children: [
         /* @__PURE__ */ jsx("label", { htmlFor: inputId, className: form_field_default.label, children: label }),
-        /* @__PURE__ */ jsx(
-          "input",
+        resolvedControl === "phone" ? /* @__PURE__ */ jsx(
+          PhoneInput,
           {
-            id: inputId,
-            "data-slot": "form-field-control",
-            className: form_field_default.control,
+            ...controlProps,
+            country,
+            defaultCountry,
+            onCountryChange,
+            countries,
+            placeholder,
+            value,
+            defaultValue,
+            ...props
+          }
+        ) : resolvedControl === "select" ? /* @__PURE__ */ jsxs(
+          Select,
+          {
+            value,
+            defaultValue,
+            onValueChange,
             disabled,
-            "aria-invalid": error && !disabled ? true : void 0,
-            "aria-describedby": supportingId,
+            children: [
+              /* @__PURE__ */ jsx(SelectTrigger, { ...controlProps, children: /* @__PURE__ */ jsx(SelectValue, { placeholder }) }),
+              /* @__PURE__ */ jsx(SelectContent, { children: options?.map((option) => /* @__PURE__ */ jsx(
+                SelectItem,
+                {
+                  value: option.value,
+                  disabled: option.disabled,
+                  children: option.label
+                },
+                option.value
+              )) })
+            ]
+          }
+        ) : resolvedControl === "textarea" ? /* @__PURE__ */ jsx(
+          TextArea,
+          {
+            rows,
+            placeholder,
+            value,
+            defaultValue,
+            ...controlProps,
+            ...props
+          }
+        ) : /* @__PURE__ */ jsx(
+          TextInput,
+          {
+            type,
+            placeholder,
+            value,
+            defaultValue,
+            ...controlProps,
             ...props
           }
         ),
@@ -581,6 +969,60 @@ function Tag({
   );
 }
 
+// src/components/toast/toast.module.css
+var toast_default = {
+  root: "toast_root",
+  icon: "toast_icon",
+  copy: "toast_copy",
+  title: "toast_title",
+  message: "toast_message",
+  link: "toast_link"
+};
+function Toast({
+  intent = "info",
+  icon,
+  title,
+  message,
+  link,
+  onDismiss,
+  dismissLabel = "Cerrar",
+  className,
+  ...props
+}) {
+  const titleId = React3.useId();
+  const messageId = React3.useId();
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "toast",
+      "data-intent": intent,
+      role: intent === "danger" || intent === "warning" ? "alert" : "status",
+      "aria-labelledby": titleId,
+      "aria-describedby": messageId,
+      className: cn(toast_default.root, className),
+      ...props,
+      children: [
+        icon ? /* @__PURE__ */ jsx("span", { className: toast_default.icon, "aria-hidden": "true", children: icon }) : null,
+        /* @__PURE__ */ jsxs("div", { className: toast_default.copy, children: [
+          /* @__PURE__ */ jsx("p", { id: titleId, className: toast_default.title, children: title }),
+          /* @__PURE__ */ jsx("p", { id: messageId, className: toast_default.message, children: message }),
+          link ? /* @__PURE__ */ jsx("div", { className: toast_default.link, children: link }) : null
+        ] }),
+        /* @__PURE__ */ jsx(
+          IconButton,
+          {
+            hierarchy: "tertiary",
+            size: "sm",
+            icon: /* @__PURE__ */ jsx(CloseIcon, {}),
+            "aria-label": dismissLabel,
+            onClick: onDismiss
+          }
+        )
+      ]
+    }
+  );
+}
+
 // src/components/badge/badge.module.css
 var badge_default = {
   root: "badge_root"
@@ -601,6 +1043,60 @@ function Badge({
       className: cn(badge_default.root, className),
       ...props,
       children: label
+    }
+  );
+}
+
+// src/components/banner/banner.module.css
+var banner_default = {
+  root: "banner_root",
+  icon: "banner_icon",
+  copy: "banner_copy",
+  title: "banner_title",
+  message: "banner_message",
+  link: "banner_link"
+};
+function Banner({
+  intent = "info",
+  icon,
+  title,
+  message,
+  link,
+  onDismiss,
+  dismissLabel = "Cerrar",
+  className,
+  ...props
+}) {
+  const titleId = React3.useId();
+  const messageId = React3.useId();
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "banner",
+      "data-intent": intent,
+      role: intent === "danger" || intent === "warning" ? "alert" : "status",
+      "aria-labelledby": titleId,
+      "aria-describedby": messageId,
+      className: cn(banner_default.root, className),
+      ...props,
+      children: [
+        icon ? /* @__PURE__ */ jsx("span", { className: banner_default.icon, "aria-hidden": "true", children: icon }) : null,
+        /* @__PURE__ */ jsxs("div", { className: banner_default.copy, children: [
+          /* @__PURE__ */ jsx("p", { id: titleId, className: banner_default.title, children: title }),
+          /* @__PURE__ */ jsx("p", { id: messageId, className: banner_default.message, children: message }),
+          link ? /* @__PURE__ */ jsx("div", { className: banner_default.link, children: link }) : null
+        ] }),
+        onDismiss ? /* @__PURE__ */ jsx(
+          IconButton,
+          {
+            hierarchy: "tertiary",
+            size: "sm",
+            icon: /* @__PURE__ */ jsx(CloseIcon, {}),
+            "aria-label": dismissLabel,
+            onClick: onDismiss
+          }
+        ) : null
+      ]
     }
   );
 }
@@ -648,6 +1144,48 @@ function Divider({ orientation = "horizontal", thickness = 1, className, ...prop
   );
 }
 
+// src/components/empty-state/empty-state.module.css
+var empty_state_default = {
+  root: "empty_state_root",
+  visual: "empty_state_visual",
+  copy: "empty_state_copy",
+  title: "empty_state_title",
+  message: "empty_state_message",
+  action: "empty_state_action"
+};
+function EmptyState({
+  type = "empty",
+  icon,
+  title,
+  message,
+  action,
+  className,
+  ...props
+}) {
+  const titleId = React3.useId();
+  const messageId = React3.useId();
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "empty-state",
+      "data-type": type,
+      role: type === "error" ? "alert" : type === "success" ? "status" : void 0,
+      "aria-labelledby": titleId,
+      "aria-describedby": messageId,
+      className: cn(empty_state_default.root, className),
+      ...props,
+      children: [
+        icon ? /* @__PURE__ */ jsx("span", { className: empty_state_default.visual, "aria-hidden": "true", children: icon }) : null,
+        /* @__PURE__ */ jsxs("div", { className: empty_state_default.copy, children: [
+          /* @__PURE__ */ jsx("p", { id: titleId, className: empty_state_default.title, children: title }),
+          /* @__PURE__ */ jsx("p", { id: messageId, className: empty_state_default.message, children: message })
+        ] }),
+        action ? /* @__PURE__ */ jsx("div", { className: empty_state_default.action, children: action }) : null
+      ]
+    }
+  );
+}
+
 // src/components/segment/segment.module.css
 var segment_default = {
   root: "segment_root",
@@ -680,6 +1218,60 @@ function Segment({
       children: [
         icon ? /* @__PURE__ */ jsx("span", { className: segment_default.iconWrapper, "aria-hidden": "true", children: icon }) : null,
         label
+      ]
+    }
+  );
+}
+
+// src/components/alert/alert.module.css
+var alert_default = {
+  root: "alert_root",
+  icon: "alert_icon",
+  copy: "alert_copy",
+  title: "alert_title",
+  message: "alert_message",
+  link: "alert_link"
+};
+function Alert({
+  intent = "info",
+  icon,
+  title,
+  message,
+  link,
+  onDismiss,
+  dismissLabel = "Cerrar",
+  className,
+  ...props
+}) {
+  const titleId = React3.useId();
+  const messageId = React3.useId();
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "alert",
+      "data-intent": intent,
+      role: intent === "danger" || intent === "warning" ? "alert" : "status",
+      "aria-labelledby": titleId,
+      "aria-describedby": messageId,
+      className: cn(alert_default.root, className),
+      ...props,
+      children: [
+        icon ? /* @__PURE__ */ jsx("span", { className: alert_default.icon, "aria-hidden": "true", children: icon }) : null,
+        /* @__PURE__ */ jsxs("div", { className: alert_default.copy, children: [
+          /* @__PURE__ */ jsx("p", { id: titleId, className: alert_default.title, children: title }),
+          /* @__PURE__ */ jsx("p", { id: messageId, className: alert_default.message, children: message }),
+          link ? /* @__PURE__ */ jsx("div", { className: alert_default.link, children: link }) : null
+        ] }),
+        onDismiss ? /* @__PURE__ */ jsx(
+          IconButton,
+          {
+            hierarchy: "tertiary",
+            size: "sm",
+            icon: /* @__PURE__ */ jsx(CloseIcon, {}),
+            "aria-label": dismissLabel,
+            onClick: onDismiss
+          }
+        ) : null
       ]
     }
   );
@@ -780,13 +1372,174 @@ function Radio({ className, ...props }) {
   );
 }
 
+// src/components/bar/bar.module.css
+var bar_default = {
+  root: "bar_root",
+  indicator: "bar_indicator"
+};
+function Bar({ className, value = 0, max = 100, ...props }) {
+  const numericMax = max ?? 100;
+  const numericValue = typeof value === "number" ? value : 0;
+  const percent = numericMax > 0 ? Math.min(100, Math.max(0, numericValue / numericMax * 100)) : 0;
+  return /* @__PURE__ */ jsx(
+    Progress.Root,
+    {
+      "data-slot": "bar",
+      className: cn(bar_default.root, className),
+      value,
+      max,
+      ...props,
+      children: /* @__PURE__ */ jsx(
+        Progress.Indicator,
+        {
+          "data-slot": "bar-indicator",
+          className: bar_default.indicator,
+          style: { width: `${percent}%` }
+        }
+      )
+    }
+  );
+}
+
+// src/components/progress-bar/progress-bar.module.css
+var progress_bar_default = {
+  root: "progress_bar_root",
+  label: "progress_bar_label",
+  row: "progress_bar_row",
+  bar: "progress_bar_bar",
+  value: "progress_bar_value"
+};
+function formatValue(value, max, valueFormat) {
+  if (valueFormat === "fraction") {
+    return `${value} / ${max}`;
+  }
+  const percent = max > 0 ? Math.round(value / max * 100) : 0;
+  return `${percent}%`;
+}
+function ProgressBar({
+  label,
+  value = 0,
+  max = 100,
+  valueFormat = "percent",
+  className,
+  ...props
+}) {
+  const labelId = React3.useId();
+  const numericMax = max > 0 ? max : 100;
+  const numericValue = Math.min(numericMax, Math.max(0, value));
+  const displayValue = formatValue(numericValue, numericMax, valueFormat);
+  const valueText = valueFormat === "fraction" ? `${numericValue} de ${numericMax}` : displayValue;
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "progress-bar",
+      "data-value-format": valueFormat,
+      className: cn(progress_bar_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx("span", { id: labelId, className: progress_bar_default.label, children: label }),
+        /* @__PURE__ */ jsxs("div", { className: progress_bar_default.row, children: [
+          /* @__PURE__ */ jsx(
+            Bar,
+            {
+              className: progress_bar_default.bar,
+              value: numericValue,
+              max: numericMax,
+              "aria-labelledby": labelId,
+              "aria-valuetext": valueText
+            }
+          ),
+          /* @__PURE__ */ jsx("span", { className: progress_bar_default.value, "aria-hidden": "true", children: displayValue })
+        ] })
+      ]
+    }
+  );
+}
+
+// src/components/progress-indicator/progress-indicator.module.css
+var progress_indicator_default = {
+  list: "progress_indicator_list",
+  item: "progress_indicator_item",
+  connector: "progress_indicator_connector",
+  line: "progress_indicator_line"
+};
+function getStepState(child) {
+  if (React3.isValidElement(child)) {
+    return child.props.state ?? "upcoming";
+  }
+  return "upcoming";
+}
+function connectorState(previous) {
+  return previous === "completed" ? "completed" : "upcoming";
+}
+function ProgressIndicator({
+  className,
+  children,
+  "aria-label": ariaLabel = "Progreso",
+  ...props
+}) {
+  const items = React3.Children.toArray(children).filter(Boolean);
+  return /* @__PURE__ */ jsx(
+    "nav",
+    {
+      "data-slot": "progress-indicator",
+      "aria-label": ariaLabel,
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ jsx("ol", { className: progress_indicator_default.list, children: items.map((child, index) => /* @__PURE__ */ jsxs("li", { className: progress_indicator_default.item, children: [
+        child,
+        index < items.length - 1 ? /* @__PURE__ */ jsx(
+          "span",
+          {
+            "data-slot": "progress-indicator-connector",
+            className: progress_indicator_default.connector,
+            "data-state": connectorState(getStepState(child)),
+            "aria-hidden": "true",
+            children: /* @__PURE__ */ jsx("span", { className: progress_indicator_default.line })
+          }
+        ) : null
+      ] }, index)) })
+    }
+  );
+}
+
+// src/components/progress-step/progress-step.module.css
+var progress_step_default = {
+  root: "progress_step_root",
+  marker: "progress_step_marker",
+  label: "progress_step_label"
+};
+function ProgressStep({
+  state = "upcoming",
+  label,
+  icon,
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "progress-step",
+      "data-state": state,
+      "aria-current": state === "current" ? "step" : void 0,
+      "aria-disabled": state === "disabled" ? true : void 0,
+      className: cn(progress_step_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx("span", { className: progress_step_default.marker, "aria-hidden": "true", children: icon }),
+        /* @__PURE__ */ jsx("span", { className: progress_step_default.label, children: label })
+      ]
+    }
+  );
+}
+
 // src/components/checkbox/checkbox.module.css
 var checkbox_default = {
   root: "checkbox_root",
   indicator: "checkbox_indicator",
   checkIcon: "checkbox_checkIcon",
   mixedIcon: "checkbox_mixedIcon"};
-function CheckIcon() {
+function CheckIcon2() {
   return /* @__PURE__ */ jsx(
     "svg",
     {
@@ -847,7 +1600,7 @@ function Checkbox({ className, ...props }) {
           "data-slot": "checkbox-indicator",
           className: checkbox_default.indicator,
           children: [
-            /* @__PURE__ */ jsx("span", { className: checkbox_default.checkIcon, children: /* @__PURE__ */ jsx(CheckIcon, {}) }),
+            /* @__PURE__ */ jsx("span", { className: checkbox_default.checkIcon, children: /* @__PURE__ */ jsx(CheckIcon2, {}) }),
             /* @__PURE__ */ jsx("span", { className: checkbox_default.mixedIcon, children: /* @__PURE__ */ jsx(MixedIcon, {}) })
           ]
         }
@@ -886,6 +1639,6 @@ function Switch({ className, ...props }) {
   );
 }
 
-export { Avatar, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, Checkbox, ChipGroup, CounterBadge, Divider, FilterChip, FloatingActionButton, FormField, IconButton, InputChip, Link, ListItem, Radio, RadioGroup, Segment, Status, Switch, TabItem, Tag };
+export { Alert, Avatar, Badge, Banner, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, Checkbox, ChipGroup, CounterBadge, DEFAULT_PHONE_COUNTRIES, Divider, EmptyState, FilterChip, FloatingActionButton, FormField, IconButton, InputChip, Link, ListItem, PhoneInput, ProgressBar, ProgressIndicator, ProgressStep, Radio, RadioGroup, Segment, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Status, Switch, TabItem, Tag, Toast };
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map

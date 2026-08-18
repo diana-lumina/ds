@@ -1,0 +1,85 @@
+/* Primitivo interno: outlined | underline × default | error | disabled. */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+  min-height: var(--tec-component-text-area-control-min-height, var(--component-text-area-control-min-height, 120px));
+  margin: 0;
+  padding: var(--tec-component-text-area-control-padding-block, var(--component-text-area-control-padding-block, 12px))
+    var(--tec-component-text-area-control-padding-inline, var(--component-text-area-control-padding-inline, 12px));
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--tec-component-form-field-control-content-gap, var(--component-form-field-control-content-gap, 8px));
+  appearance: none;
+  resize: vertical;
+  color: var(--tec-component-form-field-color-value-default, var(--component-form-field-color-value-default));
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.root:focus {
+  outline: none;
+}
+
+.root:disabled {
+  color: var(--component-form-field-color-value-disabled, #737373);
+  pointer-events: none;
+  cursor: not-allowed;
+  resize: none;
+}
+
+/* ===== Outlined ===== */
+.root[data-appearance='outlined'] {
+  border-radius: var(--tec-component-form-field-control-radius, var(--component-form-field-control-radius, 8px));
+  border: var(--tec-component-form-field-control-border-width, var(--component-form-field-control-border-width, 1px))
+    solid var(--tec-component-form-field-color-border-default, var(--component-form-field-color-border-default));
+  background: var(--tec-component-form-field-color-surface-default, var(--component-form-field-color-surface-default));
+}
+
+.root[data-appearance='outlined']:focus-visible:not(:disabled) {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-text-area-color-border-focus-visible, var(--component-text-field-color-focus-ring, #2563EB));
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.root[data-appearance='outlined'][data-error='true'] {
+  border-color: var(--component-form-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='outlined']:disabled {
+  border-color: var(--component-form-field-color-border-disabled, #D4D4D4);
+  background: var(--component-form-field-color-surface-disabled, #E5E5E5);
+}
+
+/* ===== Underline ===== */
+.root[data-appearance='underline'] {
+  border: none;
+  border-radius: var(--component-text-area-control-underline-radius, 0);
+  border-bottom: var(--tec-component-form-field-control-border-width, var(--component-form-field-control-border-width, 1px))
+    solid var(--tec-component-form-field-color-border-default, var(--component-form-field-color-border-default));
+  background: var(--component-text-area-color-surface-underline, rgba(255, 255, 255, 0));
+}
+
+.root[data-appearance='underline']:focus-visible:not(:disabled) {
+  border-bottom-width: var(--component-text-area-control-underline-focus-border-width, 2px);
+  border-bottom-color: var(--component-text-area-color-border-focus-visible, #2563EB);
+}
+
+.root[data-appearance='underline'][data-error='true'] {
+  border-bottom-color: var(--component-form-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='underline'][data-error='true']:focus-visible:not(:disabled) {
+  border-bottom-width: var(--component-text-area-control-underline-focus-border-width, 2px);
+  border-bottom-color: var(--component-form-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='underline']:disabled {
+  border-bottom-color: var(--component-form-field-color-border-disabled, #D4D4D4);
+  background: var(--component-text-field-color-surface-disabled, #E5E5E5);
+}

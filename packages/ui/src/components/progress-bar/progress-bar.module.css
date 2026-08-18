@@ -1,0 +1,46 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  gap: var(--component-progress-bar-gap, 8px);
+}
+
+.label {
+  color: var(
+    --tec-component-progress-bar-color-label,
+    var(--component-progress-bar-color-label, #231f20)
+  );
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--component-progress-bar-row-gap, 12px);
+}
+
+.bar {
+  flex: 1;
+  min-width: 0;
+}
+
+.value {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: var(
+    --tec-component-progress-bar-color-value,
+    var(--component-progress-bar-color-value, #58585b)
+  );
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}

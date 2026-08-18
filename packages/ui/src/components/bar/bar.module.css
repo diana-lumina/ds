@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  height: 8px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 999px;
+  background: var(--component-progress-bar-color-track, #f5f5f5);
+}
+
+.indicator {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--component-progress-bar-color-indicator, #1d4ed8);
+}

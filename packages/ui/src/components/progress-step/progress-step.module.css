@@ -1,0 +1,85 @@
+.root {
+  display: flex;
+  width: 120px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.marker {
+  display: flex;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  flex-shrink: 0;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.marker svg {
+  width: 16px;
+  height: 16px;
+}
+
+.label {
+  color: var(--component-progress-indicator-color-text-default, #231f20);
+  text-align: center;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.root[data-state='completed'] .marker {
+  background: var(--component-progress-indicator-color-marker-completed-background, #1d4ed8);
+  color: var(--component-progress-indicator-color-marker-completed-icon);
+}
+
+.root[data-state='current'] .marker {
+  background: var(--component-progress-indicator-color-marker-current-background);
+  border: 2px solid var(--component-progress-indicator-color-marker-current-border);
+  color: var(--component-progress-indicator-color-marker-current-content);
+}
+
+.root[data-state='current'] .label {
+  font-weight: var(--typography-font-weight-semibold, 600);
+}
+
+.root[data-state='upcoming'] .marker {
+  border: 1px solid var(--component-progress-indicator-color-marker-upcoming-border);
+  background: var(--component-progress-indicator-color-marker-upcoming-background);
+  color: var(--component-progress-indicator-color-text-muted);
+}
+
+.root[data-state='upcoming'] .label {
+  color: var(--component-progress-indicator-color-text-muted);
+}
+
+.root[data-state='error'] .marker {
+  background: var(--component-progress-indicator-color-marker-error-background);
+  border: 1px solid var(--component-progress-indicator-color-marker-error-border);
+  color: var(--component-progress-indicator-color-marker-error-icon);
+}
+
+.root[data-state='error'] .label {
+  color: var(--component-progress-indicator-color-text-error);
+  font-weight: var(--typography-font-weight-semibold, 600);
+}
+
+.root[data-state='disabled'] .marker {
+  background: var(--component-progress-indicator-color-marker-disabled-background);
+  color: var(--component-progress-indicator-color-text-muted);
+}
+
+.root[data-state='disabled'] .label {
+  color: var(--component-progress-indicator-color-text-muted);
+}

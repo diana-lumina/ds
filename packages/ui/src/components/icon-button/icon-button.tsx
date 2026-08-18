@@ -9,7 +9,8 @@ export interface IconButtonProps
   extends Omit<React.ComponentProps<"button">, 'children'> {
   icon?: React.ReactNode
   size?: 'sm' | 'md' | 'lg'
-  /** standard sobre superficies claras · inverse sobre oscuras / brand. Hierarchy = Primary (fija). */
+  hierarchy?: 'primary' | 'tertiary'
+  /** standard sobre superficies claras · inverse sobre oscuras / brand. Solo aplica a primary. */
   tone?: 'standard' | 'inverse'
   loading?: boolean
   'aria-label': string
@@ -18,6 +19,7 @@ export interface IconButtonProps
 export function IconButton({
   icon,
   size = 'md',
+  hierarchy = 'primary',
   tone = 'standard',
   loading = false,
   className,
@@ -25,12 +27,14 @@ export function IconButton({
   ...props
 }: IconButtonProps) {
   const displayIcon = loading ? <LoadingIcon /> : icon
+  const effectiveTone = hierarchy === 'primary' ? tone : 'standard'
 
   return (
     <button
       data-slot="icon-button"
       data-size={size}
-      data-tone={tone}
+      data-hierarchy={hierarchy}
+      data-tone={effectiveTone}
       data-loading={loading || undefined}
       aria-busy={loading || undefined}
       disabled={disabled || loading}

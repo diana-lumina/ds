@@ -1,0 +1,85 @@
+/* Un solo cromo visual; Select y TextInput van embedded. */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--tec-component-text-field-control-height, var(--component-text-field-control-height, 48px));
+  min-height: 48px;
+  align-items: stretch;
+  gap: var(--tec-component-phone-field-control-segment-gap, var(--component-phone-field-control-segment-gap, 12px));
+}
+
+.root[data-appearance='outlined'] {
+  border-radius: var(--tec-component-text-field-control-radius, var(--component-text-field-control-radius, 8px));
+  border: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
+    solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
+  background: var(--tec-component-text-field-color-surface-default, var(--component-text-field-color-surface-default));
+}
+
+.root[data-appearance='outlined']:is(:focus-within, :has([data-state='open'])):not([data-disabled]) {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-text-field-color-focus-ring, #2563EB);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.root[data-appearance='outlined'][data-error='true'] {
+  border-color: var(--component-text-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='outlined'][data-disabled] {
+  border-color: var(--component-text-field-color-border-disabled, #D4D4D4);
+  background: var(--component-text-field-color-surface-disabled, #E5E5E5);
+}
+
+.root[data-appearance='underline'] {
+  border: none;
+  border-radius: var(--component-text-field-control-underline-radius, 0);
+  border-bottom: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
+    solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
+  background: var(--component-text-field-color-surface-underline, rgba(255, 255, 255, 0));
+}
+
+.root[data-appearance='underline']:is(:focus-within, :has([data-state='open'])):not([data-disabled]) {
+  border-bottom-width: var(--component-text-field-control-underline-focus-border-width, 2px);
+  border-bottom-color: var(--component-text-field-color-border-focus-visible, var(--component-text-field-color-focus-ring, #2563EB));
+}
+
+.root[data-appearance='underline'][data-error='true'] {
+  border-bottom-color: var(--component-text-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='underline'][data-error='true']:is(:focus-within, :has([data-state='open'])):not([data-disabled]) {
+  border-bottom-width: var(--component-text-field-control-underline-focus-border-width, 2px);
+  border-bottom-color: var(--component-text-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='underline'][data-disabled] {
+  border-bottom-color: var(--component-text-field-color-border-disabled, #D4D4D4);
+  background: var(--component-text-field-color-surface-disabled, #E5E5E5);
+}
+
+.root :is(:focus, :focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.country {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.countryTrigger {
+  width: auto;
+  min-width: 5.75rem;
+}
+
+.number {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.menu {
+  min-width: var(--phone-input-menu-width, var(--radix-select-trigger-width));
+  width: var(--phone-input-menu-width, var(--radix-select-trigger-width));
+}

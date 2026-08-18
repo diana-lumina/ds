@@ -56,9 +56,9 @@
     height: var(--component-icon-button-lg-icon-size);
 }
 
-/* ===== Tone: standard (Primary recipe) ===== */
+/* ===== Hierarchy: primary · Tone: standard ===== */
 
-.root[data-tone="standard"] {
+.root[data-hierarchy="primary"][data-tone="standard"] {
 
     background: linear-gradient(90deg,
             var(--component-icon-button-color-primary-surface-default-start) 0%,
@@ -67,7 +67,7 @@
 
 }
 
-.root[data-tone="standard"]:hover {
+.root[data-hierarchy="primary"][data-tone="standard"]:hover {
     background:
         linear-gradient(var(--component-icon-button-color-primary-surface-hover-overlay),
             var(--component-icon-button-color-primary-surface-hover-overlay)),
@@ -76,7 +76,7 @@
             var(--component-icon-button-color-primary-surface-hover-end) 100%);
 }
 
-.root[data-tone="standard"]:active:not([aria-haspopup]) {
+.root[data-hierarchy="primary"][data-tone="standard"]:active:not([aria-haspopup]) {
     background:
         linear-gradient(var(--component-icon-button-color-primary-surface-pressed-overlay),
             var(--component-icon-button-color-primary-surface-pressed-overlay)),
@@ -85,28 +85,47 @@
             var(--component-icon-button-color-primary-surface-pressed-end) 100%);
 }
 
-.root[data-tone="standard"]:disabled {
+.root[data-hierarchy="primary"][data-tone="standard"]:disabled {
     background: var(--component-icon-button-color-primary-surface-disabled);
     color: var(--component-button-color-primary-text-disabled);
 }
 
-/* ===== Tone: inverse ===== */
-.root[data-tone="inverse"] {
+/* ===== Hierarchy: primary · Tone: inverse ===== */
+.root[data-hierarchy="primary"][data-tone="inverse"] {
     background: var(--component-icon-button-color-primary-inverse-surface-default);
     color: var(--component-icon-button-color-primary-inverse-icon-default);
 }
 
-.root[data-tone="inverse"]:hover {
+.root[data-hierarchy="primary"][data-tone="inverse"]:hover {
     background: var(--component-icon-button-color-primary-inverse-surface-hover);
 }
 
-.root[data-tone="inverse"]:active:not([aria-haspopup]) {
+.root[data-hierarchy="primary"][data-tone="inverse"]:active:not([aria-haspopup]) {
     background: var(--component-icon-button-color-primary-inverse-surface-pressed);
 }
 
-.root[data-tone="inverse"]:disabled {
+.root[data-hierarchy="primary"][data-tone="inverse"]:disabled {
     background: var(--component-icon-button-color-primary-inverse-surface-disabled);
     color: var(--component-icon-button-color-primary-inverse-icon-disabled);
+}
+
+/* ===== Hierarchy: tertiary ===== */
+
+.root[data-hierarchy="tertiary"] {
+    background: transparent;
+    color: var(--component-icon-button-color-tertiary-icon-default, #0039a6);
+}
+
+.root[data-hierarchy="tertiary"]:hover {
+    background: var(--component-icon-button-color-tertiary-surface-hover, #efefef);
+}
+
+.root[data-hierarchy="tertiary"]:active:not([aria-haspopup]) {
+    background: var(--component-icon-button-color-tertiary-surface-pressed, #e5e5e5);
+}
+
+.root[data-hierarchy="tertiary"]:disabled {
+    color: var(--component-icon-button-color-tertiary-icon-disabled, #737373);
 }
 
 /* ===== LOADING ===== */

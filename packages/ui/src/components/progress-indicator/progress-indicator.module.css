@@ -1,0 +1,44 @@
+.list {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.item [data-slot='progress-step'] {
+  flex-shrink: 0;
+}
+
+.connector {
+  display: flex;
+  width: 72px;
+  height: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.line {
+  width: 72px;
+  height: 2px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(
+    --tec-component-progress-indicator-color-connector-upcoming,
+    var(--component-progress-indicator-color-connector-upcoming, #d4d4d4)
+  );
+}
+
+.connector[data-state='completed'] .line {
+  background: var(
+    --tec-component-progress-indicator-color-connector-completed,
+    var(--component-progress-indicator-color-connector-completed, #1d4ed8)
+  );
+}
