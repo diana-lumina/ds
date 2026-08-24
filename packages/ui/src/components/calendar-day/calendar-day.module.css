@@ -1,0 +1,98 @@
+/*
+ * TODO(tokens): literales / fallbacks de Figma hasta publicar --tec-component-date-picker-*
+ * (size, radius, typography, color.day.surface, color.day.text, color.focus.ring).
+ * Hover selected usa surface selected-default (no selected-hover), según spec.
+ */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 8px;
+  appearance: none;
+  background: var(
+    --component-date-picker-color-day-surface-default,
+    var(--color-surface-selection-unselected-default, #fff)
+  );
+  color: var(
+    --component-date-picker-color-day-text-default,
+    var(--color-text-selection-unselected, #171717)
+  );
+  text-align: center;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+  cursor: pointer;
+}
+
+.root:focus {
+  outline: none;
+}
+
+.root:hover:not(:disabled) {
+  background: var(
+    --component-date-picker-color-day-surface-hover,
+    var(--color-surface-selection-unselected-hover, #f5f5f5)
+  );
+}
+
+.root:focus-visible:not(:disabled) {
+  outline: var(--focus-ring-width, 2px) solid
+    var(
+      --component-date-picker-color-focus-ring,
+      var(--color-focus-ring, #2563eb)
+    );
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.root:disabled {
+  background: var(
+    --component-date-picker-color-day-surface-disabled,
+    var(--color-surface-selection-disabled, #f5f5f5)
+  );
+  color: var(
+    --component-date-picker-color-day-text-disabled,
+    var(--color-text-selection-disabled, #a3a3a3)
+  );
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* ===== Selected ===== */
+.root[data-selected='true'] {
+  background: var(
+    --component-date-picker-color-day-surface-selected,
+    var(--color-surface-selection-selected-default, #eff6ff)
+  );
+  color: var(
+    --component-date-picker-color-day-text-selected,
+    var(--color-text-selection-selected, #1d4ed8)
+  );
+}
+
+.root[data-selected='true']:hover:not(:disabled) {
+  background: var(
+    --component-date-picker-color-day-surface-selected,
+    var(--color-surface-selection-selected-default, #eff6ff)
+  );
+}
+
+.root[data-selected='true']:disabled {
+  background: var(
+    --component-date-picker-color-day-surface-disabled,
+    var(--color-surface-selection-disabled, #f5f5f5)
+  );
+  color: var(
+    --component-date-picker-color-day-text-disabled,
+    var(--color-text-selection-disabled, #a3a3a3)
+  );
+}

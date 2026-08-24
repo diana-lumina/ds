@@ -22,6 +22,38 @@ rmSync('build', { recursive: true, force: true });
  */
 let unresolvedAliases = [];
 
+/**
+ * Figma Tokens exporta `$root` cuando un grupo tiene valor propio Y hijos
+ * (ej. color.icon.inverse vale un color, y también tiene .secondary).
+ * Style Dictionary (DTCG) ignora claves que empiezan con `$` salvo $value/$type/etc,
+ * así que `{color.icon.inverse.$root}` queda como referencia rota.
+ * Renombramos `$root` → `root` (clave de token real) y reescribimos las refs.
+ */
+function renameFigmaRootKeys(node) {
+  if (!node || typeof node !== 'object' || Array.isArray(node)) return;
+
+  if (node.$root) {
+    node.root = node.$root;
+    delete node.$root;
+  }
+
+  for (const key of Object.keys(node)) {
+    if (key.startsWith('$')) continue;
+    renameFigmaRootKeys(node[key]);
+  }
+}
+
+function rewriteRootReferences(node) {
+  if (!node || typeof node !== 'object' || Array.isArray(node)) return;
+  if (typeof node.$value === 'string') {
+    node.$value = node.$value.replaceAll('.$root}', '.root}');
+  }
+  for (const key of Object.keys(node)) {
+    if (key.startsWith('$')) continue;
+    rewriteRootReferences(node[key]);
+  }
+}
+
 function pathExistsAsToken(tree, pathSegments) {
   let cur = tree;
   for (const seg of pathSegments) {
@@ -56,6 +88,8 @@ function walkAndResolve(node, tree) {
 StyleDictionary.registerPreprocessor({
   name: 'resolve-figma-aliases',
   preprocessor: (dictionary) => {
+    renameFigmaRootKeys(dictionary);
+    rewriteRootReferences(dictionary);
     walkAndResolve(dictionary, dictionary);
     return dictionary;
   },

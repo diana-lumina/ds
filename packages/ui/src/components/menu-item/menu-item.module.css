@@ -1,0 +1,49 @@
+/*
+ * TODO(tokens): literales de Figma hasta publicar --tec-component-menu-item-*
+ * (height, min-width, padding, gap, color.text, color.surface, color.focus).
+ */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: 240px;
+  height: 40px;
+  margin: 0;
+  padding: 10px 16px;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  appearance: none;
+  background: transparent;
+  color: #231f20;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+  text-align: start;
+  cursor: pointer;
+}
+
+.root:focus {
+  outline: none;
+}
+
+.root:hover:not(:disabled) {
+  background: #f5f5f5;
+}
+
+.root:active:not(:disabled) {
+  background: #e5e5e5;
+}
+
+.root:focus-visible:not(:disabled) {
+  outline: var(--focus-ring-width, 2px) solid var(--color-focus-ring, #2563eb);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.root:disabled {
+  color: #a3a3a3;
+  pointer-events: none;
+  cursor: not-allowed;
+}

@@ -10,6 +10,7 @@ export {
 } from './select'
 export type {
   SelectAppearance,
+  SelectTone,
   SelectContentProps,
   SelectGroupProps,
   SelectItemProps,

@@ -1,0 +1,68 @@
+/* PaginationItem: current × default | hover | pressed | focus-visible | disabled. */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: var(--component-pagination-item-size, 32px);
+  height: var(--component-pagination-item-size, 32px);
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--radius-4, 4px);
+  appearance: none;
+  background: transparent;
+  color: var(--component-pagination-item-color-text-default);
+  text-align: center;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+  cursor: pointer;
+}
+
+.root:focus {
+  outline: none;
+}
+
+.root:hover:not(:disabled) {
+  background: var(--component-pagination-item-color-surface-hover);
+}
+
+.root:active:not(:disabled) {
+  background: var(--component-pagination-item-color-surface-pressed);
+}
+
+.root:focus-visible:not(:disabled) {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-pagination-item-color-focus-ring, var(--color-focus-ring, #2563EB));
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.root:disabled {
+  color: var(--component-pagination-item-color-text-disabled);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* ===== Current ===== */
+.root[data-current='true'] {
+  background: var(--component-pagination-item-color-surface-current-default);
+  color: var(--component-pagination-item-color-text-current);
+}
+
+.root[data-current='true']:hover:not(:disabled) {
+  background: var(--component-pagination-item-color-surface-current-hover);
+}
+
+.root[data-current='true']:active:not(:disabled) {
+  background: var(--component-pagination-item-color-surface-current-pressed);
+}
+
+.root[data-current='true']:disabled {
+  color: var(--component-pagination-item-color-text-disabled);
+  background: var(--component-pagination-item-color-surface-current-disabled);
+}

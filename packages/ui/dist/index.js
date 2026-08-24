@@ -1,9 +1,9 @@
+import { SalesIcon, CaretDownIcon, CheckIcon, CaretUpIcon, CalendarIcon, CaretLeftIcon, CaretRightIcon, ClockIcon, CloseIcon, MagnifyingGlassIcon, XIcon, LoadingIcon } from './chunk-7O6MWCCB.js';
 import { cn } from './chunk-DN2AEEA2.js';
-import { SalesIcon, CaretDownIcon, CheckIcon, CaretUpIcon, CloseIcon, LoadingIcon } from './chunk-WCXWNPRN.js';
 import { cva } from 'class-variance-authority';
-import { jsxs, jsx } from 'react/jsx-runtime';
-import * as React3 from 'react';
-import { Avatar as Avatar$1, Select as Select$1, RadioGroup as RadioGroup$1, Checkbox as Checkbox$1, Switch as Switch$1, Progress } from 'radix-ui';
+import { jsx, jsxs } from 'react/jsx-runtime';
+import * as React11 from 'react';
+import { Avatar as Avatar$1, Select as Select$1, Popover, RadioGroup as RadioGroup$1, Checkbox as Checkbox$1, Switch as Switch$1, Progress } from 'radix-ui';
 
 // src/components/button/button.module.css
 var button_default = {
@@ -121,6 +121,40 @@ function IconButton({
   );
 }
 
+// src/components/social-button/social-button.module.css
+var social_button_default = {
+  root: "social_button_root",
+  icon: "social_button_icon"};
+function SocialButton({
+  label,
+  icon,
+  size = "md",
+  loading = false,
+  className,
+  disabled,
+  type = "button",
+  ...props
+}) {
+  const displayIcon = loading ? /* @__PURE__ */ jsx(LoadingIcon, {}) : icon;
+  return /* @__PURE__ */ jsxs(
+    "button",
+    {
+      type,
+      "data-slot": "social-button",
+      "data-size": size,
+      "data-loading": loading || void 0,
+      "aria-busy": loading || void 0,
+      disabled: disabled || loading,
+      className: cn(social_button_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx("span", { "aria-hidden": "true", className: social_button_default.icon, children: displayIcon }),
+        /* @__PURE__ */ jsx("span", { children: label })
+      ]
+    }
+  );
+}
+
 // src/components/link/link.module.css
 var link_default = {
   root: "link_root",
@@ -214,8 +248,8 @@ function Avatar({
   ...props
 }) {
   const resolvedInitials = initials ? resolveInitials(initials) : void 0;
-  const [imageStatus, setImageStatus] = React3.useState(src ? "loading" : "idle");
-  React3.useEffect(() => {
+  const [imageStatus, setImageStatus] = React11.useState(src ? "loading" : "idle");
+  React11.useEffect(() => {
     setImageStatus(src ? "loading" : "idle");
   }, [src]);
   const content = resolveContent(src, imageStatus, Boolean(resolvedInitials));
@@ -310,6 +344,95 @@ function ListItem({
   );
 }
 
+// src/components/menu-item/menu-item.module.css
+var menu_item_default = {
+  root: "menu_item_root"
+};
+function MenuItem({
+  label,
+  className,
+  disabled,
+  type = "button",
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(
+    "button",
+    {
+      type,
+      "data-slot": "menu-item",
+      disabled,
+      className: cn(menu_item_default.root, className),
+      ...props,
+      children: label
+    }
+  );
+}
+
+// src/components/navigation-item/navigation-item.module.css
+var navigation_item_default = {
+  root: "navigation_item_root",
+  icon: "navigation_item_icon"
+};
+function NavigationItem({
+  context = "navigation-bar",
+  current = false,
+  label,
+  icon,
+  className,
+  disabled,
+  type = "button",
+  ...props
+}) {
+  return /* @__PURE__ */ jsxs(
+    "button",
+    {
+      type,
+      "data-slot": "navigation-item",
+      "data-context": context,
+      "data-current": current ? "true" : void 0,
+      "data-icon": icon ? "true" : void 0,
+      "aria-current": current ? "page" : void 0,
+      disabled,
+      className: cn(navigation_item_default.root, className),
+      ...props,
+      children: [
+        icon ? /* @__PURE__ */ jsx("span", { className: navigation_item_default.icon, "aria-hidden": "true", children: icon }) : null,
+        /* @__PURE__ */ jsx("span", { className: navigation_item_default.label, children: label })
+      ]
+    }
+  );
+}
+
+// src/components/navigation-bar/navigation-bar.module.css
+var navigation_bar_default = {
+  root: "navigation_bar_root"
+};
+function withNavigationBarContext(children) {
+  return React11.Children.map(children, (child) => {
+    if (!React11.isValidElement(child)) {
+      return child;
+    }
+    return React11.cloneElement(child, { context: "navigation-bar" });
+  });
+}
+function NavigationBar({
+  children,
+  className,
+  "aria-label": ariaLabel = "Navegaci\xF3n",
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(
+    "nav",
+    {
+      "data-slot": "navigation-bar",
+      "aria-label": ariaLabel,
+      className: cn(navigation_bar_default.root, className),
+      ...props,
+      children: withNavigationBarContext(children)
+    }
+  );
+}
+
 // src/components/breadcrumb/breadcrumb.module.css
 var breadcrumb_default = {
   list: "breadcrumb_list",
@@ -331,7 +454,7 @@ function Breadcrumb({
   "aria-label": ariaLabel = "Breadcrumb",
   ...props
 }) {
-  const items = React3.Children.toArray(children).filter(Boolean);
+  const items = React11.Children.toArray(children).filter(Boolean);
   return /* @__PURE__ */ jsx(
     "nav",
     {
@@ -437,6 +560,7 @@ function SelectValue({ className, ...props }) {
 }
 function SelectTrigger({
   appearance = "outlined",
+  tone = "standard",
   error = false,
   className,
   children,
@@ -450,6 +574,7 @@ function SelectTrigger({
     {
       "data-slot": "select-trigger",
       "data-appearance": appearance,
+      "data-tone": tone,
       "data-error": showError ? "true" : void 0,
       "data-embedded": embedded ? "true" : void 0,
       className: cn(select_default.trigger, className),
@@ -552,38 +677,43 @@ function SelectScrollDownButton({
 var text_input_default = {
   root: "text_input_root"
 };
-function TextInput({
-  appearance = "outlined",
-  error = false,
-  disabled,
-  embedded = false,
-  className,
-  type = "text",
-  ...props
-}) {
-  const showError = error && !disabled;
-  return /* @__PURE__ */ jsx(
-    "input",
-    {
-      type,
-      "data-slot": "text-input",
-      "data-appearance": appearance,
-      "data-error": showError ? "true" : void 0,
-      "data-embedded": embedded ? "true" : void 0,
-      className: cn(text_input_default.root, className),
-      disabled,
-      "aria-invalid": showError ? true : void 0,
-      ...props
-    }
-  );
-}
+var TextInput = React11.forwardRef(
+  function TextInput2({
+    appearance = "outlined",
+    tone = "standard",
+    error = false,
+    disabled,
+    embedded = false,
+    className,
+    type = "text",
+    ...props
+  }, ref) {
+    const showError = error && !disabled;
+    return /* @__PURE__ */ jsx(
+      "input",
+      {
+        ref,
+        type,
+        "data-slot": "text-input",
+        "data-appearance": appearance,
+        "data-tone": tone,
+        "data-error": showError ? "true" : void 0,
+        "data-embedded": embedded ? "true" : void 0,
+        className: cn(text_input_default.root, className),
+        disabled,
+        "aria-invalid": showError ? true : void 0,
+        ...props
+      }
+    );
+  }
+);
 
 // src/components/phone-input/phone-input.module.css
 var phone_input_default = {
   root: "phone_input_root",
+  number: "phone_input_number",
   country: "phone_input_country",
   countryTrigger: "phone_input_countryTrigger",
-  number: "phone_input_number",
   menu: "phone_input_menu"
 };
 var DEFAULT_PHONE_COUNTRIES = [
@@ -598,6 +728,7 @@ var DEFAULT_PHONE_COUNTRIES = [
 ];
 function PhoneInput({
   appearance = "outlined",
+  tone = "standard",
   error = false,
   disabled,
   className,
@@ -610,11 +741,11 @@ function PhoneInput({
   placeholder = "N\xFAmero telef\xF3nico",
   ...props
 }) {
-  const generatedId = React3.useId();
+  const generatedId = React11.useId();
   const numberId = id ?? generatedId;
-  const rootRef = React3.useRef(null);
-  const [menuWidth, setMenuWidth] = React3.useState();
-  React3.useLayoutEffect(() => {
+  const rootRef = React11.useRef(null);
+  const [menuWidth, setMenuWidth] = React11.useState();
+  React11.useLayoutEffect(() => {
     const node = rootRef.current;
     if (!node) return;
     const syncWidth = () => {
@@ -632,6 +763,7 @@ function PhoneInput({
       ref: rootRef,
       "data-slot": "phone-input",
       "data-appearance": appearance,
+      "data-tone": tone,
       "data-error": showError ? "true" : void 0,
       "data-disabled": disabled || void 0,
       className: cn(phone_input_default.root, className),
@@ -649,6 +781,7 @@ function PhoneInput({
                 {
                   embedded: true,
                   appearance,
+                  tone,
                   error,
                   disabled,
                   "aria-label": countryLabel,
@@ -689,6 +822,7 @@ function PhoneInput({
             autoComplete: "tel-national",
             embedded: true,
             appearance,
+            tone,
             error,
             disabled,
             placeholder,
@@ -707,6 +841,7 @@ var text_area_default = {
 };
 function TextArea({
   appearance = "outlined",
+  tone = "standard",
   error = false,
   disabled,
   className,
@@ -718,6 +853,7 @@ function TextArea({
     {
       "data-slot": "text-area",
       "data-appearance": appearance,
+      "data-tone": tone,
       "data-error": showError ? "true" : void 0,
       className: cn(text_area_default.root, className),
       disabled,
@@ -737,6 +873,7 @@ function FormField({
   label,
   supportingText,
   appearance = "outlined",
+  tone = "standard",
   control,
   multiline = false,
   rows,
@@ -756,13 +893,14 @@ function FormField({
   placeholder,
   ...props
 }) {
-  const generatedId = React3.useId();
+  const generatedId = React11.useId();
   const inputId = id ?? generatedId;
   const supportingId = supportingText ? `${inputId}-supporting` : void 0;
   const resolvedControl = control ?? (multiline ? "textarea" : "input");
   const controlProps = {
     id: inputId,
     appearance,
+    tone,
     error,
     disabled,
     "aria-describedby": supportingId
@@ -771,6 +909,7 @@ function FormField({
     "div",
     {
       "data-slot": "form-field",
+      "data-tone": tone,
       "data-error": error && !disabled ? "true" : "false",
       "data-disabled": disabled || void 0,
       className: cn(form_field_default.root, className),
@@ -832,6 +971,730 @@ function FormField({
         ),
         supportingText ? /* @__PURE__ */ jsx("span", { id: supportingId, className: form_field_default.supporting, children: supportingText }) : null
       ]
+    }
+  );
+}
+
+// src/components/date-field/date-field.module.css
+var date_field_default = {
+  root: "date_field_root",
+  label: "date_field_label",
+  supporting: "date_field_supporting",
+  control: "date_field_control",
+  input: "date_field_input",
+  trailing: "date_field_trailing"
+};
+function DateField({
+  label,
+  supportingText,
+  appearance = "outlined",
+  tone = "standard",
+  error = false,
+  disabled,
+  calendarLabel = "Abrir calendario",
+  onCalendarClick,
+  calendarExpanded,
+  nativePicker = true,
+  className,
+  id,
+  onClick,
+  ...props
+}) {
+  const inputRef = React11.useRef(null);
+  const generatedId = React11.useId();
+  const inputId = id ?? generatedId;
+  const supportingId = supportingText ? `${inputId}-supporting` : void 0;
+  const showError = error && !disabled;
+  function openPicker(event) {
+    if (disabled) return;
+    if (onCalendarClick) {
+      onCalendarClick(event);
+      return;
+    }
+    const input = inputRef.current;
+    if (!input) return;
+    try {
+      input.showPicker?.();
+    } catch {
+      input.focus();
+    }
+  }
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "date-field",
+      "data-appearance": appearance,
+      "data-tone": tone,
+      "data-error": showError ? "true" : void 0,
+      "data-disabled": disabled || void 0,
+      className: cn(date_field_default.root, className),
+      children: [
+        /* @__PURE__ */ jsx("label", { htmlFor: inputId, className: date_field_default.label, children: label }),
+        /* @__PURE__ */ jsxs("div", { className: date_field_default.control, children: [
+          /* @__PURE__ */ jsx(
+            TextInput,
+            {
+              ref: inputRef,
+              id: inputId,
+              type: "date",
+              embedded: true,
+              appearance,
+              tone,
+              error,
+              disabled,
+              "aria-describedby": supportingId,
+              className: date_field_default.input,
+              ...props,
+              onClick: (event) => {
+                onClick?.(event);
+                if (!nativePicker) event.preventDefault();
+              }
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            "button",
+            {
+              type: "button",
+              className: date_field_default.trailing,
+              "aria-label": calendarLabel,
+              "aria-haspopup": onCalendarClick ? "dialog" : void 0,
+              "aria-expanded": onCalendarClick ? Boolean(calendarExpanded) : void 0,
+              disabled,
+              tabIndex: onCalendarClick ? 0 : -1,
+              onClick: openPicker,
+              children: /* @__PURE__ */ jsx(CalendarIcon, {})
+            }
+          )
+        ] }),
+        supportingText ? /* @__PURE__ */ jsx("span", { id: supportingId, className: date_field_default.supporting, children: supportingText }) : null
+      ]
+    }
+  );
+}
+
+// src/components/calendar-day/calendar-day.module.css
+var calendar_day_default = {
+  root: "calendar_day_root"
+};
+function CalendarDay({
+  selected = false,
+  children,
+  className,
+  disabled,
+  type = "button",
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(
+    "button",
+    {
+      type,
+      "data-slot": "calendar-day",
+      "data-selected": selected ? "true" : void 0,
+      "aria-pressed": selected,
+      disabled,
+      className: cn(calendar_day_default.root, className),
+      ...props,
+      children
+    }
+  );
+}
+
+// src/components/calendar/calendar.module.css
+var calendar_default = {
+  root: "calendar_root",
+  header: "calendar_header",
+  title: "calendar_title",
+  grid: "calendar_grid",
+  weekdays: "calendar_weekdays",
+  week: "calendar_week",
+  weekday: "calendar_weekday"
+};
+var WEEK_STARTS_ON = 1;
+function startOfDay(date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+function startOfMonth(date) {
+  return new Date(date.getFullYear(), date.getMonth(), 1);
+}
+function addMonths(date, amount) {
+  return new Date(date.getFullYear(), date.getMonth() + amount, 1);
+}
+function isSameDay(a, b) {
+  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+}
+function isSameMonth(a, b) {
+  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth();
+}
+function toTime(date) {
+  return startOfDay(date).getTime();
+}
+function buildWeeks(viewMonth) {
+  const first = startOfMonth(viewMonth);
+  const startOffset = (first.getDay() - WEEK_STARTS_ON + 7) % 7;
+  const cursor = new Date(first.getFullYear(), first.getMonth(), 1 - startOffset);
+  const weeks = [];
+  for (let week = 0; week < 6; week += 1) {
+    const days = [];
+    for (let day = 0; day < 7; day += 1) {
+      days.push(new Date(cursor));
+      cursor.setDate(cursor.getDate() + 1);
+    }
+    weeks.push(days);
+  }
+  return weeks;
+}
+function weekdayLabels(locale) {
+  const formatter = new Intl.DateTimeFormat(locale, { weekday: "short" });
+  const sunday = new Date(2026, 0, 4);
+  const start = new Date(sunday);
+  start.setDate(sunday.getDate() + WEEK_STARTS_ON);
+  return Array.from({ length: 7 }, (_, index) => {
+    const date = new Date(start);
+    date.setDate(start.getDate() + index);
+    const label = formatter.format(date).replace(/\./g, "");
+    return label.charAt(0).toUpperCase() + label.slice(1);
+  });
+}
+function monthTitle(month, locale) {
+  const label = new Intl.DateTimeFormat(locale, {
+    month: "long",
+    year: "numeric"
+  }).format(month);
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}
+function dayLabel(date, locale) {
+  return new Intl.DateTimeFormat(locale, { dateStyle: "long" }).format(date);
+}
+function Calendar({
+  value,
+  defaultValue,
+  onValueChange,
+  month: monthProp,
+  defaultMonth,
+  onMonthChange,
+  locale = "es-MX",
+  minDate,
+  maxDate,
+  previousLabel = "Mes anterior",
+  nextLabel = "Mes siguiente",
+  className,
+  ...props
+}) {
+  const titleId = React11.useId();
+  const [uncontrolledValue, setUncontrolledValue] = React11.useState(defaultValue);
+  const isControlled = value !== void 0;
+  const selected = isControlled ? value ?? void 0 : uncontrolledValue;
+  const [uncontrolledMonth, setUncontrolledMonth] = React11.useState(
+    () => startOfMonth(defaultMonth ?? value ?? defaultValue ?? /* @__PURE__ */ new Date())
+  );
+  const viewMonth = monthProp ? startOfMonth(monthProp) : uncontrolledMonth;
+  const weeks = React11.useMemo(() => buildWeeks(viewMonth), [viewMonth]);
+  const labels = React11.useMemo(() => weekdayLabels(locale), [locale]);
+  const minTime = minDate ? toTime(minDate) : void 0;
+  const maxTime = maxDate ? toTime(maxDate) : void 0;
+  function setViewMonth(next) {
+    const normalized = startOfMonth(next);
+    if (monthProp == null) setUncontrolledMonth(normalized);
+    onMonthChange?.(normalized);
+  }
+  function selectDate(next) {
+    if (!isControlled) setUncontrolledValue(next);
+    onValueChange?.(next);
+    if (!isSameMonth(next, viewMonth)) setViewMonth(next);
+  }
+  function isDisabled(date) {
+    const time = toTime(date);
+    if (minTime != null && time < minTime) return true;
+    if (maxTime != null && time > maxTime) return true;
+    return false;
+  }
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "calendar",
+      role: "group",
+      "aria-labelledby": titleId,
+      className: cn(calendar_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxs("div", { className: calendar_default.header, children: [
+          /* @__PURE__ */ jsx(
+            IconButton,
+            {
+              hierarchy: "tertiary",
+              size: "md",
+              icon: /* @__PURE__ */ jsx(CaretLeftIcon, {}),
+              "aria-label": previousLabel,
+              onClick: () => setViewMonth(addMonths(viewMonth, -1))
+            }
+          ),
+          /* @__PURE__ */ jsx("h2", { id: titleId, className: calendar_default.title, "aria-live": "polite", children: monthTitle(viewMonth, locale) }),
+          /* @__PURE__ */ jsx(
+            IconButton,
+            {
+              hierarchy: "tertiary",
+              size: "md",
+              icon: /* @__PURE__ */ jsx(CaretRightIcon, {}),
+              "aria-label": nextLabel,
+              onClick: () => setViewMonth(addMonths(viewMonth, 1))
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxs("div", { role: "grid", "aria-labelledby": titleId, className: calendar_default.grid, children: [
+          /* @__PURE__ */ jsx("div", { role: "row", className: calendar_default.weekdays, children: labels.map((label) => /* @__PURE__ */ jsx("div", { role: "columnheader", className: calendar_default.weekday, children: label }, label)) }),
+          weeks.map((week) => {
+            const firstDay = week[0];
+            if (!firstDay) return null;
+            return /* @__PURE__ */ jsx(
+              "div",
+              {
+                role: "row",
+                className: calendar_default.week,
+                children: week.map((date) => {
+                  const selectedDay = selected != null && isSameDay(date, selected);
+                  const outside = !isSameMonth(date, viewMonth);
+                  const disabled = isDisabled(date);
+                  return /* @__PURE__ */ jsx(
+                    "div",
+                    {
+                      role: "gridcell",
+                      "aria-selected": selectedDay,
+                      "data-outside": outside || void 0,
+                      children: /* @__PURE__ */ jsx(
+                        CalendarDay,
+                        {
+                          selected: selectedDay,
+                          disabled,
+                          "aria-label": dayLabel(date, locale),
+                          onClick: () => selectDate(date),
+                          children: date.getDate()
+                        }
+                      )
+                    },
+                    date.toISOString()
+                  );
+                })
+              },
+              firstDay.toISOString()
+            );
+          })
+        ] })
+      ]
+    }
+  );
+}
+
+// src/components/date-picker/date-picker.module.css
+var date_picker_default = {
+  root: "date_picker_root",
+  anchor: "date_picker_anchor",
+  content: "date_picker_content"
+};
+function toIsoDate(date) {
+  const year = String(date.getFullYear());
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+function fromIsoDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return void 0;
+  const [yearStr, monthStr, dayStr] = value.split("-");
+  if (!yearStr || !monthStr || !dayStr) return void 0;
+  const year = Number(yearStr);
+  const month = Number(monthStr);
+  const day = Number(dayStr);
+  const date = new Date(year, month - 1, day);
+  if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
+    return void 0;
+  }
+  return date;
+}
+function DatePicker({
+  label,
+  supportingText,
+  appearance = "outlined",
+  tone = "standard",
+  error = false,
+  disabled,
+  value,
+  defaultValue,
+  onValueChange,
+  minDate,
+  maxDate,
+  locale = "es-MX",
+  calendarLabel,
+  name,
+  id,
+  className,
+  ...props
+}) {
+  const fieldRef = React11.useRef(null);
+  const [open, setOpen] = React11.useState(false);
+  const [uncontrolled, setUncontrolled] = React11.useState(defaultValue);
+  const selected = value ?? uncontrolled;
+  function setSelected(next) {
+    if (value == null) setUncontrolled(next);
+    onValueChange?.(next);
+  }
+  function handleFieldChange(event) {
+    const next = event.target.value ? fromIsoDate(event.target.value) : void 0;
+    setSelected(next);
+  }
+  return /* @__PURE__ */ jsx(
+    "div",
+    {
+      "data-slot": "date-picker",
+      "data-appearance": appearance,
+      "data-tone": tone,
+      className: cn(date_picker_default.root, className),
+      ...props,
+      children: /* @__PURE__ */ jsxs(
+        Popover.Root,
+        {
+          open,
+          onOpenChange: (next) => {
+            if (disabled) return;
+            setOpen(next);
+          },
+          children: [
+            /* @__PURE__ */ jsx(Popover.Anchor, { asChild: true, children: /* @__PURE__ */ jsx("div", { ref: fieldRef, className: date_picker_default.anchor, children: /* @__PURE__ */ jsx(
+              DateField,
+              {
+                label,
+                supportingText,
+                appearance,
+                tone,
+                error,
+                disabled,
+                calendarLabel,
+                nativePicker: false,
+                calendarExpanded: open,
+                onCalendarClick: () => {
+                  if (disabled) return;
+                  setOpen((current) => !current);
+                },
+                value: selected ? toIsoDate(selected) : "",
+                onChange: handleFieldChange,
+                min: minDate ? toIsoDate(minDate) : void 0,
+                max: maxDate ? toIsoDate(maxDate) : void 0,
+                name,
+                id
+              }
+            ) }) }),
+            /* @__PURE__ */ jsx(Popover.Portal, { children: /* @__PURE__ */ jsx(
+              Popover.Content,
+              {
+                "data-slot": "date-picker-content",
+                className: date_picker_default.content,
+                side: "bottom",
+                align: "start",
+                sideOffset: 8,
+                onOpenAutoFocus: (event) => event.preventDefault(),
+                onInteractOutside: (event) => {
+                  if (fieldRef.current?.contains(event.target)) {
+                    event.preventDefault();
+                  }
+                },
+                children: /* @__PURE__ */ jsx(
+                  Calendar,
+                  {
+                    value: selected ?? null,
+                    onValueChange: (next) => {
+                      setSelected(next);
+                      setOpen(false);
+                    },
+                    defaultMonth: selected,
+                    minDate,
+                    maxDate,
+                    locale
+                  }
+                )
+              }
+            ) })
+          ]
+        }
+      )
+    }
+  );
+}
+
+// src/components/time-field/time-field.module.css
+var time_field_default = {
+  root: "time_field_root",
+  label: "time_field_label",
+  supporting: "time_field_supporting",
+  control: "time_field_control",
+  input: "time_field_input",
+  trailing: "time_field_trailing"
+};
+function TimeField({
+  label,
+  supportingText,
+  appearance = "outlined",
+  tone = "standard",
+  error = false,
+  disabled,
+  timeLabel = "Abrir selector de hora",
+  className,
+  id,
+  ...props
+}) {
+  const inputRef = React11.useRef(null);
+  const generatedId = React11.useId();
+  const inputId = id ?? generatedId;
+  const supportingId = supportingText ? `${inputId}-supporting` : void 0;
+  const showError = error && !disabled;
+  function openPicker() {
+    if (disabled) return;
+    const input = inputRef.current;
+    if (!input) return;
+    try {
+      input.showPicker?.();
+    } catch {
+      input.focus();
+    }
+  }
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "time-field",
+      "data-appearance": appearance,
+      "data-tone": tone,
+      "data-error": showError ? "true" : void 0,
+      "data-disabled": disabled || void 0,
+      className: cn(time_field_default.root, className),
+      children: [
+        /* @__PURE__ */ jsx("label", { htmlFor: inputId, className: time_field_default.label, children: label }),
+        /* @__PURE__ */ jsxs("div", { className: time_field_default.control, children: [
+          /* @__PURE__ */ jsx(
+            TextInput,
+            {
+              ref: inputRef,
+              id: inputId,
+              type: "time",
+              embedded: true,
+              appearance,
+              tone,
+              error,
+              disabled,
+              "aria-describedby": supportingId,
+              className: time_field_default.input,
+              ...props
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            "button",
+            {
+              type: "button",
+              className: time_field_default.trailing,
+              "aria-label": timeLabel,
+              disabled,
+              tabIndex: -1,
+              onClick: openPicker,
+              children: /* @__PURE__ */ jsx(ClockIcon, {})
+            }
+          )
+        ] }),
+        supportingText ? /* @__PURE__ */ jsx("span", { id: supportingId, className: time_field_default.supporting, children: supportingText }) : null
+      ]
+    }
+  );
+}
+
+// src/components/combobox/combobox.module.css
+var combobox_default = {
+  root: "combobox_root",
+  label: "combobox_label",
+  supporting: "combobox_supporting",
+  control: "combobox_control",
+  input: "combobox_input",
+  list: "combobox_list",
+  options: "combobox_options",
+  empty: "combobox_empty"
+};
+function optionLabel(options, value) {
+  if (!value) return "";
+  return options.find((option) => option.value === value)?.label ?? "";
+}
+function matchesQuery(option, query) {
+  const normalized = query.trim().toLocaleLowerCase("es-MX");
+  if (!normalized) return true;
+  return option.label.toLocaleLowerCase("es-MX").includes(normalized);
+}
+function Combobox({
+  label,
+  supportingText,
+  appearance = "outlined",
+  tone = "standard",
+  error = false,
+  disabled,
+  placeholder,
+  options,
+  value,
+  defaultValue,
+  onValueChange,
+  emptyText = "Sin resultados",
+  name,
+  id,
+  className,
+  ...props
+}) {
+  const listId = React11.useId();
+  const generatedId = React11.useId();
+  const inputId = id ?? generatedId;
+  const supportingId = supportingText ? `${inputId}-supporting` : void 0;
+  const showError = error && !disabled;
+  const fieldRef = React11.useRef(null);
+  const isControlled = value !== void 0;
+  const [uncontrolled, setUncontrolled] = React11.useState(defaultValue);
+  const selected = isControlled ? value : uncontrolled;
+  const [query, setQuery] = React11.useState(() => optionLabel(options, selected));
+  const [open, setOpen] = React11.useState(false);
+  const [highlight, setHighlight] = React11.useState(0);
+  const filtered = React11.useMemo(
+    () => options.filter((option) => matchesQuery(option, query)),
+    [options, query]
+  );
+  React11.useEffect(() => {
+    setQuery(optionLabel(options, selected));
+  }, [options, selected]);
+  React11.useEffect(() => {
+    setHighlight(0);
+  }, [query, open]);
+  function setSelected(next) {
+    if (!isControlled) setUncontrolled(next);
+    onValueChange?.(next);
+    setQuery(optionLabel(options, next));
+    setOpen(false);
+  }
+  function moveHighlight(delta) {
+    if (filtered.length === 0) return;
+    setHighlight((current) => {
+      const next = (current + delta + filtered.length) % filtered.length;
+      return next;
+    });
+  }
+  function selectHighlighted() {
+    const option = filtered[highlight];
+    if (!option || option.disabled) return;
+    setSelected(option.value);
+  }
+  return /* @__PURE__ */ jsx(
+    "div",
+    {
+      "data-slot": "combobox",
+      "data-appearance": appearance,
+      "data-tone": tone,
+      "data-error": showError ? "true" : void 0,
+      "data-disabled": disabled || void 0,
+      className: cn(combobox_default.root, className),
+      ...props,
+      children: /* @__PURE__ */ jsxs(Popover.Root, { open, onOpenChange: setOpen, children: [
+        /* @__PURE__ */ jsx("label", { htmlFor: inputId, className: combobox_default.label, children: label }),
+        /* @__PURE__ */ jsx(Popover.Anchor, { asChild: true, children: /* @__PURE__ */ jsx("div", { ref: fieldRef, className: combobox_default.control, children: /* @__PURE__ */ jsx(
+          TextInput,
+          {
+            id: inputId,
+            embedded: true,
+            appearance,
+            tone,
+            error,
+            disabled,
+            placeholder,
+            name,
+            role: "combobox",
+            "aria-expanded": open,
+            "aria-controls": listId,
+            "aria-autocomplete": "list",
+            "aria-activedescendant": open && filtered[highlight] ? `${listId}-${filtered[highlight].value}` : void 0,
+            "aria-describedby": supportingId,
+            autoComplete: "off",
+            value: query,
+            className: combobox_default.input,
+            onFocus: () => {
+              if (!disabled) setOpen(true);
+            },
+            onChange: (event) => {
+              setQuery(event.target.value);
+              if (!disabled) setOpen(true);
+            },
+            onKeyDown: (event) => {
+              if (event.key === "ArrowDown") {
+                event.preventDefault();
+                if (!open) setOpen(true);
+                else moveHighlight(1);
+              } else if (event.key === "ArrowUp") {
+                event.preventDefault();
+                if (!open) setOpen(true);
+                else moveHighlight(-1);
+              } else if (event.key === "Enter") {
+                if (open && filtered[highlight]) {
+                  event.preventDefault();
+                  selectHighlighted();
+                }
+              } else if (event.key === "Escape") {
+                setOpen(false);
+              }
+            }
+          }
+        ) }) }),
+        supportingText ? /* @__PURE__ */ jsx("span", { id: supportingId, className: combobox_default.supporting, children: supportingText }) : null,
+        /* @__PURE__ */ jsx(Popover.Portal, { children: /* @__PURE__ */ jsx(
+          Popover.Content,
+          {
+            "data-slot": "combobox-content",
+            className: cn(select_default.content, combobox_default.list),
+            side: "bottom",
+            align: "start",
+            sideOffset: 4,
+            onOpenAutoFocus: (event) => event.preventDefault(),
+            onCloseAutoFocus: (event) => event.preventDefault(),
+            onInteractOutside: (event) => {
+              if (fieldRef.current?.contains(event.target)) {
+                event.preventDefault();
+              }
+            },
+            children: /* @__PURE__ */ jsx(
+              "ul",
+              {
+                id: listId,
+                role: "listbox",
+                className: cn(select_default.viewport, combobox_default.options),
+                children: filtered.length === 0 ? /* @__PURE__ */ jsx("li", { className: combobox_default.empty, role: "presentation", children: emptyText }) : filtered.map((option, index) => {
+                  const selectedOption = option.value === selected;
+                  const highlighted = index === highlight;
+                  return /* @__PURE__ */ jsxs(
+                    "li",
+                    {
+                      id: `${listId}-${option.value}`,
+                      role: "option",
+                      "aria-selected": selectedOption,
+                      "aria-disabled": option.disabled || void 0,
+                      "data-highlighted": highlighted ? "" : void 0,
+                      "data-state": selectedOption ? "checked" : void 0,
+                      "data-disabled": option.disabled || void 0,
+                      className: select_default.item,
+                      onMouseEnter: () => {
+                        if (!option.disabled) setHighlight(index);
+                      },
+                      onMouseDown: (event) => event.preventDefault(),
+                      onClick: () => {
+                        if (option.disabled) return;
+                        setSelected(option.value);
+                      },
+                      children: [
+                        /* @__PURE__ */ jsx("span", { "data-slot": "select-item-text", children: option.label }),
+                        selectedOption ? /* @__PURE__ */ jsx("span", { className: select_default.itemIndicator, children: /* @__PURE__ */ jsx(CheckIcon, {}) }) : null
+                      ]
+                    },
+                    option.value
+                  );
+                })
+              }
+            )
+          }
+        ) })
+      ] })
     }
   );
 }
@@ -989,8 +1852,8 @@ function Toast({
   className,
   ...props
 }) {
-  const titleId = React3.useId();
-  const messageId = React3.useId();
+  const titleId = React11.useId();
+  const messageId = React11.useId();
   return /* @__PURE__ */ jsxs(
     "div",
     {
@@ -1067,8 +1930,8 @@ function Banner({
   className,
   ...props
 }) {
-  const titleId = React3.useId();
-  const messageId = React3.useId();
+  const titleId = React11.useId();
+  const messageId = React11.useId();
   return /* @__PURE__ */ jsxs(
     "div",
     {
@@ -1162,8 +2025,8 @@ function EmptyState({
   className,
   ...props
 }) {
-  const titleId = React3.useId();
-  const messageId = React3.useId();
+  const titleId = React11.useId();
+  const messageId = React11.useId();
   return /* @__PURE__ */ jsxs(
     "div",
     {
@@ -1181,6 +2044,368 @@ function EmptyState({
           /* @__PURE__ */ jsx("p", { id: messageId, className: empty_state_default.message, children: message })
         ] }),
         action ? /* @__PURE__ */ jsx("div", { className: empty_state_default.action, children: action }) : null
+      ]
+    }
+  );
+}
+
+// src/components/bar/bar.module.css
+var bar_default = {
+  root: "bar_root",
+  indicator: "bar_indicator"
+};
+function Bar({ className, value = 0, max = 100, ...props }) {
+  const numericMax = max ?? 100;
+  const numericValue = typeof value === "number" ? value : 0;
+  const percent = numericMax > 0 ? Math.min(100, Math.max(0, numericValue / numericMax * 100)) : 0;
+  return /* @__PURE__ */ jsx(
+    Progress.Root,
+    {
+      "data-slot": "bar",
+      className: cn(bar_default.root, className),
+      value,
+      max,
+      ...props,
+      children: /* @__PURE__ */ jsx(
+        Progress.Indicator,
+        {
+          "data-slot": "bar-indicator",
+          className: bar_default.indicator,
+          style: { width: `${percent}%` }
+        }
+      )
+    }
+  );
+}
+
+// src/components/file-upload-item/file-upload-item.module.css
+var file_upload_item_default = {
+  root: "file_upload_item_root",
+  main: "file_upload_item_main",
+  copy: "file_upload_item_copy",
+  bar: "file_upload_item_bar",
+  primary: "file_upload_item_primary",
+  secondary: "file_upload_item_secondary"
+};
+function FileUploadItem({
+  status = "selected",
+  tone = "standard",
+  primaryText,
+  secondaryText,
+  actionLabel,
+  onAction,
+  progress = 0,
+  className,
+  ...props
+}) {
+  const primaryId = React11.useId();
+  const secondaryId = React11.useId();
+  const isInverse = tone === "inverse";
+  const isUploading = status === "uploading";
+  const clampedProgress = Math.min(100, Math.max(0, progress));
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "file-upload-item",
+      "data-status": status,
+      "data-tone": tone,
+      role: status === "error" ? "alert" : status === "success" || isUploading ? "status" : void 0,
+      "aria-busy": isUploading || void 0,
+      "aria-labelledby": primaryId,
+      "aria-describedby": secondaryId,
+      className: cn(file_upload_item_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxs("div", { className: file_upload_item_default.main, children: [
+          /* @__PURE__ */ jsxs("div", { className: file_upload_item_default.copy, children: [
+            /* @__PURE__ */ jsx("p", { id: primaryId, className: file_upload_item_default.primary, children: primaryText }),
+            /* @__PURE__ */ jsx("p", { id: secondaryId, className: file_upload_item_default.secondary, children: secondaryText })
+          ] }),
+          /* @__PURE__ */ jsx(
+            Button,
+            {
+              size: "sm",
+              hierarchy: "secondary",
+              tone: isInverse ? "inverse" : "standard",
+              label: actionLabel,
+              onClick: onAction
+            }
+          )
+        ] }),
+        isUploading ? /* @__PURE__ */ jsx(
+          Bar,
+          {
+            className: file_upload_item_default.bar,
+            value: clampedProgress,
+            max: 100,
+            "aria-labelledby": secondaryId
+          }
+        ) : null
+      ]
+    }
+  );
+}
+
+// src/components/file-upload-drop-zone/file-upload-drop-zone.module.css
+var file_upload_drop_zone_default = {
+  root: "file_upload_drop_zone_root",
+  input: "file_upload_drop_zone_input",
+  primary: "file_upload_drop_zone_primary",
+  secondary: "file_upload_drop_zone_secondary"
+};
+function FileUploadDropZone({
+  tone = "standard",
+  disabled = false,
+  primaryText,
+  secondaryText,
+  actionLabel,
+  accept,
+  multiple,
+  onFilesChange,
+  className,
+  onDragOver,
+  onDrop,
+  ...props
+}) {
+  const inputRef = React11.useRef(null);
+  const primaryId = React11.useId();
+  const secondaryId = React11.useId();
+  const inputId = React11.useId();
+  const isInverse = tone === "inverse";
+  function openPicker() {
+    if (disabled) return;
+    inputRef.current?.click();
+  }
+  function emitFiles(files) {
+    if (disabled || !files || files.length === 0) return;
+    onFilesChange?.(files);
+  }
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "file-upload-drop-zone",
+      "data-tone": tone,
+      "data-disabled": disabled || void 0,
+      "aria-disabled": disabled || void 0,
+      "aria-labelledby": primaryId,
+      "aria-describedby": secondaryId,
+      className: cn(file_upload_drop_zone_default.root, className),
+      onDragOver: (event) => {
+        event.preventDefault();
+        onDragOver?.(event);
+      },
+      onDrop: (event) => {
+        event.preventDefault();
+        emitFiles(event.dataTransfer.files);
+        onDrop?.(event);
+      },
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx(
+          "input",
+          {
+            ref: inputRef,
+            id: inputId,
+            className: file_upload_drop_zone_default.input,
+            type: "file",
+            tabIndex: -1,
+            accept,
+            multiple,
+            disabled,
+            onChange: (event) => {
+              emitFiles(event.target.files);
+              event.target.value = "";
+            }
+          }
+        ),
+        /* @__PURE__ */ jsx("p", { id: primaryId, className: file_upload_drop_zone_default.primary, children: primaryText }),
+        /* @__PURE__ */ jsx("p", { id: secondaryId, className: file_upload_drop_zone_default.secondary, children: secondaryText }),
+        /* @__PURE__ */ jsx(
+          Button,
+          {
+            type: "button",
+            size: "sm",
+            hierarchy: "secondary",
+            tone: isInverse ? "inverse" : "standard",
+            label: actionLabel,
+            disabled,
+            onClick: openPicker
+          }
+        )
+      ]
+    }
+  );
+}
+
+// src/components/file-upload/file-upload.module.css
+var file_upload_default = {
+  root: "file_upload_root",
+  dropZone: "file_upload_dropZone",
+  trigger: "file_upload_trigger",
+  input: "file_upload_input",
+  primary: "file_upload_primary",
+  secondary: "file_upload_secondary",
+  supporting: "file_upload_supporting",
+  list: "file_upload_list",
+  item: "file_upload_item"
+};
+function formatFileSize(bytes) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+function toEntry(file, id, actionLabel) {
+  return {
+    id,
+    primaryText: file.name,
+    secondaryText: formatFileSize(file.size),
+    status: "selected",
+    actionLabel
+  };
+}
+function FileUpload({
+  type = "button",
+  tone = "standard",
+  disabled = false,
+  primaryText,
+  secondaryText,
+  actionLabel,
+  dropZonePrimaryText = "Arrastra el archivo aqu\xED",
+  dropZoneSecondaryText = "PDF, DOCX o JPG \xB7 m\xE1ximo 10 MB",
+  supportingText,
+  accept,
+  multiple = true,
+  items,
+  itemActionLabel = "Eliminar",
+  onFilesChange,
+  onItemAction,
+  className,
+  ...props
+}) {
+  const inputRef = React11.useRef(null);
+  const primaryId = React11.useId();
+  const secondaryId = React11.useId();
+  const supportingId = React11.useId();
+  const isInverse = tone === "inverse";
+  const dropTone = tone;
+  const isItemsControlled = items != null;
+  const [internalFiles, setInternalFiles] = React11.useState([]);
+  const displayedItems = isItemsControlled ? items : internalFiles.map(({ id, file }) => toEntry(file, id, itemActionLabel));
+  function emitFiles(list) {
+    if (disabled) return;
+    const incoming = Array.from(list);
+    if (incoming.length === 0) return;
+    if (!isItemsControlled) {
+      const first = incoming[0];
+      const next = multiple ? [
+        ...internalFiles,
+        ...incoming.map((file, index) => ({
+          id: `${file.name}-${file.size}-${file.lastModified}-${internalFiles.length + index}`,
+          file
+        }))
+      ] : first ? [
+        {
+          id: `${first.name}-${first.size}-${first.lastModified}`,
+          file: first
+        }
+      ] : internalFiles;
+      setInternalFiles(next);
+      onFilesChange?.(next.map((entry) => entry.file));
+      return;
+    }
+    onFilesChange?.(incoming);
+  }
+  function handleItemAction(id) {
+    if (!isItemsControlled) {
+      const next = internalFiles.filter((entry) => entry.id !== id);
+      setInternalFiles(next);
+      onFilesChange?.(next.map((entry) => entry.file));
+    }
+    onItemAction?.(id);
+  }
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "file-upload",
+      "data-type": type,
+      "data-tone": tone,
+      "data-disabled": disabled || void 0,
+      "aria-disabled": disabled || void 0,
+      "aria-labelledby": primaryId,
+      "aria-describedby": [secondaryId, supportingText ? supportingId : null].filter(Boolean).join(" ") || void 0,
+      className: cn(file_upload_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx("p", { id: primaryId, className: file_upload_default.primary, children: primaryText }),
+        /* @__PURE__ */ jsx("p", { id: secondaryId, className: file_upload_default.secondary, children: secondaryText }),
+        type === "drag-zone" ? /* @__PURE__ */ jsx(
+          FileUploadDropZone,
+          {
+            className: file_upload_default.dropZone,
+            tone: dropTone,
+            disabled,
+            primaryText: dropZonePrimaryText,
+            secondaryText: dropZoneSecondaryText,
+            actionLabel,
+            accept,
+            multiple,
+            onFilesChange: emitFiles
+          }
+        ) : /* @__PURE__ */ jsxs("div", { className: file_upload_default.trigger, children: [
+          /* @__PURE__ */ jsx(
+            "input",
+            {
+              ref: inputRef,
+              className: file_upload_default.input,
+              type: "file",
+              tabIndex: -1,
+              accept,
+              multiple,
+              disabled,
+              onChange: (event) => {
+                emitFiles(event.target.files ?? []);
+                event.target.value = "";
+              }
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            Button,
+            {
+              type: "button",
+              size: "sm",
+              hierarchy: "secondary",
+              tone: isInverse ? "inverse" : "standard",
+              label: actionLabel,
+              disabled,
+              onClick: () => {
+                if (disabled) return;
+                inputRef.current?.click();
+              }
+            }
+          )
+        ] }),
+        supportingText ? /* @__PURE__ */ jsx(
+          "p",
+          {
+            id: supportingId,
+            className: file_upload_default.supporting,
+            "data-tone": tone,
+            children: supportingText
+          }
+        ) : null,
+        displayedItems.length > 0 ? /* @__PURE__ */ jsx("ul", { className: file_upload_default.list, children: displayedItems.map((item) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+          FileUploadItem,
+          {
+            className: file_upload_default.item,
+            status: item.status,
+            tone,
+            primaryText: item.primaryText,
+            secondaryText: item.secondaryText,
+            actionLabel: item.actionLabel ?? itemActionLabel,
+            progress: item.progress,
+            onAction: () => handleItemAction(item.id)
+          }
+        ) }, item.id)) }) : null
       ]
     }
   );
@@ -1223,6 +2448,44 @@ function Segment({
   );
 }
 
+// src/components/side-navigation/side-navigation.module.css
+var side_navigation_default = {
+  root: "side_navigation_root",
+  heading: "side_navigation_heading",
+  list: "side_navigation_list"
+};
+function withSideNavigationContext(children) {
+  return React11.Children.map(children, (child) => {
+    if (!React11.isValidElement(child)) {
+      return child;
+    }
+    return React11.cloneElement(child, { context: "side-navigation" });
+  });
+}
+function SideNavigation({
+  heading,
+  children,
+  className,
+  "aria-label": ariaLabel,
+  ...props
+}) {
+  const headingId = React11.useId();
+  return /* @__PURE__ */ jsxs(
+    "nav",
+    {
+      "data-slot": "side-navigation",
+      "aria-label": heading ? void 0 : ariaLabel ?? "Navegaci\xF3n",
+      "aria-labelledby": heading ? headingId : void 0,
+      className: cn(side_navigation_default.root, className),
+      ...props,
+      children: [
+        heading ? /* @__PURE__ */ jsx("h2", { id: headingId, className: side_navigation_default.heading, children: heading }) : null,
+        /* @__PURE__ */ jsx("div", { className: side_navigation_default.list, children: withSideNavigationContext(children) })
+      ]
+    }
+  );
+}
+
 // src/components/alert/alert.module.css
 var alert_default = {
   root: "alert_root",
@@ -1243,8 +2506,8 @@ function Alert({
   className,
   ...props
 }) {
-  const titleId = React3.useId();
-  const messageId = React3.useId();
+  const titleId = React11.useId();
+  const messageId = React11.useId();
   return /* @__PURE__ */ jsxs(
     "div",
     {
@@ -1372,31 +2635,170 @@ function Radio({ className, ...props }) {
   );
 }
 
-// src/components/bar/bar.module.css
-var bar_default = {
-  root: "bar_root",
-  indicator: "bar_indicator"
+// src/components/search/search.module.css
+var search_default = {
+  root: "search_root",
+  input: "search_input",
+  leading: "search_leading",
+  clear: "search_clear"
 };
-function Bar({ className, value = 0, max = 100, ...props }) {
-  const numericMax = max ?? 100;
-  const numericValue = typeof value === "number" ? value : 0;
-  const percent = numericMax > 0 ? Math.min(100, Math.max(0, numericValue / numericMax * 100)) : 0;
-  return /* @__PURE__ */ jsx(
-    Progress.Root,
+function Search({
+  appearance = "outlined",
+  tone = "standard",
+  error = false,
+  disabled,
+  className,
+  value,
+  defaultValue,
+  onChange,
+  onClear,
+  clearLabel = "Borrar b\xFAsqueda",
+  placeholder = "Buscar",
+  id,
+  ...props
+}) {
+  const inputRef = React11.useRef(null);
+  const generatedId = React11.useId();
+  const inputId = id ?? generatedId;
+  const isControlled = value !== void 0;
+  const [uncontrolled, setUncontrolled] = React11.useState(
+    () => defaultValue == null ? "" : String(defaultValue)
+  );
+  const current = isControlled ? String(value ?? "") : uncontrolled;
+  const showError = error && !disabled;
+  const showClear = current.length > 0 && !disabled;
+  function handleChange(event) {
+    if (!isControlled) setUncontrolled(event.target.value);
+    onChange?.(event);
+  }
+  function handleClear() {
+    if (!isControlled) setUncontrolled("");
+    onClear?.();
+    onChange?.({
+      target: { value: "" },
+      currentTarget: { value: "" }
+    });
+    inputRef.current?.focus();
+  }
+  return /* @__PURE__ */ jsxs(
+    "div",
     {
-      "data-slot": "bar",
-      className: cn(bar_default.root, className),
-      value,
-      max,
+      "data-slot": "search",
+      "data-appearance": appearance,
+      "data-tone": tone,
+      "data-error": showError ? "true" : void 0,
+      "data-disabled": disabled || void 0,
+      className: cn(search_default.root, className),
+      children: [
+        /* @__PURE__ */ jsx("span", { "aria-hidden": "true", className: search_default.leading, children: /* @__PURE__ */ jsx(MagnifyingGlassIcon, {}) }),
+        /* @__PURE__ */ jsx(
+          TextInput,
+          {
+            ref: inputRef,
+            id: inputId,
+            type: "search",
+            embedded: true,
+            appearance,
+            tone,
+            error,
+            disabled,
+            placeholder,
+            ...props,
+            value: current,
+            className: cn(search_default.input),
+            onChange: handleChange
+          }
+        ),
+        showClear ? /* @__PURE__ */ jsx(
+          "button",
+          {
+            type: "button",
+            className: search_default.clear,
+            "aria-label": clearLabel,
+            onClick: handleClear,
+            children: /* @__PURE__ */ jsx(XIcon, {})
+          }
+        ) : null
+      ]
+    }
+  );
+}
+
+// src/components/pagination-item/pagination-item.module.css
+var pagination_item_default = {
+  root: "pagination_item_root"
+};
+function PaginationItem({
+  current = false,
+  children,
+  className,
+  disabled,
+  type = "button",
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(
+    "button",
+    {
+      type,
+      "data-slot": "pagination-item",
+      "data-current": current ? "true" : void 0,
+      "aria-current": current ? "page" : void 0,
+      disabled,
+      className: cn(pagination_item_default.root, className),
       ...props,
-      children: /* @__PURE__ */ jsx(
-        Progress.Indicator,
-        {
-          "data-slot": "bar-indicator",
-          className: bar_default.indicator,
-          style: { width: `${percent}%` }
-        }
-      )
+      children
+    }
+  );
+}
+
+// src/components/pagination/pagination.module.css
+var pagination_default = {
+  root: "pagination_root"
+};
+function Pagination({
+  children,
+  onPrevious,
+  onNext,
+  previousDisabled = false,
+  nextDisabled = false,
+  previousLabel = "P\xE1gina anterior",
+  nextLabel = "P\xE1gina siguiente",
+  className,
+  "aria-label": ariaLabel = "Paginaci\xF3n",
+  ...props
+}) {
+  return /* @__PURE__ */ jsxs(
+    "nav",
+    {
+      "data-slot": "pagination",
+      "aria-label": ariaLabel,
+      className: cn(pagination_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx(
+          IconButton,
+          {
+            hierarchy: "tertiary",
+            size: "md",
+            icon: /* @__PURE__ */ jsx(CaretLeftIcon, {}),
+            "aria-label": previousLabel,
+            disabled: previousDisabled,
+            onClick: onPrevious
+          }
+        ),
+        children,
+        /* @__PURE__ */ jsx(
+          IconButton,
+          {
+            hierarchy: "tertiary",
+            size: "md",
+            icon: /* @__PURE__ */ jsx(CaretRightIcon, {}),
+            "aria-label": nextLabel,
+            disabled: nextDisabled,
+            onClick: onNext
+          }
+        )
+      ]
     }
   );
 }
@@ -1424,7 +2826,7 @@ function ProgressBar({
   className,
   ...props
 }) {
-  const labelId = React3.useId();
+  const labelId = React11.useId();
   const numericMax = max > 0 ? max : 100;
   const numericValue = Math.min(numericMax, Math.max(0, value));
   const displayValue = formatValue(numericValue, numericMax, valueFormat);
@@ -1464,7 +2866,7 @@ var progress_indicator_default = {
   line: "progress_indicator_line"
 };
 function getStepState(child) {
-  if (React3.isValidElement(child)) {
+  if (React11.isValidElement(child)) {
     return child.props.state ?? "upcoming";
   }
   return "upcoming";
@@ -1478,7 +2880,7 @@ function ProgressIndicator({
   "aria-label": ariaLabel = "Progreso",
   ...props
 }) {
-  const items = React3.Children.toArray(children).filter(Boolean);
+  const items = React11.Children.toArray(children).filter(Boolean);
   return /* @__PURE__ */ jsx(
     "nav",
     {
@@ -1639,6 +3041,6 @@ function Switch({ className, ...props }) {
   );
 }
 
-export { Alert, Avatar, Badge, Banner, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, Checkbox, ChipGroup, CounterBadge, DEFAULT_PHONE_COUNTRIES, Divider, EmptyState, FilterChip, FloatingActionButton, FormField, IconButton, InputChip, Link, ListItem, PhoneInput, ProgressBar, ProgressIndicator, ProgressStep, Radio, RadioGroup, Segment, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Status, Switch, TabItem, Tag, Toast };
+export { Alert, Avatar, Badge, Banner, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, Calendar, CalendarDay, Checkbox, ChipGroup, Combobox, CounterBadge, DEFAULT_PHONE_COUNTRIES, DateField, DatePicker, Divider, EmptyState, FileUpload, FileUploadDropZone, FileUploadItem, FilterChip, FloatingActionButton, FormField, IconButton, InputChip, Link, ListItem, MenuItem, NavigationBar, NavigationItem, Pagination, PaginationItem, PhoneInput, ProgressBar, ProgressIndicator, ProgressStep, Radio, RadioGroup, Search, Segment, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, SideNavigation, SocialButton, Status, Switch, TabItem, Tag, TimeField, Toast };
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map

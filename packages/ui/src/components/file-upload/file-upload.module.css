@@ -1,0 +1,112 @@
+/*
+ * TODO(tokens): literales / fallbacks de Figma hasta publicar --tec-component-file-upload-*
+ * (width, padding, gap, color.text.primary/secondary, inverse).
+ */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+}
+
+.root[data-type='button'],
+.root[data-type='drag-zone'] {
+  width: 520px;
+  padding: 16px;
+}
+
+.dropZone {
+  width: 100%;
+}
+
+.trigger {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.primary,
+.secondary,
+.supporting {
+  margin: 0;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-style: normal;
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.primary {
+  color: var(--component-file-upload-color-text-primary-default, #231f20);
+  font-size: var(--typography-font-size-200, 14px);
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: var(--typography-line-height-200, 20px);
+}
+
+.secondary,
+.supporting {
+  color: var(--component-file-upload-color-text-secondary-default, #58585b);
+  font-size: var(--typography-font-size-100, 12px);
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-100, 16px);
+}
+
+.root[data-tone='inverse'] .primary {
+  color: var(--component-file-upload-color-text-primary-inverse, #fff);
+}
+
+.root[data-tone='inverse'] .secondary,
+.root[data-tone='inverse'] .supporting {
+  color: var(
+    --component-file-upload-color-text-secondary-inverse,
+    rgba(255, 255, 255, 0.72)
+  );
+}
+
+.root[data-disabled] .primary {
+  color: var(--component-file-upload-color-text-primary-disabled, #737373);
+}
+
+.root[data-disabled] .secondary,
+.root[data-disabled] .supporting {
+  color: var(--component-file-upload-color-text-secondary-disabled, #a3a3a3);
+}
+
+.root[data-tone='inverse'][data-disabled] .primary,
+.root[data-tone='inverse'][data-disabled] .secondary,
+.root[data-tone='inverse'][data-disabled] .supporting {
+  color: var(
+    --component-file-upload-color-text-primary-inverse-disabled,
+    rgba(255, 255, 255, 0.4)
+  );
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  width: 100%;
+}

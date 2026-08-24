@@ -14,7 +14,7 @@ export interface AlertProps
   icon?: React.ReactNode
   title: string
   message: string
-  /** Link opcional (instancia de Link). */
+  /** Link opcional. */
   link?: React.ReactNode
   /** Muestra IconButton tertiary sm a la derecha. */
   onDismiss?: () => void

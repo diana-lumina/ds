@@ -36,6 +36,32 @@ describe('PhoneInput', () => {
     })
   })
 
+  describe('Prop: tone', () => {
+    it('usa standard por defecto', () => {
+      render(<PhoneInput aria-label="Teléfono" />)
+      expect(document.querySelector('[data-slot="phone-input"]')).toHaveAttribute(
+        'data-tone',
+        'standard'
+      )
+    })
+
+    it('aplica inverse y lo pasa al select y al input', () => {
+      render(<PhoneInput aria-label="Teléfono" tone="inverse" />)
+      expect(document.querySelector('[data-slot="phone-input"]')).toHaveAttribute(
+        'data-tone',
+        'inverse'
+      )
+      expect(document.querySelector('[data-slot="select-trigger"]')).toHaveAttribute(
+        'data-tone',
+        'inverse'
+      )
+      expect(document.querySelector('[data-slot="text-input"]')).toHaveAttribute(
+        'data-tone',
+        'inverse'
+      )
+    })
+  })
+
   describe('Comportamiento', () => {
     it('deshabilita select e input', () => {
       render(<PhoneInput aria-label="Teléfono" disabled />)

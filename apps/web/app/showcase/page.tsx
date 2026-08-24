@@ -9,9 +9,12 @@ import {
   ButtonGroup,
   Checkbox,
   ChipGroup,
+  Combobox,
   CounterBadge,
+  DatePicker,
   Divider,
   EmptyState,
+  FileUpload,
   FilterChip,
   FloatingActionButton,
   FormField,
@@ -19,16 +22,24 @@ import {
   InputChip,
   Link,
   ListItem,
+  MenuItem,
+  NavigationBar,
+  NavigationItem,
+  Pagination,
+  PaginationItem,
   ProgressBar,
   ProgressIndicator,
   ProgressStep,
   Radio,
   RadioGroup,
   Segment,
+  SideNavigation,
+  SocialButton,
   Status,
   Switch,
   TabItem,
   Tag,
+  TimeField,
   Toast,
 } from '@workspace/ui'
 import * as IconCatalog from '@workspace/ui/icons'
@@ -43,12 +54,14 @@ import {
   CheckCircleIcon,
   CheckIcon,
   DownloadSimpleIcon,
+  FacebookIcon,
   FavoriteIcon,
   FolderSimpleIcon,
   InfoIcon,
   MapPinIcon,
   MoonIcon,
   SunIcon,
+  UserIcon,
   WarningIcon,
   XCircleIcon,
 } from '@workspace/ui/icons'
@@ -58,6 +71,23 @@ import styles from './showcase.module.css'
 
 type CatalogFilter = 'todos' | 'recomendados' | 'guardados'
 type ComponentSize = 'sm' | 'md'
+type NavSection = 'catalogo' | 'aprendizaje'
+type SideSection = 'oferta' | 'inscripciones' | 'certificados'
+
+const PAGE_SIZE = 3
+
+const CAMPUS_OPTIONS = [
+  { value: 'mty', label: 'Campus Monterrey' },
+  { value: 'cdmx', label: 'Campus Ciudad de México' },
+  { value: 'gdl', label: 'Campus Guadalajara' },
+]
+
+const INTEREST_OPTIONS = [
+  { value: 'ux', label: 'Diseño de interfaces' },
+  { value: 'research', label: 'UX Research aplicado' },
+  { value: 'a11y', label: 'Accesibilidad web' },
+  { value: 'tokens', label: 'Design tokens en práctica' },
+]
 
 type Program = {
   id: string
@@ -254,6 +284,52 @@ function BrandDropdown() {
   )
 }
 
+function AccountMenu({ size }: { size: ComponentSize }) {
+  const [open, setOpen] = React.useState(false)
+  const rootRef = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (!open) return
+
+    function onPointerDown(event: MouseEvent) {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setOpen(false)
+      }
+    }
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') setOpen(false)
+    }
+
+    document.addEventListener('mousedown', onPointerDown)
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown)
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [open])
+
+  return (
+    <div className={styles.accountMenu} ref={rootRef}>
+      <Button
+        size={size}
+        hierarchy="secondary"
+        label="Mi cuenta"
+        aria-haspopup="menu"
+        aria-expanded={open}
+        onClick={() => setOpen((prev) => !prev)}
+      />
+      {open ? (
+        <div className={styles.accountPanel} role="menu" aria-label="Cuenta">
+          <MenuItem label="Perfil" onClick={() => setOpen(false)} />
+          <MenuItem label="Mis programas" onClick={() => setOpen(false)} />
+          <MenuItem label="Cerrar sesión" disabled />
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
 function ThemeToggle({ size }: { size: ComponentSize }) {
   const { resolvedTheme, setTheme } = useTheme()
   const isClient = React.useSyncExternalStore(
@@ -338,12 +414,15 @@ function scrollToContact() {
 
 export default function ShowcasePage() {
   const [pageTab, setPageTab] = React.useState<'programas' | 'iconos'>('programas')
+  const [navSection, setNavSection] = React.useState<NavSection>('catalogo')
+  const [sideSection, setSideSection] = React.useState<SideSection>('oferta')
   const [size, setSize] = React.useState<ComponentSize>('sm')
   const [catalog, setCatalog] = React.useState<CatalogFilter>('todos')
   const [modality, setModality] = React.useState<string | null>(null)
   const [level, setLevel] = React.useState(false)
   const [tags, setTags] = React.useState(['UX Research', 'Producto'])
   const [selectedId, setSelectedId] = React.useState('1')
+  const [page, setPage] = React.useState(1)
   const [notifyCourse, setNotifyCourse] = React.useState(true)
   const [notifyMarketing, setNotifyMarketing] = React.useState(false)
   const [contact, setContact] = React.useState('email')
@@ -352,7 +431,19 @@ export default function ShowcasePage() {
   const [email, setEmail] = React.useState('ana.beltran@tec.mx')
   const [phone, setPhone] = React.useState('81 1234 5678')
   const [campus, setCampus] = React.useState('mty')
+  const [interest, setInterest] = React.useState('ux')
+  const [sessionDate, setSessionDate] = React.useState<Date | undefined>(
+    new Date(2026, 7, 24),
+  )
+  const [sessionTime, setSessionTime] = React.useState('09:30')
   const [comment, setComment] = React.useState('')
+  const [ctaName, setCtaName] = React.useState('')
+  const [ctaPhone, setCtaPhone] = React.useState('')
+  const [ctaCampus, setCtaCampus] = React.useState('mty')
+  const [ctaNote, setCtaNote] = React.useState('')
+  const [ctaTopic, setCtaTopic] = React.useState('research')
+  const [ctaDate, setCtaDate] = React.useState<Date | undefined>()
+  const [ctaTime, setCtaTime] = React.useState('16:00')
   const [showBanner, setShowBanner] = React.useState(true)
   const [toastOpen, setToastOpen] = React.useState(false)
   const [wizardStep, setWizardStep] = React.useState<WizardStep>(1)
@@ -369,6 +460,8 @@ export default function ShowcasePage() {
         : 'indeterminate'
 
   const visiblePrograms = PROGRAMS.filter((program) => {
+    if (sideSection === 'inscripciones' && !program.saved) return false
+    if (sideSection === 'certificados') return false
     if (catalog === 'recomendados' && !program.recommended) return false
     if (catalog === 'guardados' && !program.saved) return false
     if (modality === 'online' && !program.tags.some((tag) => tag.label === 'En línea')) {
@@ -383,6 +476,13 @@ export default function ShowcasePage() {
     return true
   })
 
+  const pageCount = Math.max(1, Math.ceil(visiblePrograms.length / PAGE_SIZE))
+  const currentPage = Math.min(page, pageCount)
+  const pagedPrograms = visiblePrograms.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE,
+  )
+
   const selected = PROGRAMS.find((program) => program.id === selectedId) ?? PROGRAMS[0]!
   const step1State = wizardStepState(1, wizardStep, wizardSubmitted, wizardErrorStep)
   const step2State = wizardStepState(2, wizardStep, wizardSubmitted, wizardErrorStep)
@@ -394,11 +494,29 @@ export default function ShowcasePage() {
         <div className={styles.navbarInner}>
           <div className={styles.navbarBrand}>
             <BrandDropdown />
-            <nav className={styles.navLinks} aria-label="Principal">
-              <Link href="/showcase" label="Catálogo" />
-              <Link href="/showcase" label="Mi aprendizaje" />
-              <Link href="/showcase" label="Sitio Tec" external />
-            </nav>
+            <NavigationBar className={styles.navBar} aria-label="Principal">
+              <NavigationItem
+                label="Catálogo"
+                current={navSection === 'catalogo'}
+                onClick={() => {
+                  setNavSection('catalogo')
+                  setPageTab('programas')
+                  setSideSection('oferta')
+                }}
+              />
+              <NavigationItem
+                label="Mi aprendizaje"
+                icon={<UserIcon />}
+                current={navSection === 'aprendizaje'}
+                onClick={() => {
+                  setNavSection('aprendizaje')
+                  setPageTab('programas')
+                  setCatalog('guardados')
+                  setSideSection('inscripciones')
+                }}
+              />
+              <NavigationItem label="Sitio Tec" disabled />
+            </NavigationBar>
           </div>
 
           <div className={styles.navbarActions}>
@@ -416,7 +534,7 @@ export default function ShowcasePage() {
               </span>
             </span>
             <ButtonGroup>
-              <Button size={size} hierarchy="secondary" label="Mi cuenta" />
+              <AccountMenu size={size} />
               <Button size={size} hierarchy="primary" label="Inscribirme" />
             </ButtonGroup>
           </div>
@@ -553,13 +671,49 @@ export default function ShowcasePage() {
 
             <div className={styles.layout}>
               <section className={styles.listPane} aria-label="Resultados">
+                <SideNavigation
+                  className={styles.sideNav}
+                  heading="Catálogo"
+                  aria-label="Secciones del catálogo"
+                >
+                  <NavigationItem
+                    label="Oferta"
+                    icon={<BookOpenIcon />}
+                    current={sideSection === 'oferta'}
+                    onClick={() => {
+                      setSideSection('oferta')
+                      setPage(1)
+                    }}
+                  />
+                  <NavigationItem
+                    label="Inscripciones"
+                    icon={<BookmarkSimpleIcon />}
+                    current={sideSection === 'inscripciones'}
+                    onClick={() => {
+                      setSideSection('inscripciones')
+                      setPage(1)
+                    }}
+                  />
+                  <NavigationItem
+                    label="Certificados"
+                    icon={<CheckCircleIcon />}
+                    current={sideSection === 'certificados'}
+                    onClick={() => {
+                      setSideSection('certificados')
+                      setPage(1)
+                    }}
+                  />
+                </SideNavigation>
+
+                <Divider />
+
                 <div className={styles.listPaneHeader}>
                   <h2 className={styles.listPaneTitle}>Resultados</h2>
                   <Status size={size} intent="info" label={`${visiblePrograms.length} programas`} />
                 </div>
 
                 <div className={styles.programList}>
-                  {visiblePrograms.map((program) => (
+                  {pagedPrograms.map((program) => (
                     <div key={program.id} className={styles.listItemWrap}>
                       <StatusRail intent={program.status.intent} />
                       <ListItem
@@ -580,23 +734,59 @@ export default function ShowcasePage() {
                       className={styles.emptyState}
                       type="empty"
                       icon={<FolderSimpleIcon />}
-                      title="Sin programas"
-                      message="No hay resultados con estos filtros. Ajusta la modalidad o el nivel para ver más opciones."
+                      title={
+                        sideSection === 'certificados'
+                          ? 'Sin certificados'
+                          : 'Sin programas'
+                      }
+                      message={
+                        sideSection === 'certificados'
+                          ? 'Cuando completes un programa, el diploma aparecerá en esta sección.'
+                          : 'No hay resultados con estos filtros. Ajusta la modalidad o el nivel para ver más opciones.'
+                      }
                       action={
-                        <Button
-                          size={size}
-                          hierarchy="secondary"
-                          label="Limpiar filtros"
-                          onClick={() => {
-                            setCatalog('todos')
-                            setModality(null)
-                            setLevel(false)
-                          }}
-                        />
+                        sideSection === 'certificados' ? undefined : (
+                          <Button
+                            size={size}
+                            hierarchy="secondary"
+                            label="Limpiar filtros"
+                            onClick={() => {
+                              setCatalog('todos')
+                              setModality(null)
+                              setLevel(false)
+                              setSideSection('oferta')
+                              setPage(1)
+                            }}
+                          />
+                        )
                       }
                     />
                   ) : null}
                 </div>
+
+                {visiblePrograms.length > 0 ? (
+                  <div className={styles.paginationWrap}>
+                    <Pagination
+                      previousDisabled={currentPage === 1}
+                      nextDisabled={currentPage === pageCount}
+                      onPrevious={() => setPage((value) => Math.max(1, value - 1))}
+                      onNext={() => setPage((value) => Math.min(pageCount, value + 1))}
+                    >
+                      {Array.from({ length: pageCount }, (_, index) => {
+                        const number = index + 1
+                        return (
+                          <PaginationItem
+                            key={number}
+                            current={currentPage === number}
+                            onClick={() => setPage(number)}
+                          >
+                            {number}
+                          </PaginationItem>
+                        )
+                      })}
+                    </Pagination>
+                  </div>
+                ) : null}
               </section>
 
               <article className={styles.detailPane} aria-label={`Detalle de ${selected.title}`}>
@@ -686,6 +876,13 @@ export default function ShowcasePage() {
                   Solicita información de {selected.title} en tres pasos. El indicador muestra el
                   estado de cada etapa al avanzar.
                 </p>
+                <div className={styles.socialRow}>
+                  <SocialButton
+                    size={size === 'md' ? 'md' : 'sm'}
+                    label="Continuar con Facebook"
+                    icon={<FacebookIcon />}
+                  />
+                </div>
               </div>
 
               <div className={styles.formPane}>
@@ -783,11 +980,27 @@ export default function ShowcasePage() {
                           placeholder="Selecciona un campus"
                           value={campus}
                           onValueChange={setCampus}
-                          options={[
-                            { value: 'mty', label: 'Campus Monterrey' },
-                            { value: 'cdmx', label: 'Campus Ciudad de México' },
-                            { value: 'gdl', label: 'Campus Guadalajara' },
-                          ]}
+                          options={CAMPUS_OPTIONS}
+                        />
+                        <Combobox
+                          label="Programa de interés"
+                          supportingText="Escribe para filtrar la oferta"
+                          placeholder="Buscar programa"
+                          options={INTEREST_OPTIONS}
+                          value={interest}
+                          onValueChange={setInterest}
+                        />
+                        <DatePicker
+                          label="Fecha de sesión informativa"
+                          supportingText="Elige un día hábil"
+                          value={sessionDate}
+                          onValueChange={setSessionDate}
+                        />
+                        <TimeField
+                          label="Horario preferido"
+                          supportingText="Hora local del campus"
+                          value={sessionTime}
+                          onChange={(event) => setSessionTime(event.target.value)}
                         />
                         <div className={styles.formBlock}>
                           <span className={styles.fieldLabel}>Canal de contacto</span>
@@ -827,6 +1040,15 @@ export default function ShowcasePage() {
 
                     {wizardStep === 3 ? (
                       <div className={styles.formBlock}>
+                        <FileUpload
+                          type="button"
+                          primaryText="Comprobante de estudios"
+                          secondaryText="PDF o JPG · máximo 10 MB"
+                          actionLabel="Seleccionar archivo"
+                          supportingText="Opcional. Ayuda a validar el nivel del programa."
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          multiple={false}
+                        />
                         <span className={styles.fieldLabel}>Avisos del programa</span>
                         <label className={styles.checkField}>
                           <Checkbox
@@ -920,6 +1142,116 @@ export default function ShowcasePage() {
           </>
         )}
       </main>
+
+      {pageTab === 'programas' ? (
+        <section className={styles.inverseBand} aria-label="Avisos de nuevos programas">
+          <div className={styles.inverseInner}>
+            <div className={styles.inverseIntro}>
+              <span className={styles.inverseEyebrow}>Comunidad Tec</span>
+              <h2 className={styles.inverseTitle}>Recibe avisos de nuevos programas</h2>
+              <p className={styles.inverseLead}>
+                Campos inverse sobre superficie brand. Agenda una sesión o deja tus datos para
+                coordinación.
+              </p>
+              <SocialButton
+                size={size === 'md' ? 'md' : 'sm'}
+                label="Continuar con Facebook"
+                icon={<FacebookIcon />}
+              />
+            </div>
+
+            <div className={styles.inverseForm}>
+              <div className={styles.formGrid}>
+                <FormField
+                  tone="inverse"
+                  label="Nombre"
+                  supportingText="Como aparece en tu registro"
+                  placeholder="Nombre y apellidos"
+                  value={ctaName}
+                  onChange={(event) => setCtaName(event.target.value)}
+                />
+                <FormField
+                  tone="inverse"
+                  control="phone"
+                  label="Teléfono"
+                  supportingText="Incluye lada"
+                  placeholder="Número telefónico"
+                  value={ctaPhone}
+                  onChange={(event) => setCtaPhone(event.target.value)}
+                />
+                <FormField
+                  tone="inverse"
+                  control="select"
+                  label="Campus"
+                  supportingText="Preferencia de sede"
+                  placeholder="Selecciona un campus"
+                  value={ctaCampus}
+                  onValueChange={setCtaCampus}
+                  options={CAMPUS_OPTIONS}
+                />
+                <Combobox
+                  tone="inverse"
+                  label="Tema de la sesión"
+                  supportingText="Escribe para filtrar"
+                  placeholder="Buscar tema"
+                  options={INTEREST_OPTIONS}
+                  value={ctaTopic}
+                  onValueChange={setCtaTopic}
+                />
+                <DatePicker
+                  tone="inverse"
+                  label="Fecha"
+                  supportingText="Día de la sesión"
+                  value={ctaDate}
+                  onValueChange={setCtaDate}
+                />
+                <TimeField
+                  tone="inverse"
+                  label="Hora"
+                  supportingText="Horario de 16:00 a 19:00"
+                  value={ctaTime}
+                  onChange={(event) => setCtaTime(event.target.value)}
+                />
+                <div className={styles.formGridFull}>
+                  <FormField
+                    tone="inverse"
+                    multiline
+                    rows={3}
+                    label="Mensaje"
+                    supportingText="Dudas para coordinación"
+                    placeholder="Cuéntanos qué te interesa"
+                    value={ctaNote}
+                    onChange={(event) => setCtaNote(event.target.value)}
+                  />
+                </div>
+                <div className={styles.formGridFull}>
+                  <FileUpload
+                    type="drag-zone"
+                    tone="inverse"
+                    primaryText="Adjunta tu CV"
+                    secondaryText="PDF o DOCX · máximo 10 MB"
+                    actionLabel="Seleccionar archivo"
+                    dropZonePrimaryText="Arrastra el archivo aquí"
+                    dropZoneSecondaryText="PDF o DOCX · máximo 10 MB"
+                    supportingText="Opcional para la sesión informativa."
+                    accept=".pdf,.docx"
+                    multiple={false}
+                  />
+                </div>
+              </div>
+              <div className={styles.inverseActions}>
+                <Button
+                  size={size}
+                  hierarchy="primary"
+                  tone="inverse"
+                  label="Agendar sesión"
+                  onClick={() => setToastOpen(true)}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <footer className={styles.footer}>
         <div className={styles.footerInner}>

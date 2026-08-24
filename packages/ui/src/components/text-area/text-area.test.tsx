@@ -28,6 +28,18 @@ describe('TextArea', () => {
     })
   })
 
+  describe('Prop: tone', () => {
+    it('usa standard por defecto', () => {
+      render(<TextArea aria-label="Comentario" />)
+      expect(screen.getByLabelText('Comentario')).toHaveAttribute('data-tone', 'standard')
+    })
+
+    it('aplica inverse', () => {
+      render(<TextArea aria-label="Comentario" tone="inverse" />)
+      expect(screen.getByLabelText('Comentario')).toHaveAttribute('data-tone', 'inverse')
+    })
+  })
+
   describe('Prop: error', () => {
     it('no marca error por defecto', () => {
       render(<TextArea aria-label="Comentario" />)

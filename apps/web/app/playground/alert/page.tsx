@@ -1,3 +1,5 @@
+'use client'
+
 import { Alert, Link } from '@workspace/ui'
 import {
   CheckCircleIcon,

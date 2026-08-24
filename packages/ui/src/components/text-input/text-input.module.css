@@ -1,4 +1,5 @@
-/* Primitivo interno: outlined | underline × default | error | disabled. */
+/* Primitivo interno: outlined | underline × standard | inverse × default | error | disabled.
+   embedded: misma receta sin background ni borde (standard o inverse). */
 .root {
   display: flex;
   box-sizing: border-box;
@@ -6,10 +7,7 @@
   height: var(--component-text-field-control-height, var(--component-text-field-control-height, 48px));
   min-height: 48px;
   margin: 0;
-  padding: var(--component-text-field-control-padding-block, var(--component-text-field-control-padding-block, 8px))
-    var(--component-text-field-control-padding-inline-end, var(--component-text-field-control-padding-inline-end, 8px))
-    var(--component-text-field-control-padding-block, var(--component-text-field-control-padding-block, 8px))
-    var(--component-text-field-control-padding-inline-start, var(--component-text-field-control-padding-inline-start, 12px));
+  padding: var(--component-text-field-control-padding-block, var(--component-text-field-control-padding-block, 8px)) var(--component-text-field-control-padding-inline-end, var(--component-text-field-control-padding-inline-end, 8px)) var(--component-text-field-control-padding-block, var(--component-text-field-control-padding-block, 8px)) var(--component-text-field-control-padding-inline-start, var(--component-text-field-control-padding-inline-start, 12px));
   align-items: center;
   gap: var(--tec-component-text-field-control-gap, var(--component-text-field-control-gap, 8px));
   appearance: none;
@@ -35,14 +33,29 @@
 /* ===== Outlined ===== */
 .root[data-appearance='outlined'] {
   border-radius: var(--tec-component-text-field-control-radius, var(--component-text-field-control-radius, 8px));
-  border: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
-    solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
+  border: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px)) solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
   background: var(--tec-component-text-field-color-surface-default, var(--component-text-field-color-surface-default));
 }
 
+.root[data-appearance='outlined'][data-tone='standard']::placeholder,
+.root[data-appearance='outlined'][data-tone='standard'][data-embedded='true']::placeholder {
+  color: var(--component-text-field-color-placeholder-default, #58585B);
+}
+
+.root[data-appearance='outlined'][data-tone='inverse'] {
+  border-radius: var(--tec-component-text-field-control-radius, var(--component-text-field-control-radius, 8px));
+  border: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px)) solid var(--component-text-field-color-border-inverse-default, rgba(255, 255, 255, 0.48));
+  background: var(--component-text-field-color-surface-inverse-default, rgba(255, 255, 255, 0.08));
+  color: var(--component-text-field-color-value-inverse-default, #FFF);
+}
+
+.root[data-appearance='outlined'][data-tone='inverse']::placeholder,
+.root[data-appearance='outlined'][data-tone='inverse'][data-embedded='true']::placeholder {
+  color: var(--component-text-field-color-placeholder-inverse-default, rgba(255, 255, 255, 0.60));
+}
+
 .root[data-appearance='outlined']:focus-visible:not(:disabled) {
-  outline: var(--focus-ring-width, 2px) solid
-    var(--component-text-field-color-focus-ring, #2563EB);
+  outline: var(--focus-ring-width, 2px) solid var(--component-text-field-color-focus-ring, #2563EB);
   outline-offset: var(--focus-ring-offset, 2px);
 }
 
@@ -55,13 +68,36 @@
   background: var(--component-text-field-color-surface-disabled, #E5E5E5);
 }
 
+.root[data-appearance='outlined'][data-tone='inverse']:disabled {
+  border-radius: var(--tec-component-text-field-control-radius, var(--component-text-field-control-radius, 8px));
+  border: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
+    solid var(--component-text-field-color-border-inverse-disabled, rgba(255, 255, 255, 0.16));
+  background: var(--component-text-field-color-surface-inverse-disabled, rgba(255, 255, 255, 0.04));
+  color: var(--component-text-field-color-value-inverse-disabled, rgba(255, 255, 255, 0.40));
+}
+
 /* ===== Underline ===== */
 .root[data-appearance='underline'] {
   border: none;
   border-radius: var(--component-text-field-control-underline-radius, 0);
-  border-bottom: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
-    solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
+  border-bottom: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px)) solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
   background: var(--component-text-field-color-surface-underline, rgba(255, 255, 255, 0));
+}
+
+.root[data-appearance='underline'][data-tone='standard']::placeholder,
+.root[data-appearance='underline'][data-tone='standard'][data-embedded='true']::placeholder {
+  color: var(--component-text-field-color-placeholder-default, #58585B);
+}
+
+.root[data-appearance='underline'][data-tone='inverse'] {
+  border-bottom: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
+    solid var(--component-text-field-color-border-inverse-default, rgba(255, 255, 255, 0.48));
+  color: var(--component-text-field-color-value-inverse-default, #FFF);
+}
+
+.root[data-appearance='underline'][data-tone='inverse']::placeholder,
+.root[data-appearance='underline'][data-tone='inverse'][data-embedded='true']::placeholder {
+  color: var(--component-text-field-color-placeholder-inverse-default, rgba(255, 255, 255, 0.60));
 }
 
 .root[data-appearance='underline']:focus-visible:not(:disabled) {
@@ -78,16 +114,23 @@
   border-bottom-color: var(--component-text-field-color-border-error, #B91C1C);
 }
 
-.root[data-appearance='underline']:disabled {
-  border-bottom-color: var(--component-text-field-color-border-disabled, #D4D4D4);
-  background: var(--component-text-field-color-surface-disabled, #E5E5E5);
+.root[data-appearance='underline'][data-tone='standard']:disabled {
+  border-radius: var(--component-text-field-control-underline-radius, 0);
+  border-bottom: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
+    solid var(--component-text-field-color-border-disabled, #D4D4D4);
+  background: var(--component-text-field-color-surface-underline, rgba(255, 255, 255, 0));
 }
 
 .root[data-embedded='true'],
 .root[data-embedded='true'][data-appearance='outlined'],
+.root[data-embedded='true'][data-appearance='outlined'][data-tone='inverse'],
 .root[data-embedded='true'][data-appearance='underline'],
+.root[data-embedded='true'][data-appearance='underline'][data-tone='inverse'],
 .root[data-embedded='true'][data-error='true'],
 .root[data-embedded='true']:disabled,
+.root[data-embedded='true'][data-appearance='outlined']:disabled,
+.root[data-embedded='true'][data-appearance='underline']:disabled,
+.root[data-embedded='true'][data-appearance='underline'][data-tone='standard']:disabled,
 .root[data-embedded='true']:focus,
 .root[data-embedded='true']:focus-visible,
 .root[data-embedded='true'][data-appearance='outlined']:focus-visible:not(:disabled),
@@ -100,4 +143,19 @@
   background: transparent;
   outline: none;
   box-shadow: none;
+}
+
+.root[data-embedded='true'][data-appearance='outlined'][data-tone='inverse'],
+.root[data-embedded='true'][data-appearance='underline'][data-tone='inverse'] {
+  color: var(--component-text-field-color-value-inverse-default, #FFF);
+}
+
+.root[data-appearance='underline'][data-tone='inverse']:disabled,
+.root[data-embedded='true'][data-appearance='underline'][data-tone='inverse']:disabled {
+  color: var(--component-text-field-color-value-inverse-disabled, rgba(255, 255, 255, 0.40));
+}
+
+.root[data-embedded='true'][data-appearance='outlined'][data-tone='inverse']::placeholder,
+.root[data-embedded='true'][data-appearance='underline'][data-tone='inverse']::placeholder {
+  color: var(--component-text-field-color-placeholder-inverse-default, rgba(255, 255, 255, 0.60));
 }

@@ -1,0 +1,154 @@
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--tec-component-text-field-control-height, var(--component-text-field-control-height, 48px));
+  min-height: 48px;
+  margin: 0;
+  padding: var(--tec-component-text-field-control-padding-block, var(--component-text-field-control-padding-block, 8px))
+    var(--tec-component-text-field-control-padding-inline-end, var(--component-text-field-control-padding-inline-end, 8px))
+    var(--tec-component-text-field-control-padding-block, var(--component-text-field-control-padding-block, 8px))
+    var(--tec-component-text-field-control-padding-inline-start, var(--component-text-field-control-padding-inline-start, 12px));
+  align-items: center;
+  gap: var(--tec-component-text-field-control-gap, var(--component-text-field-control-gap, 8px));
+}
+
+.root :is(:focus, :focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0;
+  height: auto;
+}
+
+.input::-webkit-search-decoration,
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-results-button,
+.input::-webkit-search-results-decoration {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.leading,
+.clear {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--tec-component-text-field-color-icon-default, var(--component-text-field-color-icon-default, #231f20));
+}
+
+.leading svg,
+.clear svg {
+  width: var(--tec-component-text-field-control-leading-icon-size, var(--component-text-field-control-leading-icon-size, 20px));
+  height: var(--tec-component-text-field-control-leading-icon-size, var(--component-text-field-control-leading-icon-size, 20px));
+  pointer-events: none;
+}
+
+.clear {
+  margin: 0;
+  padding: 0;
+  border: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.clear:focus {
+  outline: none;
+}
+
+.clear:focus-visible {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-text-field-color-focus-ring, #2563eb);
+  outline-offset: var(--focus-ring-offset, 2px);
+  border-radius: var(--radius-4, 4px);
+}
+
+.root[data-tone='inverse'] .leading,
+.root[data-tone='inverse'] .clear {
+  color: var(--component-text-field-color-icon-inverse-default, #fff);
+}
+
+.root[data-disabled] .leading,
+.root[data-disabled] .clear {
+  color: var(--component-text-field-color-icon-disabled, #737373);
+}
+
+.root[data-tone='inverse'][data-disabled] .leading,
+.root[data-tone='inverse'][data-disabled] .clear {
+  color: var(--component-text-field-color-icon-inverse-disabled, rgba(255, 255, 255, 0.4));
+}
+
+/* ===== Outlined ===== */
+.root[data-appearance='outlined'] {
+  border-radius: var(--tec-component-text-field-control-radius, var(--component-text-field-control-radius, 8px));
+  border: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
+    solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
+  background: var(--tec-component-text-field-color-surface-default, var(--component-text-field-color-surface-default));
+}
+
+.root[data-appearance='outlined'][data-tone='inverse'] {
+  border-color: var(--component-text-field-color-border-inverse-default, rgba(255, 255, 255, 0.48));
+  background: var(--component-text-field-color-surface-inverse-default, rgba(255, 255, 255, 0.08));
+}
+
+.root[data-appearance='outlined']:focus-within:not([data-disabled]) {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-text-field-color-focus-ring, #2563eb);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.root[data-appearance='outlined'][data-error='true'] {
+  border-color: var(--component-text-field-color-border-error, #b91c1c);
+}
+
+.root[data-appearance='outlined'][data-disabled] {
+  border-color: var(--component-text-field-color-border-disabled, #d4d4d4);
+  background: var(--component-text-field-color-surface-disabled, #e5e5e5);
+}
+
+.root[data-appearance='outlined'][data-tone='inverse'][data-disabled] {
+  border-color: var(--component-text-field-color-border-inverse-disabled, rgba(255, 255, 255, 0.16));
+  background: var(--component-text-field-color-surface-inverse-disabled, rgba(255, 255, 255, 0.04));
+}
+
+/* ===== Underline ===== */
+.root[data-appearance='underline'] {
+  border: none;
+  border-radius: var(--component-text-field-control-underline-radius, 0);
+  border-bottom: var(--tec-component-text-field-control-border-width, var(--component-text-field-control-border-width, 1px))
+    solid var(--tec-component-text-field-color-border-default, var(--component-text-field-color-border-default));
+  background: var(--component-text-field-color-surface-underline, rgba(255, 255, 255, 0));
+}
+
+.root[data-appearance='underline'][data-tone='inverse'] {
+  border-bottom-color: var(--component-text-field-color-border-inverse-default, rgba(255, 255, 255, 0.48));
+}
+
+.root[data-appearance='underline']:focus-within:not([data-disabled]) {
+  border-bottom-width: var(--component-text-field-control-underline-focus-border-width, 2px);
+  border-bottom-color: var(--component-text-field-color-border-focus-visible, var(--component-text-field-color-focus-ring, #2563eb));
+}
+
+.root[data-appearance='underline'][data-error='true'] {
+  border-bottom-color: var(--component-text-field-color-border-error, #b91c1c);
+}
+
+.root[data-appearance='underline'][data-error='true']:focus-within:not([data-disabled]) {
+  border-bottom-width: var(--component-text-field-control-underline-focus-border-width, 2px);
+  border-bottom-color: var(--component-text-field-color-border-error, #b91c1c);
+}
+
+.root[data-appearance='underline'][data-disabled] {
+  border-bottom-color: var(--component-text-field-color-border-disabled, #d4d4d4);
+  background: var(--component-text-field-color-surface-underline, rgba(255, 255, 255, 0));
+}
+
+.root[data-appearance='underline'][data-tone='inverse'][data-disabled] {
+  border-bottom-color: var(--component-text-field-color-border-inverse-disabled, rgba(255, 255, 255, 0.16));
+}

@@ -10498,6 +10498,62 @@
                 "targetVariableSetName": "TEC DS — Semantic"
               }
             }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.07999999821186066,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/surface/control/inverse/default · DTCG: component.text-field.color.surface.inverse.default ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:13",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:d759fb829813dbb1d5718018a6733d43de2fe015/-1:-1",
+                  "targetVariableName": "color/surface/control/inverse/default",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.03999999910593033,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/surface/control/inverse/disabled · DTCG: component.text-field.color.surface.inverse.disabled ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:17",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:b8485211ae09c4127c4b53523212ee258701540f/-1:-1",
+                  "targetVariableName": "color/surface/control/inverse/disabled",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
           }
         },
         "border": {
@@ -10607,6 +10663,60 @@
                 "targetVariableSetName": "TEC DS — Semantic"
               }
             }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.47999998927116394,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/border/control/inverse/default · DTCG: component.text-field.color.border.inverse.default ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:14",
+                "com.figma.scopes": [
+                  "STROKE"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:3732d8bfb8acfeaa58cb536e02e5df579724de62/-1:-1",
+                  "targetVariableName": "color/border/control/inverse/default",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.1599999964237213,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/border/control/inverse/disabled · DTCG: component.text-field.color.border.inverse.disabled ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:18",
+                "com.figma.scopes": [
+                  "STROKE"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:1135c11a2576414a50814786d3ba24f3a9b392ec/-1:-1",
+                  "targetVariableName": "color/border/control/inverse/disabled",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
           }
         },
         "label": {
@@ -10691,6 +10801,60 @@
                 "targetVariableName": "color/text/action/disabled",
                 "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
                 "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/text/inverse · DTCG: component.text-field.color.value.inverse.default ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:15",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:41b08655a219a0a4c7064d411d6b8a8909045aae/-1:-1",
+                  "targetVariableName": "color/text/inverse",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.4000000059604645,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/text/control/inverse/disabled · DTCG: component.text-field.color.value.inverse.disabled ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:19",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:e8769b6adb6941e6e10b44b046f7a498ff2a87ce/-1:-1",
+                  "targetVariableName": "color/text/control/inverse/disabled",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
               }
             }
           }
@@ -10781,6 +10945,62 @@
                 "targetVariableSetName": "TEC DS — Semantic"
               }
             }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/icon/inverse · DTCG: component.text-field.color.icon.inverse.default ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:16",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:0bf4ca0e8c8438a24b7dcbf4edd3a0f3e5422920/-1:-1",
+                  "targetVariableName": "color/icon/inverse",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.4000000059604645,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/icon/control/inverse/disabled · DTCG: component.text-field.color.icon.inverse.disabled ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:20",
+                "com.figma.scopes": [
+                  "SHAPE_FILL",
+                  "STROKE"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:3d7e175e4d10b8fbb57c73e5cba241828e4f2523/-1:-1",
+                  "targetVariableName": "color/icon/control/inverse/disabled",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
           }
         },
         "focus": {
@@ -10809,6 +11029,62 @@
                 "targetVariableName": "color/focus/ring",
                 "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
                 "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "placeholder": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.3450980484485626,
+                0.3450980484485626,
+                0.35686275362968445
+              ],
+              "alpha": 1,
+              "hex": "#58585B"
+            },
+            "$description": "Text Field placeholder color on standard/light surfaces. Alias: color/text/secondary. DTCG: component.text-field.color.placeholder.default ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1648:14",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:5812a1d18f9e9d9129c412781634057f9cff877c/-1:-1",
+                "targetVariableName": "color/text/secondary",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.6000000238418579,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Text Field placeholder color on inverse surfaces. Alias: color/text/control/inverse/placeholder. DTCG: component.text-field.color.placeholder.inverse.default ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1648:15",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:60b4aa4bac7ddb75e8697607a60c197fb9476433/-1:-1",
+                  "targetVariableName": "color/text/control/inverse/placeholder",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
               }
             }
           }
@@ -10857,6 +11133,36 @@
             "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
             "targetVariableSetName": "TEC DS — Core"
           }
+        }
+      },
+      "supporting": {
+        "font-family": {
+          "$type": "string",
+          "$value": "{typography.font-family.interface}",
+          "$description": "Form Field supporting text font family. Alias of typography/font-family/interface. Required by list-item.secondary.",
+          "$extensions": {
+            "com.figma.type": "string"
+          }
+        },
+        "font-size": {
+          "$type": "number",
+          "$value": "{typography.font-size.action.sm}",
+          "$description": "Form Field supporting text font size. Alias of typography/font-size/action/sm. Required by list-item.secondary."
+        },
+        "line-height": {
+          "$type": "number",
+          "$value": "{typography.line-height.action.sm}",
+          "$description": "Form Field supporting text line height. Alias of typography/line-height/action/sm. Required by list-item.secondary."
+        },
+        "font-weight": {
+          "$type": "number",
+          "$value": "{typography.font-weight.action}",
+          "$description": "Form Field supporting text font weight. Alias of typography/font-weight/action. Required by list-item.secondary."
+        },
+        "letter-spacing": {
+          "$type": "number",
+          "$value": "{typography.letter-spacing.action}",
+          "$description": "Form Field supporting text letter spacing. Alias of typography/letter-spacing/action. Required by list-item.secondary."
         }
       },
       "control": {
@@ -11078,6 +11384,60 @@
                 "targetVariableSetName": "TEC DS — Semantic"
               }
             }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/text/inverse · DTCG: component.form-field.color.label.inverse.default ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:21",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:41b08655a219a0a4c7064d411d6b8a8909045aae/-1:-1",
+                  "targetVariableName": "color/text/inverse",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.4000000059604645,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/text/control/inverse/disabled · DTCG: component.form-field.color.label.inverse.disabled ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:23",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:e8769b6adb6941e6e10b44b046f7a498ff2a87ce/-1:-1",
+                  "targetVariableName": "color/text/control/inverse/disabled",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
           }
         },
         "value": {
@@ -11184,6 +11544,60 @@
                 "targetVariableName": "color/text/action/disabled",
                 "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
                 "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/text/inverse · DTCG: component.form-field.color.supporting.inverse.default ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:22",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:41b08655a219a0a4c7064d411d6b8a8909045aae/-1:-1",
+                  "targetVariableName": "color/text/inverse",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.4000000059604645,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse Component Token · Status: Implemented · Experimental · Source: color/text/control/inverse/disabled · DTCG: component.form-field.color.supporting.inverse.disabled ($type: color).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1644:24",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:e8769b6adb6941e6e10b44b046f7a498ff2a87ce/-1:-1",
+                  "targetVariableName": "color/text/control/inverse/disabled",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
               }
             }
           }
@@ -11921,6 +12335,36 @@
           }
         }
       },
+      "label": {
+        "font-family": {
+          "$type": "string",
+          "$value": "{typography.font-family.interface}",
+          "$description": "Select Option label font family. Alias of typography/font-family/interface. Required by list-item.primary.",
+          "$extensions": {
+            "com.figma.type": "string"
+          }
+        },
+        "font-size": {
+          "$type": "number",
+          "$value": "{typography.font-size.action.md}",
+          "$description": "Select Option label font size. Alias of typography/font-size/action/md. Required by list-item.primary."
+        },
+        "line-height": {
+          "$type": "number",
+          "$value": "{typography.line-height.action.md}",
+          "$description": "Select Option label line height. Alias of typography/line-height/action/md. Required by list-item.primary."
+        },
+        "font-weight": {
+          "$type": "number",
+          "$value": "{typography.font-weight.action}",
+          "$description": "Select Option label font weight. Alias of typography/font-weight/action. Required by list-item.primary."
+        },
+        "letter-spacing": {
+          "$type": "number",
+          "$value": "{typography.letter-spacing.action}",
+          "$description": "Select Option label letter spacing. Alias of typography/letter-spacing/action. Required by list-item.primary."
+        }
+      },
       "color": {
         "surface": {
           "default": {
@@ -12201,7 +12645,7 @@
       "primary": {
         "font-family": {
           "$type": "string",
-          "$value": "{typography.font-family.interface}",
+          "$value": "{component.select-option.label.font-family}",
           "$description": "Familia tipográfica del texto primario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:8",
@@ -12216,7 +12660,7 @@
         },
         "font-size": {
           "$type": "number",
-          "$value": "{typography.font-size.action.md}",
+          "$value": "{component.select-option.label.font-size}",
           "$description": "Tamaño del texto primario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:9",
@@ -12230,7 +12674,7 @@
         },
         "line-height": {
           "$type": "number",
-          "$value": "{typography.line-height.action.md}",
+          "$value": "{component.select-option.label.line-height}",
           "$description": "Interlineado del texto primario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:10",
@@ -12244,7 +12688,7 @@
         },
         "font-weight": {
           "$type": "number",
-          "$value": "{typography.font-weight.action}",
+          "$value": "{component.select-option.label.font-weight}",
           "$description": "Peso del texto primario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:11",
@@ -12258,7 +12702,7 @@
         },
         "letter-spacing": {
           "$type": "number",
-          "$value": "{typography.letter-spacing.action}",
+          "$value": "{component.select-option.label.letter-spacing}",
           "$description": "Tracking del texto primario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:12",
@@ -12274,7 +12718,7 @@
       "secondary": {
         "font-family": {
           "$type": "string",
-          "$value": "{typography.font-family.interface}",
+          "$value": "{component.form-field.supporting.font-family}",
           "$description": "Familia tipográfica del texto secundario y terciario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:13",
@@ -12289,7 +12733,7 @@
         },
         "font-size": {
           "$type": "number",
-          "$value": "{typography.font-size.action.sm}",
+          "$value": "{component.form-field.supporting.font-size}",
           "$description": "Tamaño del texto secundario y terciario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:14",
@@ -12303,7 +12747,7 @@
         },
         "line-height": {
           "$type": "number",
-          "$value": "{typography.line-height.action.sm}",
+          "$value": "{component.form-field.supporting.line-height}",
           "$description": "Interlineado del texto secundario y terciario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:15",
@@ -12317,7 +12761,7 @@
         },
         "font-weight": {
           "$type": "number",
-          "$value": "{typography.font-weight.action}",
+          "$value": "{component.form-field.supporting.font-weight}",
           "$description": "Peso del texto secundario y terciario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:16",
@@ -12331,7 +12775,7 @@
         },
         "letter-spacing": {
           "$type": "number",
-          "$value": "{typography.letter-spacing.action}",
+          "$value": "{component.form-field.supporting.letter-spacing}",
           "$description": "Tracking del texto secundario y terciario.",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:17",
@@ -12588,7 +13032,7 @@
       "opacity": {
         "disabled": {
           "$type": "number",
-          "$value": 0.4000000059604645,
+          "$value": 40,
           "$description": "Opacity for disabled List Item. Canonical value 0.4. DTCG: component.list-item.opacity.disabled ($type: number).",
           "$extensions": {
             "com.figma.variableId": "VariableID:1357:27",
@@ -15189,6 +15633,1940 @@
                 "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
                 "targetVariableSetName": "TEC DS — Semantic"
               }
+            }
+          }
+        }
+      }
+    },
+    "pagination-item": {
+      "size": {
+        "$type": "number",
+        "$value": 40,
+        "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: spacing/40 · Square Pagination Item size. Source: spacing/40. Approved design size: 40 × 40 px. DTCG path: component.pagination-item.size.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1606:13",
+          "com.figma.scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--tec-component-pagination-item-size)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:cb6630b91fd83363ab75943b1442563c19729506/-1:-1",
+            "targetVariableName": "spacing/40",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "color": {
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.09019608050584793,
+                0.09019608050584793,
+                0.09019608050584793
+              ],
+              "alpha": 1,
+              "hex": "#171717"
+            },
+            "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/text/selection/unselected · Default page-number text when the item is not current. DTCG path: component.pagination-item.color.text.default.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1606:2",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-pagination-item-color-text-default)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:c935dc93269268d27b4e487313fcb0a054312789/-1:-1",
+                "targetVariableName": "color/text/selection/unselected",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "current": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.11372549086809158,
+                0.30588236451148987,
+                0.8470588326454163
+              ],
+              "alpha": 1,
+              "hex": "#1D4ED8"
+            },
+            "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/text/selection/selected · Current page-number text. Current is a persistent navigation state, independent from focus-visible. DTCG path: component.pagination-item.color.text.current.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1606:3",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-pagination-item-color-text-current)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:105d4836327885718195983430c5c913277a5f26/-1:-1",
+                "targetVariableName": "color/text/selection/selected",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.6392157077789307,
+                0.6392157077789307,
+                0.6392157077789307
+              ],
+              "alpha": 1,
+              "hex": "#A3A3A3"
+            },
+            "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/text/selection/disabled · Disabled page-number text. DTCG path: component.pagination-item.color.text.disabled.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1606:4",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-pagination-item-color-text-disabled)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:465d202f739a63e459dab239a3efa1ca000978d2/-1:-1",
+                "targetVariableName": "color/text/selection/disabled",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "surface": {
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9607843160629272,
+                0.9607843160629272,
+                0.9607843160629272
+              ],
+              "alpha": 1,
+              "hex": "#F5F5F5"
+            },
+            "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/surface/selection/unselected/hover · Hover surface for a non-current Pagination Item. DTCG path: component.pagination-item.color.surface.hover.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1606:5",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-pagination-item-color-surface-hover)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:520470a4b1388eaa8d2b694c2f4c2b5289b4cd94/-1:-1",
+                "targetVariableName": "color/surface/selection/unselected/hover",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.8980392217636108,
+                0.8980392217636108,
+                0.8980392217636108
+              ],
+              "alpha": 1,
+              "hex": "#E5E5E5"
+            },
+            "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/surface/selection/unselected/pressed · Pressed surface for a non-current Pagination Item. DTCG path: component.pagination-item.color.surface.pressed.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1606:6",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-pagination-item-color-surface-pressed)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:e69850d8de908e16609a95b80bf6c80c3c505e8c/-1:-1",
+                "targetVariableName": "color/surface/selection/unselected/pressed",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "current": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.9372549057006836,
+                  0.9647058844566345,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#EFF6FF"
+              },
+              "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/surface/selection/selected/default · Default surface for the current page. DTCG path: component.pagination-item.color.surface.current.default.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1606:7",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--tec-component-pagination-item-color-surface-current-default)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:9bd8c3a83bf53aced499454f2d3a64914b1c9def/-1:-1",
+                  "targetVariableName": "color/surface/selection/selected/default",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.8588235378265381,
+                  0.9176470637321472,
+                  0.9960784316062927
+                ],
+                "alpha": 1,
+                "hex": "#DBEAFE"
+              },
+              "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/surface/selection/selected/hover · Hover surface for the current page. DTCG path: component.pagination-item.color.surface.current.hover.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1606:8",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--tec-component-pagination-item-color-surface-current-hover)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:09e4980cde859e3d2314e55a0d55bea65c4d5433/-1:-1",
+                  "targetVariableName": "color/surface/selection/selected/hover",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.7490196228027344,
+                  0.8588235378265381,
+                  0.9960784316062927
+                ],
+                "alpha": 1,
+                "hex": "#BFDBFE"
+              },
+              "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/surface/selection/selected/pressed · Pressed surface for the current page. DTCG path: component.pagination-item.color.surface.current.pressed.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1606:9",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--tec-component-pagination-item-color-surface-current-pressed)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:95e3ace394586c12f3703197d5bda25e485992c1/-1:-1",
+                  "targetVariableName": "color/surface/selection/selected/pressed",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "focus-visible": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.9372549057006836,
+                  0.9647058844566345,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#EFF6FF"
+              },
+              "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/surface/selection/selected/focus-visible · Focus-visible surface for the current page; focus ring remains a separate external element. DTCG path: component.pagination-item.color.surface.current.focus-visible.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1606:10",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--tec-component-pagination-item-color-surface-current-focus-visible)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:9775d2e29b4746962a3edb078b484476d2181aa6/-1:-1",
+                  "targetVariableName": "color/surface/selection/selected/focus-visible",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.9607843160629272,
+                  0.9607843160629272,
+                  0.9607843160629272
+                ],
+                "alpha": 1,
+                "hex": "#F5F5F5"
+              },
+              "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/surface/selection/disabled · Disabled surface for the current page. DTCG path: component.pagination-item.color.surface.current.disabled.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1606:11",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--tec-component-pagination-item-color-surface-current-disabled)"
+                },
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:5fb7b0b9b484873153dac5d0fc8cbc0f25fd1a52/-1:-1",
+                  "targetVariableName": "color/surface/selection/disabled",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
+          }
+        },
+        "focus": {
+          "ring": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.14509804546833038,
+                0.38823530077934265,
+                0.9215686321258545
+              ],
+              "alpha": 1,
+              "hex": "#2563EB"
+            },
+            "$description": "Pagination Item Component Token · Status: Implemented · Experimental · Created after approved design · Source: color/focus/ring · External focus-visible ring color. Canonical TEC focus contract: 2 px stroke, 4 px offset, no layout shift. DTCG path: component.pagination-item.color.focus.ring.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1606:12",
+              "com.figma.scopes": [
+                "STROKE"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-pagination-item-color-focus-ring)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:5a55caa2622ff872aa5bcfb8eee920dada22f475/-1:-1",
+                "targetVariableName": "color/focus/ring",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        }
+      }
+    },
+    "pagination": {
+      "gap": {
+        "$type": "number",
+        "$value": 8,
+        "$description": "Pagination Component Token · Status: Implemented · Experimental · Created after approved Pagination design · Source: spacing/8 · Controls spacing between Pagination children; child component geometry remains owned by Pagination Item and Icon Button. DTCG path: component.pagination.gap ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1609:2",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--tec-component-pagination-gap)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:ba3790056d0334326fd5efde522da5e025e55326/-1:-1",
+            "targetVariableName": "spacing/8",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      }
+    },
+    "navigation-item": {
+      "height": {
+        "$type": "number",
+        "$value": 40,
+        "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Standard-only design approved · Source: spacing/40 · Tone=inverse deferred · DTCG path: component.navigation-item.height ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1611:16",
+          "com.figma.scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--tec-component-navigation-item-height)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:cb6630b91fd83363ab75943b1442563c19729506/-1:-1",
+            "targetVariableName": "spacing/40",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "padding-inline": {
+        "$type": "number",
+        "$value": 16,
+        "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Standard-only design approved · Source: spacing/16 · Tone=inverse deferred · DTCG path: component.navigation-item.padding-inline ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1611:17",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--tec-component-navigation-item-padding-inline)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:af217841d860d45c5f902eabb5f2088f9c202c1a/-1:-1",
+            "targetVariableName": "spacing/16",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "padding-block": {
+        "$type": "number",
+        "$value": 10,
+        "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Standard-only design approved · Local component exception: 10 px preserves the approved 40 px control height with a 20 px label. No Core spacing/10 is created. Tone=inverse deferred. DTCG path: component.navigation-item.padding-block ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1611:19",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--tec-component-navigation-item-padding-block)"
+          }
+        }
+      },
+      "gap": {
+        "$type": "number",
+        "$value": 8,
+        "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Leading icon extension approved · Source: spacing/8 · Controls gap between optional leading icon and label · DTCG path: component.navigation-item.gap ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1615:9",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--tec-component-navigation-item-gap)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:ba3790056d0334326fd5efde522da5e025e55326/-1:-1",
+            "targetVariableName": "spacing/8",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "color": {
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.13725490868091583,
+                0.12156862765550613,
+                0.125490203499794
+              ],
+              "alpha": 1,
+              "hex": "#231F20"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Standard-only design approved · Source: color/text/default · Tone=inverse deferred · DTCG path: component.navigation-item.color.text.default ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1611:9",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-navigation-item-color-text-default)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:ef524b242ba56f7571bcdacc9684df84e93c80d7/-1:-1",
+                "targetVariableName": "color/text/default",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "current": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0.2235294133424759,
+                0.6509804129600525
+              ],
+              "alpha": 1,
+              "hex": "#0039A6"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · CR-NAV-002 · Source: color/text/navigation/current · Product Mode resolves EC blue / TEC360 neutral foreground · Tone=inverse deferred · DTCG path: component.navigation-item.color.text.current ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1611:10",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-navigation-item-color-text-current)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:cab9cfd55bc49731b00b6010f1023b7dcf0ff4ff/-1:-1",
+                "targetVariableName": "color/text/navigation/current",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.6392157077789307,
+                0.6392157077789307,
+                0.6392157077789307
+              ],
+              "alpha": 1,
+              "hex": "#A3A3A3"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Standard-only design approved · Source: color/text/selection/disabled · Tone=inverse deferred · DTCG path: component.navigation-item.color.text.disabled ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1611:11",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-navigation-item-color-text-disabled)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:465d202f739a63e459dab239a3efa1ca000978d2/-1:-1",
+                "targetVariableName": "color/text/selection/disabled",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "surface": {
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9607843160629272,
+                0.9607843160629272,
+                0.9607843160629272
+              ],
+              "alpha": 1,
+              "hex": "#F5F5F5"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Standard-only design approved · Source: color/surface/selection/unselected/hover · Tone=inverse deferred · DTCG path: component.navigation-item.color.surface.hover ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1611:12",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-navigation-item-color-surface-hover)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:520470a4b1388eaa8d2b694c2f4c2b5289b4cd94/-1:-1",
+                "targetVariableName": "color/surface/selection/unselected/hover",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.8980392217636108,
+                0.8980392217636108,
+                0.8980392217636108
+              ],
+              "alpha": 1,
+              "hex": "#E5E5E5"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Standard-only design approved · Source: color/surface/selection/unselected/pressed · Tone=inverse deferred · DTCG path: component.navigation-item.color.surface.pressed ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1611:13",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-navigation-item-color-surface-pressed)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:e69850d8de908e16609a95b80bf6c80c3c505e8c/-1:-1",
+                "targetVariableName": "color/surface/selection/unselected/pressed",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "current": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9372549057006836,
+                0.9647058844566345,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#EFF6FF"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · CR-NAV-003 · Source: color/surface/navigation/current · Used only when Context=side-navigation and Current=true; navigation-bar current remains surface-less. Supersedes component/side-navigation/color/surface/current after consumer migration. DTCG path: component.navigation-item.color.surface.current ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1712:15",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:9b39eca28462099ca05ab523496eb11c3485dc38/-1:-1",
+                "targetVariableName": "color/surface/navigation/current",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "focus": {
+          "ring": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.14509804546833038,
+                0.38823530077934265,
+                0.9215686321258545
+              ],
+              "alpha": 1,
+              "hex": "#2563EB"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Standard-only design approved · Source: color/focus/ring · Tone=inverse deferred · DTCG path: component.navigation-item.color.focus.ring ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1611:15",
+              "com.figma.scopes": [
+                "STROKE"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-navigation-item-color-focus-ring)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:5a55caa2622ff872aa5bcfb8eee920dada22f475/-1:-1",
+                "targetVariableName": "color/focus/ring",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "icon": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.45098039507865906,
+                0.45098039507865906,
+                0.45098039507865906
+              ],
+              "alpha": 1,
+              "hex": "#737373"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Leading icon extension approved · Source: color/icon/selection/unselected · Standard only; inverse deferred · DTCG path: component.navigation-item.color.icon.default ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1615:6",
+              "com.figma.scopes": [
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-navigation-item-color-icon-default)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:23990cc6005b1c1b6beef7ac678f57ac0f82b0af/1365:3",
+                "targetVariableName": "color/icon/selection/unselected",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/899:1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "current": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0.2235294133424759,
+                0.6509804129600525
+              ],
+              "alpha": 1,
+              "hex": "#0039A6"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · CR-NAV-002 · Source: color/icon/navigation/current · Product Mode resolves EC blue / TEC360 neutral foreground · Tone=inverse deferred · DTCG path: component.navigation-item.color.icon.current ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1615:7",
+              "com.figma.scopes": [
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-navigation-item-color-icon-current)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:08d7b6ca13c636d1af4dcbab564cfdeefe64e8c4/-1:-1",
+                "targetVariableName": "color/icon/navigation/current",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.6392157077789307,
+                0.6392157077789307,
+                0.6392157077789307
+              ],
+              "alpha": 1,
+              "hex": "#A3A3A3"
+            },
+            "$description": "Navigation Item Component Token · Status: Implemented · Experimental · Leading icon extension approved · Source: color/icon/selection/disabled · Standard only; inverse deferred · DTCG path: component.navigation-item.color.icon.disabled ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1615:8",
+              "com.figma.scopes": [
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "var(--tec-component-navigation-item-color-icon-disabled)"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:b58c215356d607f9063f4e477920b864e7942279/945:89",
+                "targetVariableName": "color/icon/selection/disabled",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/899:1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        }
+      }
+    },
+    "side-navigation": {
+      "width": {
+        "$type": "number",
+        "$value": 236,
+        "$description": "Side Navigation Component Token · Status: Implemented · Experimental · Approved design evidence: Portal único Sidebar width 236 px · Direct local value because no approved Core primitive exists for 236 · DTCG path: component.side-navigation.width ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1618:2",
+          "com.figma.scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "--tec-component-side-navigation-width"
+          }
+        }
+      },
+      "section-gap": {
+        "$type": "number",
+        "$value": 32,
+        "$description": "Side Navigation Component Token · Status: Implemented · Experimental · Source: spacing/32 · Controls gap between optional heading and destination list · DTCG path: component.side-navigation.section-gap ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1618:3",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "--tec-component-side-navigation-section-gap"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:4b56d7b7bb1aade7fd9554da36b4e578f91916cb/-1:-1",
+            "targetVariableName": "spacing/32",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "item-gap": {
+        "$type": "number",
+        "$value": 16,
+        "$description": "Side Navigation Component Token · Status: Implemented · Experimental · Source: spacing/16 · Controls vertical gap between Navigation Item children · DTCG path: component.side-navigation.item-gap ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1618:4",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "--tec-component-side-navigation-item-gap"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:af217841d860d45c5f902eabb5f2088f9c202c1a/-1:-1",
+            "targetVariableName": "spacing/16",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "padding-block": {
+        "$type": "number",
+        "$value": 24,
+        "$description": "Side Navigation Component Token · Status: Implemented · Experimental · Source: spacing/24 · Controls vertical container padding · DTCG path: component.side-navigation.padding-block ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1618:5",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "--tec-component-side-navigation-padding-block"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:0f0ff2437d2780675dc46899c39ea276dc743779/-1:-1",
+            "targetVariableName": "spacing/24",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "color": {
+        "surface": {
+          "current": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9372549057006836,
+                0.9647058844566345,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#EFF6FF"
+            },
+            "$description": "Side Navigation Component Token · Status: Superseded · CR-NAV-003 · Replaced by component/navigation-item/color/surface/current. Shared UI consumer count verified at 0 after migration. Preserve for backward compatibility; do not use for new work. Previous source: color/surface/navigation/current. DTCG path: component.side-navigation.color.surface.current ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1623:8",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.codeSyntax": {
+                "WEB": "--tec-component-side-navigation-color-surface-current"
+              },
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:9b39eca28462099ca05ab523496eb11c3485dc38/-1:-1",
+                "targetVariableName": "color/surface/navigation/current",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "padding-inline": {
+        "$type": "number",
+        "$value": 24,
+        "$description": "Header horizontal padding. Alias: spacing/24. DTCG path: component.header.padding-inline.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1637:14",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:0f0ff2437d2780675dc46899c39ea276dc743779/-1:-1",
+            "targetVariableName": "spacing/24",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "padding-block": {
+        "$type": "number",
+        "$value": 12,
+        "$description": "Header vertical padding. Alias: spacing/12. DTCG path: component.header.padding-block.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1637:15",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:195ac8dffe82cefd34c9e873a56292225b3b403b/-1:-1",
+            "targetVariableName": "spacing/12",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "content-gap": {
+        "$type": "number",
+        "$value": 20,
+        "$description": "Header gap between major content regions. Alias: spacing/20. DTCG path: component.header.content-gap.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1637:16",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:5477af6b55c464b1531bb59111bbeda5cd5571f2/-1:-1",
+            "targetVariableName": "spacing/20",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "color": {
+        "surface": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Header base surface. Alias: color/surface/default. DTCG path: component.header.color.surface.default.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1637:13",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:e9bd614fa5ca7365f06f7114b0ddbebccf3dcef4/-1:-1",
+                "targetVariableName": "color/surface/default",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        }
+      },
+      "announcement": {
+        "padding-inline": {
+          "$type": "number",
+          "$value": 24,
+          "$description": "Header announcement horizontal padding. Alias: spacing/24. DTCG path: component.header.announcement.padding-inline.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1637:18",
+            "com.figma.scopes": [
+              "GAP"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:0f0ff2437d2780675dc46899c39ea276dc743779/-1:-1",
+              "targetVariableName": "spacing/24",
+              "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+              "targetVariableSetName": "TEC DS — Core"
+            }
+          }
+        },
+        "gap": {
+          "$type": "number",
+          "$value": 12,
+          "$description": "Header announcement internal gap. Alias: spacing/12. DTCG path: component.header.announcement.gap.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1637:19",
+            "com.figma.scopes": [
+              "GAP"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:195ac8dffe82cefd34c9e873a56292225b3b403b/-1:-1",
+              "targetVariableName": "spacing/12",
+              "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+              "targetVariableSetName": "TEC DS — Core"
+            }
+          }
+        },
+        "color": {
+          "surface": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9607843160629272,
+                0.9607843160629272,
+                0.9607843160629272
+              ],
+              "alpha": 1,
+              "hex": "#F5F5F5"
+            },
+            "$description": "Header announcement band surface. Alias: color/surface/subtle. DTCG path: component.header.announcement.color.surface.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1637:17",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:a911bb3aafa8d7625ce7d57813f2beb8695e7529/-1:-1",
+                "targetVariableName": "color/surface/subtle",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        }
+      }
+    },
+    "file-upload": {
+      "color": {
+        "text": {
+          "success": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.08235294371843338,
+                0.501960813999176,
+                0.239215686917305
+              ],
+              "alpha": 1,
+              "hex": "#15803D"
+            },
+            "$description": "File Upload Item success message text. DTCG: component.file-upload.color.text.success. Status: Implemented · Experimental · Created after approved File Upload design.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1663:23",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:07fa196c9d0656bb0f5fc72485231f89b9b7310e/-1:-1",
+                "targetVariableName": "color/text/feedback/success",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.7254902124404907,
+                0.10980392247438431,
+                0.10980392247438431
+              ],
+              "alpha": 1,
+              "hex": "#B91C1C"
+            },
+            "$description": "File Upload Item error message text. DTCG: component.file-upload.color.text.error. Status: Implemented · Experimental · Created after approved File Upload design.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1663:24",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:41429c6e00bf6bf8a5f3ce3a772a8bc88438d4ad/-1:-1",
+                "targetVariableName": "color/text/feedback/danger",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "primary": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.13725490868091583,
+                  0.12156862765550613,
+                  0.125490203499794
+                ],
+                "alpha": 1,
+                "hex": "#231F20"
+              },
+              "$description": "Primary File Upload text. DTCG: component.file-upload.color.text.primary.default. Status: Implemented · Experimental · Created after approved File Upload design.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1663:13",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:ef524b242ba56f7571bcdacc9684df84e93c80d7/-1:-1",
+                  "targetVariableName": "color/text/default",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse primary File Upload text. DTCG: component.file-upload.color.text.primary.inverse. Status: Implemented · Experimental · Created after approved File Upload design.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1663:14",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:41b08655a219a0a4c7064d411d6b8a8909045aae/-1:-1",
+                  "targetVariableName": "color/text/inverse",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
+          },
+          "secondary": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.3450980484485626,
+                  0.3450980484485626,
+                  0.35686275362968445
+                ],
+                "alpha": 1,
+                "hex": "#58585B"
+              },
+              "$description": "Secondary/supporting File Upload text. DTCG: component.file-upload.color.text.secondary.default. Status: Implemented · Experimental · Created after approved File Upload design.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1663:15",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:5812a1d18f9e9d9129c412781634057f9cff877c/-1:-1",
+                  "targetVariableName": "color/text/secondary",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.7200000286102295,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse secondary/supporting File Upload text. DTCG: component.file-upload.color.text.secondary.inverse. Status: Implemented · Experimental · Created after approved File Upload design.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1663:16",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:37214af38055c95f064f744851e6cbf12f723c3f/-1:-1",
+                  "targetVariableName": "color/text/inverse/secondary",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
+          }
+        },
+        "surface": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Default surface for File Upload-owned containers only; inverse remains transparent/context-owned. DTCG: component.file-upload.color.surface.default. Status: Implemented · Experimental · Created after approved File Upload design.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1663:17",
+              "com.figma.scopes": [
+                "FRAME_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:e9bd614fa5ca7365f06f7114b0ddbebccf3dcef4/-1:-1",
+                "targetVariableName": "color/surface/default",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.8313725590705872,
+                0.8313725590705872,
+                0.8313725590705872
+              ],
+              "alpha": 1,
+              "hex": "#D4D4D4"
+            },
+            "$description": "Default File Upload item/drop-zone boundary. DTCG: component.file-upload.color.border.default. Status: Implemented · Experimental · Created after approved File Upload design.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1663:18",
+              "com.figma.scopes": [
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:aa778a27c2022c083bfdf56c8a6a36e455b3ec59/-1:-1",
+                "targetVariableName": "color/border/default",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "drag-over": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0.2235294133424759,
+                0.6509804129600525
+              ],
+              "alpha": 1,
+              "hex": "#0039A6"
+            },
+            "$description": "Drag-over File Upload Drop Zone border. DTCG: component.file-upload.color.border.drag-over. Status: Implemented · Experimental · Created after approved File Upload design.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1663:20",
+              "com.figma.scopes": [
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:a77a36af0a085897f885019d206d78dfd3a7dd34/-1:-1",
+                "targetVariableName": "color/border/action/secondary/default",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 0.47999998927116394,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse File Upload item/drop-zone boundary. DTCG: component.file-upload.color.border.inverse.default. Status: Implemented · Experimental · Created after approved File Upload design.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1663:19",
+                "com.figma.scopes": [
+                  "STROKE"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:3732d8bfb8acfeaa58cb536e02e5df579724de62/-1:-1",
+                  "targetVariableName": "color/border/control/inverse/default",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "drag-over": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Inverse drag-over File Upload Drop Zone border. DTCG: component.file-upload.color.border.inverse.drag-over. Status: Implemented · Experimental · Created after approved File Upload design.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1663:21",
+                "com.figma.scopes": [
+                  "STROKE"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:91783bfd0f06f5a63e2f3bc6a5e7ddb8ad5ad243/-1:-1",
+                  "targetVariableName": "color/border/action/secondary/inverse/default",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
+          }
+        },
+        "focus": {
+          "ring": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.14509804546833038,
+                0.38823530077934265,
+                0.9215686321258545
+              ],
+              "alpha": 1,
+              "hex": "#2563EB"
+            },
+            "$description": "External focus-visible ring color for File Upload Drop Zone. DTCG: component.file-upload.color.focus.ring. Status: Implemented · Experimental · Created after approved File Upload design.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1663:22",
+              "com.figma.scopes": [
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:5a55caa2622ff872aa5bcfb8eee920dada22f475/-1:-1",
+                "targetVariableName": "color/focus/ring",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        }
+      }
+    },
+    "date-picker": {
+      "color": {
+        "surface": {
+          "popup": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Raised calendar popup surface. DTCG: component.date-picker.color.surface.popup. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1670:13",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:a26ac897fa67fe9a580f1590a6be75655fc16341/-1:-1",
+                "targetVariableName": "color/surface/raised",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "text": {
+          "header": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.09019608050584793,
+                0.09019608050584793,
+                0.09019608050584793
+              ],
+              "alpha": 1,
+              "hex": "#171717"
+            },
+            "$description": "Calendar month/header text. DTCG: component.date-picker.color.text.header. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1670:14",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:c935dc93269268d27b4e487313fcb0a054312789/-1:-1",
+                "targetVariableName": "color/text/selection/unselected",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "secondary": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.3450980484485626,
+                0.3450980484485626,
+                0.35686275362968445
+              ],
+              "alpha": 1,
+              "hex": "#58585B"
+            },
+            "$description": "Calendar weekday/supporting text. DTCG: component.date-picker.color.text.secondary. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1670:15",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:5812a1d18f9e9d9129c412781634057f9cff877c/-1:-1",
+                "targetVariableName": "color/text/secondary",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "day": {
+          "text": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.09019608050584793,
+                  0.09019608050584793,
+                  0.09019608050584793
+                ],
+                "alpha": 1,
+                "hex": "#171717"
+              },
+              "$description": "Default calendar day text. DTCG: component.date-picker.color.day.text.default. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1670:16",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:c935dc93269268d27b4e487313fcb0a054312789/-1:-1",
+                  "targetVariableName": "color/text/selection/unselected",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "selected": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.11372549086809158,
+                  0.30588236451148987,
+                  0.8470588326454163
+                ],
+                "alpha": 1,
+                "hex": "#1D4ED8"
+              },
+              "$description": "Selected calendar day text. DTCG: component.date-picker.color.day.text.selected. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1670:17",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:105d4836327885718195983430c5c913277a5f26/-1:-1",
+                  "targetVariableName": "color/text/selection/selected",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.6392157077789307,
+                  0.6392157077789307,
+                  0.6392157077789307
+                ],
+                "alpha": 1,
+                "hex": "#A3A3A3"
+              },
+              "$description": "Disabled calendar day text. DTCG: component.date-picker.color.day.text.disabled. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1670:18",
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:465d202f739a63e459dab239a3efa1ca000978d2/-1:-1",
+                  "targetVariableName": "color/text/selection/disabled",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
+          },
+          "surface": {
+            "default": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              },
+              "$description": "Default calendar day surface. DTCG: component.date-picker.color.day.surface.default. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1670:19",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:701f06868a2689b22c0cc3d66484cab3d270f0bc/-1:-1",
+                  "targetVariableName": "color/surface/selection/unselected/default",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.9607843160629272,
+                  0.9607843160629272,
+                  0.9607843160629272
+                ],
+                "alpha": 1,
+                "hex": "#F5F5F5"
+              },
+              "$description": "Hover calendar day surface. DTCG: component.date-picker.color.day.surface.hover. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1670:20",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:520470a4b1388eaa8d2b694c2f4c2b5289b4cd94/-1:-1",
+                  "targetVariableName": "color/surface/selection/unselected/hover",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "selected": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.9372549057006836,
+                  0.9647058844566345,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#EFF6FF"
+              },
+              "$description": "Selected calendar day surface. DTCG: component.date-picker.color.day.surface.selected. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1670:21",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:9bd8c3a83bf53aced499454f2d3a64914b1c9def/-1:-1",
+                  "targetVariableName": "color/surface/selection/selected/default",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0.9607843160629272,
+                  0.9607843160629272,
+                  0.9607843160629272
+                ],
+                "alpha": 1,
+                "hex": "#F5F5F5"
+              },
+              "$description": "Disabled calendar day surface. DTCG: component.date-picker.color.day.surface.disabled. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1670:22",
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:5fb7b0b9b484873153dac5d0fc8cbc0f25fd1a52/-1:-1",
+                  "targetVariableName": "color/surface/selection/disabled",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
+          },
+          "border": {
+            "today": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0.2235294133424759,
+                  0.6509804129600525
+                ],
+                "alpha": 1,
+                "hex": "#0039A6"
+              },
+              "$description": "Date Picker Component Token · Today/current-date indicator border. Source: color/border/action/secondary/default. Deliberately independent from selection/selected so current date and selected date can coexist. DTCG path: component.date-picker.color.day.border.today.",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1670:23",
+                "com.figma.scopes": [
+                  "STROKE"
+                ],
+                "com.figma.aliasData": {
+                  "targetVariableId": "VariableID:a77a36af0a085897f885019d206d78dfd3a7dd34/-1:-1",
+                  "targetVariableName": "color/border/action/secondary/default",
+                  "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                  "targetVariableSetName": "TEC DS — Semantic"
+                }
+              }
+            }
+          }
+        },
+        "focus": {
+          "ring": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.14509804546833038,
+                0.38823530077934265,
+                0.9215686321258545
+              ],
+              "alpha": 1,
+              "hex": "#2563EB"
+            },
+            "$description": "External focus-visible ring for calendar day. DTCG: component.date-picker.color.focus.ring. Status: Implemented · Experimental · Created after approved Date Picker pilot.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1670:24",
+              "com.figma.scopes": [
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:5a55caa2622ff872aa5bcfb8eee920dada22f475/-1:-1",
+                "targetVariableName": "color/focus/ring",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        }
+      }
+    },
+    "menu-item": {
+      "height": {
+        "$type": "number",
+        "$value": 40,
+        "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: spacing/40 · Controls total item height · DTCG path: component.menu-item.height ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1753:15",
+          "com.figma.scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:cb6630b91fd83363ab75943b1442563c19729506/-1:-1",
+            "targetVariableName": "spacing/40",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "min-width": {
+        "$type": "number",
+        "$value": 240,
+        "$description": "Menu Item Component Token · Status: Implemented · Experimental · Approved proposal baseline minimum width: 240 px · Runtime/container may grow wider · DTCG path: component.menu-item.min-width ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1753:16",
+          "com.figma.scopes": [
+            "WIDTH_HEIGHT"
+          ]
+        }
+      },
+      "padding-inline": {
+        "$type": "number",
+        "$value": 16,
+        "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: spacing/16 · DTCG path: component.menu-item.padding-inline ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1753:17",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:af217841d860d45c5f902eabb5f2088f9c202c1a/-1:-1",
+            "targetVariableName": "spacing/16",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "padding-block": {
+        "$type": "number",
+        "$value": 10,
+        "$description": "Menu Item Component Token · Status: Implemented · Experimental · Local component exception: 10 px preserves 40 px height with 20 px label. No Core spacing/10 created. DTCG path: component.menu-item.padding-block ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1753:18",
+          "com.figma.scopes": [
+            "GAP"
+          ]
+        }
+      },
+      "gap": {
+        "$type": "number",
+        "$value": 8,
+        "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: spacing/8 · Reserved for optional icon/label/trailing composition · DTCG path: component.menu-item.gap ($type: dimension).",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1753:19",
+          "com.figma.scopes": [
+            "GAP"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:ba3790056d0334326fd5efde522da5e025e55326/-1:-1",
+            "targetVariableName": "spacing/8",
+            "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+            "targetVariableSetName": "TEC DS — Core"
+          }
+        }
+      },
+      "color": {
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.13725490868091583,
+                0.12156862765550613,
+                0.125490203499794
+              ],
+              "alpha": 1,
+              "hex": "#231F20"
+            },
+            "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: color/text/default · DTCG path: component.menu-item.color.text.default ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1753:20",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:ef524b242ba56f7571bcdacc9684df84e93c80d7/-1:-1",
+                "targetVariableName": "color/text/default",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.6392157077789307,
+                0.6392157077789307,
+                0.6392157077789307
+              ],
+              "alpha": 1,
+              "hex": "#A3A3A3"
+            },
+            "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: color/text/selection/disabled · DTCG path: component.menu-item.color.text.disabled ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1753:21",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:465d202f739a63e459dab239a3efa1ca000978d2/-1:-1",
+                "targetVariableName": "color/text/selection/disabled",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "surface": {
+          "hover": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9607843160629272,
+                0.9607843160629272,
+                0.9607843160629272
+              ],
+              "alpha": 1,
+              "hex": "#F5F5F5"
+            },
+            "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: color/surface/selection/unselected/hover · DTCG path: component.menu-item.color.surface.hover ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1753:22",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:520470a4b1388eaa8d2b694c2f4c2b5289b4cd94/-1:-1",
+                "targetVariableName": "color/surface/selection/unselected/hover",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.8980392217636108,
+                0.8980392217636108,
+                0.8980392217636108
+              ],
+              "alpha": 1,
+              "hex": "#E5E5E5"
+            },
+            "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: color/surface/selection/unselected/pressed · DTCG path: component.menu-item.color.surface.pressed ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1753:23",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:e69850d8de908e16609a95b80bf6c80c3c505e8c/-1:-1",
+                "targetVariableName": "color/surface/selection/unselected/pressed",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        },
+        "focus": {
+          "ring": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.14509804546833038,
+                0.38823530077934265,
+                0.9215686321258545
+              ],
+              "alpha": 1,
+              "hex": "#2563EB"
+            },
+            "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: color/focus/ring · External focus-visible ring · DTCG path: component.menu-item.color.focus.ring ($type: color).",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1753:24",
+              "com.figma.scopes": [
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:5a55caa2622ff872aa5bcfb8eee920dada22f475/-1:-1",
+                "targetVariableName": "color/focus/ring",
+                "targetVariableSetId": "VariableCollectionId:44b0c7d000a110359b09583655389b6d925c0ff9/-1:-1",
+                "targetVariableSetName": "TEC DS — Semantic"
+              }
+            }
+          }
+        }
+      },
+      "focus": {
+        "ring-width": {
+          "$type": "number",
+          "$value": 2,
+          "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: border/width/2 · Canonical focus ring width 2 px · DTCG path: component.menu-item.focus.ring-width ($type: dimension).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1753:25",
+            "com.figma.scopes": [
+              "STROKE_FLOAT"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:864c0f4b112bdf5dc71151e7b288ffaf81d6f138/-1:-1",
+              "targetVariableName": "border/width/2",
+              "targetVariableSetId": "VariableCollectionId:b8bef3955e9abb9f2321d56d838ac7fca0434226/-1:-1",
+              "targetVariableSetName": "TEC DS — Border"
+            }
+          }
+        },
+        "ring-offset": {
+          "$type": "number",
+          "$value": 4,
+          "$description": "Menu Item Component Token · Status: Implemented · Experimental · Source: spacing/4 · Canonical external focus offset 4 px · DTCG path: component.menu-item.focus.ring-offset ($type: dimension).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1753:26",
+            "com.figma.scopes": [
+              "GAP"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:3bbaa64f763130b767cf3068dd3d682ccc643d17/-1:-1",
+              "targetVariableName": "spacing/4",
+              "targetVariableSetId": "VariableCollectionId:d2e90d2e8ba15cea6f2642eac3c8b01c0e3a5e04/-1:-1",
+              "targetVariableSetName": "TEC DS — Core"
             }
           }
         }

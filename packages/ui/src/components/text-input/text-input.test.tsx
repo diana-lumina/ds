@@ -28,6 +28,37 @@ describe('TextInput', () => {
     })
   })
 
+  describe('Prop: tone', () => {
+    it('usa standard por defecto', () => {
+      render(<TextInput aria-label="Nombre" />)
+      expect(screen.getByLabelText('Nombre')).toHaveAttribute('data-tone', 'standard')
+    })
+
+    it('aplica inverse en outlined', () => {
+      render(<TextInput aria-label="Nombre" tone="inverse" />)
+      expect(screen.getByLabelText('Nombre')).toHaveAttribute('data-tone', 'inverse')
+    })
+
+    it('aplica inverse en underline', () => {
+      render(<TextInput aria-label="Nombre" appearance="underline" tone="inverse" />)
+      expect(screen.getByLabelText('Nombre')).toHaveAttribute('data-tone', 'inverse')
+    })
+  })
+
+  describe('Prop: embedded', () => {
+    it('marca embedded', () => {
+      render(<TextInput aria-label="Nombre" embedded />)
+      expect(screen.getByLabelText('Nombre')).toHaveAttribute('data-embedded', 'true')
+    })
+
+    it('combina embedded e inverse', () => {
+      render(<TextInput aria-label="Nombre" embedded tone="inverse" />)
+      const input = screen.getByLabelText('Nombre')
+      expect(input).toHaveAttribute('data-embedded', 'true')
+      expect(input).toHaveAttribute('data-tone', 'inverse')
+    })
+  })
+
   describe('Prop: error', () => {
     it('no marca error por defecto', () => {
       render(<TextInput aria-label="Nombre" />)

@@ -7,6 +7,7 @@ import { CaretDownIcon, CaretUpIcon, CheckIcon } from '@workspace/ui/icons'
 import styles from './select.module.css'
 
 export type SelectAppearance = 'outlined' | 'underline'
+export type SelectTone = 'standard' | 'inverse'
 
 export interface SelectProps
   extends React.ComponentProps<typeof SelectPrimitive.Root> {}
@@ -38,6 +39,8 @@ export function SelectValue({ className, ...props }: SelectValueProps) {
 export interface SelectTriggerProps
   extends React.ComponentProps<typeof SelectPrimitive.Trigger> {
   appearance?: SelectAppearance
+  /** `standard` sobre superficies claras · `inverse` sobre oscuras / brand. */
+  tone?: SelectTone
   error?: boolean
   /** Sin cromo propio; el contenedor compuesto pinta el borde. */
   embedded?: boolean
@@ -45,6 +48,7 @@ export interface SelectTriggerProps
 
 export function SelectTrigger({
   appearance = 'outlined',
+  tone = 'standard',
   error = false,
   className,
   children,
@@ -58,6 +62,7 @@ export function SelectTrigger({
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       data-appearance={appearance}
+      data-tone={tone}
       data-error={showError ? 'true' : undefined}
       data-embedded={embedded ? 'true' : undefined}
       className={cn(styles.trigger, className)}

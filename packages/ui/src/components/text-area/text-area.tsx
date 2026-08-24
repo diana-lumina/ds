@@ -5,11 +5,14 @@ import { cn } from '../../lib/utils'
 import styles from './text-area.module.css'
 
 export type TextAreaAppearance = 'outlined' | 'underline'
+export type TextAreaTone = 'standard' | 'inverse'
 
 export interface TextAreaProps
   extends Omit<React.ComponentProps<"textarea">, 'disabled'> {
   /** `outlined` (caja) o `underline`. */
   appearance?: TextAreaAppearance
+  /** `standard` sobre superficies claras · `inverse` sobre oscuras / brand. */
+  tone?: TextAreaTone
   /** Error: borde danger. Disabled gana sobre error. */
   error?: boolean
   /** Disabled: valor muted; no recibe interacción. */
@@ -17,12 +20,13 @@ export interface TextAreaProps
 }
 
 /**
- * Control de área de texto interno (outlined | underline × default | error | disabled).
+ * Control de área de texto interno (outlined | underline × standard | inverse × default | error | disabled).
  * No forma parte de la API pública de `@workspace/ui`; se usa para componer
  * campos (FormField y siguientes).
  */
 export function TextArea({
   appearance = 'outlined',
+  tone = 'standard',
   error = false,
   disabled,
   className,
@@ -34,6 +38,7 @@ export function TextArea({
     <textarea
       data-slot="text-area"
       data-appearance={appearance}
+      data-tone={tone}
       data-error={showError ? 'true' : undefined}
       className={cn(styles.root, className)}
       disabled={disabled}

@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+  width: var(--component-side-navigation-width);
+  padding: var(--component-side-navigation-padding-block) 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--component-side-navigation-section-gap);
+}
+
+.heading {
+  margin: 0;
+  color: #231f20;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-heading-small, 20px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--typography-line-height-heading-small, 28px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: stretch;
+  gap: var(--component-side-navigation-item-gap);
+}

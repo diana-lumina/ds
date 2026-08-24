@@ -350,6 +350,117 @@
       }
     }
   },
+  "font": {
+    "weight": {
+      "medium": {
+        "$type": "number",
+        "$value": 500,
+        "$description": "Status: Experimental · Source: TEC 360 Home current product evidence · Added through TEC 360 Typography Current Product Reconciliation v1.0.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:532:2",
+          "com.figma.scopes": [
+            "FONT_STYLE"
+          ]
+        }
+      },
+      "bold": {
+        "$type": "number",
+        "$value": 700,
+        "$description": "Status: Experimental · Source: TEC 360 Home current product evidence · Added through TEC 360 Typography Current Product Reconciliation v1.0.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:532:3",
+          "com.figma.scopes": [
+            "FONT_STYLE"
+          ]
+        }
+      }
+    },
+    "size": {
+      "64": {
+        "$type": "number",
+        "$value": 64,
+        "$description": "Status: Experimental · Source: TEC 360 Home current product evidence · Added through TEC 360 Typography Current Product Reconciliation v1.0.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:532:4",
+          "com.figma.hiddenFromPublishing": true,
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ]
+        }
+      },
+      "70": {
+        "$type": "number",
+        "$value": 70,
+        "$description": "Status: Experimental · Source: TEC 360 Home current product evidence · Added through TEC 360 Typography Current Product Reconciliation v1.0.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:532:5",
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ]
+        }
+      },
+      "72": {
+        "$type": "number",
+        "$value": 72,
+        "$description": "Status: Experimental · Source: TEC 360 Home current product evidence · Added through TEC 360 Typography Current Product Reconciliation v1.0.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:532:6",
+          "com.figma.hiddenFromPublishing": true,
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ]
+        }
+      }
+    },
+    "line-height": {
+      "65": {
+        "$type": "number",
+        "$value": 65,
+        "$description": "Status: Experimental · Source: TEC 360 Home current product evidence · Added through TEC 360 Typography Current Product Reconciliation v1.0.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:532:7",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ]
+        }
+      },
+      "66": {
+        "$type": "number",
+        "$value": 66,
+        "$description": "Status: Experimental · Source: TEC 360 Home current product evidence · Added through TEC 360 Typography Current Product Reconciliation v1.0.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:532:8",
+          "com.figma.hiddenFromPublishing": true,
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ]
+        }
+      },
+      "67": {
+        "$type": "number",
+        "$value": 67,
+        "$description": "Status: Experimental · Source: TEC 360 Home current product evidence · Added through TEC 360 Typography Current Product Reconciliation v1.0.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:532:9",
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ]
+        }
+      },
+      "68": {
+        "$type": "number",
+        "$value": 68,
+        "$description": "Status: Experimental · Source: TEC 360 Home current product evidence · Added through TEC 360 Typography Current Product Reconciliation v1.0.",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:532:10",
+          "com.figma.hiddenFromPublishing": true,
+          "com.figma.scopes": [
+            "LINE_HEIGHT"
+          ]
+        }
+      }
+    }
+  },
   "$extensions": {
     "com.figma.modeName": "Default"
   }

@@ -1,15 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
-import { PhoneInput, type PhoneInputAppearance } from './phone-input'
+import {
+  PhoneInput,
+  type PhoneInputAppearance,
+  type PhoneInputTone,
+} from './phone-input'
 
 type PhoneStoryArgs = {
   appearance: PhoneInputAppearance
+  tone: PhoneInputTone
   error: boolean
   disabled: boolean
 }
 
 const meta = {
-  title: 'Components/Form Controls/PhoneInput',
+  title: 'Components/Internal Building Blocks/PhoneInput',
   component: PhoneInput,
   tags: ['autodocs'],
   parameters: {
@@ -17,7 +22,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Campo telefónico compuesto: Select de código de país + TextInput del número. Appearances outlined y underline; estados default, error y disabled.',
+          'Campo telefónico compuesto: Select de código de país + TextInput del número. Appearances outlined y underline; tones standard e inverse; estados default, error y disabled.',
       },
     },
   },
@@ -26,6 +31,13 @@ const meta = {
       control: 'radio',
       options: ['outlined', 'underline'],
       table: { defaultValue: { summary: 'outlined' } },
+    },
+    tone: {
+      control: 'radio',
+      options: ['standard', 'inverse'],
+      description:
+        'standard sobre superficies claras · inverse sobre oscuras / brand',
+      table: { defaultValue: { summary: 'standard' } },
     },
     error: { control: 'boolean', table: { defaultValue: { summary: 'false' } } },
     disabled: { control: 'boolean', table: { defaultValue: { summary: 'false' } } },
@@ -45,6 +57,7 @@ const fieldFrame: React.CSSProperties = { maxWidth: 360 }
 
 function Specimen({
   appearance = 'outlined',
+  tone = 'standard',
   error = false,
   disabled = false,
 }: PhoneStoryArgs) {
@@ -55,6 +68,7 @@ function Specimen({
     <div style={fieldFrame}>
       <PhoneInput
         appearance={appearance}
+        tone={tone}
         error={error}
         disabled={disabled}
         country={country}
@@ -67,9 +81,26 @@ function Specimen({
   )
 }
 
+const inverseDecorator: Story['decorators'] = [
+  (Story) => (
+    <div
+      style={{
+        background: 'var(--color-surface-brand-strong, #231f20)',
+        padding: 24,
+        borderRadius: 8,
+        display: 'inline-block',
+        minWidth: 360,
+      }}
+    >
+      <Story />
+    </div>
+  ),
+]
+
 export const Playground: Story = {
   args: {
     appearance: 'outlined',
+    tone: 'standard',
     error: false,
     disabled: false,
   },
@@ -78,22 +109,36 @@ export const Playground: Story = {
 
 export const Default: Story = {
   render: () => (
-    <Specimen appearance="outlined" error={false} disabled={false} />
+    <Specimen appearance="outlined" tone="standard" error={false} disabled={false} />
+  ),
+}
+
+export const Inverse: Story = {
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
+  decorators: inverseDecorator,
+  render: () => (
+    <Specimen appearance="outlined" tone="inverse" error={false} disabled={false} />
   ),
 }
 
 export const Underline: Story = {
   render: () => (
-    <Specimen appearance="underline" error={false} disabled={false} />
+    <Specimen appearance="underline" tone="standard" error={false} disabled={false} />
   ),
 }
 
 export const Error: Story = {
-  render: () => <Specimen appearance="outlined" error disabled={false} />,
+  render: () => (
+    <Specimen appearance="outlined" tone="standard" error disabled={false} />
+  ),
 }
 
 export const Disabled: Story = {
-  render: () => <Specimen appearance="outlined" error={false} disabled />,
+  render: () => (
+    <Specimen appearance="outlined" tone="standard" error={false} disabled />
+  ),
 }
 
 export const AllStates: Story = {
@@ -127,6 +172,10 @@ export const AllStates: Story = {
       borderBottom: '1px solid #f0f0f0',
       minWidth: 280,
     }
+    const tdInverse: React.CSSProperties = {
+      ...td,
+      background: 'var(--color-surface-brand-strong, #231f20)',
+    }
 
     return (
       <div style={{ padding: 8 }}>
@@ -136,6 +185,8 @@ export const AllStates: Story = {
               <th style={{ ...th, paddingLeft: 0 }}>State</th>
               <th style={th}>Outlined</th>
               <th style={th}>Underline</th>
+              <th style={th}>Outlined inverse</th>
+              <th style={th}>Underline inverse</th>
             </tr>
           </thead>
           <tbody>
@@ -149,10 +200,16 @@ export const AllStates: Story = {
               <tr key={label}>
                 <td style={rowLabel}>{label}</td>
                 <td style={td}>
-                  <Specimen appearance="outlined" {...state} />
+                  <Specimen appearance="outlined" tone="standard" {...state} />
                 </td>
                 <td style={td}>
-                  <Specimen appearance="underline" {...state} />
+                  <Specimen appearance="underline" tone="standard" {...state} />
+                </td>
+                <td style={tdInverse}>
+                  <Specimen appearance="outlined" tone="inverse" {...state} />
+                </td>
+                <td style={tdInverse}>
+                  <Specimen appearance="underline" tone="inverse" {...state} />
                 </td>
               </tr>
             ))}

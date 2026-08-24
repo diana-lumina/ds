@@ -14,10 +14,15 @@ import {
   SelectValue,
 } from '../select'
 import { TextArea, type TextAreaProps } from '../text-area'
-import { TextInput, type TextInputAppearance } from '../text-input'
+import {
+  TextInput,
+  type TextInputAppearance,
+  type TextInputTone,
+} from '../text-input'
 import styles from './form-field.module.css'
 
 export type FormFieldControl = 'input' | 'textarea' | 'select' | 'phone'
+export type FormFieldTone = TextInputTone
 
 export type FormFieldOption = {
   value: string
@@ -33,6 +38,8 @@ export interface FormFieldProps
   supportingText?: string
   /** Apariencia del control interno. */
   appearance?: TextInputAppearance
+  /** `standard` sobre superficies claras · `inverse` sobre oscuras / brand. */
+  tone?: FormFieldTone
   /** Control interno. `multiline` equivale a `textarea`. */
   control?: FormFieldControl
   /** Usa TextArea en lugar de TextInput. */
@@ -60,12 +67,13 @@ export interface FormFieldProps
 
 /**
  * Campo de formulario: label, TextInput / TextArea / Select / PhoneInput y supporting text.
- * Appearances: outlined, underline. Estados: default, error, disabled.
+ * Appearances: outlined, underline. Tones: standard, inverse. Estados: default, error, disabled.
  */
 export function FormField({
   label,
   supportingText,
   appearance = 'outlined',
+  tone = 'standard',
   control,
   multiline = false,
   rows,
@@ -92,6 +100,7 @@ export function FormField({
   const controlProps = {
     id: inputId,
     appearance,
+    tone,
     error,
     disabled,
     'aria-describedby': supportingId,
@@ -100,6 +109,7 @@ export function FormField({
   return (
     <div
       data-slot="form-field"
+      data-tone={tone}
       data-error={error && !disabled ? 'true' : 'false'}
       data-disabled={disabled || undefined}
       className={cn(styles.root, className)}

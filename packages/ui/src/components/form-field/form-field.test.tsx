@@ -36,6 +36,54 @@ describe('FormField', () => {
       expect(screen.getByLabelText('Correo')).toHaveAttribute('data-appearance', 'underline')
     })
 
+    it('usa tone standard por defecto', () => {
+      render(<FormField label="Correo" />)
+      expect(document.querySelector('[data-slot="form-field"]')).toHaveAttribute(
+        'data-tone',
+        'standard'
+      )
+    })
+
+    it('pasa tone inverse al input, textarea, phone y select', () => {
+      const { unmount } = render(<FormField label="Correo" tone="inverse" />)
+      expect(document.querySelector('[data-slot="form-field"]')).toHaveAttribute(
+        'data-tone',
+        'inverse'
+      )
+      expect(document.querySelector('[data-slot="text-input"]')).toHaveAttribute(
+        'data-tone',
+        'inverse'
+      )
+      unmount()
+
+      const textarea = render(<FormField label="Comentario" tone="inverse" multiline />)
+      expect(document.querySelector('[data-slot="text-area"]')).toHaveAttribute(
+        'data-tone',
+        'inverse'
+      )
+      textarea.unmount()
+
+      const phone = render(<FormField label="Teléfono" tone="inverse" control="phone" />)
+      expect(document.querySelector('[data-slot="phone-input"]')).toHaveAttribute(
+        'data-tone',
+        'inverse'
+      )
+      phone.unmount()
+
+      render(
+        <FormField
+          label="Campus"
+          tone="inverse"
+          control="select"
+          options={[{ value: 'mty', label: 'Monterrey' }]}
+        />
+      )
+      expect(document.querySelector('[data-slot="select-trigger"]')).toHaveAttribute(
+        'data-tone',
+        'inverse'
+      )
+    })
+
     it('renderiza TextArea cuando multiline es true', () => {
       render(<FormField label="Comentario" multiline />)
       expect(document.querySelector('[data-slot="text-area"]')).toBeInTheDocument()

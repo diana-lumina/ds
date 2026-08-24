@@ -12,18 +12,20 @@ import {
 
 function CampusSelect({
   appearance,
+  tone,
   error,
   disabled,
   onValueChange,
 }: {
   appearance?: 'outlined' | 'underline'
+  tone?: 'standard' | 'inverse'
   error?: boolean
   disabled?: boolean
   onValueChange?: (value: string) => void
 }) {
   return (
     <Select onValueChange={onValueChange} disabled={disabled}>
-      <SelectTrigger appearance={appearance} error={error} aria-label="Campus">
+      <SelectTrigger appearance={appearance} tone={tone} error={error} aria-label="Campus">
         <SelectValue placeholder="Elige un campus" />
       </SelectTrigger>
       <SelectContent>
@@ -55,6 +57,18 @@ describe('Select', () => {
     it('aplica underline', () => {
       render(<CampusSelect appearance="underline" />)
       expect(screen.getByRole('combobox')).toHaveAttribute('data-appearance', 'underline')
+    })
+  })
+
+  describe('Prop: tone', () => {
+    it('usa standard por defecto', () => {
+      render(<CampusSelect />)
+      expect(screen.getByRole('combobox')).toHaveAttribute('data-tone', 'standard')
+    })
+
+    it('aplica inverse', () => {
+      render(<CampusSelect tone="inverse" />)
+      expect(screen.getByRole('combobox')).toHaveAttribute('data-tone', 'inverse')
     })
   })
 

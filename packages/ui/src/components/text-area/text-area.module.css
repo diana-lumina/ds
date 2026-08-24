@@ -56,6 +56,26 @@
   background: var(--component-form-field-color-surface-disabled, #E5E5E5);
 }
 
+.root[data-appearance='outlined'][data-tone='inverse'] {
+  border-color: var(--component-text-field-color-border-inverse-default, rgba(255, 255, 255, 0.48));
+  background: var(--component-text-field-color-surface-inverse-default, rgba(255, 255, 255, 0.08));
+  color: var(--component-text-field-color-value-inverse-default, #FFF);
+}
+
+.root[data-appearance='outlined'][data-tone='inverse']::placeholder {
+  color: var(--component-text-field-color-placeholder-inverse-default, rgba(255, 255, 255, 0.60));
+}
+
+.root[data-appearance='outlined'][data-tone='inverse']:disabled {
+  border-color: var(--component-text-field-color-border-inverse-disabled, rgba(255, 255, 255, 0.16));
+  background: var(--component-text-field-color-surface-inverse-disabled, rgba(255, 255, 255, 0.04));
+  color: var(--component-text-field-color-value-inverse-disabled, rgba(255, 255, 255, 0.40));
+}
+
+.root[data-appearance='outlined'][data-tone='inverse'][data-error='true'] {
+  border-color: var(--component-form-field-color-border-error, #B91C1C);
+}
+
 /* ===== Underline ===== */
 .root[data-appearance='underline'] {
   border: none;
@@ -81,5 +101,29 @@
 
 .root[data-appearance='underline']:disabled {
   border-bottom-color: var(--component-form-field-color-border-disabled, #D4D4D4);
-  background: var(--component-text-field-color-surface-disabled, #E5E5E5);
+  background: var(--component-text-field-color-surface-underline, rgba(255, 255, 255, 0));
+}
+
+.root[data-appearance='underline'][data-tone='inverse'] {
+  border-bottom-color: var(--component-text-field-color-border-inverse-default, rgba(255, 255, 255, 0.48));
+  color: var(--component-text-field-color-value-inverse-default, #FFF);
+}
+
+.root[data-appearance='underline'][data-tone='inverse']::placeholder {
+  color: var(--component-text-field-color-placeholder-inverse-default, rgba(255, 255, 255, 0.60));
+}
+
+.root[data-appearance='underline'][data-tone='inverse']:disabled {
+  border-bottom-color: var(--component-text-field-color-border-inverse-disabled, rgba(255, 255, 255, 0.16));
+  color: var(--component-text-field-color-value-inverse-disabled, rgba(255, 255, 255, 0.40));
+  background: var(--component-text-field-color-surface-underline, rgba(255, 255, 255, 0));
+}
+
+.root[data-appearance='underline'][data-tone='inverse'][data-error='true'] {
+  border-bottom-color: var(--component-form-field-color-border-error, #B91C1C);
+}
+
+.root[data-appearance='underline'][data-tone='inverse'][data-error='true']:focus-visible:not(:disabled) {
+  border-bottom-width: var(--component-text-area-control-underline-focus-border-width, 2px);
+  border-bottom-color: var(--component-form-field-color-border-error, #B91C1C);
 }

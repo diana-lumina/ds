@@ -1,9 +1,31 @@
 .root {
-  font-family: var(--component-button-label-font-family, Inter);
-  font-weight: var(--component-button-label-font-weight, 500);
-  letter-spacing: var(--component-button-label-letter-spacing, 0);
-  font-style: normal;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-style: solid;
+  border-color: transparent;
   border-width: 0;
+  white-space: nowrap;
+  user-select: none;
+  outline: none;
+  transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease,
+    transform 150ms ease, border-color 150ms ease;
+  cursor: pointer;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-weight: var(--typography-font-weight-action, 500);
+  line-height: var(--typography-line-height-action-md, 24px);
+  letter-spacing: var(--typography-letter-spacing-action, 0);
+}
+
+.root:active:not([aria-haspopup]):not(:disabled) {
+  transform: translateY(1px);
+}
+
+.root:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .root:focus-visible {
@@ -12,13 +34,25 @@
   outline-offset: var(--focus-ring-offset, 2px);
 }
 
+.root svg {
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.iconSlot {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
 .root[data-size="sm"] {
   padding-block: var(--component-button-sm-padding-block);
   padding-inline: var(--component-button-sm-padding-inline);
   gap: var(--component-button-sm-gap);
   border-radius: var(--component-button-sm-radius);
-  font-size: var(--component-button-label-sm-font-size);
-  line-height: var(--component-button-label-sm-line-height);
+  font-size: var(--typography-font-size-action-sm, 14px);
+  line-height: var(--typography-line-height-action-sm, 20px);
 }
 
 .root[data-size="sm"] svg {
@@ -31,8 +65,8 @@
   padding-inline: var(--component-button-md-padding-inline);
   gap: var(--component-button-md-gap);
   border-radius: var(--component-button-md-radius);
-  font-size: var(--component-button-label-md-font-size);
-  line-height: var(--component-button-label-md-line-height);
+  font-size: var(--typography-font-size-action-md, 16px);
+  line-height: var(--typography-line-height-action-md, 24px);
 }
 
 .root[data-size="md"] svg {
@@ -45,8 +79,8 @@
   padding-inline: var(--component-button-lg-padding-inline, 20px);
   gap: var(--component-button-lg-gap, 8px);
   border-radius: var(--component-button-lg-radius, 999px);
-  font-size: var(--component-button-label-lg-font-size, 18px);
-  line-height: var(--component-button-lg-line-height, 28px);
+  font-size: var(--typography-font-size-action-lg, 16px);
+  line-height: var(--typography-line-height-action-lg, 24px);
 }
 
 .root[data-size="lg"] svg {

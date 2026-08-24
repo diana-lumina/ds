@@ -3,4 +3,5 @@ export type {
   PhoneCountry,
   PhoneInputAppearance,
   PhoneInputProps,
+  PhoneInputTone,
 } from './phone-input'

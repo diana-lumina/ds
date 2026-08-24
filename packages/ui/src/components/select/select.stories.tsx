@@ -7,17 +7,19 @@ import {
   SelectTrigger,
   SelectValue,
   type SelectAppearance,
+  type SelectTone,
 } from './select'
 
 type SelectStoryArgs = {
   appearance: SelectAppearance
+  tone: SelectTone
   error: boolean
   disabled: boolean
   placeholder: string
 }
 
 const meta = {
-  title: 'Components/Form Controls/Select',
+  title: 'Components/Inputs/Select',
   component: SelectTrigger,
   tags: ['autodocs'],
   parameters: {
@@ -25,7 +27,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Select sobre Radix. Appearances outlined y underline; estados default, error y disabled. El trigger usa CaretDownIcon.',
+          '',
       },
     },
   },
@@ -34,6 +36,12 @@ const meta = {
       control: 'radio',
       options: ['outlined', 'underline'],
       table: { defaultValue: { summary: 'outlined' } },
+    },
+    tone: {
+      control: 'radio',
+      options: ['standard', 'inverse'],
+      description: 'standard sobre superficies claras · inverse sobre oscuras / brand.',
+      table: { defaultValue: { summary: 'standard' } },
     },
     error: {
       control: 'boolean',
@@ -58,20 +66,27 @@ const hideCode = {
   },
 }
 
+const showCode = {
+  docs: {
+    canvas: { sourceState: 'shown' as const },
+  },
+}
+
 const fieldFrame: React.CSSProperties = { maxWidth: 360 }
 
 function Specimen({
   appearance = 'outlined',
+  tone = 'standard',
   error = false,
   disabled = false,
   placeholder = 'Elige un campus',
-}: SelectStoryArgs) {
+}: Partial<SelectStoryArgs>) {
   const [value, setValue] = useState<string>()
 
   return (
     <div style={fieldFrame}>
       <Select value={value} onValueChange={setValue} disabled={disabled}>
-        <SelectTrigger appearance={appearance} error={error} aria-label="Campus">
+        <SelectTrigger appearance={appearance} tone={tone} error={error} aria-label="Campus">
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent>
@@ -84,9 +99,26 @@ function Specimen({
   )
 }
 
+const inverseDecorator: Story['decorators'] = [
+  (Story) => (
+    <div
+      style={{
+        background: 'var(--color-surface-brand-strong, #231f20)',
+        padding: 24,
+        borderRadius: 8,
+        display: 'inline-block',
+        minWidth: 360,
+      }}
+    >
+      <Story />
+    </div>
+  ),
+]
+
 export const Playground: Story = {
   args: {
     appearance: 'outlined',
+    tone: 'standard',
     error: false,
     disabled: false,
     placeholder: 'Elige un campus',
@@ -96,8 +128,9 @@ export const Playground: Story = {
 
 export const Default: Story = {
   parameters: {
+    ...showCode,
     docs: {
-      canvas: { sourceState: 'shown' },
+      ...showCode.docs,
       source: {
         code: `<Select>
   <SelectTrigger aria-label="Campus">
@@ -110,20 +143,31 @@ export const Default: Story = {
       },
     },
   },
-  render: () => (
-    <Specimen
-      appearance="outlined"
-      error={false}
-      disabled={false}
-      placeholder="Elige un campus"
-    />
-  ),
+  render: () => <Specimen />,
+}
+
+export const Inverse: Story = {
+  parameters: {
+    ...showCode,
+    docs: {
+      ...showCode.docs,
+      source: {
+        code: `<SelectTrigger tone="inverse" aria-label="Campus">
+  <SelectValue placeholder="Elige un campus" />
+</SelectTrigger>`,
+      },
+    },
+    backgrounds: { default: 'dark' },
+  },
+  decorators: inverseDecorator,
+  render: () => <Specimen tone="inverse" />,
 }
 
 export const Underline: Story = {
   parameters: {
+    ...showCode,
     docs: {
-      canvas: { sourceState: 'shown' },
+      ...showCode.docs,
       source: {
         code: `<SelectTrigger appearance="underline" aria-label="Campus">
   <SelectValue placeholder="Elige un campus" />
@@ -131,36 +175,15 @@ export const Underline: Story = {
       },
     },
   },
-  render: () => (
-    <Specimen
-      appearance="underline"
-      error={false}
-      disabled={false}
-      placeholder="Elige un campus"
-    />
-  ),
+  render: () => <Specimen appearance="underline" />,
 }
 
 export const Error: Story = {
-  render: () => (
-    <Specimen
-      appearance="outlined"
-      error
-      disabled={false}
-      placeholder="Elige un campus"
-    />
-  ),
+  render: () => <Specimen error />,
 }
 
 export const Disabled: Story = {
-  render: () => (
-    <Specimen
-      appearance="outlined"
-      error={false}
-      disabled
-      placeholder="Elige un campus"
-    />
-  ),
+  render: () => <Specimen disabled />,
 }
 
 export const AllStates: Story = {
@@ -192,8 +215,18 @@ export const AllStates: Story = {
       verticalAlign: 'middle',
       padding: '16px 16px',
       borderBottom: '1px solid #f0f0f0',
-      minWidth: 280,
+      minWidth: 240,
     }
+    const tdInverse: React.CSSProperties = {
+      ...td,
+      background: 'var(--color-surface-brand-strong, #231f20)',
+    }
+
+    const states = [
+      ['Default', { error: false, disabled: false }],
+      ['Error', { error: true, disabled: false }],
+      ['Disabled', { error: false, disabled: true }],
+    ] as const
 
     return (
       <div style={{ padding: 8 }}>
@@ -201,38 +234,30 @@ export const AllStates: Story = {
           <thead>
             <tr>
               <th style={{ ...th, paddingLeft: 0 }}>State</th>
-              <th style={th}>Outlined</th>
-              <th style={th}>Underline</th>
+              <th style={th}>Outlined standard</th>
+              <th style={th}>Outlined inverse</th>
+              <th style={th}>Underline standard</th>
+              <th style={th}>Underline inverse</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td style={rowLabel}>Default</td>
-              <td style={td}>
-                <Specimen appearance="outlined" error={false} disabled={false} placeholder="Elige un campus" />
-              </td>
-              <td style={td}>
-                <Specimen appearance="underline" error={false} disabled={false} placeholder="Elige un campus" />
-              </td>
-            </tr>
-            <tr>
-              <td style={rowLabel}>Error</td>
-              <td style={td}>
-                <Specimen appearance="outlined" error disabled={false} placeholder="Elige un campus" />
-              </td>
-              <td style={td}>
-                <Specimen appearance="underline" error disabled={false} placeholder="Elige un campus" />
-              </td>
-            </tr>
-            <tr>
-              <td style={rowLabel}>Disabled</td>
-              <td style={td}>
-                <Specimen appearance="outlined" error={false} disabled placeholder="Elige un campus" />
-              </td>
-              <td style={td}>
-                <Specimen appearance="underline" error={false} disabled placeholder="Elige un campus" />
-              </td>
-            </tr>
+            {states.map(([label, state]) => (
+              <tr key={label}>
+                <td style={rowLabel}>{label}</td>
+                <td style={td}>
+                  <Specimen appearance="outlined" tone="standard" placeholder="Elige un campus" {...state} />
+                </td>
+                <td style={tdInverse}>
+                  <Specimen appearance="outlined" tone="inverse" placeholder="Elige un campus" {...state} />
+                </td>
+                <td style={td}>
+                  <Specimen appearance="underline" tone="standard" placeholder="Elige un campus" {...state} />
+                </td>
+                <td style={tdInverse}>
+                  <Specimen appearance="underline" tone="inverse" placeholder="Elige un campus" {...state} />
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

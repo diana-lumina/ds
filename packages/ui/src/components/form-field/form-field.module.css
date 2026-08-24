@@ -36,3 +36,23 @@
 .root[data-disabled] .supporting {
   color: var(--component-form-field-color-supporting-disabled, #737373);
 }
+
+.root[data-tone='inverse'] .label {
+  color: var(--component-form-field-color-label-inverse, #fff);
+}
+
+.root[data-tone='inverse'] .supporting {
+  color: var(--component-form-field-color-supporting-inverse, rgba(255, 255, 255, 0.72));
+}
+
+.root[data-tone='inverse'][data-error='true'] .supporting {
+  color: var(--component-form-field-color-supporting-error, #b91c1c);
+}
+
+.root[data-tone='inverse'][data-disabled] .label {
+  color: var(--component-form-field-color-label-inverse-disabled, rgba(255, 255, 255, 0.4));
+}
+
+.root[data-tone='inverse'][data-disabled] .supporting {
+  color: var(--component-form-field-color-supporting-inverse-disabled, rgba(255, 255, 255, 0.4));
+}

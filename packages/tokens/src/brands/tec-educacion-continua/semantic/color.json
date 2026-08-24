@@ -28,33 +28,6 @@
           }
         }
       },
-      "inverse": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            1,
-            1,
-            1
-          ],
-          "alpha": 1,
-          "hex": "#FFFFFF"
-        },
-        "$description": "Inverse icon color for icons on sufficiently dark surfaces, brand surfaces, gradients, or images. Resolves to shared color/white in both product modes. Does not include opacity or component-level contrast treatments; validate contextual legibility before use.",
-        "$extensions": {
-          "com.figma.variableId": "VariableID:301:2",
-          "com.figma.scopes": [
-            "SHAPE_FILL",
-            "STROKE"
-          ],
-          "com.figma.aliasData": {
-            "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
-            "targetVariableName": "color/white",
-            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
-            "targetVariableSetName": "TEC DS — Color Primitives"
-          }
-        }
-      },
       "secondary": {
         "$type": "color",
         "$value": {
@@ -196,7 +169,7 @@
         "primary": {
           "default": {
             "$type": "color",
-            "$value": "{color.icon.inverse}",
+            "$value": "{color.icon.inverse.$root}",
             "$description": "CURRENT · Button Primary icon route. TEC 360 resolves dark icon over light gradient; TEC Educación Continua resolves inverse icon over solid brand blue. Decision: Button Primary Content Accessibility 2026-07-29.",
             "$extensions": {
               "com.figma.variableId": "VariableID:632:3",
@@ -208,7 +181,7 @@
           },
           "on-filled": {
             "$type": "color",
-            "$value": "{color.icon.inverse}",
+            "$value": "{color.icon.inverse.$root}",
             "$description": "CURRENT · Button Primary icon route. TEC 360 resolves dark icon over light gradient; TEC Educación Continua resolves inverse icon over solid brand blue. Decision: Button Primary Content Accessibility 2026-07-29.",
             "$extensions": {
               "com.figma.variableId": "VariableID:806:179",
@@ -1074,6 +1047,93 @@
             }
           }
         }
+      },
+      "control": {
+        "inverse": {
+          "disabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.4000000059604645,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Disabled icon content for inverse field-like controls. Source: color/whiteAlpha/40. Shared across TEC 360 and TEC Educación Continua. DTCG: color.icon.control.inverse.disabled.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1642:17",
+              "com.figma.scopes": [
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:4b04a64cc5caa99c683684fc561f2d519b3a9a49/-1:-1",
+                "targetVariableName": "color/whiteAlpha/40",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          }
+        }
+      },
+      "inverse": {
+        "secondary": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.7200000286102295,
+            "hex": "#FFFFFF"
+          },
+          "$description": "Secondary non-interactive iconography on inverse surfaces. Lower prominence than color/icon/inverse while preserving contrast. Source: color/whiteAlpha/72. Shared across TEC 360 and TEC Educación Continua. Do not use for disabled, action, feedback, or brand iconography. DTCG: color.icon.inverse.secondary ($type: color).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1655:16",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:620e14b1f1907e6e8982aea0e3228df4b59aaf59/-1:-1",
+              "targetVariableName": "color/whiteAlpha/72",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "$root": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#FFFFFF"
+          },
+          "$description": "Inverse icon color for icons on sufficiently dark surfaces, brand surfaces, gradients, or images. Resolves to shared color/white in both product modes. Does not include opacity or component-level contrast treatments; validate contextual legibility before use.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:301:2",
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+              "targetVariableName": "color/white",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
       }
     },
     "text": {
@@ -1100,32 +1160,6 @@
             "targetVariableName": "color/brand/near-black",
             "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
             "targetVariableSetName": "TEC Educación Continua — Reference"
-          }
-        }
-      },
-      "inverse": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            1,
-            1,
-            1
-          ],
-          "alpha": 1,
-          "hex": "#FFFFFF"
-        },
-        "$description": "Inverse text color. Resolves to global white in both product modes. Use only on sufficiently dark surfaces with validated contrast.",
-        "$extensions": {
-          "com.figma.variableId": "VariableID:261:3",
-          "com.figma.scopes": [
-            "TEXT_FILL"
-          ],
-          "com.figma.aliasData": {
-            "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
-            "targetVariableName": "color/white",
-            "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
-            "targetVariableSetName": "TEC DS — Color Primitives"
           }
         }
       },
@@ -1185,7 +1219,7 @@
         "primary": {
           "default": {
             "$type": "color",
-            "$value": "{color.text.inverse}",
+            "$value": "{color.text.inverse.$root}",
             "$description": "CURRENT · Button Primary readable text route. TEC 360 resolves dark text over light gradient; TEC Educación Continua resolves inverse text over solid brand blue. Decision: Button Primary Content Accessibility 2026-07-29.",
             "$extensions": {
               "com.figma.variableId": "VariableID:632:2",
@@ -1196,7 +1230,7 @@
           },
           "on-filled": {
             "$type": "color",
-            "$value": "{color.text.inverse}",
+            "$value": "{color.text.inverse.$root}",
             "$description": "CURRENT · Button Primary readable text route. TEC 360 resolves dark text over light gradient; TEC Educación Continua resolves inverse text over solid brand blue. Decision: Button Primary Content Accessibility 2026-07-29.",
             "$extensions": {
               "com.figma.variableId": "VariableID:806:183",
@@ -2065,6 +2099,116 @@
               "targetVariableName": "color/brand/blue",
               "targetVariableSetId": "VariableCollectionId:459bea4597f10caead1b2986a67276dfad7f324f/-1:-1",
               "targetVariableSetName": "TEC Educación Continua — Reference"
+            }
+          }
+        }
+      },
+      "control": {
+        "inverse": {
+          "disabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.4000000059604645,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Disabled text content for inverse field-like controls. Source: color/whiteAlpha/40. Shared across TEC 360 and TEC Educación Continua. Communicates unavailability without preserving active inverse contrast. DTCG: color.text.control.inverse.disabled.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1642:16",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:4b04a64cc5caa99c683684fc561f2d519b3a9a49/-1:-1",
+                "targetVariableName": "color/whiteAlpha/40",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "placeholder": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.6000000238418579,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Placeholder text for enabled inverse field-like controls. Lower prominence than entered value while remaining legible on sufficiently dark inverse surfaces. Source: color/whiteAlpha/60. Shared across TEC 360 and TEC Educación Continua. DTCG: color.text.control.inverse.placeholder.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1648:13",
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:4c80189d5a6183dd65378ebd6f4bbd3c2db8c117/-1:-1",
+                "targetVariableName": "color/whiteAlpha/60",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          }
+        }
+      },
+      "inverse": {
+        "secondary": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.7200000286102295,
+            "hex": "#FFFFFF"
+          },
+          "$description": "Secondary non-interactive text on inverse surfaces. Lower prominence than color/text/inverse while preserving readable contrast. Source: color/whiteAlpha/72. Shared across TEC 360 and TEC Educación Continua. Do not use for disabled, placeholder, link, feedback, or action states. DTCG: color.text.inverse.secondary ($type: color).",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1655:15",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:620e14b1f1907e6e8982aea0e3228df4b59aaf59/-1:-1",
+              "targetVariableName": "color/whiteAlpha/72",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        },
+        "$root": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#FFFFFF"
+          },
+          "$description": "Inverse text color. Resolves to global white in both product modes. Use only on sufficiently dark surfaces with validated contrast.",
+          "$extensions": {
+            "com.figma.variableId": "VariableID:261:3",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:eb8a7ef25e1f1efffe191d76f6ae57741af1f556/-1:-1",
+              "targetVariableName": "color/white",
+              "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+              "targetVariableSetName": "TEC DS — Color Primitives"
             }
           }
         }
@@ -3600,6 +3744,64 @@
             }
           }
         }
+      },
+      "control": {
+        "inverse": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.07999999821186066,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Subtle inverse control surface for enabled outlined field-like controls on sufficiently dark surfaces. Source: color/whiteAlpha/8. Shared across TEC 360 and TEC Educación Continua. Not a selection or action surface. DTCG: color.surface.control.inverse.default.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1642:15",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:3897d8b879416097319d031445d2e9c455ca8035/-1:-1",
+                "targetVariableName": "color/whiteAlpha/8",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.03999999910593033,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Disabled subtle surface for inverse outlined field-like controls. Source: color/whiteAlpha/4. Shared across TEC 360 and TEC Educación Continua. DTCG: color.surface.control.inverse.disabled.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1642:19",
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:a28fcbc6abfc44249905614673016209e0ba3b5f/-1:-1",
+                "targetVariableName": "color/whiteAlpha/4",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          }
+        }
       }
     },
     "focus": {
@@ -4096,6 +4298,62 @@
               "targetVariableName": "color/red/700",
               "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
               "targetVariableSetName": "TEC DS — Color Primitives"
+            }
+          }
+        }
+      },
+      "control": {
+        "inverse": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.47999998927116394,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Inverse control boundary for enabled field-like controls on sufficiently dark surfaces. Source: color/whiteAlpha/48. Shared across TEC 360 and TEC Educación Continua. Use for outlined borders and underline indicators; validate non-text contrast in context. DTCG: color.border.control.inverse.default.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1642:14",
+              "com.figma.scopes": [
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:542ffb0a06b7b2dd5f6050f920f95333fc00f9e9/-1:-1",
+                "targetVariableName": "color/whiteAlpha/48",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.1599999964237213,
+              "hex": "#FFFFFF"
+            },
+            "$description": "Disabled boundary for inverse field-like controls. Source: color/whiteAlpha/16. Shared across TEC 360 and TEC Educación Continua. DTCG: color.border.control.inverse.disabled.",
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1642:18",
+              "com.figma.scopes": [
+                "STROKE"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:7a5557643112b0953587f5973933f343297ce48b/-1:-1",
+                "targetVariableName": "color/whiteAlpha/16",
+                "targetVariableSetId": "VariableCollectionId:542d02f7963b7654c41bdd44a6fea1f2a362f6dc/-1:-1",
+                "targetVariableSetName": "TEC DS — Color Primitives"
+              }
             }
           }
         }

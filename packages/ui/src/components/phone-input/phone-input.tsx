@@ -9,11 +9,13 @@ import {
   SelectTrigger,
   SelectValue,
   type SelectAppearance,
+  type SelectTone,
 } from '../select'
 import { TextInput } from '../text-input'
 import styles from './phone-input.module.css'
 
 export type PhoneInputAppearance = SelectAppearance
+export type PhoneInputTone = SelectTone
 
 export type PhoneCountry = {
   value: string
@@ -35,6 +37,8 @@ export const DEFAULT_PHONE_COUNTRIES: PhoneCountry[] = [
 export interface PhoneInputProps
   extends Omit<React.ComponentProps<'input'>, 'disabled' | 'type'> {
   appearance?: PhoneInputAppearance
+  /** `standard` sobre superficies claras · `inverse` sobre oscuras / brand. */
+  tone?: PhoneInputTone
   error?: boolean
   disabled?: boolean
   countries?: PhoneCountry[]
@@ -46,6 +50,7 @@ export interface PhoneInputProps
 
 export function PhoneInput({
   appearance = 'outlined',
+  tone = 'standard',
   error = false,
   disabled,
   className,
@@ -84,6 +89,7 @@ export function PhoneInput({
       ref={rootRef}
       data-slot="phone-input"
       data-appearance={appearance}
+      data-tone={tone}
       data-error={showError ? 'true' : undefined}
       data-disabled={disabled || undefined}
       className={cn(styles.root, className)}
@@ -98,6 +104,7 @@ export function PhoneInput({
           <SelectTrigger
             embedded
             appearance={appearance}
+            tone={tone}
             error={error}
             disabled={disabled}
             aria-label={countryLabel}
@@ -137,6 +144,7 @@ export function PhoneInput({
         autoComplete="tel-national"
         embedded
         appearance={appearance}
+        tone={tone}
         error={error}
         disabled={disabled}
         placeholder={placeholder}

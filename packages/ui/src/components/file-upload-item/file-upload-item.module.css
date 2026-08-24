@@ -1,0 +1,90 @@
+/*
+ * TODO(tokens): literales / fallbacks de Figma hasta publicar --tec-component-file-upload-*
+ * (padding, gap, radius, width, color.border, color.surface, color.text.primary/secondary,
+ * color.text.success, color.text.error, spacing del item). Inverse surface es transparente.
+ */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: 380px;
+  margin: 0;
+  padding: 12px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--component-file-upload-color-border-default, #d4d4d4);
+  background: var(--component-file-upload-color-surface-default, #fff);
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.copy {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.bar {
+  width: 100%;
+}
+
+.primary,
+.secondary {
+  margin: 0;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-style: normal;
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.primary {
+  color: var(--component-file-upload-color-text-primary-default, #231f20);
+  font-size: var(--typography-font-size-200, 14px);
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: var(--typography-line-height-200, 20px);
+}
+
+.secondary {
+  color: var(--component-file-upload-color-text-secondary-default, #58585b);
+  font-size: var(--typography-font-size-100, 12px);
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-100, 16px);
+}
+
+.root[data-status='success'] .secondary {
+  color: var(--component-file-upload-color-text-success, #15803d);
+}
+
+.root[data-status='error'] .secondary {
+  color: var(--component-file-upload-color-text-error, #b91c1c);
+}
+
+.root[data-tone='inverse'] {
+  border-color: var(--component-file-upload-color-border-inverse-default, rgba(255, 255, 255, 0.48));
+  background: transparent;
+}
+
+.root[data-tone='inverse'] .primary {
+  color: var(--component-file-upload-color-text-primary-inverse, #fff);
+}
+
+.root[data-tone='inverse'] .secondary {
+  color: var(--component-file-upload-color-text-secondary-inverse, rgba(255, 255, 255, 0.72));
+}
+
+.root[data-tone='inverse'][data-status='success'] .secondary {
+  color: var(--component-file-upload-color-text-success, #15803d);
+}
+
+.root[data-tone='inverse'][data-status='error'] .secondary {
+  color: var(--component-file-upload-color-text-error, #b91c1c);
+}
