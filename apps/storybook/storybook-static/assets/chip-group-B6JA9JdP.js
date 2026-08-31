@@ -1,0 +1,3 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{C as t,U as n}from"./iframe-CPmBFJEF.js";import{n as r,t as i}from"./utils-D8qMR3V9.js";var a,o,s=e((()=>{a=`_root_kjs86_1`,o={root:a}}));function c({className:e,children:t,...n}){return(0,l.jsx)(`div`,{"data-slot":`chip-group`,className:i(o.root,e),...n,children:t})}var l,u=e((()=>{n(),r(),s(),l=t(),c.__docgenInfo={description:`Pattern compartido para componer chips relacionados mediante instancias reales\r
+de FilterChip o InputChip. No introduce una acción ni apariencia propias;\r
+organiza wrap y gap. Alignment es responsabilidad del contenedor padre.`,methods:[],displayName:`ChipGroup`}}));export{u as n,c as t};
