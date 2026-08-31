@@ -14,9 +14,6 @@ importers:
       '@workspace/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
-      '@workspace/tokens':
-        specifier: workspace:*
-        version: link:packages/tokens
       '@workspace/typescript-config':
         specifier: workspace:*
         version: link:packages/typescript-config
