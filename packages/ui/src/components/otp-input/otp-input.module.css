@@ -1,0 +1,65 @@
+/*
+ * TODO(tokens): literales / fallbacks de Figma hasta publicar --tec-component-otp-input-*
+ * (width, height, gap, segment-size). El borde del segmento reutiliza text-field.
+ */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: 328px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-8, 8px);
+  border-radius: var(
+    --tec-component-text-field-control-radius,
+    var(--component-text-field-control-radius, 8px)
+  );
+}
+
+.root:has(:focus-visible) {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-text-field-color-focus-ring, #2563eb);
+  outline-offset: var(--component-otp-input-focus-offset, 4px);
+}
+
+.segment {
+  display: flex;
+  box-sizing: border-box;
+  width: var(--component-otp-input-segment-size, 48px);
+  height: var(--component-otp-input-segment-size, 48px);
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  appearance: none;
+  border-radius: var(
+    --tec-component-text-field-control-radius,
+    var(--component-text-field-control-radius, 8px)
+  );
+  border: var(
+      --tec-component-text-field-control-border-width,
+      var(--component-text-field-control-border-width, 1px)
+    )
+    solid
+    var(
+      --tec-component-text-field-color-border-default,
+      var(--component-text-field-color-border-default, #d4d4d4)
+    );
+  background: var(--color-surface-default, #fff);
+  color: var(--color-text-default, #231f20);
+  text-align: center;
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-heading-small, 20px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--typography-line-height-heading-small, 28px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+  caret-color: var(--color-text-default, #231f20);
+}
+
+.segment:focus,
+.segment:focus-visible {
+  outline: none;
+  box-shadow: none;
+}

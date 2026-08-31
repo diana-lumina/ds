@@ -85,7 +85,7 @@
             var(--component-icon-button-color-primary-surface-pressed-end) 100%);
 }
 
-.root[data-hierarchy="primary"][data-tone="standard"]:disabled {
+.root[data-hierarchy="primary"][data-tone="standard"]:disabled:not([data-loading="true"]) {
     background: var(--component-icon-button-color-primary-surface-disabled);
     color: var(--component-button-color-primary-text-disabled);
 }
@@ -104,7 +104,7 @@
     background: var(--component-icon-button-color-primary-inverse-surface-pressed);
 }
 
-.root[data-hierarchy="primary"][data-tone="inverse"]:disabled {
+.root[data-hierarchy="primary"][data-tone="inverse"]:disabled:not([data-loading="true"]) {
     background: var(--component-icon-button-color-primary-inverse-surface-disabled);
     color: var(--component-icon-button-color-primary-inverse-icon-disabled);
 }

@@ -2,7 +2,7 @@
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem;
   border-style: solid;
   border-color: transparent;

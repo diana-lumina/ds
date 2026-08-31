@@ -99,7 +99,7 @@ const th: React.CSSProperties = {
   fontSize: 11,
   color: '#888',
   fontWeight: 600,
-  textAlign: 'center',
+  textAlign: 'left',
   padding: '0 20px 12px',
   borderBottom: '1px solid #eee',
 }
@@ -117,7 +117,7 @@ const rowLabel: React.CSSProperties = {
 }
 
 const td: React.CSSProperties = {
-  textAlign: 'center',
+  textAlign: 'left',
   verticalAlign: 'middle',
   padding: '16px 20px',
   borderBottom: '1px solid #f0f0f0',
@@ -367,7 +367,7 @@ export const InContext: Story = {
           Los cambios serán visibles para todos los usuarios del curso.
         </p>
       </div>
-      <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+      <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-start' }}>
         <Button hierarchy="tertiary" label="Cancelar" />
         <Button hierarchy="primary" label="Publicar" />
       </div>

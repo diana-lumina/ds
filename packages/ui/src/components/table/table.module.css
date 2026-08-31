@@ -1,0 +1,35 @@
+/*
+ * TODO(tokens): fallbacks hasta publicar --tec-component-table-*
+ * (radius, border width, color.border).
+ */
+.frame {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--tec-component-table-radius, var(--component-table-radius, 16px));
+  border: var(--tec-component-table-border-width, var(--component-table-border-width, 1px))
+    solid
+    var(
+      --tec-component-table-color-border,
+      var(--component-table-color-border, #d4d4d4)
+    );
+  background: var(
+    --tec-component-table-color-surface,
+    var(--component-table-color-surface, #fff)
+  );
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table thead [data-slot='table-header-cell'] {
+  border-bottom: var(--component-divider-thickness-1, 1px) solid
+    var(--component-divider-color-default, #d4d4d4);
+}
+
+.table tbody tr:last-child > [data-slot='table-cell'] {
+  border-bottom: none;
+}

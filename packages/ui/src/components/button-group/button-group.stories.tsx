@@ -11,7 +11,7 @@ const meta: Meta<typeof ButtonGroup> = {
     docs: {
       description: {
         component:
-          'Pattern compartido para componer acciones relacionadas mediante instancias reales de Button. No introduce una acción ni apariencia propias; organiza orientación, prioridad y respuesta al espacio disponible. Alignment es responsabilidad del contenedor padre. El wrapper no es focusable ni asume role=toolbar: Tab recorre cada Button en orden DOM; no hay navegación con flechas. Una acción primaria máxima por grupo.',
+          'Pattern compartido para componer acciones relacionadas mediante instancias reales de Button. No introduce una acción ni apariencia propias; organiza orientación, prioridad y respuesta al espacio disponible. Los botones se alinean a la izquierda del grupo. El wrapper no es focusable ni asume role=toolbar: Tab recorre cada Button en orden DOM; no hay navegación con flechas. Una acción primaria máxima por grupo.',
       },
     },
   },
@@ -64,7 +64,7 @@ export const Horizontal: Story = {
       canvas: { sourceState: 'shown' },
       description: {
         story:
-          'Acciones relacionadas en una fila. Secondary acompaña sin competir con Primary. Hug contents: sin Alignment interno.',
+          'Acciones relacionadas en una fila, alineadas a la izquierda. Secondary acompaña sin competir con Primary.',
       },
       source: {
         code: `<ButtonGroup orientation="horizontal">
@@ -206,7 +206,7 @@ export const InContext: Story = {
       ...hideCode.docs,
       description: {
         story:
-          'La alineación se resuelve desde el padre. Cambiar a vertical cuando el ancho no permita lectura clara.',
+          'La alineación del grupo es a la izquierda. Cambiar a vertical cuando el ancho no permita lectura clara.',
       },
     },
   },
@@ -223,7 +223,7 @@ export const InContext: Story = {
       <div
         style={{
           display: 'flex',
-          justifyContent: 'flex-end',
+          justifyContent: 'flex-start',
           padding: 16,
           border: '1px solid #eee',
           borderRadius: 8,

@@ -1,10 +1,10 @@
 'use strict';
 
-var chunk2KTJ3HWR_cjs = require('./chunk-2KTJ3HWR.cjs');
 var chunkRXYRFJ65_cjs = require('./chunk-RXYRFJ65.cjs');
+var chunk2KTJ3HWR_cjs = require('./chunk-2KTJ3HWR.cjs');
 var classVarianceAuthority = require('class-variance-authority');
 var jsxRuntime = require('react/jsx-runtime');
-var React11 = require('react');
+var React12 = require('react');
 var radixUi = require('radix-ui');
 
 function _interopNamespace(e) {
@@ -25,7 +25,7 @@ function _interopNamespace(e) {
   return Object.freeze(n);
 }
 
-var React11__namespace = /*#__PURE__*/_interopNamespace(React11);
+var React12__namespace = /*#__PURE__*/_interopNamespace(React12);
 
 // src/components/button/button.module.css
 var button_default = {
@@ -270,8 +270,8 @@ function Avatar({
   ...props
 }) {
   const resolvedInitials = initials ? resolveInitials(initials) : void 0;
-  const [imageStatus, setImageStatus] = React11__namespace.useState(src ? "loading" : "idle");
-  React11__namespace.useEffect(() => {
+  const [imageStatus, setImageStatus] = React12__namespace.useState(src ? "loading" : "idle");
+  React12__namespace.useEffect(() => {
     setImageStatus(src ? "loading" : "idle");
   }, [src]);
   const content = resolveContent(src, imageStatus, Boolean(resolvedInitials));
@@ -366,6 +366,236 @@ function ListItem({
   );
 }
 
+// src/components/divider/divider.module.css
+var divider_default = {
+  root: "divider_root"
+};
+function Divider({ orientation = "horizontal", thickness = 1, className, ...props }) {
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    "div",
+    {
+      "data-slot": "divider",
+      "data-orientation": orientation,
+      "data-thickness": thickness,
+      role: "separator",
+      "aria-orientation": orientation,
+      className: chunkRXYRFJ65_cjs.cn(divider_default.root, className),
+      ...props
+    }
+  );
+}
+
+// src/components/accordion-item/accordion-item.module.css
+var accordion_item_default = {
+  scope: "accordion_item_scope",
+  root: "accordion_item_root",
+  divider: "accordion_item_divider",
+  header: "accordion_item_header",
+  trigger: "accordion_item_trigger",
+  leading: "accordion_item_leading",
+  copy: "accordion_item_copy",
+  title: "accordion_item_title",
+  supporting: "accordion_item_supporting",
+  caret: "accordion_item_caret",
+  content: "accordion_item_content",
+  panel: "accordion_item_panel"
+};
+var ITEM_VALUE = "accordion-item";
+function AccordionItem({
+  treatment = "plain",
+  title,
+  supportingText,
+  icon,
+  children,
+  open,
+  defaultOpen = false,
+  onOpenChange,
+  disabled,
+  className
+}) {
+  const isControlled = open !== void 0;
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    radixUi.Accordion.Root,
+    {
+      type: "single",
+      collapsible: true,
+      disabled,
+      value: isControlled ? open ? ITEM_VALUE : "" : void 0,
+      defaultValue: defaultOpen ? ITEM_VALUE : void 0,
+      onValueChange: (next) => onOpenChange?.(next === ITEM_VALUE),
+      className: accordion_item_default.scope,
+      children: /* @__PURE__ */ jsxRuntime.jsxs(
+        radixUi.Accordion.Item,
+        {
+          value: ITEM_VALUE,
+          "data-slot": "accordion-item",
+          "data-treatment": treatment,
+          className: chunkRXYRFJ65_cjs.cn(accordion_item_default.root, className),
+          children: [
+            /* @__PURE__ */ jsxRuntime.jsx(radixUi.Accordion.Header, { className: accordion_item_default.header, children: /* @__PURE__ */ jsxRuntime.jsxs(
+              radixUi.Accordion.Trigger,
+              {
+                "data-slot": "accordion-item-trigger",
+                className: accordion_item_default.trigger,
+                children: [
+                  icon ? /* @__PURE__ */ jsxRuntime.jsx("span", { "data-slot": "accordion-item-icon", className: accordion_item_default.leading, "aria-hidden": "true", children: icon }) : null,
+                  /* @__PURE__ */ jsxRuntime.jsxs("span", { className: accordion_item_default.copy, children: [
+                    /* @__PURE__ */ jsxRuntime.jsx("span", { className: accordion_item_default.title, children: title }),
+                    supportingText ? /* @__PURE__ */ jsxRuntime.jsx("span", { className: accordion_item_default.supporting, children: supportingText }) : null
+                  ] }),
+                  /* @__PURE__ */ jsxRuntime.jsx("span", { className: accordion_item_default.caret, "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntime.jsx(chunk2KTJ3HWR_cjs.CaretDownIcon, {}) })
+                ]
+              }
+            ) }),
+            /* @__PURE__ */ jsxRuntime.jsx(
+              radixUi.Accordion.Content,
+              {
+                "data-slot": "accordion-item-content",
+                className: accordion_item_default.content,
+                children: /* @__PURE__ */ jsxRuntime.jsx("div", { className: accordion_item_default.panel, children })
+              }
+            ),
+            treatment === "plain" ? /* @__PURE__ */ jsxRuntime.jsx(Divider, { thickness: 1, className: accordion_item_default.divider }) : null
+          ]
+        }
+      )
+    }
+  );
+}
+
+// src/components/stat/stat.module.css
+var stat_default = {
+  root: "stat_root",
+  copy: "stat_copy",
+  value: "stat_value",
+  label: "stat_label",
+  icon: "stat_icon"
+};
+function Stat({ value, label, icon, className, ...props }) {
+  const valueId = React12__namespace.useId();
+  const labelId = React12__namespace.useId();
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    "div",
+    {
+      "data-slot": "stat",
+      "aria-labelledby": valueId,
+      "aria-describedby": labelId,
+      className: chunkRXYRFJ65_cjs.cn(stat_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx("span", { "data-slot": "stat-icon", className: stat_default.icon, "aria-hidden": "true", children: icon }),
+        /* @__PURE__ */ jsxRuntime.jsxs("div", { className: stat_default.copy, children: [
+          /* @__PURE__ */ jsxRuntime.jsx("p", { id: valueId, className: stat_default.value, children: value }),
+          /* @__PURE__ */ jsxRuntime.jsx("p", { id: labelId, className: stat_default.label, children: label })
+        ] })
+      ]
+    }
+  );
+}
+
+// src/components/table-cell/table-cell.module.css
+var table_cell_default = {
+  root: "table_cell_root"
+};
+function TableCell({ className, children, ...props }) {
+  return /* @__PURE__ */ jsxRuntime.jsx("td", { "data-slot": "table-cell", className: chunkRXYRFJ65_cjs.cn(table_cell_default.root, className), ...props, children });
+}
+
+// src/components/table-header-cell/table-header-cell.module.css
+var table_header_cell_default = {
+  root: "table_header_cell_root",
+  trigger: "table_header_cell_trigger",
+  label: "table_header_cell_label",
+  icon: "table_header_cell_icon"
+};
+function TableHeaderCell({
+  label,
+  icon,
+  className,
+  onClick,
+  scope = "col",
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    "th",
+    {
+      "data-slot": "table-header-cell",
+      scope,
+      className: chunkRXYRFJ65_cjs.cn(table_header_cell_default.root, className),
+      ...props,
+      children: /* @__PURE__ */ jsxRuntime.jsxs("button", { type: "button", className: table_header_cell_default.trigger, onClick, children: [
+        /* @__PURE__ */ jsxRuntime.jsx("span", { className: table_header_cell_default.label, children: label }),
+        icon ? /* @__PURE__ */ jsxRuntime.jsx("span", { "data-slot": "table-header-cell-icon", className: table_header_cell_default.icon, "aria-hidden": "true", children: icon }) : null
+      ] })
+    }
+  );
+}
+
+// src/components/table-row/table-row.module.css
+var table_row_default = {
+  root: "table_row_root"
+};
+function TableRow({
+  selected = false,
+  className,
+  children,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    "tr",
+    {
+      "data-slot": "table-row",
+      "data-selected": selected ? "true" : void 0,
+      "aria-selected": selected || void 0,
+      className: chunkRXYRFJ65_cjs.cn(table_row_default.root, className),
+      ...props,
+      children
+    }
+  );
+}
+
+// src/components/table/table.module.css
+var table_default = {
+  frame: "table_frame",
+  table: "table_table"
+};
+function Table({ header, children, className, ...props }) {
+  return /* @__PURE__ */ jsxRuntime.jsx("div", { "data-slot": "table", className: chunkRXYRFJ65_cjs.cn(table_default.frame, className), children: /* @__PURE__ */ jsxRuntime.jsxs("table", { className: table_default.table, ...props, children: [
+    header ? /* @__PURE__ */ jsxRuntime.jsx("thead", { children: /* @__PURE__ */ jsxRuntime.jsx("tr", { "data-slot": "table-header", children: header }) }) : null,
+    children ? /* @__PURE__ */ jsxRuntime.jsx("tbody", { children }) : null
+  ] }) });
+}
+
+// src/components/data-table-toolbar/data-table-toolbar.module.css
+var data_table_toolbar_default = {
+  root: "data_table_toolbar_root",
+  search: "data_table_toolbar_search",
+  slot: "data_table_toolbar_slot"
+};
+function DataTableToolbar({
+  search,
+  filters,
+  actions,
+  className,
+  children,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    "div",
+    {
+      "data-slot": "data-table-toolbar",
+      className: chunkRXYRFJ65_cjs.cn(data_table_toolbar_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx("div", { "data-slot": "data-table-toolbar-search", className: data_table_toolbar_default.search, children: search }),
+        filters ? /* @__PURE__ */ jsxRuntime.jsx("div", { "data-slot": "data-table-toolbar-filters", className: data_table_toolbar_default.slot, children: filters }) : null,
+        actions ? /* @__PURE__ */ jsxRuntime.jsx("div", { "data-slot": "data-table-toolbar-actions", className: data_table_toolbar_default.slot, children: actions }) : null,
+        children
+      ]
+    }
+  );
+}
+
 // src/components/menu-item/menu-item.module.css
 var menu_item_default = {
   root: "menu_item_root"
@@ -430,11 +660,11 @@ var navigation_bar_default = {
   root: "navigation_bar_root"
 };
 function withNavigationBarContext(children) {
-  return React11__namespace.Children.map(children, (child) => {
-    if (!React11__namespace.isValidElement(child)) {
+  return React12__namespace.Children.map(children, (child) => {
+    if (!React12__namespace.isValidElement(child)) {
       return child;
     }
-    return React11__namespace.cloneElement(child, { context: "navigation-bar" });
+    return React12__namespace.cloneElement(child, { context: "navigation-bar" });
   });
 }
 function NavigationBar({
@@ -476,7 +706,7 @@ function Breadcrumb({
   "aria-label": ariaLabel = "Breadcrumb",
   ...props
 }) {
-  const items = React11__namespace.Children.toArray(children).filter(Boolean);
+  const items = React12__namespace.Children.toArray(children).filter(Boolean);
   return /* @__PURE__ */ jsxRuntime.jsx(
     "nav",
     {
@@ -699,7 +929,7 @@ function SelectScrollDownButton({
 var text_input_default = {
   root: "text_input_root"
 };
-var TextInput = React11__namespace.forwardRef(
+var TextInput = React12__namespace.forwardRef(
   function TextInput2({
     appearance = "outlined",
     tone = "standard",
@@ -763,11 +993,11 @@ function PhoneInput({
   placeholder = "N\xFAmero telef\xF3nico",
   ...props
 }) {
-  const generatedId = React11__namespace.useId();
+  const generatedId = React12__namespace.useId();
   const numberId = id ?? generatedId;
-  const rootRef = React11__namespace.useRef(null);
-  const [menuWidth, setMenuWidth] = React11__namespace.useState();
-  React11__namespace.useLayoutEffect(() => {
+  const rootRef = React12__namespace.useRef(null);
+  const [menuWidth, setMenuWidth] = React12__namespace.useState();
+  React12__namespace.useLayoutEffect(() => {
     const node = rootRef.current;
     if (!node) return;
     const syncWidth = () => {
@@ -915,7 +1145,7 @@ function FormField({
   placeholder,
   ...props
 }) {
-  const generatedId = React11__namespace.useId();
+  const generatedId = React12__namespace.useId();
   const inputId = id ?? generatedId;
   const supportingId = supportingText ? `${inputId}-supporting` : void 0;
   const resolvedControl = control ?? (multiline ? "textarea" : "input");
@@ -1022,8 +1252,8 @@ function DateField({
   onClick,
   ...props
 }) {
-  const inputRef = React11__namespace.useRef(null);
-  const generatedId = React11__namespace.useId();
+  const inputRef = React12__namespace.useRef(null);
+  const generatedId = React12__namespace.useId();
   const inputId = id ?? generatedId;
   const supportingId = supportingText ? `${inputId}-supporting` : void 0;
   const showError = error && !disabled;
@@ -1202,16 +1432,16 @@ function Calendar({
   className,
   ...props
 }) {
-  const titleId = React11__namespace.useId();
-  const [uncontrolledValue, setUncontrolledValue] = React11__namespace.useState(defaultValue);
+  const titleId = React12__namespace.useId();
+  const [uncontrolledValue, setUncontrolledValue] = React12__namespace.useState(defaultValue);
   const isControlled = value !== void 0;
   const selected = isControlled ? value ?? void 0 : uncontrolledValue;
-  const [uncontrolledMonth, setUncontrolledMonth] = React11__namespace.useState(
+  const [uncontrolledMonth, setUncontrolledMonth] = React12__namespace.useState(
     () => startOfMonth(defaultMonth ?? value ?? defaultValue ?? /* @__PURE__ */ new Date())
   );
   const viewMonth = monthProp ? startOfMonth(monthProp) : uncontrolledMonth;
-  const weeks = React11__namespace.useMemo(() => buildWeeks(viewMonth), [viewMonth]);
-  const labels = React11__namespace.useMemo(() => weekdayLabels(locale), [locale]);
+  const weeks = React12__namespace.useMemo(() => buildWeeks(viewMonth), [viewMonth]);
+  const labels = React12__namespace.useMemo(() => weekdayLabels(locale), [locale]);
   const minTime = minDate ? toTime(minDate) : void 0;
   const maxTime = maxDate ? toTime(maxDate) : void 0;
   function setViewMonth(next) {
@@ -1350,9 +1580,9 @@ function DatePicker({
   className,
   ...props
 }) {
-  const fieldRef = React11__namespace.useRef(null);
-  const [open, setOpen] = React11__namespace.useState(false);
-  const [uncontrolled, setUncontrolled] = React11__namespace.useState(defaultValue);
+  const fieldRef = React12__namespace.useRef(null);
+  const [open, setOpen] = React12__namespace.useState(false);
+  const [uncontrolled, setUncontrolled] = React12__namespace.useState(defaultValue);
   const selected = value ?? uncontrolled;
   function setSelected(next) {
     if (value == null) setUncontrolled(next);
@@ -1461,8 +1691,8 @@ function TimeField({
   id,
   ...props
 }) {
-  const inputRef = React11__namespace.useRef(null);
-  const generatedId = React11__namespace.useId();
+  const inputRef = React12__namespace.useRef(null);
+  const generatedId = React12__namespace.useId();
   const inputId = id ?? generatedId;
   const supportingId = supportingText ? `${inputId}-supporting` : void 0;
   const showError = error && !disabled;
@@ -1561,26 +1791,26 @@ function Combobox({
   className,
   ...props
 }) {
-  const listId = React11__namespace.useId();
-  const generatedId = React11__namespace.useId();
+  const listId = React12__namespace.useId();
+  const generatedId = React12__namespace.useId();
   const inputId = id ?? generatedId;
   const supportingId = supportingText ? `${inputId}-supporting` : void 0;
   const showError = error && !disabled;
-  const fieldRef = React11__namespace.useRef(null);
+  const fieldRef = React12__namespace.useRef(null);
   const isControlled = value !== void 0;
-  const [uncontrolled, setUncontrolled] = React11__namespace.useState(defaultValue);
+  const [uncontrolled, setUncontrolled] = React12__namespace.useState(defaultValue);
   const selected = isControlled ? value : uncontrolled;
-  const [query, setQuery] = React11__namespace.useState(() => optionLabel(options, selected));
-  const [open, setOpen] = React11__namespace.useState(false);
-  const [highlight, setHighlight] = React11__namespace.useState(0);
-  const filtered = React11__namespace.useMemo(
+  const [query, setQuery] = React12__namespace.useState(() => optionLabel(options, selected));
+  const [open, setOpen] = React12__namespace.useState(false);
+  const [highlight, setHighlight] = React12__namespace.useState(0);
+  const filtered = React12__namespace.useMemo(
     () => options.filter((option) => matchesQuery(option, query)),
     [options, query]
   );
-  React11__namespace.useEffect(() => {
+  React12__namespace.useEffect(() => {
     setQuery(optionLabel(options, selected));
   }, [options, selected]);
-  React11__namespace.useEffect(() => {
+  React12__namespace.useEffect(() => {
     setHighlight(0);
   }, [query, open]);
   function setSelected(next) {
@@ -1874,8 +2104,8 @@ function Toast({
   className,
   ...props
 }) {
-  const titleId = React11__namespace.useId();
-  const messageId = React11__namespace.useId();
+  const titleId = React12__namespace.useId();
+  const messageId = React12__namespace.useId();
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "div",
     {
@@ -1952,8 +2182,8 @@ function Banner({
   className,
   ...props
 }) {
-  const titleId = React11__namespace.useId();
-  const messageId = React11__namespace.useId();
+  const titleId = React12__namespace.useId();
+  const messageId = React12__namespace.useId();
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "div",
     {
@@ -2010,25 +2240,6 @@ function CounterBadge({
   );
 }
 
-// src/components/divider/divider.module.css
-var divider_default = {
-  root: "divider_root"
-};
-function Divider({ orientation = "horizontal", thickness = 1, className, ...props }) {
-  return /* @__PURE__ */ jsxRuntime.jsx(
-    "div",
-    {
-      "data-slot": "divider",
-      "data-orientation": orientation,
-      "data-thickness": thickness,
-      role: "separator",
-      "aria-orientation": orientation,
-      className: chunkRXYRFJ65_cjs.cn(divider_default.root, className),
-      ...props
-    }
-  );
-}
-
 // src/components/empty-state/empty-state.module.css
 var empty_state_default = {
   root: "empty_state_root",
@@ -2047,8 +2258,8 @@ function EmptyState({
   className,
   ...props
 }) {
-  const titleId = React11__namespace.useId();
-  const messageId = React11__namespace.useId();
+  const titleId = React12__namespace.useId();
+  const messageId = React12__namespace.useId();
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "div",
     {
@@ -2120,8 +2331,8 @@ function FileUploadItem({
   className,
   ...props
 }) {
-  const primaryId = React11__namespace.useId();
-  const secondaryId = React11__namespace.useId();
+  const primaryId = React12__namespace.useId();
+  const secondaryId = React12__namespace.useId();
   const isInverse = tone === "inverse";
   const isUploading = status === "uploading";
   const clampedProgress = Math.min(100, Math.max(0, progress));
@@ -2189,10 +2400,10 @@ function FileUploadDropZone({
   onDrop,
   ...props
 }) {
-  const inputRef = React11__namespace.useRef(null);
-  const primaryId = React11__namespace.useId();
-  const secondaryId = React11__namespace.useId();
-  const inputId = React11__namespace.useId();
+  const inputRef = React12__namespace.useRef(null);
+  const primaryId = React12__namespace.useId();
+  const secondaryId = React12__namespace.useId();
+  const inputId = React12__namespace.useId();
   const isInverse = tone === "inverse";
   function openPicker() {
     if (disabled) return;
@@ -2304,14 +2515,14 @@ function FileUpload({
   className,
   ...props
 }) {
-  const inputRef = React11__namespace.useRef(null);
-  const primaryId = React11__namespace.useId();
-  const secondaryId = React11__namespace.useId();
-  const supportingId = React11__namespace.useId();
+  const inputRef = React12__namespace.useRef(null);
+  const primaryId = React12__namespace.useId();
+  const secondaryId = React12__namespace.useId();
+  const supportingId = React12__namespace.useId();
   const isInverse = tone === "inverse";
   const dropTone = tone;
   const isItemsControlled = items != null;
-  const [internalFiles, setInternalFiles] = React11__namespace.useState([]);
+  const [internalFiles, setInternalFiles] = React12__namespace.useState([]);
   const displayedItems = isItemsControlled ? items : internalFiles.map(({ id, file }) => toEntry(file, id, itemActionLabel));
   function emitFiles(list) {
     if (disabled) return;
@@ -2477,11 +2688,11 @@ var side_navigation_default = {
   list: "side_navigation_list"
 };
 function withSideNavigationContext(children) {
-  return React11__namespace.Children.map(children, (child) => {
-    if (!React11__namespace.isValidElement(child)) {
+  return React12__namespace.Children.map(children, (child) => {
+    if (!React12__namespace.isValidElement(child)) {
       return child;
     }
-    return React11__namespace.cloneElement(child, { context: "side-navigation" });
+    return React12__namespace.cloneElement(child, { context: "side-navigation" });
   });
 }
 function SideNavigation({
@@ -2491,7 +2702,7 @@ function SideNavigation({
   "aria-label": ariaLabel,
   ...props
 }) {
-  const headingId = React11__namespace.useId();
+  const headingId = React12__namespace.useId();
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "nav",
     {
@@ -2528,8 +2739,8 @@ function Alert({
   className,
   ...props
 }) {
-  const titleId = React11__namespace.useId();
-  const messageId = React11__namespace.useId();
+  const titleId = React12__namespace.useId();
+  const messageId = React12__namespace.useId();
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "div",
     {
@@ -2679,11 +2890,11 @@ function Search({
   id,
   ...props
 }) {
-  const inputRef = React11__namespace.useRef(null);
-  const generatedId = React11__namespace.useId();
+  const inputRef = React12__namespace.useRef(null);
+  const generatedId = React12__namespace.useId();
   const inputId = id ?? generatedId;
   const isControlled = value !== void 0;
-  const [uncontrolled, setUncontrolled] = React11__namespace.useState(
+  const [uncontrolled, setUncontrolled] = React12__namespace.useState(
     () => defaultValue == null ? "" : String(defaultValue)
   );
   const current = isControlled ? String(value ?? "") : uncontrolled;
@@ -2848,7 +3059,7 @@ function ProgressBar({
   className,
   ...props
 }) {
-  const labelId = React11__namespace.useId();
+  const labelId = React12__namespace.useId();
   const numericMax = max > 0 ? max : 100;
   const numericValue = Math.min(numericMax, Math.max(0, value));
   const displayValue = formatValue(numericValue, numericMax, valueFormat);
@@ -2888,7 +3099,7 @@ var progress_indicator_default = {
   line: "progress_indicator_line"
 };
 function getStepState(child) {
-  if (React11__namespace.isValidElement(child)) {
+  if (React12__namespace.isValidElement(child)) {
     return child.props.state ?? "upcoming";
   }
   return "upcoming";
@@ -2902,7 +3113,7 @@ function ProgressIndicator({
   "aria-label": ariaLabel = "Progreso",
   ...props
 }) {
-  const items = React11__namespace.Children.toArray(children).filter(Boolean);
+  const items = React12__namespace.Children.toArray(children).filter(Boolean);
   return /* @__PURE__ */ jsxRuntime.jsx(
     "nav",
     {
@@ -3063,6 +3274,327 @@ function Switch({ className, ...props }) {
   );
 }
 
+// src/components/tooltip/tooltip.module.css
+var tooltip_default = {
+  root: "tooltip_root"
+};
+function Tooltip({
+  label,
+  children,
+  side = "top",
+  delayDuration = 200,
+  open,
+  defaultOpen,
+  onOpenChange,
+  className
+}) {
+  return /* @__PURE__ */ jsxRuntime.jsx(radixUi.Tooltip.Provider, { delayDuration, children: /* @__PURE__ */ jsxRuntime.jsxs(
+    radixUi.Tooltip.Root,
+    {
+      open,
+      defaultOpen,
+      onOpenChange,
+      delayDuration,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(radixUi.Tooltip.Trigger, { asChild: true, children }),
+        /* @__PURE__ */ jsxRuntime.jsx(radixUi.Tooltip.Portal, { children: /* @__PURE__ */ jsxRuntime.jsx(
+          radixUi.Tooltip.Content,
+          {
+            "data-slot": "tooltip",
+            side,
+            sideOffset: 8,
+            className: chunkRXYRFJ65_cjs.cn(tooltip_default.root, className),
+            children: label
+          }
+        ) })
+      ]
+    }
+  ) });
+}
+
+// src/components/otp-input/otp-input.module.css
+var otp_input_default = {
+  root: "otp_input_root",
+  segment: "otp_input_segment"
+};
+var OTP_LENGTH = 6;
+function onlyDigits(value) {
+  return value.replace(/\D/g, "").slice(0, OTP_LENGTH);
+}
+function cellsOf(value) {
+  return Array.from({ length: OTP_LENGTH }, (_, index) => value[index] ?? "");
+}
+function OtpInput({
+  value,
+  defaultValue = "",
+  onValueChange,
+  name,
+  autoComplete = "one-time-code",
+  autoFocus,
+  className,
+  id,
+  "aria-label": ariaLabel = "C\xF3digo de verificaci\xF3n",
+  ...props
+}) {
+  const generatedId = React12__namespace.useId();
+  const groupId = id ?? generatedId;
+  const isControlled = value !== void 0;
+  const [uncontrolled, setUncontrolled] = React12__namespace.useState(
+    () => onlyDigits(String(defaultValue))
+  );
+  const current = onlyDigits(isControlled ? String(value ?? "") : uncontrolled);
+  const cells = cellsOf(current);
+  const refs = React12__namespace.useRef([]);
+  function commit(next) {
+    const digits = onlyDigits(next);
+    if (!isControlled) setUncontrolled(digits);
+    onValueChange?.(digits);
+  }
+  function focusAt(index) {
+    const clamped = Math.max(0, Math.min(index, OTP_LENGTH - 1));
+    refs.current[clamped]?.focus();
+    refs.current[clamped]?.select();
+  }
+  function handleChange(index, raw) {
+    const incoming = onlyDigits(raw);
+    if (!incoming) return;
+    if (incoming.length > 1) {
+      commit(incoming);
+      focusAt(Math.min(incoming.length, OTP_LENGTH) - 1);
+      return;
+    }
+    const writeAt = Math.min(index, current.length);
+    const next = (current.slice(0, writeAt) + incoming + current.slice(writeAt + 1)).slice(0, OTP_LENGTH);
+    commit(next);
+    focusAt(next.length >= OTP_LENGTH ? OTP_LENGTH - 1 : writeAt + 1);
+  }
+  function handleKeyDown(index, event) {
+    if (event.key === "Backspace" || event.key === "Delete") {
+      event.preventDefault();
+      if (current[index]) {
+        commit(current.slice(0, index) + current.slice(index + 1));
+        return;
+      }
+      if (index > 0) {
+        commit(current.slice(0, index - 1) + current.slice(index));
+        focusAt(index - 1);
+      }
+      return;
+    }
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      focusAt(index - 1);
+      return;
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      focusAt(index + 1);
+    }
+  }
+  function handlePaste(event) {
+    const pasted = onlyDigits(event.clipboardData.getData("text"));
+    if (!pasted) return;
+    event.preventDefault();
+    commit(pasted);
+    focusAt(Math.min(pasted.length, OTP_LENGTH) - 1);
+  }
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    "div",
+    {
+      id: groupId,
+      role: "group",
+      "data-slot": "otp-input",
+      "aria-label": ariaLabel,
+      className: chunkRXYRFJ65_cjs.cn(otp_input_default.root, className),
+      ...props,
+      children: [
+        name ? /* @__PURE__ */ jsxRuntime.jsx("input", { type: "hidden", name, value: current }) : null,
+        cells.map((digit, index) => /* @__PURE__ */ jsxRuntime.jsx(
+          "input",
+          {
+            ref: (node) => {
+              refs.current[index] = node;
+            },
+            id: index === 0 ? `${groupId}-0` : void 0,
+            className: otp_input_default.segment,
+            "data-slot": "otp-input-segment",
+            type: "text",
+            inputMode: "numeric",
+            autoComplete: index === 0 ? autoComplete : "off",
+            autoFocus: autoFocus && index === 0,
+            "aria-label": `D\xEDgito ${index + 1} de ${OTP_LENGTH}`,
+            maxLength: OTP_LENGTH,
+            value: digit,
+            onChange: (event) => handleChange(index, event.target.value),
+            onKeyDown: (event) => handleKeyDown(index, event),
+            onPaste: handlePaste,
+            onFocus: (event) => event.currentTarget.select()
+          },
+          index
+        ))
+      ]
+    }
+  );
+}
+
+// src/components/dialog/dialog.module.css
+var dialog_default = {
+  overlay: "dialog_overlay",
+  content: "dialog_content",
+  header: "dialog_header",
+  title: "dialog_title",
+  body: "dialog_body",
+  actions: "dialog_actions"
+};
+function Dialog({
+  size = "md",
+  title,
+  children,
+  primaryAction,
+  secondaryAction,
+  trigger,
+  open,
+  defaultOpen,
+  onOpenChange,
+  dismissLabel = "Cerrar",
+  className
+}) {
+  const titleId = React12__namespace.useId();
+  const descriptionId = React12__namespace.useId();
+  const hasActions = Boolean(primaryAction || secondaryAction);
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    radixUi.Dialog.Root,
+    {
+      open,
+      defaultOpen,
+      onOpenChange,
+      children: [
+        trigger ? /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Trigger, { asChild: true, children: trigger }) : null,
+        /* @__PURE__ */ jsxRuntime.jsxs(radixUi.Dialog.Portal, { children: [
+          /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Overlay, { "data-slot": "dialog-overlay", className: dialog_default.overlay }),
+          /* @__PURE__ */ jsxRuntime.jsxs(
+            radixUi.Dialog.Content,
+            {
+              "data-slot": "dialog",
+              "data-size": size,
+              "aria-labelledby": titleId,
+              "aria-describedby": descriptionId,
+              className: chunkRXYRFJ65_cjs.cn(dialog_default.content, className),
+              children: [
+                /* @__PURE__ */ jsxRuntime.jsxs("div", { className: dialog_default.header, children: [
+                  /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { id: titleId, className: dialog_default.title, children: title }),
+                  /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Close, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx(
+                    IconButton,
+                    {
+                      hierarchy: "tertiary",
+                      size: "sm",
+                      icon: /* @__PURE__ */ jsxRuntime.jsx(chunk2KTJ3HWR_cjs.CloseIcon, {}),
+                      "aria-label": dismissLabel
+                    }
+                  ) })
+                ] }),
+                /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Description, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx("div", { id: descriptionId, className: dialog_default.body, children }) }),
+                hasActions ? /* @__PURE__ */ jsxRuntime.jsx("div", { className: dialog_default.actions, children: /* @__PURE__ */ jsxRuntime.jsxs(ButtonGroup, { children: [
+                  secondaryAction,
+                  primaryAction
+                ] }) }) : null
+              ]
+            }
+          )
+        ] })
+      ]
+    }
+  );
+}
+
+// src/components/drawer/drawer.module.css
+var drawer_default = {
+  overlay: "drawer_overlay",
+  panel: "drawer_panel",
+  close: "drawer_close",
+  header: "drawer_header",
+  body: "drawer_body",
+  footer: "drawer_footer",
+  footerActions: "drawer_footerActions",
+  title: "drawer_title",
+  contentTitle: "drawer_contentTitle",
+  text: "drawer_text",
+  srOnly: "drawer_srOnly"
+};
+function Drawer({
+  size = "sm",
+  header,
+  title,
+  contentTitle,
+  children,
+  footer,
+  primaryAction,
+  secondaryAction,
+  trigger,
+  open,
+  defaultOpen,
+  onOpenChange,
+  dismissLabel = "Cerrar",
+  className
+}) {
+  const titleId = React12__namespace.useId();
+  const descriptionId = React12__namespace.useId();
+  const closeSize = size === "lg" ? "lg" : "sm";
+  const accessibleTitle = title ?? "Panel";
+  const hasHeader = header != null || title != null && title !== "";
+  const hasContent = contentTitle != null || children != null;
+  const defaultFooter = primaryAction || secondaryAction ? /* @__PURE__ */ jsxRuntime.jsx("div", { className: drawer_default.footerActions, children: /* @__PURE__ */ jsxRuntime.jsxs(ButtonGroup, { children: [
+    secondaryAction,
+    primaryAction
+  ] }) }) : null;
+  const footerContent = footer ?? defaultFooter;
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    radixUi.Dialog.Root,
+    {
+      open,
+      defaultOpen,
+      onOpenChange,
+      children: [
+        trigger ? /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Trigger, { asChild: true, children: trigger }) : null,
+        /* @__PURE__ */ jsxRuntime.jsxs(radixUi.Dialog.Portal, { children: [
+          /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Overlay, { "data-slot": "drawer-overlay", className: drawer_default.overlay }),
+          /* @__PURE__ */ jsxRuntime.jsxs(
+            radixUi.Dialog.Content,
+            {
+              "data-slot": "drawer",
+              "data-size": size,
+              "aria-labelledby": titleId,
+              "aria-describedby": hasContent ? descriptionId : void 0,
+              className: chunkRXYRFJ65_cjs.cn(drawer_default.panel, className),
+              children: [
+                /* @__PURE__ */ jsxRuntime.jsx("div", { className: drawer_default.close, children: /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Close, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx(
+                  IconButton,
+                  {
+                    hierarchy: "tertiary",
+                    size: closeSize,
+                    icon: /* @__PURE__ */ jsxRuntime.jsx(chunk2KTJ3HWR_cjs.CloseIcon, {}),
+                    "aria-label": dismissLabel
+                  }
+                ) }) }),
+                hasHeader ? /* @__PURE__ */ jsxRuntime.jsx("div", { "data-slot": "drawer-header", className: drawer_default.header, children: header ? /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
+                  /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { id: titleId, className: drawer_default.srOnly, children: accessibleTitle }),
+                  header
+                ] }) : /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { id: titleId, className: drawer_default.title, children: title }) }) : /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { id: titleId, className: drawer_default.srOnly, children: accessibleTitle }),
+                hasContent ? /* @__PURE__ */ jsxRuntime.jsxs("div", { "data-slot": "drawer-content", className: drawer_default.body, children: [
+                  contentTitle ? /* @__PURE__ */ jsxRuntime.jsx("p", { className: drawer_default.contentTitle, children: contentTitle }) : null,
+                  children != null ? /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Description, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx("div", { id: descriptionId, className: drawer_default.text, children }) }) : null
+                ] }) : null,
+                footerContent ? /* @__PURE__ */ jsxRuntime.jsx("div", { "data-slot": "drawer-footer", className: drawer_default.footer, children: footerContent }) : null
+              ]
+            }
+          )
+        ] })
+      ]
+    }
+  );
+}
+
+exports.AccordionItem = AccordionItem;
 exports.Alert = Alert;
 exports.Avatar = Avatar;
 exports.Badge = Badge;
@@ -3078,9 +3610,12 @@ exports.ChipGroup = ChipGroup;
 exports.Combobox = Combobox;
 exports.CounterBadge = CounterBadge;
 exports.DEFAULT_PHONE_COUNTRIES = DEFAULT_PHONE_COUNTRIES;
+exports.DataTableToolbar = DataTableToolbar;
 exports.DateField = DateField;
 exports.DatePicker = DatePicker;
+exports.Dialog = Dialog;
 exports.Divider = Divider;
+exports.Drawer = Drawer;
 exports.EmptyState = EmptyState;
 exports.FileUpload = FileUpload;
 exports.FileUploadDropZone = FileUploadDropZone;
@@ -3095,6 +3630,8 @@ exports.ListItem = ListItem;
 exports.MenuItem = MenuItem;
 exports.NavigationBar = NavigationBar;
 exports.NavigationItem = NavigationItem;
+exports.OTP_LENGTH = OTP_LENGTH;
+exports.OtpInput = OtpInput;
 exports.Pagination = Pagination;
 exports.PaginationItem = PaginationItem;
 exports.PhoneInput = PhoneInput;
@@ -3115,11 +3652,17 @@ exports.SelectTrigger = SelectTrigger;
 exports.SelectValue = SelectValue;
 exports.SideNavigation = SideNavigation;
 exports.SocialButton = SocialButton;
+exports.Stat = Stat;
 exports.Status = Status;
 exports.Switch = Switch;
 exports.TabItem = TabItem;
+exports.Table = Table;
+exports.TableCell = TableCell;
+exports.TableHeaderCell = TableHeaderCell;
+exports.TableRow = TableRow;
 exports.Tag = Tag;
 exports.TimeField = TimeField;
 exports.Toast = Toast;
+exports.Tooltip = Tooltip;
 //# sourceMappingURL=index.cjs.map
 //# sourceMappingURL=index.cjs.map

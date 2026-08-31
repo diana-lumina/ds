@@ -1,0 +1,68 @@
+/*
+ * TODO(tokens): fallbacks hasta publicar --tec-component-stat-*
+ * (gap.content, color.text.value, color.text.label, icon size).
+ */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: var(
+    --tec-component-stat-gap-content,
+    var(--component-stat-gap-content, 16px)
+  );
+}
+
+.copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.value {
+  margin: 0;
+  color: var(
+    --tec-component-stat-color-text-value,
+    var(--component-stat-color-text-value, #231f20)
+  );
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-heading-medium, 24px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-heading, 600);
+  line-height: var(--typography-line-height-heading-medium, 32px);
+  letter-spacing: var(--typography-letter-spacing-heading, 0);
+}
+
+.label {
+  margin: 0;
+  color: var(
+    --tec-component-stat-color-text-label,
+    var(--component-stat-color-text-label, #231f20)
+  );
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-body-medium, 16px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-body, 400);
+  line-height: var(--typography-line-height-body-medium, 24px);
+  letter-spacing: var(--typography-letter-spacing-body, 0);
+}
+
+.icon {
+  display: flex;
+  width: var(--tec-component-stat-icon-size, var(--component-stat-icon-size, 32px));
+  height: var(--tec-component-stat-icon-size, var(--component-stat-icon-size, 32px));
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(
+    --tec-component-stat-color-text-value,
+    var(--component-stat-color-text-value, #231f20)
+  );
+}
+
+.icon svg {
+  width: var(--tec-component-stat-icon-size, var(--component-stat-icon-size, 32px));
+  height: var(--tec-component-stat-icon-size, var(--component-stat-icon-size, 32px));
+}

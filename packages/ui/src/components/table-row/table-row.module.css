@@ -1,0 +1,33 @@
+/*
+ * TODO(tokens): fallbacks hasta publicar --tec-component-table-row-color-surface-*
+ * Divider bottom: thickness 1 del primitive Divider.
+ */
+.root > [data-slot='table-cell'] {
+  background: var(
+    --tec-component-table-row-color-surface-default,
+    var(--component-table-row-color-surface-default, #fff)
+  );
+  border-bottom: var(--component-divider-thickness-1, 1px) solid
+    var(--component-divider-color-default, #d4d4d4);
+}
+
+.root:hover > [data-slot='table-cell'] {
+  background: var(
+    --tec-component-table-row-color-surface-hover,
+    var(--component-table-row-color-surface-hover, #f5f5f5)
+  );
+}
+
+.root[data-selected='true'] > [data-slot='table-cell'] {
+  background: var(
+    --tec-component-table-row-color-surface-selected,
+    var(--component-table-row-color-surface-selected, #eff6ff)
+  );
+}
+
+.root[data-selected='true']:hover > [data-slot='table-cell'] {
+  background: var(
+    --tec-component-table-row-color-surface-selected-hover,
+    var(--component-table-row-color-surface-selected-hover, #dbeafe)
+  );
+}

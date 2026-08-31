@@ -1,0 +1,25 @@
+/*
+ * TODO(tokens): literales / fallbacks de Figma hasta publicar --tec-component-tooltip-*
+ * (padding, radius, color.surface, color.text, elevation).
+ */
+.root {
+  display: flex;
+  box-sizing: border-box;
+  z-index: 50;
+  padding: var(--component-tooltip-padding-block, 8px)
+    var(--component-tooltip-padding-inline, 16px);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--component-tooltip-radius, 12px);
+  background: var(--component-tooltip-color-surface-default, #0A0A0A);
+  /* elevation/2 */
+  box-shadow: var(--elevation-2, 0 4px 12px 0 rgba(0, 0, 0, 0.10));
+  color: var(--component-tooltip-color-text-default, #fff);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-100, 12px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-100, 16px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+  outline: none;
+}

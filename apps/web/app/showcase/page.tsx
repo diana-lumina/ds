@@ -2,17 +2,25 @@
 
 import * as React from 'react'
 import {
+  AccordionItem,
+  AiComposer,
+  AiResponseStatus,
   Alert,
   Badge,
   Banner,
   Button,
   ButtonGroup,
   Checkbox,
+  ChatInput,
+  ChatMessage,
   ChipGroup,
   Combobox,
   CounterBadge,
+  DataTableToolbar,
   DatePicker,
+  Dialog,
   Divider,
+  Drawer,
   EmptyState,
   FileUpload,
   FilterChip,
@@ -25,6 +33,7 @@ import {
   MenuItem,
   NavigationBar,
   NavigationItem,
+  OtpInput,
   Pagination,
   PaginationItem,
   ProgressBar,
@@ -32,15 +41,22 @@ import {
   ProgressStep,
   Radio,
   RadioGroup,
+  Search,
   Segment,
   SideNavigation,
   SocialButton,
+  Stat,
   Status,
   Switch,
   TabItem,
+  Table,
+  TableCell,
+  TableHeaderCell,
+  TableRow,
   Tag,
   TimeField,
   Toast,
+  Tooltip,
 } from '@workspace/ui'
 import * as IconCatalog from '@workspace/ui/icons'
 import {
@@ -50,18 +66,24 @@ import {
   BookOpenIcon,
   CaretDownIcon,
   CaretRightIcon,
+  ChartBarIcon,
   ChatCircleIcon,
   CheckCircleIcon,
   CheckIcon,
   DownloadSimpleIcon,
   FacebookIcon,
   FavoriteIcon,
+  FileTextIcon,
   FolderSimpleIcon,
+  FunnelSimpleIcon,
   InfoIcon,
   MapPinIcon,
   MoonIcon,
+  SortAscendingIcon,
+  SortDescendingIcon,
   SunIcon,
   UserIcon,
+  UsersIcon,
   WarningIcon,
   XCircleIcon,
 } from '@workspace/ui/icons'
@@ -70,6 +92,8 @@ import { useBrand, type BrandId } from '@/components/brand-provider'
 import styles from './showcase.module.css'
 
 type CatalogFilter = 'todos' | 'recomendados' | 'guardados'
+type SortKey = 'title' | 'campus'
+type SortState = { key: SortKey; dir: 'asc' | 'desc' } | null
 type ComponentSize = 'sm' | 'md'
 type NavSection = 'catalogo' | 'aprendizaje'
 type SideSection = 'oferta' | 'inscripciones' | 'certificados'
@@ -340,13 +364,15 @@ function ThemeToggle({ size }: { size: ComponentSize }) {
   const isDark = isClient && resolvedTheme === 'dark'
 
   return (
-    <IconButton
-      size={size}
-      tone={isDark ? 'inverse' : 'standard'}
-      icon={isDark ? <SunIcon /> : <MoonIcon />}
-      aria-label={isDark ? 'Activar modo claro' : 'Activar modo oscuro'}
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
-    />
+    <Tooltip label={isDark ? 'Activar modo claro' : 'Activar modo oscuro'}>
+      <IconButton
+        size={size}
+        tone={isDark ? 'inverse' : 'standard'}
+        icon={isDark ? <SunIcon /> : <MoonIcon />}
+        aria-label={isDark ? 'Activar modo claro' : 'Activar modo oscuro'}
+        onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      />
+    </Tooltip>
   )
 }
 
@@ -418,6 +444,8 @@ export default function ShowcasePage() {
   const [sideSection, setSideSection] = React.useState<SideSection>('oferta')
   const [size, setSize] = React.useState<ComponentSize>('sm')
   const [catalog, setCatalog] = React.useState<CatalogFilter>('todos')
+  const [catalogQuery, setCatalogQuery] = React.useState('')
+  const [sort, setSort] = React.useState<SortState>(null)
   const [modality, setModality] = React.useState<string | null>(null)
   const [level, setLevel] = React.useState(false)
   const [tags, setTags] = React.useState(['UX Research', 'Producto'])
@@ -446,6 +474,22 @@ export default function ShowcasePage() {
   const [ctaTime, setCtaTime] = React.useState('16:00')
   const [showBanner, setShowBanner] = React.useState(true)
   const [toastOpen, setToastOpen] = React.useState(false)
+  const [enrollOpen, setEnrollOpen] = React.useState(false)
+  const [advisorOpen, setAdvisorOpen] = React.useState(false)
+  const [advisorInput, setAdvisorInput] = React.useState<'composer' | 'input'>('composer')
+  const [advisorMessages, setAdvisorMessages] = React.useState<
+    { id: string; role: 'assistant' | 'user'; text: string }[]
+  >([])
+  const [advisorDraft, setAdvisorDraft] = React.useState('')
+  const [advisorStatus, setAdvisorStatus] = React.useState<
+    'default' | 'submitting' | 'generating'
+  >('default')
+  const [advisorActivity, setAdvisorActivity] = React.useState<
+    'thinking' | 'searching-sources' | 'generating' | null
+  >(null)
+  const advisorTimers = React.useRef<ReturnType<typeof setTimeout>[]>([])
+  const [otp, setOtp] = React.useState('')
+  const [enrollOtp, setEnrollOtp] = React.useState('')
   const [wizardStep, setWizardStep] = React.useState<WizardStep>(1)
   const [wizardErrorStep, setWizardErrorStep] = React.useState<WizardStep | null>(null)
   const [wizardSubmitted, setWizardSubmitted] = React.useState(false)
@@ -473,20 +517,107 @@ export default function ShowcasePage() {
     if (level && !program.tags.some((tag) => tag.label === 'Intermedio')) {
       return false
     }
+    const query = catalogQuery.trim().toLowerCase()
+    if (query) {
+      const haystack = `${program.title} ${program.faculty} ${program.campus}`.toLowerCase()
+      if (!haystack.includes(query)) return false
+    }
     return true
   })
 
-  const pageCount = Math.max(1, Math.ceil(visiblePrograms.length / PAGE_SIZE))
+  const sortedPrograms = sort
+    ? [...visiblePrograms].sort((a, b) => {
+        const result = a[sort.key].localeCompare(b[sort.key], 'es')
+        return sort.dir === 'desc' ? -result : result
+      })
+    : visiblePrograms
+
+  const pageCount = Math.max(1, Math.ceil(sortedPrograms.length / PAGE_SIZE))
   const currentPage = Math.min(page, pageCount)
-  const pagedPrograms = visiblePrograms.slice(
+  const pagedPrograms = sortedPrograms.slice(
     (currentPage - 1) * PAGE_SIZE,
     currentPage * PAGE_SIZE,
   )
+
+  function toggleSort(key: SortKey) {
+    setSort((current) => {
+      if (current?.key !== key) return { key, dir: 'asc' }
+      if (current.dir === 'asc') return { key, dir: 'desc' }
+      return null
+    })
+  }
+
+  function sortIcon(key: SortKey) {
+    if (sort?.key !== key) return <CaretDownIcon />
+    return sort.dir === 'asc' ? <SortAscendingIcon /> : <SortDescendingIcon />
+  }
+
+  function sortAria(key: SortKey): React.AriaAttributes['aria-sort'] {
+    if (sort?.key !== key) return 'none'
+    return sort.dir === 'asc' ? 'ascending' : 'descending'
+  }
 
   const selected = PROGRAMS.find((program) => program.id === selectedId) ?? PROGRAMS[0]!
   const step1State = wizardStepState(1, wizardStep, wizardSubmitted, wizardErrorStep)
   const step2State = wizardStepState(2, wizardStep, wizardSubmitted, wizardErrorStep)
   const step3State = wizardStepState(3, wizardStep, wizardSubmitted, wizardErrorStep)
+
+  const advisorGreeting = `Hola, soy el asistente de Educación Continua. Puedo orientarte sobre cupo, fechas y modalidad de ${selected.title}.`
+  const advisorThread =
+    advisorMessages.length > 0
+      ? advisorMessages
+      : [{ id: 'greeting', role: 'assistant' as const, text: advisorGreeting }]
+
+  function clearAdvisorTimers() {
+    advisorTimers.current.forEach((timer) => clearTimeout(timer))
+    advisorTimers.current = []
+  }
+
+  function queueAdvisorTimer(fn: () => void, delay: number) {
+    const timer = setTimeout(fn, delay)
+    advisorTimers.current.push(timer)
+  }
+
+  function handleAdvisorSubmit(value: string) {
+    const text = value.trim()
+    if (!text || advisorStatus !== 'default') return
+
+    const thread =
+      advisorMessages.length > 0
+        ? advisorMessages
+        : [{ id: 'greeting', role: 'assistant' as const, text: advisorGreeting }]
+
+    setAdvisorMessages([
+      ...thread,
+      { id: `user-${Date.now()}`, role: 'user', text },
+    ])
+    setAdvisorDraft('')
+    setAdvisorStatus('submitting')
+    setAdvisorActivity('thinking')
+
+    clearAdvisorTimers()
+    queueAdvisorTimer(() => {
+      setAdvisorStatus('generating')
+      setAdvisorActivity('searching-sources')
+    }, 700)
+    queueAdvisorTimer(() => {
+      setAdvisorActivity('generating')
+    }, 1400)
+    queueAdvisorTimer(() => {
+      setAdvisorMessages((current) => [
+        ...current,
+        {
+          id: `assistant-${Date.now()}`,
+          role: 'assistant',
+          text: `Sobre ${selected.title}: las inscripciones siguen abiertas. Si quieres, te ayudo a revisar campus, modalidad o el proceso de inscripción.`,
+        },
+      ])
+      setAdvisorStatus('default')
+      setAdvisorActivity(null)
+    }, 2400)
+  }
+
+  React.useEffect(() => () => clearAdvisorTimers(), [])
 
   return (
     <div className={styles.page}>
@@ -521,21 +652,33 @@ export default function ShowcasePage() {
 
           <div className={styles.navbarActions}>
             <ThemeToggle size={size} />
-            <IconButton size={size} icon={<BookmarkSimpleIcon />} aria-label="Programas guardados" />
+            <Tooltip label="Programas guardados">
+              <IconButton size={size} icon={<BookmarkSimpleIcon />} aria-label="Programas guardados" />
+            </Tooltip>
             <span className={styles.notifyWrap}>
-              <IconButton
-                size={size}
-                tone="inverse"
-                icon={<BellIcon />}
-                aria-label="Notificaciones, 3 sin leer"
-              />
+              <Tooltip label="3 notificaciones sin leer">
+                <IconButton
+                  size={size}
+                  tone="inverse"
+                  icon={<BellIcon />}
+                  aria-label="Notificaciones, 3 sin leer"
+                />
+              </Tooltip>
               <span className={styles.notifyBadge}>
                 <CounterBadge size={size} emphasis="attention" value="3" />
               </span>
             </span>
-            <ButtonGroup>
+              <ButtonGroup>
               <AccountMenu size={size} />
-              <Button size={size} hierarchy="primary" label="Inscribirme" />
+              <Button
+                size={size}
+                hierarchy="primary"
+                label="Inscribirme"
+                onClick={() => {
+                  setEnrollOtp('')
+                  setEnrollOpen(true)
+                }}
+              />
             </ButtonGroup>
           </div>
         </div>
@@ -582,6 +725,15 @@ export default function ShowcasePage() {
                 Explora la oferta de Educación Continua, filtra por modalidad y solicita un lugar.
                 Los cupos y el estatus académico se actualizan en tiempo real.
               </p>
+              <div className={styles.statRow}>
+                <Stat
+                  value={`${PROGRAMS.length}`}
+                  label="Programas en catálogo"
+                  icon={<BookOpenIcon />}
+                />
+                <Stat value="1,248" label="Inscripciones" icon={<UsersIcon />} />
+                <Stat value="18" label="Cupos abiertos" icon={<ChartBarIcon />} />
+              </div>
               <div className={styles.segments} role="group" aria-label="Colección del catálogo">
                 <Segment
                   size={size}
@@ -621,30 +773,6 @@ export default function ShowcasePage() {
                   <option value="md">Medium</option>
                 </select>
               </div>
-
-              <div className={styles.toolbarDivider} aria-hidden />
-
-              <ChipGroup>
-                <FilterChip
-                  size={size}
-                  selected={modality === 'online'}
-                  onSelectedChange={(selected) => setModality(selected ? 'online' : null)}
-                  label="En línea"
-                />
-                <FilterChip
-                  size={size}
-                  selected={modality === 'presencial'}
-                  onSelectedChange={(selected) => setModality(selected ? 'presencial' : null)}
-                  label="Presencial"
-                />
-                <FilterChip
-                  size={size}
-                  selected={level}
-                  onSelectedChange={setLevel}
-                  icon={<BookOpenIcon />}
-                  label="Intermedio"
-                />
-              </ChipGroup>
 
               <div className={styles.toolbarDivider} aria-hidden />
 
@@ -712,57 +840,143 @@ export default function ShowcasePage() {
                   <Status size={size} intent="info" label={`${visiblePrograms.length} programas`} />
                 </div>
 
-                <div className={styles.programList}>
-                  {pagedPrograms.map((program) => (
-                    <div key={program.id} className={styles.listItemWrap}>
-                      <StatusRail intent={program.status.intent} />
-                      <ListItem
-                        primaryText={program.title}
-                        secondaryText={program.faculty}
-                        tertiaryText={program.campus}
-                        avatarSrc={program.avatarSrc}
-                        avatarInitials={program.avatarInitials}
-                        icon={<CaretRightIcon />}
-                        disabled={program.cta === 'none' && program.status.intent === 'danger'}
-                        aria-pressed={selectedId === program.id}
-                        onClick={() => setSelectedId(program.id)}
-                      />
-                    </div>
-                  ))}
-                  {visiblePrograms.length === 0 ? (
-                    <EmptyState
-                      className={styles.emptyState}
-                      type="empty"
-                      icon={<FolderSimpleIcon />}
-                      title={
-                        sideSection === 'certificados'
-                          ? 'Sin certificados'
-                          : 'Sin programas'
-                      }
-                      message={
-                        sideSection === 'certificados'
-                          ? 'Cuando completes un programa, el diploma aparecerá en esta sección.'
-                          : 'No hay resultados con estos filtros. Ajusta la modalidad o el nivel para ver más opciones.'
-                      }
-                      action={
-                        sideSection === 'certificados' ? undefined : (
-                          <Button
-                            size={size}
-                            hierarchy="secondary"
-                            label="Limpiar filtros"
-                            onClick={() => {
-                              setCatalog('todos')
-                              setModality(null)
-                              setLevel(false)
-                              setSideSection('oferta')
-                              setPage(1)
-                            }}
-                          />
-                        )
-                      }
+                <DataTableToolbar
+                  search={
+                    <Search
+                      placeholder="Buscar por programa, escuela o campus"
+                      value={catalogQuery}
+                      onChange={(event) => {
+                        setCatalogQuery(event.target.value)
+                        setPage(1)
+                      }}
+                      onClear={() => {
+                        setCatalogQuery('')
+                        setPage(1)
+                      }}
+                      aria-label="Buscar en el catálogo"
                     />
-                  ) : null}
-                </div>
+                  }
+                  filters={
+                    <ChipGroup>
+                      <FilterChip
+                        size={size}
+                        selected={modality === 'online'}
+                        onSelectedChange={(selected) => {
+                          setModality(selected ? 'online' : null)
+                          setPage(1)
+                        }}
+                        label="En línea"
+                      />
+                      <FilterChip
+                        size={size}
+                        selected={modality === 'presencial'}
+                        onSelectedChange={(selected) => {
+                          setModality(selected ? 'presencial' : null)
+                          setPage(1)
+                        }}
+                        label="Presencial"
+                      />
+                      <FilterChip
+                        size={size}
+                        selected={level}
+                        onSelectedChange={(selected) => {
+                          setLevel(selected)
+                          setPage(1)
+                        }}
+                        icon={<FunnelSimpleIcon />}
+                        label="Intermedio"
+                      />
+                    </ChipGroup>
+                  }
+                  actions={
+                    <>
+                      <Button hierarchy="secondary" size="sm" label="Exportar" />
+                      <IconButton
+                        size="sm"
+                        icon={<DownloadSimpleIcon />}
+                        aria-label="Descargar resultados"
+                      />
+                    </>
+                  }
+                />
+
+                {visiblePrograms.length === 0 ? (
+                  <EmptyState
+                    className={styles.emptyState}
+                    type="empty"
+                    icon={<FolderSimpleIcon />}
+                    title={
+                      sideSection === 'certificados'
+                        ? 'Sin certificados'
+                        : 'Sin programas'
+                    }
+                    message={
+                      sideSection === 'certificados'
+                        ? 'Cuando completes un programa, el diploma aparecerá en esta sección.'
+                        : 'No hay resultados con estos filtros. Ajusta la búsqueda, la modalidad o el nivel para ver más opciones.'
+                    }
+                    action={
+                      sideSection === 'certificados' ? undefined : (
+                        <Button
+                          size={size}
+                          hierarchy="secondary"
+                          label="Limpiar filtros"
+                          onClick={() => {
+                            setCatalog('todos')
+                            setCatalogQuery('')
+                            setModality(null)
+                            setLevel(false)
+                            setSideSection('oferta')
+                            setPage(1)
+                          }}
+                        />
+                      )
+                    }
+                  />
+                ) : (
+                  <div className={styles.tableWrap}>
+                    <Table
+                      header={
+                        <>
+                          <TableHeaderCell
+                            label="Programa"
+                            icon={sortIcon('title')}
+                            onClick={() => toggleSort('title')}
+                            aria-sort={sortAria('title')}
+                          />
+                          <TableHeaderCell label="Escuela" />
+                          <TableHeaderCell
+                            label="Campus"
+                            icon={sortIcon('campus')}
+                            onClick={() => toggleSort('campus')}
+                            aria-sort={sortAria('campus')}
+                          />
+                          <TableHeaderCell label="Estatus" />
+                        </>
+                      }
+                    >
+                      {pagedPrograms.map((program) => (
+                        <TableRow
+                          key={program.id}
+                          selected={selectedId === program.id}
+                          className={styles.tableRow}
+                          onClick={() => setSelectedId(program.id)}
+                        >
+                          <TableCell>{program.title}</TableCell>
+                          <TableCell>{program.faculty}</TableCell>
+                          <TableCell>{program.campus}</TableCell>
+                          <TableCell>
+                            <Status
+                              size={size}
+                              intent={program.status.intent}
+                              label={program.status.label}
+                            />
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </Table>
+                  </div>
+                )}
 
                 {visiblePrograms.length > 0 ? (
                   <div className={styles.paginationWrap}>
@@ -846,11 +1060,64 @@ export default function ShowcasePage() {
                   exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
 
+                <div className={styles.accordionStack}>
+                  <AccordionItem
+                    title="Requisitos"
+                    supportingText="Antes de inscribirte"
+                    icon={<FileTextIcon />}
+                  >
+                    Título de licenciatura o equivalencia, y correo institucional activo. Coordinación
+                    valida el comprobante en el tercer paso de la solicitud.
+                  </AccordionItem>
+                  <AccordionItem title="Temario" supportingText="Módulos del programa">
+                    Fundamentos, ejercicio aplicado y cierre con retroalimentación. La carga estimada
+                    es de 24 horas de estudio.
+                  </AccordionItem>
+                </div>
+
+                <AccordionItem
+                  treatment="contained"
+                  title="Acompañamiento"
+                  supportingText="Asesoría y dudas"
+                  icon={<ChatCircleIcon />}
+                >
+                  Un asesor de Educación Continua puede resolver dudas de cupo, fechas y modalidad
+                  desde el chat, sin salir del catálogo.
+                </AccordionItem>
+
+                <div className={styles.relatedList} aria-label="También te puede interesar">
+                  <h4 className={styles.relatedTitle}>También te puede interesar</h4>
+                  {PROGRAMS.filter((program) => program.id !== selected.id)
+                    .slice(0, 2)
+                    .map((program) => (
+                      <div key={program.id} className={styles.listItemWrap}>
+                        <StatusRail intent={program.status.intent} />
+                        <ListItem
+                          primaryText={program.title}
+                          secondaryText={program.faculty}
+                          tertiaryText={program.campus}
+                          avatarSrc={program.avatarSrc}
+                          avatarInitials={program.avatarInitials}
+                          icon={<CaretRightIcon />}
+                          onClick={() => setSelectedId(program.id)}
+                        />
+                      </div>
+                    ))}
+                </div>
+
                 <div className={styles.courseActions}>
                   <Link href="/showcase" label="Ver temario" />
                   <ButtonGroup>
                     {selected.cta === 'inscribir' ? (
-                      <Button size={size} hierarchy="primary" label="Inscribirme" />
+                      <Button
+                        size={size}
+                        hierarchy="primary"
+                        label="Inscribirme"
+                        onClick={() => {
+                          setEnrollOtp('')
+                          setEnrollOpen(true)
+                        }}
+                      />
                     ) : null}
                     {selected.cta === 'lista' ? (
                       <Button size={size} hierarchy="secondary" label="Unirme a lista de espera" />
@@ -1049,6 +1316,17 @@ export default function ShowcasePage() {
                           accept=".pdf,.jpg,.jpeg,.png"
                           multiple={false}
                         />
+                        <div className={styles.otpField}>
+                          <span className={styles.fieldLabel}>Código de verificación</span>
+                          <OtpInput
+                            aria-label="Código de verificación"
+                            value={otp}
+                            onValueChange={setOtp}
+                          />
+                          <p className={styles.formPaneText}>
+                            Enviamos un código de 6 dígitos a {email || 'tu correo institucional'}.
+                          </p>
+                        </div>
                         <span className={styles.fieldLabel}>Avisos del programa</span>
                         <label className={styles.checkField}>
                           <Checkbox
@@ -1265,12 +1543,14 @@ export default function ShowcasePage() {
             <Link href="/showcase" tone="inverse" label="tec.mx" external />
           </nav>
           <div className={styles.footerActions}>
-            <IconButton
-              size={size}
-              tone="inverse"
-              icon={<DownloadSimpleIcon />}
-              aria-label="Descargar folleto"
-            />
+            <Tooltip label="Descargar folleto" side="top">
+              <IconButton
+                size={size}
+                tone="inverse"
+                icon={<DownloadSimpleIcon />}
+                aria-label="Descargar folleto"
+              />
+            </Tooltip>
             <Button
               size={size}
               hierarchy="secondary"
@@ -1296,13 +1576,121 @@ export default function ShowcasePage() {
       ) : null}
 
       {pageTab === 'programas' ? (
-        <FloatingActionButton
-          type="extended"
-          floating
-          icon={<ChatCircleIcon />}
-          label="Hablar con un asesor"
-        />
+        <div className={styles.fabStack}>
+          <FloatingActionButton
+            type="standard"
+            floating={false}
+            icon={<ChatCircleIcon />}
+            aria-label="Chat con Chat Input"
+            onClick={() => {
+              setAdvisorInput('input')
+              setAdvisorOpen(true)
+            }}
+          />
+          <FloatingActionButton
+            type="extended"
+            floating={false}
+            icon={<ChatCircleIcon />}
+            label="Hablar con un asesor"
+            onClick={() => {
+              setAdvisorInput('composer')
+              setAdvisorOpen(true)
+            }}
+          />
+        </div>
       ) : null}
+
+      <Dialog
+        title="Confirmar inscripción"
+        open={enrollOpen}
+        onOpenChange={setEnrollOpen}
+        secondaryAction={
+          <Button
+            hierarchy="secondary"
+            size="md"
+            label="Cancelar"
+            onClick={() => setEnrollOpen(false)}
+          />
+        }
+        primaryAction={
+          <Button
+            hierarchy="primary"
+            size="md"
+            label="Confirmar"
+            disabled={enrollOtp.length < 6}
+            onClick={() => {
+              setEnrollOpen(false)
+              setToastOpen(true)
+            }}
+          />
+        }
+      >
+        <p>
+          Vas a solicitar un lugar en {selected.title}. Ingresa el código de 6 dígitos que enviamos a
+          tu correo para continuar.
+        </p>
+        <div className={styles.otpField}>
+          <OtpInput aria-label="Código de verificación" value={enrollOtp} onValueChange={setEnrollOtp} />
+        </div>
+      </Dialog>
+
+      <Drawer
+        size="sm"
+        title="Asesoría"
+        className={styles.chatDrawer}
+        open={advisorOpen}
+        onOpenChange={setAdvisorOpen}
+        footer={
+          <div className={styles.chatFooter}>
+            {advisorInput === 'input' ? (
+              <ChatInput
+                aria-label="Mensaje al asistente"
+                placeholder="Escribe un mensaje"
+                value={advisorDraft}
+                disabled={advisorStatus !== 'default'}
+                onChange={(event) => setAdvisorDraft(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key !== 'Enter' || event.shiftKey) return
+                  event.preventDefault()
+                  handleAdvisorSubmit(advisorDraft)
+                }}
+              />
+            ) : (
+              <AiComposer
+                aria-label="Mensaje al asistente"
+                placeholder="Escribe un mensaje"
+                status={advisorStatus}
+                value={advisorDraft}
+                onChange={(event) => setAdvisorDraft(event.target.value)}
+                onSubmit={handleAdvisorSubmit}
+                onTrailingActionClick={() => {
+                  if (advisorStatus !== 'generating') return
+                  clearAdvisorTimers()
+                  setAdvisorStatus('default')
+                  setAdvisorActivity(null)
+                }}
+              />
+            )}
+          </div>
+        }
+      >
+        <div className={styles.chatThread}>
+          {advisorThread.map((message) => (
+            <ChatMessage
+              key={message.id}
+              role={message.role}
+              avatarInitials={message.role === 'assistant' ? 'EC' : undefined}
+              avatarSrc={
+                message.role === 'user' ? 'https://i.pravatar.cc/96?img=5' : undefined
+              }
+              avatarAlt={message.role === 'user' ? fullName : ''}
+            >
+              {message.text}
+            </ChatMessage>
+          ))}
+          {advisorActivity ? <AiResponseStatus activity={advisorActivity} /> : null}
+        </div>
+      </Drawer>
     </div>
   )
 }

@@ -1,0 +1,241 @@
+/*
+ * TODO(tokens): literales / fallbacks de Figma hasta publicar --tec-component-accordion-item-*
+ * (padding.plain|contained, gap.trigger, radius, color.surface.*, color.text.*, icon sizes).
+ */
+.scope {
+  width: 100%;
+}
+
+.root {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.divider {
+  width: 100%;
+}
+
+.header {
+  margin: 0;
+  width: 100%;
+}
+
+.trigger {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: var(--component-accordion-item-padding-plain, 16px);
+  align-items: center;
+  gap: var(--component-accordion-item-gap-trigger, 16px);
+  align-self: stretch;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  text-align: start;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+.trigger:focus {
+  outline: none;
+}
+
+.root[data-treatment='plain'] .trigger:focus-visible {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-text-field-color-focus-ring, #2563eb);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.trigger:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.root[data-treatment='plain'] {
+  border-radius: var(--radius-0, 0);
+  background: var(--component-accordion-item-color-surface-plain-default, #fff);
+}
+
+.root[data-treatment='plain']:hover:has(.trigger:not(:disabled)) {
+  background: var(--component-accordion-item-color-surface-plain-hover, #f5f5f5);
+}
+
+.root[data-treatment='plain'][data-state='open'] {
+  background: var(--component-accordion-item-color-surface-plain-expanded, #fff);
+}
+
+.root[data-treatment='plain'][data-state='open']:hover:has(.trigger:not(:disabled)) {
+  background: var(--component-accordion-item-color-surface-plain-hover, #f5f5f5);
+}
+
+.root[data-treatment='contained'] {
+  border-radius: var(--component-accordion-item-radius-contained, 24px);
+  background: var(--component-accordion-item-color-surface-contained, #fff);
+  /* elevation/2 */
+  box-shadow: var(--elevation-2, 0 4px 12px 0 rgba(0, 0, 0, 0.10));
+}
+
+.root[data-treatment='contained'] .trigger {
+  padding: var(--component-accordion-item-padding-contained, 16px);
+  border-radius: 0;
+}
+
+.root[data-treatment='contained'] .trigger:focus-visible {
+  outline: var(--focus-ring-width, 2px) solid
+    var(--component-text-field-color-focus-ring, #2563eb);
+  outline-offset: calc(
+    -1 * var(--component-accordion-item-padding-contained, 16px) +
+      var(--focus-ring-width, 2px)
+  );
+}
+
+.root[data-treatment='contained']:hover:has(.trigger:not(:disabled)) {
+  background: var(
+    --component-accordion-item-color-surface-contained-hover,
+    #f5f5f5
+  );
+}
+
+.root[data-treatment='contained'][data-state='open'] {
+  background: var(--component-accordion-item-color-surface-contained, #fff);
+}
+
+.root[data-treatment='contained'][data-state='open']:hover:has(.trigger:not(:disabled)) {
+  background: var(
+    --component-accordion-item-color-surface-contained-hover,
+    #f5f5f5
+  );
+}
+
+.leading {
+  display: flex;
+  width: var(--component-accordion-item-icon-size-leading, 24px);
+  height: var(--component-accordion-item-icon-size-leading, 24px);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--component-accordion-item-color-text-title, #231f20);
+}
+
+.leading svg {
+  width: var(--component-accordion-item-icon-size-leading, 24px);
+  height: var(--component-accordion-item-icon-size-leading, 24px);
+}
+
+.copy {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--component-accordion-item-gap-copy, 2px);
+}
+
+.title {
+  color: var(--component-accordion-item-color-text-title, #231f20);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.supporting {
+  color: var(--component-accordion-item-color-text-supporting, #58585b);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.caret {
+  display: flex;
+  width: var(--component-accordion-item-icon-size-caret, 20px);
+  height: var(--component-accordion-item-icon-size-caret, 20px);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--component-accordion-item-color-text-title, #231f20);
+  transform-origin: center;
+  transition: transform var(--motion-duration-fast, 100ms)
+    var(--motion-easing-standard, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.caret svg {
+  width: var(--component-accordion-item-icon-size-caret, 20px);
+  height: var(--component-accordion-item-icon-size-caret, 20px);
+}
+
+.trigger[data-state='open'] .caret {
+  transform: rotate(180deg);
+}
+
+.content {
+  overflow: hidden;
+}
+
+.content[data-state='open'] {
+  animation: accordion-item-down var(--motion-duration-slow, 300ms)
+    var(--motion-easing-enter, cubic-bezier(0, 0, 0.2, 1));
+}
+
+.content[data-state='closed'] {
+  animation: accordion-item-up var(--motion-duration-slow, 300ms)
+    var(--motion-easing-exit, cubic-bezier(0.4, 0, 1, 1));
+}
+
+.panel {
+  box-sizing: border-box;
+  padding: 0 var(--component-accordion-item-padding-plain, 16px)
+    var(--component-accordion-item-padding-plain, 16px);
+  color: var(--component-accordion-item-color-text-title, #231f20);
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-medium, 500);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.root[data-treatment='contained'] .panel {
+  padding: 0 var(--component-accordion-item-padding-contained, 16px)
+    var(--component-accordion-item-padding-contained, 16px);
+}
+
+@keyframes accordion-item-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-item-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    transition: none;
+  }
+
+  .content[data-state='open'],
+  .content[data-state='closed'] {
+    animation: none;
+  }
+}

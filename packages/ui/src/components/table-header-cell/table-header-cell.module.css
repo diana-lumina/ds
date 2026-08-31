@@ -1,0 +1,88 @@
+/*
+ * TODO(tokens): fallbacks hasta publicar --tec-component-table-header-cell-*
+ * (padding.y|x, gap, color.text.default, color.surface.hover).
+ */
+.root {
+  padding: 0;
+  vertical-align: middle;
+  text-align: start;
+}
+
+.trigger {
+  display: inline-flex;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: var(
+      --tec-component-table-header-cell-padding-y,
+      var(--component-table-header-cell-padding-y, 8px)
+    )
+    var(
+      --tec-component-table-header-cell-padding-x,
+      var(--component-table-header-cell-padding-x, 16px)
+    );
+  align-items: center;
+  gap: var(
+    --tec-component-table-header-cell-gap,
+    var(--component-table-header-cell-gap, 8px)
+  );
+  border: none;
+  border-radius: 0;
+  appearance: none;
+  cursor: pointer;
+  text-align: start;
+  background: var(
+    --tec-component-table-header-cell-color-surface-default,
+    var(--component-table-header-cell-color-surface-default, transparent)
+  );
+  color: var(
+    --tec-component-table-header-cell-color-text-default,
+    var(--component-table-header-cell-color-text-default, #231f20)
+  );
+  font-family: var(--typography-font-family-interface, Inter);
+  font-size: var(--typography-font-size-200, 14px);
+  font-style: normal;
+  font-weight: var(--typography-font-weight-semibold, 600);
+  line-height: var(--typography-line-height-200, 20px);
+  letter-spacing: var(--typography-letter-spacing-default, 0);
+}
+
+.trigger:hover {
+  background: var(
+    --tec-component-table-header-cell-color-surface-hover,
+    var(--component-table-header-cell-color-surface-hover, #f5f5f5)
+  );
+}
+
+.trigger:focus {
+  outline: none;
+}
+
+.trigger:focus-visible {
+  border-radius: 0;
+  outline: 2px solid var(--component-text-field-color-focus-ring, #2563eb);
+  outline-offset: 4px;
+}
+
+.label {
+  min-width: 0;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.icon svg {
+  width: var(
+    --tec-component-table-header-cell-icon-size,
+    var(--component-table-header-cell-icon-size, 16px)
+  );
+  height: var(
+    --tec-component-table-header-cell-icon-size,
+    var(--component-table-header-cell-icon-size, 16px)
+  );
+}
