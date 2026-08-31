@@ -1,0 +1,5 @@
+{
+  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "cd ../.. && pnpm --filter @workspace/tokens build && pnpm --filter @workspace/ui build && pnpm --filter web build",
+  "framework": "nextjs"
+}

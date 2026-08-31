@@ -1,5 +1,5 @@
 import { cn } from './chunk-DN2AEEA2.js';
-import { SalesIcon, CaretDownIcon, CheckIcon, CaretUpIcon, CalendarIcon, CaretLeftIcon, CaretRightIcon, ClockIcon, CloseIcon, MagnifyingGlassIcon, XIcon, LoadingIcon } from './chunk-7O6MWCCB.js';
+import { PlusIcon, StopIcon, ArrowUpIcon, LoadingIcon, SalesIcon, CaretDownIcon, CheckIcon, CaretUpIcon, CalendarIcon, CaretLeftIcon, CaretRightIcon, ClockIcon, CloseIcon, MagnifyingGlassIcon, XIcon } from './chunk-7O6MWCCB.js';
 import { cva } from 'class-variance-authority';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
 import * as React12 from 'react';
@@ -9,7 +9,7 @@ import { Avatar as Avatar$1, Accordion, Select as Select$1, Popover, RadioGroup 
 var button_default = {
   root: "button_root"};
 var buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center gap-2 border border-transparent whitespace-nowrap transition-all outline-none select-none active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-start gap-2 border border-transparent whitespace-nowrap transition-all outline-none select-none active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       hierarchy: {
@@ -3437,8 +3437,6 @@ function Dialog({
   dismissLabel = "Cerrar",
   className
 }) {
-  const titleId = React12.useId();
-  const descriptionId = React12.useId();
   const hasActions = Boolean(primaryAction || secondaryAction);
   return /* @__PURE__ */ jsxs(
     Dialog$1.Root,
@@ -3455,12 +3453,10 @@ function Dialog({
             {
               "data-slot": "dialog",
               "data-size": size,
-              "aria-labelledby": titleId,
-              "aria-describedby": descriptionId,
               className: cn(dialog_default.content, className),
               children: [
                 /* @__PURE__ */ jsxs("div", { className: dialog_default.header, children: [
-                  /* @__PURE__ */ jsx(Dialog$1.Title, { id: titleId, className: dialog_default.title, children: title }),
+                  /* @__PURE__ */ jsx(Dialog$1.Title, { className: dialog_default.title, children: title }),
                   /* @__PURE__ */ jsx(Dialog$1.Close, { asChild: true, children: /* @__PURE__ */ jsx(
                     IconButton,
                     {
@@ -3471,7 +3467,7 @@ function Dialog({
                     }
                   ) })
                 ] }),
-                /* @__PURE__ */ jsx(Dialog$1.Description, { asChild: true, children: /* @__PURE__ */ jsx("div", { id: descriptionId, className: dialog_default.body, children }) }),
+                /* @__PURE__ */ jsx(Dialog$1.Description, { asChild: true, children: /* @__PURE__ */ jsx("div", { className: dialog_default.body, children }) }),
                 hasActions ? /* @__PURE__ */ jsx("div", { className: dialog_default.actions, children: /* @__PURE__ */ jsxs(ButtonGroup, { children: [
                   secondaryAction,
                   primaryAction
@@ -3515,12 +3511,11 @@ function Drawer({
   dismissLabel = "Cerrar",
   className
 }) {
-  const titleId = React12.useId();
-  const descriptionId = React12.useId();
   const closeSize = size === "lg" ? "lg" : "sm";
   const accessibleTitle = title ?? "Panel";
   const hasHeader = header != null || title != null && title !== "";
   const hasContent = contentTitle != null || children != null;
+  const hasDescription = children != null;
   const defaultFooter = primaryAction || secondaryAction ? /* @__PURE__ */ jsx("div", { className: drawer_default.footerActions, children: /* @__PURE__ */ jsxs(ButtonGroup, { children: [
     secondaryAction,
     primaryAction
@@ -3541,9 +3536,8 @@ function Drawer({
             {
               "data-slot": "drawer",
               "data-size": size,
-              "aria-labelledby": titleId,
-              "aria-describedby": hasContent ? descriptionId : void 0,
               className: cn(drawer_default.panel, className),
+              ...hasDescription ? {} : { "aria-describedby": void 0 },
               children: [
                 /* @__PURE__ */ jsx("div", { className: drawer_default.close, children: /* @__PURE__ */ jsx(Dialog$1.Close, { asChild: true, children: /* @__PURE__ */ jsx(
                   IconButton,
@@ -3555,12 +3549,12 @@ function Drawer({
                   }
                 ) }) }),
                 hasHeader ? /* @__PURE__ */ jsx("div", { "data-slot": "drawer-header", className: drawer_default.header, children: header ? /* @__PURE__ */ jsxs(Fragment, { children: [
-                  /* @__PURE__ */ jsx(Dialog$1.Title, { id: titleId, className: drawer_default.srOnly, children: accessibleTitle }),
+                  /* @__PURE__ */ jsx(Dialog$1.Title, { className: drawer_default.srOnly, children: accessibleTitle }),
                   header
-                ] }) : /* @__PURE__ */ jsx(Dialog$1.Title, { id: titleId, className: drawer_default.title, children: title }) }) : /* @__PURE__ */ jsx(Dialog$1.Title, { id: titleId, className: drawer_default.srOnly, children: accessibleTitle }),
+                ] }) : /* @__PURE__ */ jsx(Dialog$1.Title, { className: drawer_default.title, children: title }) }) : /* @__PURE__ */ jsx(Dialog$1.Title, { className: drawer_default.srOnly, children: accessibleTitle }),
                 hasContent ? /* @__PURE__ */ jsxs("div", { "data-slot": "drawer-content", className: drawer_default.body, children: [
                   contentTitle ? /* @__PURE__ */ jsx("p", { className: drawer_default.contentTitle, children: contentTitle }) : null,
-                  children != null ? /* @__PURE__ */ jsx(Dialog$1.Description, { asChild: true, children: /* @__PURE__ */ jsx("div", { id: descriptionId, className: drawer_default.text, children }) }) : null
+                  hasDescription ? /* @__PURE__ */ jsx(Dialog$1.Description, { asChild: true, children: /* @__PURE__ */ jsx("div", { className: drawer_default.text, children }) }) : null
                 ] }) : null,
                 footerContent ? /* @__PURE__ */ jsx("div", { "data-slot": "drawer-footer", className: drawer_default.footer, children: footerContent }) : null
               ]
@@ -3572,6 +3566,264 @@ function Drawer({
   );
 }
 
-export { AccordionItem, Alert, Avatar, Badge, Banner, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, Calendar, CalendarDay, Checkbox, ChipGroup, Combobox, CounterBadge, DEFAULT_PHONE_COUNTRIES, DataTableToolbar, DateField, DatePicker, Dialog, Divider, Drawer, EmptyState, FileUpload, FileUploadDropZone, FileUploadItem, FilterChip, FloatingActionButton, FormField, IconButton, InputChip, Link, ListItem, MenuItem, NavigationBar, NavigationItem, OTP_LENGTH, OtpInput, Pagination, PaginationItem, PhoneInput, ProgressBar, ProgressIndicator, ProgressStep, Radio, RadioGroup, Search, Segment, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, SideNavigation, SocialButton, Stat, Status, Switch, TabItem, Table, TableCell, TableHeaderCell, TableRow, Tag, TimeField, Toast, Tooltip };
+// src/components/chat-message/chat-message.module.css
+var chat_message_default = {
+  root: "chat_message_root",
+  avatar: "chat_message_avatar",
+  body: "chat_message_body"
+};
+function ChatMessage({
+  children,
+  role = "assistant",
+  avatarSrc,
+  avatarInitials,
+  avatarAlt = "",
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "chat-message",
+      "data-role": role,
+      className: cn(chat_message_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx(
+          "span",
+          {
+            "data-slot": "chat-message-avatar",
+            className: chat_message_default.avatar,
+            "aria-hidden": avatarAlt ? void 0 : true,
+            children: /* @__PURE__ */ jsx(Avatar, { size: "sm", src: avatarSrc, initials: avatarInitials, alt: avatarAlt })
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { "data-slot": "chat-message-body", className: chat_message_default.body, children: typeof children === "string" || typeof children === "number" ? /* @__PURE__ */ jsx("p", { children }) : children })
+      ]
+    }
+  );
+}
+
+// src/components/chat-input/chat-input.module.css
+var chat_input_default = {
+  root: "chat_input_root",
+  input: "chat_input_input"
+};
+var ChatInput = React12.forwardRef(
+  function ChatInput2({
+    error = false,
+    disabled,
+    className,
+    value,
+    defaultValue,
+    onChange,
+    placeholder = "Escribe un mensaje",
+    id,
+    ...props
+  }, forwardedRef) {
+    const generatedId = React12.useId();
+    const inputId = id ?? generatedId;
+    const isControlled = value !== void 0;
+    const [uncontrolled, setUncontrolled] = React12.useState(
+      () => defaultValue == null ? "" : String(defaultValue)
+    );
+    const current = isControlled ? String(value ?? "") : uncontrolled;
+    const showError = error && !disabled;
+    function handleChange(event) {
+      if (!isControlled) setUncontrolled(event.target.value);
+      onChange?.(event);
+    }
+    return /* @__PURE__ */ jsx(
+      "div",
+      {
+        "data-slot": "chat-input",
+        "data-error": showError ? "true" : void 0,
+        "data-disabled": disabled || void 0,
+        "data-empty": current.length === 0 ? "true" : void 0,
+        className: cn(chat_input_default.root, className),
+        children: /* @__PURE__ */ jsx(
+          "input",
+          {
+            ref: forwardedRef,
+            id: inputId,
+            type: "text",
+            "data-slot": "chat-input-field",
+            className: chat_input_default.input,
+            disabled,
+            placeholder,
+            "aria-invalid": showError ? true : void 0,
+            ...props,
+            value: current,
+            onChange: handleChange
+          }
+        )
+      }
+    );
+  }
+);
+
+// src/components/ai-response-status/ai-response-status.module.css
+var ai_response_status_default = {
+  root: "ai_response_status_root",
+  icon: "ai_response_status_icon",
+  dot: "ai_response_status_dot",
+  label: "ai_response_status_label"
+};
+var ACTIVITY_LABEL = {
+  "searching-sources": "Buscando fuentes",
+  generating: "Generando",
+  streaming: "Escribiendo",
+  thinking: "Pensando"
+};
+function AiResponseStatus({
+  activity = "thinking",
+  label,
+  className,
+  ...props
+}) {
+  const text = label ?? ACTIVITY_LABEL[activity];
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      "data-slot": "ai-response-status",
+      "data-activity": activity,
+      role: "status",
+      "aria-live": "polite",
+      className: cn(ai_response_status_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxs("span", { "data-slot": "ai-response-status-icon", className: ai_response_status_default.icon, "aria-hidden": "true", children: [
+          /* @__PURE__ */ jsx("span", { className: ai_response_status_default.dot }),
+          /* @__PURE__ */ jsx("span", { className: ai_response_status_default.dot }),
+          /* @__PURE__ */ jsx("span", { className: ai_response_status_default.dot })
+        ] }),
+        /* @__PURE__ */ jsx("p", { className: ai_response_status_default.label, children: text })
+      ]
+    }
+  );
+}
+
+// src/components/ai-composer/ai-composer.module.css
+var ai_composer_default = {
+  root: "ai_composer_root",
+  field: "ai_composer_field",
+  actions: "ai_composer_actions"
+};
+var AiComposer = React12.forwardRef(
+  function AiComposer2({
+    status = "default",
+    leadingAction,
+    trailingAction,
+    onLeadingActionClick,
+    onTrailingActionClick,
+    onSubmit,
+    className,
+    value,
+    defaultValue,
+    onChange,
+    onKeyDown,
+    placeholder = "Escribe un mensaje",
+    id,
+    ...props
+  }, forwardedRef) {
+    const generatedId = React12.useId();
+    const fieldId = id ?? generatedId;
+    const isControlled = value !== void 0;
+    const [uncontrolled, setUncontrolled] = React12.useState(
+      () => defaultValue == null ? "" : String(defaultValue)
+    );
+    const current = isControlled ? String(value ?? "") : uncontrolled;
+    const isDisabled = status === "disabled";
+    const isBusy = status === "submitting" || status === "generating";
+    const fieldLocked = isDisabled || isBusy;
+    const isEmpty = current.length === 0;
+    function handleChange(event) {
+      if (!isControlled) setUncontrolled(event.target.value);
+      onChange?.(event);
+    }
+    function submitIfReady() {
+      if (fieldLocked || isEmpty) return;
+      onSubmit?.(current);
+    }
+    function handleKeyDown(event) {
+      onKeyDown?.(event);
+      if (event.defaultPrevented) return;
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        submitIfReady();
+      }
+    }
+    function handleTrailingClick(event) {
+      onTrailingActionClick?.(event);
+      if (event.defaultPrevented) return;
+      if (status === "generating") return;
+      submitIfReady();
+    }
+    const defaultLeading = /* @__PURE__ */ jsx(
+      IconButton,
+      {
+        type: "button",
+        size: "sm",
+        hierarchy: "tertiary",
+        icon: /* @__PURE__ */ jsx(PlusIcon, {}),
+        "aria-label": "Adjuntar",
+        disabled: fieldLocked,
+        onClick: onLeadingActionClick
+      }
+    );
+    const isSubmitting = status === "submitting";
+    const isGenerating = status === "generating";
+    const trailingDisabled = isDisabled || !isSubmitting && !isGenerating && isEmpty;
+    const defaultTrailing = /* @__PURE__ */ jsx(
+      IconButton,
+      {
+        type: "button",
+        size: "sm",
+        hierarchy: "primary",
+        icon: isGenerating ? /* @__PURE__ */ jsx(StopIcon, {}) : /* @__PURE__ */ jsx(ArrowUpIcon, {}),
+        "aria-label": isGenerating ? "Detener" : "Enviar",
+        loading: isSubmitting,
+        disabled: trailingDisabled,
+        onClick: handleTrailingClick
+      }
+    );
+    return /* @__PURE__ */ jsxs(
+      "div",
+      {
+        "data-slot": "ai-composer",
+        "data-status": status,
+        "data-empty": isEmpty ? "true" : void 0,
+        "aria-busy": isBusy || void 0,
+        className: cn(ai_composer_default.root, className),
+        children: [
+          /* @__PURE__ */ jsx(
+            "textarea",
+            {
+              ref: forwardedRef,
+              id: fieldId,
+              "data-slot": "ai-composer-field",
+              className: ai_composer_default.field,
+              disabled: isDisabled,
+              readOnly: isBusy,
+              placeholder,
+              "aria-invalid": status === "error" ? true : void 0,
+              rows: 2,
+              ...props,
+              value: current,
+              onChange: handleChange,
+              onKeyDown: handleKeyDown
+            }
+          ),
+          /* @__PURE__ */ jsxs("div", { "data-slot": "ai-composer-actions", className: ai_composer_default.actions, children: [
+            leadingAction ?? defaultLeading,
+            trailingAction ?? defaultTrailing
+          ] })
+        ]
+      }
+    );
+  }
+);
+
+export { AccordionItem, AiComposer, AiResponseStatus, Alert, Avatar, Badge, Banner, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, Calendar, CalendarDay, ChatInput, ChatMessage, Checkbox, ChipGroup, Combobox, CounterBadge, DEFAULT_PHONE_COUNTRIES, DataTableToolbar, DateField, DatePicker, Dialog, Divider, Drawer, EmptyState, FileUpload, FileUploadDropZone, FileUploadItem, FilterChip, FloatingActionButton, FormField, IconButton, InputChip, Link, ListItem, MenuItem, NavigationBar, NavigationItem, OTP_LENGTH, OtpInput, Pagination, PaginationItem, PhoneInput, ProgressBar, ProgressIndicator, ProgressStep, Radio, RadioGroup, Search, Segment, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, SideNavigation, SocialButton, Stat, Status, Switch, TabItem, Table, TableCell, TableHeaderCell, TableRow, Tag, TimeField, Toast, Tooltip };
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map

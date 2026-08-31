@@ -3,11 +3,12 @@ import { cn } from '../../lib/utils'
 import styles from './table-header-cell.module.css'
 
 export interface TableHeaderCellProps
-  extends Omit<React.ComponentProps<'th'>, 'children'> {
+  extends Omit<React.ComponentProps<'th'>, 'children' | 'onClick'> {
   /** Texto (Semantic/Label/Medium/Strong). */
   label: string
   /** Ícono trailing opcional (a la derecha). */
   icon?: React.ReactNode
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 /**

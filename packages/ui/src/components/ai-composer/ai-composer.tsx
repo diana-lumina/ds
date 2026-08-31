@@ -14,7 +14,7 @@ export type AiComposerStatus =
   | 'disabled'
 
 export interface AiComposerProps
-  extends Omit<React.ComponentProps<'textarea'>, 'disabled'> {
+  extends Omit<React.ComponentProps<'textarea'>, 'disabled' | 'onSubmit'> {
   status?: AiComposerStatus
   /** Acción izquierda (IconButton tertiary sm). */
   leadingAction?: React.ReactNode

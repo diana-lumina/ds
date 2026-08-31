@@ -31,7 +31,7 @@ var React12__namespace = /*#__PURE__*/_interopNamespace(React12);
 var button_default = {
   root: "button_root"};
 var buttonVariants = classVarianceAuthority.cva(
-  "group/button inline-flex shrink-0 items-center justify-center gap-2 border border-transparent whitespace-nowrap transition-all outline-none select-none active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-start gap-2 border border-transparent whitespace-nowrap transition-all outline-none select-none active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       hierarchy: {
@@ -3459,8 +3459,6 @@ function Dialog({
   dismissLabel = "Cerrar",
   className
 }) {
-  const titleId = React12__namespace.useId();
-  const descriptionId = React12__namespace.useId();
   const hasActions = Boolean(primaryAction || secondaryAction);
   return /* @__PURE__ */ jsxRuntime.jsxs(
     radixUi.Dialog.Root,
@@ -3477,12 +3475,10 @@ function Dialog({
             {
               "data-slot": "dialog",
               "data-size": size,
-              "aria-labelledby": titleId,
-              "aria-describedby": descriptionId,
               className: chunkRXYRFJ65_cjs.cn(dialog_default.content, className),
               children: [
                 /* @__PURE__ */ jsxRuntime.jsxs("div", { className: dialog_default.header, children: [
-                  /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { id: titleId, className: dialog_default.title, children: title }),
+                  /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { className: dialog_default.title, children: title }),
                   /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Close, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx(
                     IconButton,
                     {
@@ -3493,7 +3489,7 @@ function Dialog({
                     }
                   ) })
                 ] }),
-                /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Description, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx("div", { id: descriptionId, className: dialog_default.body, children }) }),
+                /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Description, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx("div", { className: dialog_default.body, children }) }),
                 hasActions ? /* @__PURE__ */ jsxRuntime.jsx("div", { className: dialog_default.actions, children: /* @__PURE__ */ jsxRuntime.jsxs(ButtonGroup, { children: [
                   secondaryAction,
                   primaryAction
@@ -3537,12 +3533,11 @@ function Drawer({
   dismissLabel = "Cerrar",
   className
 }) {
-  const titleId = React12__namespace.useId();
-  const descriptionId = React12__namespace.useId();
   const closeSize = size === "lg" ? "lg" : "sm";
   const accessibleTitle = title ?? "Panel";
   const hasHeader = header != null || title != null && title !== "";
   const hasContent = contentTitle != null || children != null;
+  const hasDescription = children != null;
   const defaultFooter = primaryAction || secondaryAction ? /* @__PURE__ */ jsxRuntime.jsx("div", { className: drawer_default.footerActions, children: /* @__PURE__ */ jsxRuntime.jsxs(ButtonGroup, { children: [
     secondaryAction,
     primaryAction
@@ -3563,9 +3558,8 @@ function Drawer({
             {
               "data-slot": "drawer",
               "data-size": size,
-              "aria-labelledby": titleId,
-              "aria-describedby": hasContent ? descriptionId : void 0,
               className: chunkRXYRFJ65_cjs.cn(drawer_default.panel, className),
+              ...hasDescription ? {} : { "aria-describedby": void 0 },
               children: [
                 /* @__PURE__ */ jsxRuntime.jsx("div", { className: drawer_default.close, children: /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Close, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx(
                   IconButton,
@@ -3577,12 +3571,12 @@ function Drawer({
                   }
                 ) }) }),
                 hasHeader ? /* @__PURE__ */ jsxRuntime.jsx("div", { "data-slot": "drawer-header", className: drawer_default.header, children: header ? /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
-                  /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { id: titleId, className: drawer_default.srOnly, children: accessibleTitle }),
+                  /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { className: drawer_default.srOnly, children: accessibleTitle }),
                   header
-                ] }) : /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { id: titleId, className: drawer_default.title, children: title }) }) : /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { id: titleId, className: drawer_default.srOnly, children: accessibleTitle }),
+                ] }) : /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { className: drawer_default.title, children: title }) }) : /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Title, { className: drawer_default.srOnly, children: accessibleTitle }),
                 hasContent ? /* @__PURE__ */ jsxRuntime.jsxs("div", { "data-slot": "drawer-content", className: drawer_default.body, children: [
                   contentTitle ? /* @__PURE__ */ jsxRuntime.jsx("p", { className: drawer_default.contentTitle, children: contentTitle }) : null,
-                  children != null ? /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Description, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx("div", { id: descriptionId, className: drawer_default.text, children }) }) : null
+                  hasDescription ? /* @__PURE__ */ jsxRuntime.jsx(radixUi.Dialog.Description, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx("div", { className: drawer_default.text, children }) }) : null
                 ] }) : null,
                 footerContent ? /* @__PURE__ */ jsxRuntime.jsx("div", { "data-slot": "drawer-footer", className: drawer_default.footer, children: footerContent }) : null
               ]
@@ -3594,7 +3588,267 @@ function Drawer({
   );
 }
 
+// src/components/chat-message/chat-message.module.css
+var chat_message_default = {
+  root: "chat_message_root",
+  avatar: "chat_message_avatar",
+  body: "chat_message_body"
+};
+function ChatMessage({
+  children,
+  role = "assistant",
+  avatarSrc,
+  avatarInitials,
+  avatarAlt = "",
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    "div",
+    {
+      "data-slot": "chat-message",
+      "data-role": role,
+      className: chunkRXYRFJ65_cjs.cn(chat_message_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          "span",
+          {
+            "data-slot": "chat-message-avatar",
+            className: chat_message_default.avatar,
+            "aria-hidden": avatarAlt ? void 0 : true,
+            children: /* @__PURE__ */ jsxRuntime.jsx(Avatar, { size: "sm", src: avatarSrc, initials: avatarInitials, alt: avatarAlt })
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx("div", { "data-slot": "chat-message-body", className: chat_message_default.body, children: typeof children === "string" || typeof children === "number" ? /* @__PURE__ */ jsxRuntime.jsx("p", { children }) : children })
+      ]
+    }
+  );
+}
+
+// src/components/chat-input/chat-input.module.css
+var chat_input_default = {
+  root: "chat_input_root",
+  input: "chat_input_input"
+};
+var ChatInput = React12__namespace.forwardRef(
+  function ChatInput2({
+    error = false,
+    disabled,
+    className,
+    value,
+    defaultValue,
+    onChange,
+    placeholder = "Escribe un mensaje",
+    id,
+    ...props
+  }, forwardedRef) {
+    const generatedId = React12__namespace.useId();
+    const inputId = id ?? generatedId;
+    const isControlled = value !== void 0;
+    const [uncontrolled, setUncontrolled] = React12__namespace.useState(
+      () => defaultValue == null ? "" : String(defaultValue)
+    );
+    const current = isControlled ? String(value ?? "") : uncontrolled;
+    const showError = error && !disabled;
+    function handleChange(event) {
+      if (!isControlled) setUncontrolled(event.target.value);
+      onChange?.(event);
+    }
+    return /* @__PURE__ */ jsxRuntime.jsx(
+      "div",
+      {
+        "data-slot": "chat-input",
+        "data-error": showError ? "true" : void 0,
+        "data-disabled": disabled || void 0,
+        "data-empty": current.length === 0 ? "true" : void 0,
+        className: chunkRXYRFJ65_cjs.cn(chat_input_default.root, className),
+        children: /* @__PURE__ */ jsxRuntime.jsx(
+          "input",
+          {
+            ref: forwardedRef,
+            id: inputId,
+            type: "text",
+            "data-slot": "chat-input-field",
+            className: chat_input_default.input,
+            disabled,
+            placeholder,
+            "aria-invalid": showError ? true : void 0,
+            ...props,
+            value: current,
+            onChange: handleChange
+          }
+        )
+      }
+    );
+  }
+);
+
+// src/components/ai-response-status/ai-response-status.module.css
+var ai_response_status_default = {
+  root: "ai_response_status_root",
+  icon: "ai_response_status_icon",
+  dot: "ai_response_status_dot",
+  label: "ai_response_status_label"
+};
+var ACTIVITY_LABEL = {
+  "searching-sources": "Buscando fuentes",
+  generating: "Generando",
+  streaming: "Escribiendo",
+  thinking: "Pensando"
+};
+function AiResponseStatus({
+  activity = "thinking",
+  label,
+  className,
+  ...props
+}) {
+  const text = label ?? ACTIVITY_LABEL[activity];
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    "div",
+    {
+      "data-slot": "ai-response-status",
+      "data-activity": activity,
+      role: "status",
+      "aria-live": "polite",
+      className: chunkRXYRFJ65_cjs.cn(ai_response_status_default.root, className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsxs("span", { "data-slot": "ai-response-status-icon", className: ai_response_status_default.icon, "aria-hidden": "true", children: [
+          /* @__PURE__ */ jsxRuntime.jsx("span", { className: ai_response_status_default.dot }),
+          /* @__PURE__ */ jsxRuntime.jsx("span", { className: ai_response_status_default.dot }),
+          /* @__PURE__ */ jsxRuntime.jsx("span", { className: ai_response_status_default.dot })
+        ] }),
+        /* @__PURE__ */ jsxRuntime.jsx("p", { className: ai_response_status_default.label, children: text })
+      ]
+    }
+  );
+}
+
+// src/components/ai-composer/ai-composer.module.css
+var ai_composer_default = {
+  root: "ai_composer_root",
+  field: "ai_composer_field",
+  actions: "ai_composer_actions"
+};
+var AiComposer = React12__namespace.forwardRef(
+  function AiComposer2({
+    status = "default",
+    leadingAction,
+    trailingAction,
+    onLeadingActionClick,
+    onTrailingActionClick,
+    onSubmit,
+    className,
+    value,
+    defaultValue,
+    onChange,
+    onKeyDown,
+    placeholder = "Escribe un mensaje",
+    id,
+    ...props
+  }, forwardedRef) {
+    const generatedId = React12__namespace.useId();
+    const fieldId = id ?? generatedId;
+    const isControlled = value !== void 0;
+    const [uncontrolled, setUncontrolled] = React12__namespace.useState(
+      () => defaultValue == null ? "" : String(defaultValue)
+    );
+    const current = isControlled ? String(value ?? "") : uncontrolled;
+    const isDisabled = status === "disabled";
+    const isBusy = status === "submitting" || status === "generating";
+    const fieldLocked = isDisabled || isBusy;
+    const isEmpty = current.length === 0;
+    function handleChange(event) {
+      if (!isControlled) setUncontrolled(event.target.value);
+      onChange?.(event);
+    }
+    function submitIfReady() {
+      if (fieldLocked || isEmpty) return;
+      onSubmit?.(current);
+    }
+    function handleKeyDown(event) {
+      onKeyDown?.(event);
+      if (event.defaultPrevented) return;
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        submitIfReady();
+      }
+    }
+    function handleTrailingClick(event) {
+      onTrailingActionClick?.(event);
+      if (event.defaultPrevented) return;
+      if (status === "generating") return;
+      submitIfReady();
+    }
+    const defaultLeading = /* @__PURE__ */ jsxRuntime.jsx(
+      IconButton,
+      {
+        type: "button",
+        size: "sm",
+        hierarchy: "tertiary",
+        icon: /* @__PURE__ */ jsxRuntime.jsx(chunk2KTJ3HWR_cjs.PlusIcon, {}),
+        "aria-label": "Adjuntar",
+        disabled: fieldLocked,
+        onClick: onLeadingActionClick
+      }
+    );
+    const isSubmitting = status === "submitting";
+    const isGenerating = status === "generating";
+    const trailingDisabled = isDisabled || !isSubmitting && !isGenerating && isEmpty;
+    const defaultTrailing = /* @__PURE__ */ jsxRuntime.jsx(
+      IconButton,
+      {
+        type: "button",
+        size: "sm",
+        hierarchy: "primary",
+        icon: isGenerating ? /* @__PURE__ */ jsxRuntime.jsx(chunk2KTJ3HWR_cjs.StopIcon, {}) : /* @__PURE__ */ jsxRuntime.jsx(chunk2KTJ3HWR_cjs.ArrowUpIcon, {}),
+        "aria-label": isGenerating ? "Detener" : "Enviar",
+        loading: isSubmitting,
+        disabled: trailingDisabled,
+        onClick: handleTrailingClick
+      }
+    );
+    return /* @__PURE__ */ jsxRuntime.jsxs(
+      "div",
+      {
+        "data-slot": "ai-composer",
+        "data-status": status,
+        "data-empty": isEmpty ? "true" : void 0,
+        "aria-busy": isBusy || void 0,
+        className: chunkRXYRFJ65_cjs.cn(ai_composer_default.root, className),
+        children: [
+          /* @__PURE__ */ jsxRuntime.jsx(
+            "textarea",
+            {
+              ref: forwardedRef,
+              id: fieldId,
+              "data-slot": "ai-composer-field",
+              className: ai_composer_default.field,
+              disabled: isDisabled,
+              readOnly: isBusy,
+              placeholder,
+              "aria-invalid": status === "error" ? true : void 0,
+              rows: 2,
+              ...props,
+              value: current,
+              onChange: handleChange,
+              onKeyDown: handleKeyDown
+            }
+          ),
+          /* @__PURE__ */ jsxRuntime.jsxs("div", { "data-slot": "ai-composer-actions", className: ai_composer_default.actions, children: [
+            leadingAction ?? defaultLeading,
+            trailingAction ?? defaultTrailing
+          ] })
+        ]
+      }
+    );
+  }
+);
+
 exports.AccordionItem = AccordionItem;
+exports.AiComposer = AiComposer;
+exports.AiResponseStatus = AiResponseStatus;
 exports.Alert = Alert;
 exports.Avatar = Avatar;
 exports.Badge = Badge;
@@ -3605,6 +3859,8 @@ exports.Button = Button;
 exports.ButtonGroup = ButtonGroup;
 exports.Calendar = Calendar;
 exports.CalendarDay = CalendarDay;
+exports.ChatInput = ChatInput;
+exports.ChatMessage = ChatMessage;
 exports.Checkbox = Checkbox;
 exports.ChipGroup = ChipGroup;
 exports.Combobox = Combobox;
